@@ -32,7 +32,7 @@ const createURIEpic: Epic = (action$, state$) =>
         console.log("test",pair[0]+ ', ' + pair[1]); 
     }
       return from(
-        axios.post('${process.env.ADDRESS_API}/nft', data, {
+        axios.post(`${process.env.ADDRESS_API}/nft`, data, {
           headers: {
             'Content-Type': 'multipart/form-data',
           },
