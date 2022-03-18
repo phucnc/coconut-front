@@ -13,7 +13,7 @@ import avatar from 'assets/images/avatar-girl.png';
 import { useWallet } from 'use-wallet';
 import { Icon } from 'components/atoms/icon';
 import { Modal } from 'components/organisms/modal';
-import { Carouselt } from 'components/organisms/Carouselt';
+import { Carouselt } from 'components/organisms/carouselt';
 import { Textfieldsearch } from 'components/organisms/Textfieldsearch';
 import { ModalHeader } from 'components/molecules/modalHeader';
 import { Modalclaim } from 'components/organisms/modalclaim';
