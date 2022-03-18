@@ -1,0 +1,42 @@
+.m-modalheader {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+
+  .a-icon {
+    width: 16px;
+    height: 16px;
+  }
+  &-report {
+    h3 {
+      font-family: Catamaran;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 18px;
+      line-height: 30px;
+    }
+  }
+  // &-closeonly {
+  //   width: auto;
+  //   position: absolute;
+  //   right: 10px;
+  //   top: 10px;
+  // }
+}
+.modal_title {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+
+  .a-icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  // &-closeonly {
+  //   width: auto;
+  //   position: absolute;
+  //   right: 10px;
+  //   top: 10px;
+  // }
+}

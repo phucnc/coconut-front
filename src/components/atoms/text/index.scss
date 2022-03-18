@@ -1,0 +1,282 @@
+.a-text {
+  color: $COLOR-UTILITY-TXT-BASE;
+  @include u-fz(16, 25);
+
+  @include spFixedContent {
+    @include u-fz(15, 25);
+  }
+
+  $root: &;
+
+  &_unit {
+    font-family: Cabin,Arial;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
+
+    color: #323232;
+
+    @include u-fz(12, 25);
+
+    @include spFixedContent {
+      @include u-fz(11, 25);
+    }
+  }
+
+  &-12 {
+    @include u-fz(12, 18);
+
+    @include spFixedContent {
+      @include u-fz(11, 16);
+    }
+
+    >#{$root}_unit {
+      @include u-fz(8, 16);
+
+      @include spFixedContent {
+        @include u-fz(7, 14);
+      }
+    }
+  }
+
+  &-14 {
+    @include u-fz(14, 25);
+    margin-bottom: 0;
+
+    @include spFixedContent {
+      @include u-fz(13, 25);
+    }
+
+    >#{$root}_unit {
+      @include u-fz(10, 18);
+
+      @include spFixedContent {
+        @include u-fz(9, 16);
+      }
+    }
+  }
+
+  &-18 {
+    @include u-fz(18, 25);
+
+    @include spFixedContent {
+      @include u-fz(17, 25);
+    }
+    @include sp {
+      font-size: 14px;
+    }
+    >#{$root}_unit {
+      @include u-fz(14, 25);
+
+      @include spFixedContent {
+        @include u-fz(13, 25);
+      }
+    }
+    margin-bottom: 0!important;
+  }
+  &-22 {
+    @include u-fz(22, 25);
+
+    @include spFixedContent {
+      @include u-fz(22, 25);
+    }
+  }
+  &-24 {
+    @include u-fz(24, 35);
+
+    @include spFixedContent {
+      @include u-fz(24, 35);
+    }
+  }
+
+  &-28 {
+    @include u-fz(28, 35);
+    @include u-fz(27, 35);
+  }
+  &-servicefee {
+    font-style: italic;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+    color: #303030;
+  }
+
+  &-flexstart {
+    display:flex;
+    text-align: left;
+  }
+
+  &-blue {
+    color: $COLOR-BLUE;
+  }
+  &-saleprice {
+    background: linear-gradient(114.77deg, #FFE14B -53.24%, #DD8383 97.13%),
+    linear-gradient(95.31deg, #D94096 -1.89%, #4286CC 54.43%, #2BCAFF 104.42%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: Cabin,Arial;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 27px;
+    
+    
+  }
+
+  &-term {
+    font-family: Cabin,Arial;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 27px;
+    text-decoration-line: underline;
+  }
+  &-Nodecor {
+    text-decoration-line: none;
+  }
+
+  &-black {
+    font-family: Cabin,arial;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    margin-bottom: 5px;
+
+  }
+  &-noBold {
+    font-weight: normal;
+  }
+
+  &-inline {
+    display: inline;
+  }
+  &-titleNoti{
+    color:#5E5E5E;
+  }
+  &-blackCor {
+    color: black!important;
+    font-family: Cabin,Arial;
+    font-style: normal;
+  }
+  &-censored {
+    font-family: Catamaran;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 30px;
+    color: #000000;
+  }
+  &-report {
+    font-family: Catamaran;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 26px;
+    color: #000000;
+    margin-bottom: 7px;
+    margin-top: 7px;
+  }
+
+  &-paddingTop {
+    padding-top : 15px;
+  }
+  &-textIndent{
+    text-indent: 15px;
+  }
+  &-linear {
+    font-family: Cabin,Arial;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
+    background: -webkit-linear-gradient(95.7deg, #D565C3 1.32%, #5BB6EA 86.11%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    ;
+
+  }
+
+  &-lightblue {
+    color: $COLOR-BLUE;
+  }
+
+  &-lightgray {
+    color: $COLOR-LIGHTGRAY;
+  }
+
+  &-comment {
+    color: #797979;
+  }
+
+  &-left {
+    text-align: left;
+  }
+
+  &-footer {
+    color: #797979;
+    font-family: Cabin,Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+  }
+
+  &-gray {
+    color: $COLOR-GRAY;
+  }
+
+  &-bold {
+    @include u-fw-b;
+  }
+  &-balance {
+    position: relative;
+    right:20px;
+    @include u-fw-b;
+    margin-right:30px;
+    color: #797979;
+  }
+  &-checkout {
+    @include u-fw-b;
+    color: #797979;
+  }
+  &-checkoutDes {
+    @include u-fw-b;
+    font-weight: normal;
+  }
+  &-confirm {
+    @include u-fw-b;
+    font-weight: normal;
+    color:#797979;
+    font-size: 14px;
+    margin-left: 10px;
+  }
+
+  &-lightbold {
+    @include u-fw-lb;
+  }
+  &-marginleft {
+    margin-left: 10px;
+  }
+  &-active {
+    color: $COLOR-BLUE;
+    @include u-fw-b;
+  }
+
+  &-centerexplore {
+    // text-align: center;
+  }
+  &-center {
+    text-align: center;
+    padding:3px;
+  }
+  &-explore {
+    border: 1px solid black;
+    border-radius: 15px;
+  }
+  &-error {
+    color: $COLOR-ERROR;
+    @include u-fw-b;
+  }
+}
