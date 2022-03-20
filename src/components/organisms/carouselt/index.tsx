@@ -9,7 +9,7 @@ import { useSnackbar } from 'notistack';
 import { Link } from 'gatsby';
 import setup_1 from 'assets/images/ccn_banner1.png';
 import setup_2 from 'assets/images/ccn_banner2.png';
-// import setup_3 from 'assets/images/ccn_banner1.png';
+import setup_3 from 'assets/images/ccn_banner3.png';
 // import setup_4 from 'assets/images/ccn_banner2.png';
 import Carousel from 'react-material-ui-carousel'
 type Modifier = 'overflowx' | 'overflowy' | 'overhidden' | 'error' | 'center';
@@ -20,20 +20,14 @@ interface Props {
 
 var items = [
   {
-      name: "Random Name #1",
-      description: "Probably the most random thing you have ever seen!",
       src: setup_1
   },
   {
-      name: "Random Name #2",
-      description: "Hello World!",
       src: setup_2
   },
-//   {
-//     name: "Random Name #1",
-//     description: "Probably the most random thing you have ever seen!",
-//     src: setup_3
-// },
+  {
+    src: setup_3
+},
 // {
 //   name: "Random Name #1",
 //   description: "Probably the most random thing you have ever seen!",

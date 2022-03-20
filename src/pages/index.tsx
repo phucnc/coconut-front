@@ -504,8 +504,8 @@ export const Home: React.FC<RouteComponentProps> = props => {
                       <Grid style={{ height: "100%" }} item xs={12}>
                         <Grid >
                           {/* <Link to="/userguilde"> */}
-                          <a href="https://www.contenft.com/">
-                            <a href="https://www.contenft.com/" className="p-explore_ButtonHowconnect" target="_blank">
+                          <a href="https://www.coconut.global/">
+                            <a href="https://www.coconut.global/" className="p-explore_ButtonHowconnect" target="_blank">
                               <Sectionsub modifiers="howsettup">
                                 <div className="p-explore_Howsettup">
                                   <Heading modifiers={['left']}>Introduce of COCONUT project</Heading>

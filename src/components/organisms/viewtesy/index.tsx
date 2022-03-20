@@ -331,6 +331,7 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
   const gethistory = async () => {
     try {
     const historyget = await axios.get (`${process.env.ADDRESS_API}/history?collectible_id=${props.id}`)
+    console.log("gethistory",historyget)
     const data = historyget.data.history
     data.sort((d1, d2) => new Date(d2.created_at).getTime() - new Date(d1.created_at).getTime());
     resSet(data)

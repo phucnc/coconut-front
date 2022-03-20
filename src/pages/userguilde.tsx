@@ -130,9 +130,9 @@ export const userguilde: React.FC = () => {
                     </ul>
                     <Divider style={{ background: 'black' }}/>
                     <ul className="p-create_noticelist">
-                      <li className="p-create_textlist">CONT token: </li>
+                      <li className="p-create_textlist">CONUT token: </li>
                       <li className="p-create_textlistnone"><span> 
-                      0x2009975970c8c8b8ed05f3cdb65571c7d1f6acfa</span></li>
+                      0x04085647a69ba4b4101fef35fd60cd27d901fb55</span></li>
                       <li className="p-create_textlist">BUSD token: </li>
                       <li className="p-create_textlistnone"><span> 
                       0xd6b4a89e6c2c9a615a809927b66ba23f92335186</span></li>
