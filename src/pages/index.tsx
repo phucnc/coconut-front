@@ -508,7 +508,7 @@ export const Home: React.FC<RouteComponentProps> = props => {
                             <a href="https://www.coconut.global/" className="p-explore_ButtonHowconnect" target="_blank">
                               <Sectionsub modifiers="howsettup">
                                 <div className="p-explore_Howsettup">
-                                  <Heading modifiers={['left']}>Introduce of COCONUT project</Heading>
+                                  <Heading modifiers={['left','white']}>Introduce of COCONUT project</Heading>
                                 </div>
                                 {/* <Icon modifiers="marginLeft" iconName='multicircle'/> */}
                               </Sectionsub>
