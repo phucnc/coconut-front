@@ -6,6 +6,9 @@
     position: relative;
     display: flex;
     flex-direction: column;
+    @include mgland14 {
+      height: calc(100vh - #{$HEADER-PC-MARGIN} * 2 - 0px);
+    }
     @include sp {
       min-height: auto;
       height: auto;
@@ -209,6 +212,9 @@
       height: 350px;
       position: relative;
       padding: 0;
+    }
+    @include md {
+      height: 80%;
     }
   }
   &_threedots{
