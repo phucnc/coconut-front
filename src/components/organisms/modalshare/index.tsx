@@ -37,7 +37,7 @@ export const Modalshare: React.FC<Props> = props => {
   const message = 'Copied';
   const { t } = useTranslation();
   const dispatch = useDispatch();
-  const addressbase = `https://app.contenft.com${props.link}`
+  const addressbase = `https://app.coconut.global${props.link}`
   const { ref, copy } = useClipboard({
     onSuccess: (text) => enqueueSnackbar(message, {
       variant: 'success',

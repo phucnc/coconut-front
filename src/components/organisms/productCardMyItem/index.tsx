@@ -105,7 +105,7 @@ export const ProductcardMyItem: React.FC<ProductProps> = props => {
   const deleteItem = async () => {
     // await axios.delete https://api.contenft.com/nft?id=99ccb8a0-86b7-4b65-b53b-8679782a9685
     await axios.delete(`${process.env.ADDRESS_API}/nft?id=${props.id}`);
-
+    setModalOpendelete(false)
 
   }
   const [modalOpen, setModalOpen] = useState(false);
@@ -230,7 +230,7 @@ export const ProductcardMyItem: React.FC<ProductProps> = props => {
             <Modal modifiers={['price']} isOpen={ModalOpendelete} handleClose={() => setModalOpendelete(false)}>
               <ModalHeader title={t("View.DeleteNotice")} handleClose={() => setModalOpendelete(false)} />
               <ButtonContainer>
-                <Button handleClick={()=> deleteItem()} type="submit" modifiers="resell">{t("View.Yes")}</Button>
+                <Button handleClick={()=> deleteItem()} modifiers="resell">{t("View.Yes")}</Button>
                 <Button type="submit" modifiers="resell">{t("View.No")}</Button>
               </ButtonContainer>
             </Modal>

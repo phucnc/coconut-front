@@ -98,7 +98,7 @@ If cutLineSpace=true, the spacing the top of first-line & the bottom of last-lin
 }
 
 @mixin mld() {
-  @media (min-width: 1050px) and (max-width: 1380px) {
+  @media (min-width: 1050px) and (max-width: 1420px) {
     @content;
   }
 }
@@ -135,6 +135,11 @@ If cutLineSpace=true, the spacing the top of first-line & the bottom of last-lin
 }
 @mixin mgland() {
   @media (min-width: 1500px) and (max-width: 1764px) and (max-height: 850px){
+    @content;
+  }
+}
+@mixin mgland14() {
+  @media (min-width: 1380px) and (max-height: 750px){
     @content;
   }
 }

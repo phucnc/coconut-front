@@ -2,7 +2,7 @@ import React from 'react';
 import { mapModifiers } from 'lib/component';
 import { Link } from 'gatsby';
 
-type Modifier = 'resell'|'filter'|'iconshare'|'showmore'|'more'|'noti'|'create'| 'noBackground' | 'noBorder' | 'noPadding' | 'secondary' | 'asText' | 'icon' | 'buy' | 'bid' | 'asLink' |'report' |'buycolor'|'postcomment'| 'iconshareitem'|'connect' |'review' |'createbig' | 'connectmobile'|'expanded' |'connectwallet' |'marginRight' |'noticeCreate' |'noBackgroundBorder' | 'bigDone' | 'payment' | 'cancelpayment' | 'reportExplore' | 'posticon' | 'claim' |'term' | 'getCoin' | 'totalClaim' | 'transparent' | 'marginbottom' |'bell' | 'bellcont' | 'category' ;
+type Modifier = 'resell'|'filter'|'iconshare'|'showmore'|'more'|'noti'|'create'| 'noBackground' | 'noBorder' | 'noPadding' | 'secondary' | 'asText' | 'icon' | 'buy' | 'bid' | 'asLink' |'report' |'buycolor'|'postcomment'| 'iconshareitem'|'connect' |'review' |'createbig' | 'connectmobile'|'expanded' |'connectwallet' |'marginRight' |'noticeCreate' |'noBackgroundBorder' | 'bigDone' | 'payment' | 'cancelpayment' | 'reportExplore' | 'posticon' | 'claim' |'term' | 'getCoin' | 'totalClaim' | 'transparent' | 'marginbottom' |'bell' | 'bellcont' | 'category' | 'iconshareitemView' ;
 
 interface Props {
   modifiers?: Modifier | Modifier[];

@@ -413,7 +413,7 @@ export const View: React.FC<RouteComponentProps> = props => {
                     </button>
             
                      
-                      <Button handleClick={() => setModalOpenShare(true)} modifiers={['iconshareitem']}><Icon modifiers={['tiny']} iconName='sharelink' /></Button>
+                      <Button handleClick={() => setModalOpenShare(true)} modifiers={['iconshareitemView']}><Icon modifiers={['tiny']} iconName='sharelink' /></Button>
                       <div className="p-view_sharemobile">
                     <button onClick={() => setModalOpenreport(true)} className="p-view_threedots" ><Icon modifiers={['large']} iconName="threedots" /></button>
                     </div>

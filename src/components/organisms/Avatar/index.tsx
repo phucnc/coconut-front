@@ -508,7 +508,7 @@ export const Avatar: React.FC<Props> = (props) => {
               
               const data = new FormData()
               data.append('upload_file', values.file);
-              
+            
               if(previewSrc){
               try {
                 await axios.put(`${process.env.ADDRESS_API}/account/avatar?id=${props.address}`, data, {
@@ -560,6 +560,7 @@ export const Avatar: React.FC<Props> = (props) => {
             }
             console.log('value.name.length',value.name.length)
             console.log('value.bio.length',value.bio.length)
+            console.log("props.address",props.address)
             return (
               <Form className="p-create_form">
                 <Grid

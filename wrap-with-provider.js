@@ -1,5 +1,6 @@
 import './src/app.scss';
 import './src/common/i18n/i18n';
+
 import React from 'react';
 import { MetamaskStateProvider } from "use-metamask";
 import { DAppProvider } from "@usedapp/core";

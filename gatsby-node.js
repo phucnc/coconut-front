@@ -36,7 +36,7 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
         'process.env.CONT_CONTRACT_ADDRESS': JSON.stringify("0x04085647a69ba4b4101fef35fd60cd27d901fb55"),
         'process.env.GAS_LIMIT': 500000,
         'process.env.SERVICE_FEE': "2.5",
-        'process.env.ADDRESS_API': JSON.stringify("https://apist.coconut.global"),
+        'process.env.ADDRESS_API': JSON.stringify("https://api.coconut.global"),
       })
     ],
   });

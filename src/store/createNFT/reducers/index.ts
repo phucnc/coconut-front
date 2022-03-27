@@ -13,6 +13,7 @@ type CreateNFT = {
     status: StepIcon | 'loading';
   };
   refresh?:boolean;
+  reload?:boolean;
   newProduct: CreateForm;
   // newProductDatas: CreateFormData;
 };
@@ -79,6 +80,7 @@ const reducer: Reducer<CreateNFT> = (state = initialValue, action) => {
     return produce(state, draft => {
       draft.currentStep.number += 1;
       draft.refresh = true;
+      draft.reload = !draft.reload;
     });
   }
   if (isType(action, approveCreateNFT.done) || isType(action, sellCreateNFT.done)) {
