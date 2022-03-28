@@ -189,10 +189,10 @@ export const Header: React.FC = () => {
                 <Button anchor={{ href: '' }}  >Contact us</Button>
                 </Grid>
                 <Grid item xs={6}>
-                <Button anchor={{ href: 'https://contenft.medium.com/' }} >Blog</Button>
+                <Button anchor={{ href: '' }} >Blog</Button>
                 </Grid>
                 <Grid item xs={6}>
-                <Button anchor={{ href: 'https://www.notion.so/conteNFT-28ddfedca1a548bba7af855f695c2bf6#44181d6e2f7b42e196d6f28acd91abb7' }} >CONT Token</Button>
+                <Button anchor={{ href: 'https://thankful-raclette-226.notion.site/COCONUT-d5dc804f50564430a1d6482be1907571' }} >CONUT Token</Button>
                 </Grid>
                 <Grid item xs={6}>
                 <Button anchor={{ href: 'https://www.notion.so/ConteNFT-28ddfedca1a548bba7af855f695c2bf6?showMoveTo=true&saveParent=true' }} >Notice</Button>
@@ -303,20 +303,20 @@ export const Header: React.FC = () => {
         </ul>
         <ul className="o-header_menu">
           <Menu menuButton={<MenuButton className="o-header_menulist">{t("mainMenu.Community")} &#x276F;</MenuButton>}>
-            <MenuItem className="o-header_link-text" href="https://www.facebook.com/Contenft-104262898537410" target="_blank">Facebook</MenuItem>
-            <MenuItem className="o-header_link-text" href="https://twitter.com/ConteNft" target="_blank">Twitter</MenuItem>
-            <MenuItem className="o-header_link-text" href="https://t.me/ConteNFT" target="_blank">Telegram</MenuItem>
-            <MenuItem href="mailto:support@contenft.com" className="o-header_link-text"> <a href="mailto:support@contenft.com" target="_blank">Email</a></MenuItem>
+            <MenuItem className="o-header_link-text" href="https://discord.gg/GTRxFjya" target="_blank">Discord</MenuItem>
+            <MenuItem className="o-header_link-text" href="https://twitter.com/conutofficial" target="_blank">Twitter</MenuItem>
+            <MenuItem className="o-header_link-text" href="https://t.me/conutofficial" target="_blank">Telegram</MenuItem>
+            <MenuItem href="mailto:support@contenft.com" className="o-header_link-text"> <a href="mailto:beodix@beodix.com" target="_blank">Email</a></MenuItem>
           </Menu>
         </ul>
         <ul className="o-header_menu">
           <Menu menuButton={<MenuButton className="o-header_menulist">{t("mainMenu.More")} &#x276F;</MenuButton>}>
-            <MenuItem target="_blank" href="https://www.notion.so/conteNFT-28ddfedca1a548bba7af855f695c2bf6#44181d6e2f7b42e196d6f28acd91abb7"  >CONT Token</MenuItem>
+            <MenuItem target="_blank" href="https://thankful-raclette-226.notion.site/COCONUT-d5dc804f50564430a1d6482be1907571"  >CONUT Token</MenuItem>
             <SubMenu style={{ textDecoration: 'none' }} label={t("mainMenu.Contact")}>
-              <MenuItem href="mailto:islee@contenft.com" className="o-header_link-text"> <a href="mailto:islee@contenft.com" target="_blank">{t("mainMenu.Business")}</a></MenuItem>
-              <MenuItem href="mailto:support@contenft.com" className="o-header_link-text"> <a href="mailto:support@contenft.com" target="_blank">CS</a></MenuItem>
+              <MenuItem href="mailto:ibeodix@beodix.com" className="o-header_link-text"> <a href="mailto:ibeodix@beodix.com" target="_blank">{t("mainMenu.Business")}</a></MenuItem>
+              <MenuItem href="mailto:support@contenft.com" className="o-header_link-text"> <a href="mailto:ibeodix@beodix.com" target="_blank">CS</a></MenuItem>
             </SubMenu>
-            <MenuItem href="https://contenft.medium.com/">{t("mainMenu.Blog")}</MenuItem>
+            <MenuItem href="/">{t("mainMenu.Blog")}</MenuItem>
             <MenuItem href="/notice">Notice</MenuItem>
             <MenuItem href="/termofservice">Term of service</MenuItem>
             <MenuItem href="/termofservice">Policy</MenuItem>
