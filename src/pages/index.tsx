@@ -527,7 +527,9 @@ export const Home: React.FC<RouteComponentProps> = props => {
         </Container>
         
         <Formik initialValues={initialValue} validationSchema={exploreSchema} onSubmit={values => { 
+          if (values.search !== undefined) {
           navigate(`/search?name=${values.search}`); 
+          }
           }
       }>
           {({ values }) => {
