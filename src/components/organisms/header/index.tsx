@@ -306,7 +306,7 @@ export const Header: React.FC = () => {
             <MenuItem className="o-header_link-text" href="https://discord.gg/GTRxFjya" target="_blank">Discord</MenuItem>
             <MenuItem className="o-header_link-text" href="https://twitter.com/conutofficial" target="_blank">Twitter</MenuItem>
             <MenuItem className="o-header_link-text" href="https://t.me/conutofficial" target="_blank">Telegram</MenuItem>
-            <MenuItem href="mailto:support@contenft.com" className="o-header_link-text"> <a href="mailto:beodix@beodix.com" target="_blank">Email</a></MenuItem>
+            <MenuItem href="mailto:support@coconut.global" className="o-header_link-text"> <a href="mailto:beodix@beodix.com" target="_blank">Email</a></MenuItem>
           </Menu>
         </ul>
         <ul className="o-header_menu">
@@ -314,7 +314,7 @@ export const Header: React.FC = () => {
             <MenuItem target="_blank" href="https://thankful-raclette-226.notion.site/COCONUT-d5dc804f50564430a1d6482be1907571"  >CONUT Token</MenuItem>
             <SubMenu style={{ textDecoration: 'none' }} label={t("mainMenu.Contact")}>
               <MenuItem href="mailto:ibeodix@beodix.com" className="o-header_link-text"> <a href="mailto:ibeodix@beodix.com" target="_blank">{t("mainMenu.Business")}</a></MenuItem>
-              <MenuItem href="mailto:support@contenft.com" className="o-header_link-text"> <a href="mailto:ibeodix@beodix.com" target="_blank">CS</a></MenuItem>
+              <MenuItem href="mailto:support@coconut.global" className="o-header_link-text"> <a href="mailto:ibeodix@beodix.com" target="_blank">CS</a></MenuItem>
             </SubMenu>
             <MenuItem href="/">{t("mainMenu.Blog")}</MenuItem>
             <MenuItem href="/notice">Notice</MenuItem>

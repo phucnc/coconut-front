@@ -1069,7 +1069,7 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
                             color="primary"
                           />
                         }
-                        label={<Text inline modifiers="confirm">I have read understand and agree to the terms of service and privacy policy of conteNFT</Text>}
+                        label={<Text inline modifiers="confirm">I have read understand and agree to the terms of service and privacy policy of Coconut</Text>}
                         labelPlacement="end"
                       />
                         {product && totalPrice > balance && (
@@ -1160,10 +1160,10 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
         <ModalHeader modifiers="report" title="Thank you for submitting your report to us." handleClose={() => setreportModal(false)} />
         <Text modifiers={['report']}>We will process the report you submitted as quickly as possible.</Text>
         <Text modifiers={['report','inline']}>Processing time for reports of piracy will typically be 5-7 business days. For more convenience in the settlement process, please send related documents to email:</Text>
-        <Text modifiers={['report','inline']}><a href="mailto:support@contenft.com">support@contenft.com</a></Text>
+        <Text modifiers={['report','inline']}><a href="mailto:support@coconut.global">support@coconut.global</a></Text>
         <Text modifiers={['report']}>We will process the report you submitted as quickly as possible.</Text>
         <Text modifiers={['report','inline']}>Contact us:</Text>
-        <Text modifiers={['report','inline']}><a href="mailto:support@contenft.com">support@contenft.com</a></Text>
+        <Text modifiers={['report','inline']}><a href="mailto:support@coconut.global">support@coconut.global</a></Text>
       </Modal>
     </div>
   );

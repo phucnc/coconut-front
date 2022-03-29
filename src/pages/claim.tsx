@@ -133,21 +133,21 @@ export const Claim: React.FC<RouteComponentProps> = props => {
               >
                  <Grid item xs={4}>
                   <Text>
-                  If you want to get CONT marketplace mining reward then you must make at least 1 NFT purchase or create at least 1 NFT on conteNFT
+                  If you want to get CONUT marketplace mining reward then you must make at least 1 NFT purchase or create at least 1 NFT on Coconut
                   </Text>
                   <Text>
-                  Your CONT marketplace mining reward will be calculated every Tuesday, meaning after Tuesday you can claim your previous CONT mining reward.
+                  Your CONUT marketplace mining reward will be calculated every Tuesday, meaning after Tuesday you can claim your previous CONUT mining reward.
                   </Text>
                   <Text>
-                  CONT mining reward will accumulate over time. You have to pay a network gas fee every time you claim CONT mining reward.
+                  CONUT mining reward will accumulate over time. You have to pay a network gas fee every time you claim CONUT mining reward.
                   </Text>
                  </Grid>
                  <Grid item xs={4}>
                    <Text>
-                   Every Tuesday 60.000 CONT tokens are distributed to uploaders(creators) and buyers who bought NFT during that week before. 50% to the NFT uploaders(creators) and 50% to the NFT buyers.
+                   Every Tuesday 60.000 CONUT tokens are distributed to uploaders(creators) and buyers who bought NFT during that week before. 50% to the NFT uploaders(creators) and 50% to the NFT buyers.
                    </Text>
                    <Text>
-                    Uploaders and Buyers will be received 50% of the distributed amount. This allocated amount of tokens is divided by the total number of participants who upload or purchase NFT items on conteNFT and those with the most total quantity of Upload/ Purchase will receive more CONT.
+                    Uploaders and Buyers will be received 50% of the distributed amount. This allocated amount of tokens is divided by the total number of participants who upload or purchase NFT items on Coconut and those with the most total quantity of Upload/ Purchase will receive more CONT.
                    </Text>
                  </Grid>  
               </Grid>
@@ -224,10 +224,10 @@ export const Claim: React.FC<RouteComponentProps> = props => {
                 </Grid>
                 <Grid item xs={5}>
                   <Text>
-                  Top 25 users with the highest total of NFT purchase times + volume will receive a total reward of 14,000 CONT from the total reward of 30,000 for the buyers. And users outside the top 25 get tokens by calculating: 16,000 CONT divided by the total number of users outside the top 25 that week.
+                  Top 25 users with the highest total of NFT purchase times + volume will receive a total reward of 14,000 CONUT from the total reward of 30,000 for the buyers. And users outside the top 25 get tokens by calculating: 16,000 CONUT divided by the total number of users outside the top 25 that week.
                   </Text>
                   <Text>
-                  The specific amount of CONT tokens that the top 25 users with the highest total of NFT purchase times + volume receive:
+                  The specific amount of CONUT tokens that the top 25 users with the highest total of NFT purchase times + volume receive:
                   </Text>
                 </Grid>
                 <Grid item xs={2}>
@@ -236,27 +236,27 @@ export const Claim: React.FC<RouteComponentProps> = props => {
                 </Grid>
                 <Grid item xs={10}>
                   <Text>
-                Outside top 25 = 16,000 CONT/Total number of users outside the top 25 that week Similarly, we have: Top 25 users with the highest total of NFT upload times will receive a total reward of 14,000 CONT from the total reward of 30,000 for the uploaders. And users outside the top 25 get tokens by calculating: 16,000 CONT divided by the total number of users outside the top 25 that week.
+                Outside top 25 = 16,000 CONT/Total number of users outside the top 25 that week Similarly, we have: Top 25 users with the highest total of NFT upload times will receive a total reward of 14,000 CONUT from the total reward of 30,000 for the uploaders. And users outside the top 25 get tokens by calculating: 16,000 CONUT divided by the total number of users outside the top 25 that week.
                   </Text>
                   <Text>
-                  Note: To ensure that the amount of CONT tokens is properly allocated to users and attracts more users coming to our service:
+                  Note: To ensure that the amount of CONUT tokens is properly allocated to users and attracts more users coming to our service:
                   </Text>
                   <ul className="claim_list">
                     <li>
-                    If there are less than 25 NFT uploaders(minters) that week: Each user will receive up to 50 CONT tokens
+                    If there are less than 25 NFT uploaders(minters) that week: Each user will receive up to 50 CONUT tokens
                     </li>
                     <li>
-                    If there are less than 25 NFT buyers that week: Each person will receive up to 50 CONT tokens
+                    If there are less than 25 NFT buyers that week: Each person will receive up to 50 CONUT tokens
                     </li>
                     <li>
-                    If there are less than 150 NFT uploaders(minters) that week: Each user outside the top 25 NFT uploaders will receive up to 50 CONT tokens
+                    If there are less than 150 NFT uploaders(minters) that week: Each user outside the top 25 NFT uploaders will receive up to 50 CONUT tokens
                     </li>
                     <li>
-                    If there are less than 150 NFT buyers that week: Each user outside the top 25 NFT buyers will receive up to 50 CONT tokens
+                    If there are less than 150 NFT buyers that week: Each user outside the top 25 NFT buyers will receive up to 50 CONUT tokens
                     </li>
                   </ul>
                   <Text>
-                  If one of these cases occurs, the balance after conteNFT reward the mining tokens for users will be returned to the Marketplace Mining System fund to be distributed to the next users in the future.
+                  If one of these cases occurs, the balance after Coconut reward the mining tokens for users will be returned to the Marketplace Mining System fund to be distributed to the next users in the future.
                   </Text>
                   <img className="claim_marketplaceIMG" src={chart} ></img>
                 </Grid>

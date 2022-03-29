@@ -34,7 +34,7 @@ export const Modalcensored: React.FC<Props> = props => {
         >
           
           <Grid item xs={12} >
-            <Text modifiers="censored"> This Cryptoasset (NFT) has been reported by another user for suspected content standards violations, and is likely to be removed from the platform by conteNFT without prior notice. Therefore, Users should consider carefully before purchasing this Cryptoasset (NFT). Learn more about Being Censored Label <Link href="/termofservice"> here</Link>.
+            <Text modifiers="censored"> This Cryptoasset (NFT) has been reported by another user for suspected content standards violations, and is likely to be removed from the platform by Coconut without prior notice. Therefore, Users should consider carefully before purchasing this Cryptoasset (NFT). Learn more about Being Censored Label <Link href="/termofservice"> here</Link>.
             </Text>
           </Grid>
         </Grid>

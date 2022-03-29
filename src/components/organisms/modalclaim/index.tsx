@@ -33,8 +33,8 @@ export const Modalclaim: React.FC<Props> = props => {
         >
           
           <Grid item xs={12} >
-            <Text> Unfortunately, you are not eligible to receive CONT token.</Text>
-            <Text> <Link to="/claim">Click here</Link> to learn about Mining Reward CONT tokens!</Text>
+            <Text> Unfortunately, you are not eligible to receive CONUT token.</Text>
+            <Text> <Link to="/claim">Click here</Link> to learn about Mining Reward CONUT tokens!</Text>
           </Grid>
           <Grid item xs={12} >
             <Button modifiers="getCoin" disabled> Get CONT</Button>
