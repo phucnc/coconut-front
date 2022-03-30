@@ -1,12 +1,15 @@
 body {
   margin: 0;
-  font-family: $FONTFAMILY-BASIC;
+  font-family: NotoSans;
   color: $COLOR-UTILITY-TXT-BASE;
   background-color: $COLOR-PALEBLUE;
-  font-family: Cabin,Arial;
+  font-family: NotoSans;
   @include u-fw-lb;
 }
-
+@font-face {
+  font-family: 'NotoSans';
+  src :url('common/font/notosans.otf')
+}
 * {
   box-sizing: border-box;
 }
@@ -42,7 +45,7 @@ a {
 input,
 button,
 select {
-  font-family: $FONTFAMILY-BASIC;
+  font-family:NotoSans;
 }
 
 [role='button'],

@@ -254,9 +254,14 @@ export const ProductcardMyItem: React.FC<ProductProps> = props => {
                     {props.price}
                   </Text>
                 </div>
+                <div>
                 <ul className="o-productcardMyItem_userlist">
                   { props.optionres.optionres != 'sold' && props.optionres.optionres != 'creator' && (
+                <>
                   <div>
+                    <button onClick={() => setModalResell(true)} className="o-productcardMyItem_resell">{t("Myitem.Resell")}</button>
+                    </div>
+                    <div>
                     <button className="threedots" onClick={handleClick}><Icon modifiers={['large']} iconName="threedots" /></button>
                     {/* <Button handleClick={() => setModalOpenShare(true)} modifiers={['filter', 'noBorder']}><Icon modifiers={['small']} iconName="threedots" /></Button> */}
                     <Menu
@@ -279,8 +284,10 @@ export const ProductcardMyItem: React.FC<ProductProps> = props => {
                       )}
                     </Menu>
                   </div>
+                  </>
       )}
                 </ul>
+                </div>
               </div>
             </div>
             <Tooltip />

@@ -86,7 +86,7 @@
     }
   }
   &_table {
-    font-family: arial, sans-serif;
+    font-family: NotoSans;
     border-collapse: collapse;
     width: 100%;
     table-layout: fixed;
@@ -207,7 +207,7 @@
   }
 
   &_Totalnumber {
-    font-family: Cabin;
+    font-family: NotoSans;
     font-style: normal;
     font-weight: bold;
     font-size: 36px;
@@ -221,7 +221,7 @@
   &_button-more {
     background-color: none;
     border: 1px solid #616161;
-    font-family: Cabin,Arial;
+    font-family: NotoSans;
     font-style: normal;
     font-weight: bold;
     line-height: 15px;
@@ -279,7 +279,7 @@
   &_button-moreDetail {
     background-color: none;
     border: 1px solid #616161;
-    font-family: Cabin,Arial;
+    font-family: NotoSans;
     font-style: normal;
     font-weight: bold;
     line-height: 15px;
@@ -301,7 +301,7 @@
 
 
   &_TotalnumberValue {
-    font-family: Cabin,Arial;
+    font-family: NotoSans;
     font-style: normal;
     font-weight: bold;
     font-size: 24px;
@@ -439,9 +439,7 @@
   flex-wrap: wrap;
   margin-bottom: 40px;
 }
-html {
-  // background-color: #E0E3F5;
-}
+
 .MuiAccordion-root{
   background-color: #f4f4f4;
 }
@@ -457,7 +455,7 @@ html {
   min-width: 125px;
   height: 36px;
   border-radius: 20px;
-  font-family: Cabin,Arial;
+  font-family: NotoSans;
   font-style: normal;
   font-weight: bold;
   font-size: 16px;
@@ -499,7 +497,7 @@ html {
 }
 .claim {
   margin-top: 50px;
-  font-family: Ubuntu;
+  font-family: NotoSans;
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
@@ -534,7 +532,7 @@ html {
     margin-top: 30px;
     margin-bottom: 30px;
     padding: 30px;
-    font-family: Ubuntu;
+    font-family: NotoSans;
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
@@ -577,7 +575,4 @@ html {
 }
 .howconnect {
   border-bottom: 1px dotted black;
-}
-.hoverButton {
-
 }

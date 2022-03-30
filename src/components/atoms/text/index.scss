@@ -9,7 +9,7 @@
   $root: &;
 
   &_unit {
-    font-family: Cabin,Arial;
+    font-family: NotoSans;
     font-style: normal;
     font-weight: bold;
     font-size: 20px;
@@ -116,7 +116,7 @@
     -webkit-background-clip: text;
     word-break: break-all;
     -webkit-text-fill-color: transparent;
-    font-family: Cabin,Arial;
+    font-family: NotoSans;
     font-style: normal;
     font-weight: bold;
     font-size: 17px;
@@ -126,7 +126,7 @@
   }
 
   &-term {
-    font-family: Cabin,Arial;
+    font-family: NotoSans;
     font-style: normal;
     font-weight: bold;
     font-size: 22px;
@@ -138,7 +138,7 @@
   }
 
   &-black {
-    font-family: Cabin,arial;
+    font-family: NotoSans;
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
@@ -158,11 +158,11 @@
   }
   &-blackCor {
     color: black!important;
-    font-family: Cabin,Arial;
+    font-family: NotoSans;
     font-style: normal;
   }
   &-censored {
-    font-family: Catamaran;
+    font-family: NotoSans;
     font-style: normal;
     font-weight: 500;
     font-size: 18px;
@@ -170,7 +170,7 @@
     color: #000000;
   }
   &-report {
-    font-family: Catamaran;
+    font-family: NotoSans;
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
@@ -187,7 +187,7 @@
     text-indent: 15px;
   }
   &-linear {
-    font-family: Cabin,Arial;
+    font-family: NotoSans;
     font-style: normal;
     font-weight: bold;
     font-size: 20px;
@@ -217,7 +217,7 @@
 
   &-footer {
     color: #797979;
-    font-family: Cabin,Arial;
+    font-family: NotoSans;
     font-style: normal;
     font-weight: normal;
     font-size: 14px;

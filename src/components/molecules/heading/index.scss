@@ -4,7 +4,7 @@
   margin: 0 0 10px;
   margin-bottom: 30px;
   color: $COLOR-UTILITY-TXT-BASE;
-  font-family: Cabin,Arial;
+  font-family: NotoSans;
   @include u-fw-b;
   @include u-fz(22, 25);
   @include sp {
@@ -44,7 +44,7 @@
   }
   &-center {
     text-align:center;
-    font-family: Cabin,Arial;
+    font-family: NotoSans;
     font-style: normal;
     font-weight: 500;
     font-size: 18px;
@@ -52,7 +52,7 @@
   }
   &-left {
     text-align:left;
-    font-family: Cabin,Arial;
+    font-family: NotoSans;
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
@@ -62,7 +62,7 @@
   }
   &-right {
     text-align:right;
-    font-family: Cabin,Arial;
+    font-family: NotoSans;
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
