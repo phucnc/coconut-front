@@ -48,7 +48,8 @@
     align-items: center;
     justify-content: center;
     border-radius: 10px;
-    overflow: hidden;
+    // overflow: hidden;
+    object-fit: fill;
     margin: 8px 0 14px;
     // background-color: #C4C4C4;
     background-image: url('assets/images/review_background.svg');

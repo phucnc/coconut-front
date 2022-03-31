@@ -26,10 +26,17 @@ const createURIEpic: Epic = (action$, state$) =>
       data.append('upload_file', values.file);
       data.append('quote_token', Unit[values.unit]);
       data.append('creator', address);
+      console.log('data video',values.file)
       // data.append('creator', address);
+    //   const videosize = values.file
+    //   videosize.onloadedmetadata = () => {
+    //     console.log("Video loaded!");
+    //     alert("width: " + videosize.videoWidth + "\n" + "height: " + videosize.videoHeight);
+    // };
       values.categories?.map(cate => data.append('categories', cate.name.toLocaleLowerCase()));
+
       for (var pair of data.entries()) {
-        console.log("test",pair[0]+ ', ' + pair[1]); 
+        console.log("test2",pair[0]+ ', ' + pair[1]); 
     }
       return from(
         axios.post(`${process.env.ADDRESS_API}/nft`, data, {
@@ -71,8 +78,9 @@ const createURIEpic: Epic = (action$, state$) =>
       data.append('creator', address);
       // console.log("Unit",Unit)
       // console.log("Unit",values)
+      console.log("data2",values)
       for (var pair of data.entries()) {
-        console.log("test",pair[0]+ ', ' + pair[1]); 
+        console.log("test1",pair[0]+ ', ' + pair[1]); 
     }
       return from(
         axios.put(`${process.env.ADDRESS_API}/nft?collectible_id=${action.payload.uid}&account=${address}&quote_token=${Unit[values.unit]}&instant_sale_price=${values.instantsaleprice}`)

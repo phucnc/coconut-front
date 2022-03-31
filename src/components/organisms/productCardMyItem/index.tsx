@@ -256,10 +256,35 @@ export const ProductcardMyItem: React.FC<ProductProps> = props => {
                 </div>
                 <div>
                 <ul className="o-productcardMyItem_userlist">
+                {props.optionres.optionres == 'creator' && (
+                <>
+                 
+                    <div>
+                    <button className="threedots" onClick={handleClick}><Icon modifiers={['large']} iconName="threedots" /></button>
+                  
+                    <Menu
+                      id="fade-menu"
+                      anchorEl={anchorEl}
+                      keepMounted
+                      open={open}
+                      onClose={handleClose}
+                      TransitionComponent={Fade}
+                    >
+                      
+                      { props.tokenowner == wallet.account && (
+                      <MenuItem className="share-button" onClick={() => setModalOpendelete(true)}> <Typography variant="inherit"> <Icon iconName="delete" modifiers={['colorDelete']} />&nbsp;&nbsp; {t("Myitem.Delete")}</Typography></MenuItem>
+                      )}
+                    </Menu>
+                  </div>
+                  </>
+      )}
                   { props.optionres.optionres != 'sold' && props.optionres.optionres != 'creator' && (
                 <>
+
                   <div>
+                    { props.optionres.optionres === 'bought' && (
                     <button onClick={() => setModalResell(true)} className="o-productcardMyItem_resell">{t("Myitem.Resell")}</button>
+                    )}
                     </div>
                     <div>
                     <button className="threedots" onClick={handleClick}><Icon modifiers={['large']} iconName="threedots" /></button>
@@ -272,13 +297,13 @@ export const ProductcardMyItem: React.FC<ProductProps> = props => {
                       onClose={handleClose}
                       TransitionComponent={Fade}
                     >
-                      { props.optionres.optionres === 'bought' && (
+                      {/* { props.optionres.optionres === 'bought' && (
                       <MenuItem className="share-button" onClick={() => setModalResell(true)}>
                         <Typography variant="inherit">
                             <Icon iconName="resell" modifiers={['colorResell']} />&nbsp;&nbsp; {t("Myitem.Resell")}
                         </Typography>
                       </MenuItem>
-                      )}
+                      )} */}
                       { props.tokenowner == wallet.account && (
                       <MenuItem className="share-button" onClick={() => setModalOpendelete(true)}> <Typography variant="inherit"> <Icon iconName="delete" modifiers={['colorDelete']} />&nbsp;&nbsp; {t("Myitem.Delete")}</Typography></MenuItem>
                       )}

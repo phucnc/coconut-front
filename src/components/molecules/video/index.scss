@@ -14,7 +14,8 @@
   position: relative;
   height: 100%;
   width: 100%;
-  aspect-ratio: 16/9;
+
+  // aspect-ratio: 16/9;
   // // max-width: 600px;
   // border-radius: 20px;
   video {
@@ -26,15 +27,17 @@
     bottom: 0;
     right: 0;
     margin: auto;
+    width: 100%;
     
   }
   .video__player {
-    object-fit: fill;
+    // object-fit: fill;
     width: 70%;
     // width: 320px!important;
     height: 100%;
     border-radius: 17px; 
     overflow: hidden; 
+   
     @include sp {
       width: 100%;
     }
@@ -52,6 +55,37 @@
     }
     @include mgland {
       width: 75%;
+    }
+  
+  }
+  @media (max-aspect-ratio: 16/9) {
+    .video__player {
+      // object-fit: fill;
+      width: 100%;
+      // width: 320px!important;
+      height: 100%;
+      border-radius: 17px; 
+      overflow: hidden; 
+     
+      @include sp {
+        width: 100%;
+      }
+      @include md {
+        width: 70%;
+      }
+      @include lg {
+        width: 91%;
+      }
+      @include lgland {
+        width: 91%;
+      }
+      @include mg {
+        width: 85%;
+      }
+      @include mgland {
+        width: 75%;
+      }
+    
     }
   }
   .video__player_Inview {
