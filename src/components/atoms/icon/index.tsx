@@ -72,6 +72,7 @@ export type IconName =
   | 'questionmark'
   | 'logomini'
   | 'dotgreen'
+  | 'ioma'
   | 'multicircle'
   | 'censored'
   | 'ccn_logo';
@@ -80,7 +81,7 @@ interface Props {
   iconName: IconName;
   modifiers?: Modifier | Modifier[];
 }
-type Modifier = 'colorDelete'|'colorResell'|'tiny'|'small'| 'medium'|'large'| 'mini' |'middle' | 'superlarge' | 'create' | 'custom' | 'filterexplore' | 'large32' | 'flag' |'logoClaim' | 'marginLeft' | '32px' |'60px' |'dotgreen' | 'new';
+type Modifier = 'colorDelete'|'colorResell'|'tiny'|'small'| 'medium'|'large'| 'mini' |'middle' | 'superlarge' | 'create' | 'custom' | 'filterexplore' | 'large32' | 'flag' |'logoClaim' | 'marginLeft' | '32px' |'60px' |'dotgreen' | 'new' | 'ioma';
 
 export const Icon: React.FC<Props> = props => {
   return <span className={mapModifiers('a-icon', props.iconName, props.modifiers)} >{props.children}</span>;

@@ -400,6 +400,25 @@ linear-gradient(100.93deg, #D565C3 -13.26%, #ABD3EA 101.12%);
       
     }
   }
+  &-sharemain {
+    // position: absolute;
+    // right: 3%;
+    background-color: #f4f4f4;
+    padding: 11px;
+    height: 40px;
+    margin-right:15px;
+    border-radius: 100%;
+    @include  sp {  
+      height: 15px;
+      // right:0px;
+      margin-bottom: 4px;
+    }
+    &:hover {
+      background: linear-gradient(103.07deg, #D565C3 2.04%, #ABD3EA 94.02%);
+      
+    }
+  }
+  
   &-marginbottom {
     margin-bottom: 10px;
   }

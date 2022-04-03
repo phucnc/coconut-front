@@ -472,11 +472,13 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
                       )}
             
                      
-                      <Button handleClick={() => setModalOpenShare(true)} modifiers={['iconshareitem']}><Icon modifiers={['tiny']} iconName='sharelink' /></Button>
+                      <Button handleClick={() => setModalOpenShare(true)} modifiers={['sharemain']}><Icon modifiers={['tiny']} iconName='sharelink' /></Button>
                       <div className="p-view_sharemobile">
-                    <button onClick={() => setModalOpenreport(true)} className="p-view_threedots" ><Icon modifiers={['large']} iconName="threedots" /></button>
-                    </div>
-                     
+                        <button onClick={() => setModalOpenreport(true)} className="p-view_threedots" ><Icon modifiers={['large']} iconName="threedots" /></button>
+                      </div>
+                      <Link href={"/view?id="+ props.id}>
+                      <Button handleClick={() => setModalOpenShare(true)} modifiers={['sharemain']}><Icon modifiers={['ioma']} iconName='ioma' /></Button>
+                      </Link>
                     </div>
                     <div className="p-view_share">
                     <Button modifiers="reportExplore" handleClick={() => setModalOpenreport(true)}  >! {t("Myitem.Report")}</Button>

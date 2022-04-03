@@ -109,7 +109,7 @@
 
   }
   &_likeitem {
-    position: relative;
+    // position: relative;
     background: #f1f1f1;
     border: 1px solid rgba(255, 255, 255, 0.51);
     box-sizing: border-box;
@@ -118,8 +118,9 @@
     width: 80px;
     height: 39px;
     // bottom: 18%;
-    right: 80px;
+    // right: 80px;
     margin: 0;
+    margin-right:15px!important;
     font-size: 16px;
     font-family: NotoSans;
     font-style: normal;

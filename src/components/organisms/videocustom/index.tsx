@@ -69,7 +69,8 @@ const useStyles = makeStyles((theme) => ({
   },
   bottomIconsRight: {
     color: "white!important",
-    marginLeft:"220px",
+    marginLeft:"200px",
+    marginBottom:"50px",
     // "&:hover": {
     //   color: "#fff",
     // },
