@@ -48,7 +48,7 @@ const approveCONTEpic: Epic = action$ =>
           'increaseAllowance',
           action.payload.middlewareMethods,
           process.env.SIMPLE_EXCHANGE_ADDRESS,
-          formatSaleBalance('CONT', price).toString()
+          formatSaleBalance('CONUT', price).toString()
         )
       ).pipe(
         map(res => {

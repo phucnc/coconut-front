@@ -339,7 +339,7 @@ export const Header: React.FC = () => {
             />
           </Form>
         </Formik> */}
-        <MenuChunk wallet={wallet} balanceBUSD={balance.BUSD} balanceCONT={balance.CONT} />     
+        <MenuChunk wallet={wallet} balanceBUSD={balance.BUSD} balanceCONT={balance.CONUT} />     
         <div className="o-header_hambuger">
           {(['top'] as Anchor[]).map((anchor) => (
             <React.Fragment key={anchor}>

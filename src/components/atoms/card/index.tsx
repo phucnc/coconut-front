@@ -14,10 +14,11 @@ interface Props {
 }
 
 export const Card: React.FC<Props> = props => {
+  console.log('getconut',props)
   return (
     <div className={mapModifiers('a-card', props.modifiers, props.cardType.toLowerCase())}>
       <Text size="12">Your balance</Text>
-      <Text size="18" modifiers="bold" unit={props.cardType}>
+      <Text size="24" modifiers="bold" unit={props.cardType}>
         {
           // eslint-disable-next-line no-extra-boolean-cast
           !!props.balance ? formatBalance(props.cardType, props.balance) : 0

@@ -770,7 +770,7 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
                                 </Grid>
                                
                                 <Grid item xs={5}>
-                                {(props.quote_token === 'CONT') && (
+                                {(props.quote_token === 'CONUT') && (
                                   <Text modifiers={['servicefee']}>
                                   （～${amountDollarCONT(Number(props.instant_sale_price))}）
                                   </Text>)
@@ -1096,7 +1096,7 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
                                     }),
                                   })
                                 )
-                              : quote_token === 'CONT'
+                              : quote_token === 'CONUT'
                               ? 
                               dispatch(
                                   commonStart({

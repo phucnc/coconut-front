@@ -1,4 +1,4 @@
-export type CardType = 'BNB' | 'BUSD' | 'CONT';
+export type CardType = 'BNB' | 'BUSD' | 'CONUT';
 export type CardTypeNum = 0 | 1 | 2;
 
 const BALANCE_MULTIPLE: {
@@ -6,7 +6,7 @@ const BALANCE_MULTIPLE: {
 } = {
   BNB: Math.pow(10, 18),
   BUSD: Math.pow(10, 18),
-  CONT: Math.pow(10, 18),
+  CONUT: Math.pow(10, 18),
 };
 
 const parseCardType = (cardTypeNum: CardType | CardTypeNum): CardType => {
@@ -16,7 +16,7 @@ const parseCardType = (cardTypeNum: CardType | CardTypeNum): CardType => {
     case 1:
       return 'BUSD';
     case 2:
-      return 'CONT';
+      return 'CONUT';
     default:
       return cardTypeNum as CardType;
   }

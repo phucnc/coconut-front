@@ -25,7 +25,7 @@ export const Mywallet: React.FC<Props> = props => {
   return (
     <div className={mapModifiers('m-mywallet', props.modifiers, props.open && 'open', selectedCard.toLowerCase())}>
       <TabList>
-        {['BUSD', 'BNB', 'CONT'].map(card => (
+        {['BUSD', 'BNB', 'CONUT'].map(card => (
           <TabButton key={card} active={selectedCard === card} handleClick={() => setSelectedCard(card as CardType)}>
             {card}
           </TabButton>
@@ -36,7 +36,7 @@ export const Mywallet: React.FC<Props> = props => {
           <div className="m-mywallet_card">
             <Card balance={props.balanceBUSD} id={props.walletAccount} cardType="BUSD" />
             <Card balance={props.balanceBNB} id={props.walletAccount} cardType="BNB" />
-            <Card balance={props.balanceCONT} id={props.walletAccount} cardType="CONT" />
+            <Card balance={props.balanceCONT} id={props.walletAccount} cardType="CONUT" />
           </div>
         </div>
       </div>
