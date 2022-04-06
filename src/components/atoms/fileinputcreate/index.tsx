@@ -48,7 +48,7 @@ export const FileInputcreate: React.FC<Props> = props => {
     onDropRejected: fileRejections => {
       console.log("fileRejections",fileRejections)
       const errorMessage =
-        fileRejections[0]?.errors[0]?.message.replace(/ \d+ /, ' 50 ').replace(' bytes', 'mb') ||
+        fileRejections[0]?.errors[0]?.message.replace(/ \d+ /, ' 100 ').replace(' bytes', 'mb') ||
         'Invalid File Format.';
       setErrors({ ...errors, [props.name]: errorMessage });
     },
