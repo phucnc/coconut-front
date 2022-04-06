@@ -39,7 +39,7 @@ export const FileInputcreate: React.FC<Props> = props => {
     noClick: true,
     noKeyboard: true,
     
-    maxSize: 52428800,
+    maxSize: 100428800,
     onDrop: acceptedFiles => {
       props.setTouched && props.setTouched();
       console.log("acceptedFiles",acceptedFiles)
@@ -64,7 +64,7 @@ console.log('dimensions',dimensions)
         </Button>
       </div>
       <input ref={targetRef} id="fileButton" {...getInputProps()} className="a-fileinputcreatte_input" name={props.name} type="file" />
-      <Text modifiers={['lightgray']}>{props.label}</Text>
+      <Text modifiers="gray">{props.label}</Text>
     </div>
   );
 };

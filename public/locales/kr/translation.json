@@ -54,7 +54,7 @@
 		"Uploadfile": "Upload file",
 		"drag": "Drag it here or",
 		"choosefile": "Choose file",
-		"type": "PNG, GIF, WEBP, MP4 or MP3. Max 50mb.",
+		"type": "PNG, GIF, WEBP, MP4 or MP3. 파일 사이츠가 100MB를 초과하지 마십시오.",
 		"Instantsaleprice": "Instant sale price",
 		"Enterprice": "판매할 품목의 가격을 입력하세요.",
 		"Servicefee": "수수료",

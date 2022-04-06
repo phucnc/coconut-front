@@ -54,7 +54,7 @@
 		"Uploadfile": "Upload file",
 		"drag": "Drag it here or",
 		"choosefile": "Choose file",
-		"type": "PNG, GIF, WEBP, MP4 or MP3. Max 50mb.",
+		"type": "PNG, GIF, WEBP, MP4 or MP3. Do not over 100mb File size",
 		"Instantsaleprice": "Instant sale price",
 		"Enterprice": "Selling Price/ Enter Price. Item will be instantly sold",
 		"Servicefee": "Service fee",
