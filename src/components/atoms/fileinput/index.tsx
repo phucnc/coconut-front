@@ -24,14 +24,14 @@ export const FileInput: React.FC<Props> = props => {
     accept: '.png, .gif, .webp, .mp4, .mp3, .jpeg',
     noClick: true,
     noKeyboard: true,
-    maxSize: 50 * 1024 * 1024,
+    maxSize: 100428800,
     onDrop: acceptedFiles => {
       props.setTouched && props.setTouched();
       acceptedFiles.length && setFieldValue(props.name, acceptedFiles[0]);
     },
     onDropRejected: fileRejections => {
       const errorMessage =
-        fileRejections[0]?.errors[0]?.message.replace(/ \d+ /, ' 50 ').replace(' bytes', 'mb') ||
+        fileRejections[0]?.errors[0]?.message.replace(/ \d+ /, ' 100 ').replace(' bytes', 'mb') ||
         'Invalid File Format.';
       setErrors({ ...errors, [props.name]: errorMessage });
     },
