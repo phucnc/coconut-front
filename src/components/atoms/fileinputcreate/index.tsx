@@ -15,6 +15,7 @@ interface Props {
   modifiers?: Modifier | Modifier[];
   name: string;
   label: string;
+  maxsize: string;
   setTouched?: () => void;
 }
 
@@ -26,7 +27,7 @@ export const FileInputcreate: React.FC<Props> = props => {
   console.log("props",props)
   
   useEffect(() => {
-    console.log("targetRef",targetRef)
+    console.log("targetRef",targetRef.target)
     if (targetRef.current) {
       setDimensions({
         width: targetRef.current.offsetWidth,
@@ -39,7 +40,7 @@ export const FileInputcreate: React.FC<Props> = props => {
     noClick: true,
     noKeyboard: true,
     
-    maxSize: 100428800,
+    maxSize: 100000000,
     onDrop: acceptedFiles => {
       props.setTouched && props.setTouched();
       console.log("acceptedFiles",acceptedFiles)
@@ -47,9 +48,13 @@ export const FileInputcreate: React.FC<Props> = props => {
     },
     onDropRejected: fileRejections => {
       console.log("fileRejections",fileRejections)
+      const rep = /File is larger than 100000000 bytes/gi;
+      const rep1 = t("create.oversize")
       const errorMessage =
-        fileRejections[0]?.errors[0]?.message.replace(/ \d+ /, ' 100 ').replace(' bytes', 'mb') ||
-        'Invalid File Format.';
+        fileRejections[0]?.errors[0]?.message.replace(rep, rep1);
+      // const errorMessage =
+      //   fileRejections[0]?.errors[0]?.message.replace(/ \d+ /, ' 100 ').replace(' bytes', 'mb') ||
+      //   'Invalid File Format.';
       setErrors({ ...errors, [props.name]: errorMessage });
     },
   });
@@ -64,7 +69,8 @@ console.log('dimensions',dimensions)
         </Button>
       </div>
       <input ref={targetRef} id="fileButton" {...getInputProps()} className="a-fileinputcreatte_input" name={props.name} type="file" />
-      <Text modifiers="gray">{props.label}</Text>
+      <Text modifiers={["gray","noMargin"]}>{props.label}</Text>
+      <Text modifiers="gray">{props.maxsize}</Text>
     </div>
   );
 };

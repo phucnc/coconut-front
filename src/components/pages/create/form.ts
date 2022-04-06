@@ -1,9 +1,9 @@
 import { Asserts, mixed, number, array, object, string } from 'yup';
 import { ExtraProductCategories, ProductCategories } from 'components/pages/explore/form';
-import { useWallet } from 'use-wallet';
+import { useTranslation } from "react-i18next";
 
 export const createSchema = object({
-  file: mixed().required(),
+  file: mixed().required('파일 크기가 100Mb를 넘기 때문에 업로드 불가 합니다.'),
   // onsale: boolean(),
   // instantsale: boolean(),
   // instantsaleprice: number()

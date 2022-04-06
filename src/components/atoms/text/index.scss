@@ -231,6 +231,10 @@
   &-bold {
     @include u-fw-b;
   }
+
+  &-noMargin {
+    margin:0!important;
+  }
   &-balance {
     position: relative;
     right:20px;

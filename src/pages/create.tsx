@@ -129,6 +129,7 @@ export const Create: React.FC = () => {
                       <FileInputcreate
                         name="file"
                         label={t("create.type")}
+                        maxsize={t("create.maxsize")}
                         setTouched={() => !touched.file && setTouched({ ...touched, file: true })}
                       />
                     </Fieldrow>

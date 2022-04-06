@@ -262,7 +262,7 @@ console.log("width",width)
       topOffset="30%"
     >
       <div className="m-video">
-      <video id="videom" ref={vidRef}  className="video__player_fill"  onContextMenu={e => e.preventDefault()}  controlsList= 'nodownload' autoPlay={true} muted={true} loop src={props.src}></video>
+      <video  id="videom" ref={vidRef}  className="video__player_fill"  onContextMenu={e => e.preventDefault()}  controlsList= 'nodownload' autoPlay={true} muted={true} loop src={props.src}></video>
     
     </div>
     </Waypoint>
@@ -283,7 +283,10 @@ console.log("width",width)
       ) : (
       <div className="m-video">
       {isMobile? ( 
-      <video id="videom" ref={vidRef}  className="video__player_InviewMobile"  onContextMenu={e => e.preventDefault()} controls  controlsList= 'nodownload' autoPlay={true} muted={true} loop src={props.src}></video>) :(
+      <video id="videom" ref={vidRef}  className="video__player_InviewMobile"  onContextMenu={e => e.preventDefault()} controls  controlsList= 'nodownload' autoPlay={true} muted={true} loop src={props.src}>
+        
+
+      </video>) :(
       <video id="videom" ref={vidRef}  className="video__player_Inview"  onContextMenu={e => e.preventDefault()} controls  controlsList= 'nodownload' autoPlay={true} muted={true} loop src={props.src}></video>
       )}
     
