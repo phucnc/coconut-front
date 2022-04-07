@@ -942,12 +942,12 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
                     
                     <>
                     
-                      <ModalHeader handleClose={handleCloseModal} title="CHECKOUT" />
+                      <ModalHeader handleClose={handleCloseModal} title={t("checkout.checkout")} />
                       <div className="p-view_modalbody">
                         <div className="p-view_balance">
                           <div className="p-view_accountinfo">
                             <Text size="18" modifiers="balance">
-                            <Icon iconName="dollar" />Your balance :
+                            <Icon iconName="dollar" />{t("checkout.balance")} :
                             </Text>
                             {/* <div className="p-view_availablepoint"> */}
                               <Text modifiers="bold" unit={quote_token}>
@@ -958,8 +958,7 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
                         </div>
                         <div className="p-view_modaldescription">
                           <Text modifiers="checkoutDes">
-                            You are about to purchare{' '}
-                            from:{' '}
+                          {t("checkout.purchase")}:{' '}
                             <Text inline modifiers="bold">
                             &nbsp;&nbsp;{tokenOwner?.replace(tokenOwner?.substring(9, 37), "...")}
                             </Text>
@@ -975,7 +974,7 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
                           >
                             <Grid className="checkoutContent" item xs={4} >
                               <Text inline modifiers="checkout">
-                                Product:
+                              {t("checkout.product")}:
                               </Text>
                             </Grid>
                             <Grid className="checkoutContent" item xs={4} >
@@ -990,7 +989,7 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
                             </Grid>
                             <Grid className="checkoutContent" item xs={4} >
                               <Text inline modifiers="checkout">
-                                Fee:
+                              {t("checkout.fee")}:
                               </Text>
                             </Grid>
                             <Grid className="checkoutContent" item xs={4} >
@@ -1019,7 +1018,7 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
                           >
                             <Grid className="checkoutContent" item xs={4} >
                               <Text inline modifiers="bold">
-                                Total:
+                              {t("checkout.total")}:
                               </Text>
                             </Grid>
                             <Grid className="checkoutContent" item xs={4} >
@@ -1071,7 +1070,7 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
                             color="primary"
                           />
                         }
-                        label={<Text inline modifiers="confirm">I have read understand and agree to the terms of service and privacy policy of Coconut</Text>}
+                        label={<Text inline modifiers="confirm">{t("checkout.legacy")}</Text>}
                         labelPlacement="end"
                       />
                         {product && totalPrice > balance && (
@@ -1079,7 +1078,7 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
                         )}
                         <ButtonContainer>
                           <Button modifiers="cancelpayment" handleClick={handleCloseModal}>
-                            Cancel
+                          {t("checkout.cancel")}
                           </Button>
                           <Button
                             modifiers="payment"

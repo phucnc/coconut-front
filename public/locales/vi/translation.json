@@ -156,8 +156,17 @@
     "setRole": "Phân quyền",
     "saveAndNext": "Lưu và chuyển sang bước tiếp theo"
   },
-  "pagination": {
-    "sizePerPage": "Số bản ghi trên trang"
+  "checkout": {
+    "sizePerPage": "Số bản ghi trên trang",
+    "payments": "Payments",
+		"cancel": "Cancel",
+		"checkout": "CHECKOUT",
+		"balance": "Your balance",
+		"product": "product",
+		"Fee": "Fee",
+		"Total": "Total",
+		"purchase": "You are about to purchase from",
+		"legacy": "I have read understand and agree to the terms of service and privacy policy of COCONUT"
   },
   "categoriesCustomer": {
     "header": "Danh mục khách hàng",

@@ -153,8 +153,16 @@
 		"selectInvoice": "Select Invoice",
 		"saveAndNext": "Save and next step"
 	},
-	"pagination": {
-		"sizePerPage": "Number of records per page"
+	"checkout": {
+		"sizePerPage": "Number of records per page",
+		"cancel": "취소",
+		"checkout": "계산",
+		"balance": "잔액",
+		"product": "제품",
+		"fee": "수수료",
+		"total": "합계",
+		"purchase": "다음에서 구매하려고 합니다",
+		"legacy": "나는 COCONUT의 서비스 약관 및 개인 정보 보호 정책을 이해하고 동의합니다"
 	},
 	"categoriesCustomer": {
 		"header": "List of customers",

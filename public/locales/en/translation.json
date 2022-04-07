@@ -146,8 +146,17 @@
 		"selectInvoice": "Select Invoice",
 		"saveAndNext": "Save and next step"
 	},
-	"pagination": {
-		"sizePerPage": "Number of records per page"
+	"checkout": {
+		"sizePerPage": "Number of records per page",
+		"payments": "Payments",
+		"cancel": "Cancel",
+		"checkout": "CHECKOUT",
+		"balance": "Your balance",
+		"product": "product",
+		"fee": "Fee",
+		"total": "Total",
+		"purchase": "You are about to purchase from",
+		"legacy": "I have read understand and agree to the terms of service and privacy policy of COCONUT"
 	},
 	"categoriesCustomer": {
 		"header": "List of customers",
