@@ -306,7 +306,7 @@ export const Header: React.FC = () => {
             
             <MenuItem className="o-header_link-text" href="https://twitter.com/conutofficial" target="_blank">Twitter</MenuItem>
             <MenuItem className="o-header_link-text" href="https://t.me/conutofficial" target="_blank">Telegram</MenuItem>
-            <MenuItem href="mailto:support@coconut.global" className="o-header_link-text"> <a href="mailto:beodix@beodix.com" target="_blank">Email</a></MenuItem>
+            <MenuItem href="mailto:support@coconut.global" className="o-header_link-text"> <a href="mailto:support@coconut.global" target="_blank">Email</a></MenuItem>
             <MenuItem className="o-header_link-text" href="https://github.com/phucnc/coconut-front" target="_blank">Github</MenuItem>
           </Menu>
         </ul>
@@ -314,8 +314,8 @@ export const Header: React.FC = () => {
           <Menu menuButton={<MenuButton className="o-header_menulist">{t("mainMenu.More")} &#x276F;</MenuButton>}>
             <MenuItem target="_blank" href="https://thankful-raclette-226.notion.site/COCONUT-d5dc804f50564430a1d6482be1907571"  >CONUT Token</MenuItem>
             <SubMenu style={{ textDecoration: 'none' }} label={t("mainMenu.Contact")}>
-              <MenuItem href="mailto:ibeodix@beodix.com" className="o-header_link-text"> <a href="mailto:ibeodix@beodix.com" target="_blank">{t("mainMenu.Business")}</a></MenuItem>
-              <MenuItem href="mailto:support@coconut.global" className="o-header_link-text"> <a href="mailto:ibeodix@beodix.com" target="_blank">CS</a></MenuItem>
+              <MenuItem href="mailto:support@coconut.global" className="o-header_link-text"> <a href="mailto:support@coconut.global" target="_blank">{t("mainMenu.Business")}</a></MenuItem>
+              <MenuItem href="mailto:support@coconut.global" className="o-header_link-text"> <a href="mailto:support@coconut.global" target="_blank">CS</a></MenuItem>
             </SubMenu>
             <MenuItem href="/">{t("mainMenu.Blog")}</MenuItem>
             <MenuItem href="/notice">Notice</MenuItem>
