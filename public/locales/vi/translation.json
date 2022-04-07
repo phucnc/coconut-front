@@ -57,6 +57,8 @@
     "type": "Loại file PNG, GIF, WEBP, MP4 or MP3. ",
     "maxsize": "Tối đa 100mb.",
     "oversize": "This is over file size. Need a required filed under 100mb.",
+    "over100mb": "Is the video you want to select over 100mb?",
+    "nonPreview":"Doesn't the preview of the selected video? ",
     "Instantsaleprice": "Giá bán ngay",
     "Enterprice": "Nhập giá bán mà bán muốn bán sản phẩm này",
     "Servicefee": "Phí dịch vụ",

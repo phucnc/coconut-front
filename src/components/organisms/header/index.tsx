@@ -303,10 +303,11 @@ export const Header: React.FC = () => {
         </ul>
         <ul className="o-header_menu">
           <Menu menuButton={<MenuButton className="o-header_menulist">{t("mainMenu.Community")} &#x276F;</MenuButton>}>
-            <MenuItem className="o-header_link-text" href="https://discord.gg/GTRxFjya" target="_blank">Discord</MenuItem>
+            
             <MenuItem className="o-header_link-text" href="https://twitter.com/conutofficial" target="_blank">Twitter</MenuItem>
             <MenuItem className="o-header_link-text" href="https://t.me/conutofficial" target="_blank">Telegram</MenuItem>
             <MenuItem href="mailto:support@coconut.global" className="o-header_link-text"> <a href="mailto:beodix@beodix.com" target="_blank">Email</a></MenuItem>
+            <MenuItem className="o-header_link-text" href="https://github.com/phucnc/coconut-front" target="_blank">Github</MenuItem>
           </Menu>
         </ul>
         <ul className="o-header_menu">

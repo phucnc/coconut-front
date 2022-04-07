@@ -57,6 +57,8 @@
 		"type": "PNG, GIF, WEBP, MP4 or MP3.",
 		"maxsize": "Do not over 100mb File size",
 		"oversize": "This is over file size. Need a required filed under 100mb.",
+		"nonPreview":"Doesn't the preview of the selected video? ",
+		"over100mb": "Is the video you want to select over 100mb?",
 		"Instantsaleprice": "Instant sale price",
 		"Enterprice": "Selling Price/ Enter Price. Item will be instantly sold",
 		"Servicefee": "Service fee",

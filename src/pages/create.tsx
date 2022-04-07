@@ -32,6 +32,7 @@ import { amountReceived, amountReceivedDollar,amountDollarBNBrevieved,amountDoll
 import { MultiSelect } from 'components/atoms/multiselect';
 import { useEthers, useEtherBalance } from "@usedapp/core";
 import { useTranslation } from "react-i18next";
+import { Modalconvert } from 'components/organisms/modalconvert';
 
 export const Create: React.FC = () => {
   const wallet = useWallet();
@@ -42,7 +43,7 @@ export const Create: React.FC = () => {
   const {activateBrowserWallet, account } = useEthers();
   const etherBalance = useEtherBalance(account);
   const serviceFee = Number(process.env.SERVICE_FEE);
-
+  const [modalOpenConvert, setModalOpenConvert] = useState(false);
   const CreateSteps = [
     {
       description: 'Call contract method',
@@ -96,6 +97,13 @@ export const Create: React.FC = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch, modalOpen]);
 
+  useEffect(() => {
+    if (!modalOpenConvert) {
+      dispatch(resetStore());
+      // currentStep.number === CreateSteps.length && navigate('/');
+    }
+
+  }, [dispatch, modalOpenConvert]);
   const [state, setState] = React.useState({
     checkedB: false,
   });
@@ -133,6 +141,11 @@ export const Create: React.FC = () => {
                         setTouched={() => !touched.file && setTouched({ ...touched, file: true })}
                       />
                     </Fieldrow>
+                    <Text> &gt;&nbsp;{t("create.nonPreview")}
+                    <Button handleClick={() => setModalOpenConvert(true)}  modifiers="inline">&nbsp;Click!</Button></Text>
+                    
+                    <Text> &gt;&nbsp;{t("create.over100mb")}
+                    <Button handleClick={() => setModalOpenConvert(true)}  modifiers="inline">&nbsp;Click!</Button></Text>
                     <Fieldrow
                       className="p-create_instantsale"
                       fieldName={t("create.Instantsaleprice")}
@@ -268,6 +281,10 @@ export const Create: React.FC = () => {
           <Text> After processing , popup is automatically closed. Wait for a moment. </Text>
         </Modal>
       </Layout>
+      <Modal modifiers="noticeCreate" isOpen={modalOpenConvert} handleClose={() => setModalOpenConvert(false)}>
+        <ModalHeader title="" handleClose={() => setModalOpenConvert(false)} />
+        <Modalconvert />
+      </Modal>
     </div>
   );
 };
