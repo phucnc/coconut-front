@@ -123,8 +123,10 @@
 		"Comments": "댓글...",
 		"History": "내역",
 		"Creator": "창작자",
-		"Owner": "소유자",
-		"Putonsale": "에 의해 판매된",
+		"Firstminted": "최초 발행자:",
+		"Purchasedby": "구매 및 재판매:",
+		"Owner": "소유자:",
+		"Putonsale": "소유자:",
 		"Post": "등록",
 		"Buynow": "구매하기",
 		"DeleteNotice": "이 NFT를 삭제하시겠습니까?",
@@ -156,13 +158,14 @@
 	"checkout": {
 		"sizePerPage": "Number of records per page",
 		"cancel": "취소",
+		"payment": "구매하기",
 		"checkout": "계산",
-		"balance": "잔액",
+		"balance": "나의 잔액",
 		"product": "제품",
 		"fee": "수수료",
-		"total": "합계",
+		"total": "총",
 		"purchase": "다음에서 구매하려고 합니다",
-		"legacy": "나는 COCONUT의 서비스 약관 및 개인 정보 보호 정책을 이해하고 동의합니다"
+		"legacy": "나는 코코넛의 서비스 약관 및 개인 정보 보호 정책을 이해하고 동의합니다."
 	},
 	"categoriesCustomer": {
 		"header": "List of customers",

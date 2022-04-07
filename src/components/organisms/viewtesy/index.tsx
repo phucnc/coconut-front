@@ -687,7 +687,7 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
                             </Text>
                           ) : (
                           <Text size="14" modifiers={['bold', 'comment','left']}>
-                           Purchased by
+                           {t("View.Purchasedby")}
                            <Tooltip key={items.account?.address} title={items.account?.address} placement="top">
                               <button>
                                 <Text key={items.account} inline size="14" modifiers={['bold', 'gray','left']}>
@@ -720,7 +720,7 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
                        
                          
                             <Text size="14" modifiers={['bold', 'comment','left']}>
-                            Mint and put on sale by 
+                            {t("View.Firstminted")}
                               <Tooltip key={items.account?.address} title={items.account?.address} placement="top">
                                 <button>
                                   <Text key={items.account} inline size="14" modifiers={['bold', 'gray','left']}
@@ -1119,7 +1119,7 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
                               );
                             }}
                           >
-                            Payment
+                            {t("checkout.payment")}
                           </Button>
                         </ButtonContainer>
                       </div>

@@ -171,6 +171,23 @@
       bottom: 0px;
     }
   }
+  &_informationIn{
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    @include sp {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      top:380px;
+      bottom: 0px;
+    }
+  }
   &_share{
     position: absolute;
     top: 0;

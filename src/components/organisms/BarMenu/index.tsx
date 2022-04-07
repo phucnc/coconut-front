@@ -10,6 +10,7 @@ interface Props {
   modifiers?: Modifier | Modifier[];
   filterAndSort: React.ReactNode;
   category: React.ReactNode;
+  title?:boolean;
   
 }
 
@@ -18,7 +19,7 @@ export const Barmenu: React.FC<Props> = props => {
   return (
     <div className={mapModifiers('o-exploremenu', props.modifiers)}>
       <div className="o-exploremenu_category">
-        <Heading modifiers={[ 'pinkheader']}>{t("Myitem.Myitem")}</Heading>
+       {props.title && <Heading modifiers={[ 'pinkheader']}>{t("Myitem.Myitem")}</Heading>}
         <div className="o-exploremenu_tabs">{props.category}</div>
       </div>
       <div className="o-exploremenu_filter">{props.filterAndSort}</div>

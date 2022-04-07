@@ -33,59 +33,59 @@ var items = [
   {
     src: setup_2
   },
-  {
-    src: setup_3
-  },
-  {
-    src: setup_4
-  },
-  {
-    src: setup_5
-  },{
-    src: setup_6
-  },
-  {
-    src: setup_7
-  },
-  {
-    src: setup_8
-  },
-  {
-    src: setup_9
-  },
-  {
-    src: setup_10
-  },
-  {
-    src: setup_11
-  },
-  {
-    src: setup_12
-  },
-  {
-    src: setup_13
-  },
-  {
-    src: setup_14
-  },
-  {
-    src: setup_15
-  },
-  {
-    src: setup_16
-  },
-  {
-    src: setup_17
-  },
-  {
-    src: setup_18
-  },
-  {
-    src: setup_19
-  },
-  {
-    src: setup_20
-  },
+  // {
+  //   src: setup_3
+  // },
+  // {
+  //   src: setup_4
+  // },
+  // {
+  //   src: setup_5
+  // },{
+  //   src: setup_6
+  // },
+  // {
+  //   src: setup_7
+  // },
+  // {
+  //   src: setup_8
+  // },
+  // {
+  //   src: setup_9
+  // },
+  // {
+  //   src: setup_10
+  // },
+  // {
+  //   src: setup_11
+  // },
+  // {
+  //   src: setup_12
+  // },
+  // {
+  //   src: setup_13
+  // },
+  // {
+  //   src: setup_14
+  // },
+  // {
+  //   src: setup_15
+  // },
+  // {
+  //   src: setup_16
+  // },
+  // {
+  //   src: setup_17
+  // },
+  // {
+  //   src: setup_18
+  // },
+  // {
+  //   src: setup_19
+  // },
+  // {
+  //   src: setup_20
+  // },
 ]
 export interface ImageProps {
   modifiers?: Modifier | Modifier[];

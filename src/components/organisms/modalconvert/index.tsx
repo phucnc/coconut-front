@@ -1,16 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { hot } from 'react-hot-loader/root';
-import { mapModifiers } from 'lib/component';
-import ReactModal from 'react-modal';
 import Grid from '@material-ui/core/Grid';
-import { Modal } from 'components/organisms/modal';
-import { useClipboard } from "use-clipboard-hook";
 import { Text } from 'components/atoms/text';
 import { Button } from 'components/atoms/button';
 import { ModalHeader } from 'components/molecules/modalHeader';
 import { resetStore } from 'store/createNFT';
 import { Heading } from 'components/molecules/heading';
-import { useSnackbar } from 'notistack';
 import guilde from 'assets/images/guildeconvert.png';
 import { Link } from 'gatsby';
 type Modifier = 'overflowx' | 'overflowy' | 'overhidden' | 'error' | 'center';

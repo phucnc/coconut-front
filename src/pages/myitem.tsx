@@ -172,6 +172,7 @@ export const Myitem: React.FC<RouteComponentProps> = props => {
           <Section className="p-explore_myitemsub" >
           <div className="p-explore_productfilter">
                     <Barmenu
+                      title
                       category={
                         <TabList>
                           {['Created Items', ...MyItemCategories].map(cate => (

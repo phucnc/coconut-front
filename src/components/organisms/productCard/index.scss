@@ -138,6 +138,37 @@
     }
   }
 
+  &_likeitemView {
+    // position: relative;
+    background: #f1f1f1;
+    border: 1px solid rgba(255, 255, 255, 0.51);
+    box-sizing: border-box;
+    backdrop-filter: blur(10px);
+    border-radius: 22px;
+    width: 80px;
+    height: 39px;
+    // bottom: 18%;
+    // right: 80px;
+    margin: 0;
+    margin-right:15px!important;
+    margin-left:15px!important;
+    font-size: 16px;
+    font-family: NotoSans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+    .a-icon {
+      width: 18px;
+      height: 18px;
+      margin-bottom: 1%;
+    }
+    @include sp {
+      background:#F5F5F5;
+      
+    }
+  }
+
   &_view {
     position: absolute;
     // top:5px;

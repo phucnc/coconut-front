@@ -334,13 +334,13 @@ export const View: React.FC<RouteComponentProps> = props => {
 
   const numberLike = async () => {
     if (!like.isLike) {
-      const liked = await axios.post(`${process.env.ADDRESS_API}/nft/like?collectible_id=${id}&account_id=${account.account}&action=1`)
+      const liked = await axios.post(`${process.env.ADDRESS_API}/nft/like?collectible_id=${id}&account_id=${wallet.account}&action=1`)
       setLike({
         isLike: !like.isLike,
         amount: !like.isLike && typeof like.amount === 'number' && product?.like.liked===false ? 1 : 0,
       })
     } else {
-      const unliked = await axios.post(`${process.env.ADDRESS_API}/nft/like?collectible_id=${id}&account_id=${account.account}&action=0`)
+      const unliked = await axios.post(`${process.env.ADDRESS_API}/nft/like?collectible_id=${id}&account_id=${wallet.account}&action=0`)
       setLike({
         isLike: !like.isLike,
         amount: like.isLike && typeof like.amount === 'number' && product?.like.liked ?  -1 : 0,
@@ -400,7 +400,7 @@ export const View: React.FC<RouteComponentProps> = props => {
                         <Video detail  src={product.upload_file} />
                       )}
                     </div>
-                    <div className="p-view_information">
+                    <div className="p-view_informationIn">
                       <div className="p-view_numberView">
                       <Icon iconName='eye' />
                       <span>&nbsp;&nbsp;{product.view}</span>
@@ -408,7 +408,7 @@ export const View: React.FC<RouteComponentProps> = props => {
                     <button
                       onClick={() => numberLike()
                       }
-                      className="o-productcard_likeitem">{product?.like.total + like.amount}&nbsp;&nbsp;
+                      className="o-productcard_likeitemView">{product?.like.total + like.amount}&nbsp;&nbsp;
                       <Icon iconName={like.isLike ? 'heartred' : 'heartoutline'} />
                     </button>
             
@@ -595,7 +595,7 @@ export const View: React.FC<RouteComponentProps> = props => {
                           </Text>
                         ) : (
                         <Text size="14" modifiers={['bold', 'comment','left']}>
-                         Purchased by
+                         {t("View.Purchasedby")}
                          <Tooltip key={items.account?.address} title={items.account?.address} placement="top">
                             <button>
                               <Text key={items.account} inline size="14" modifiers={['bold', 'gray','left']}>&nbsp;{items.account?.address.replace(items.account?.address.substring(5, 40), "...")}
@@ -625,7 +625,7 @@ export const View: React.FC<RouteComponentProps> = props => {
                      
                        
                           <Text size="14" modifiers={['bold', 'comment','left']}>
-                          Mint and put on sale by 
+                          {t("View.Firstminted")} 
                             <Tooltip key={items.account?.address} title={items.account?.address} placement="top">
                               <button>
                                 <Text key={items.account} inline size="14" modifiers={['bold', 'gray','left']}>&nbsp;{items.account?.address.replace(items.account?.address.substring(5, 40), "...")}
