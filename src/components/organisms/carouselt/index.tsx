@@ -40,6 +40,7 @@ export const Carouselt: React.FC<Props> = props => {
   
   return (
     <div className="carousel_containt">
+      <Link to="/notice">
     <Carousel
      className="carousel"
      indicators= {true}
@@ -69,6 +70,7 @@ export const Carouselt: React.FC<Props> = props => {
          )
     }
 </Carousel>
+</Link>
 </div>
       // </Modal>
   

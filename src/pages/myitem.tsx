@@ -96,8 +96,10 @@ export const Myitem: React.FC<RouteComponentProps> = props => {
     const result = query?.substring(query.indexOf("="));
     params.get(param) ? params.set(param, value) : params.append(param, value);
     const newPath = `${props.path}?${params.toString()}`;
+    // console.log("newPath",newPath)
     window.history.pushState({ path: newPath }, '', newPath);
     console.log("newpath",newPath)
+    console.log("params9",params)
     const optionsget = params.get('category')
     let optionsget1 = optionsget?.toLocaleLowerCase()
     switch (optionsget1){
