@@ -17,7 +17,6 @@ interface Props {
 
 export const Modalconvert: React.FC<Props> = props => {
   // const [modalOpenShare, setModalOpenShare] = useState(false);
-  const { enqueueSnackbar, closeSnackbar } = useSnackbar();
 
   return (
 <>
