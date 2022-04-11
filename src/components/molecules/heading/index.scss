@@ -3,6 +3,8 @@
   align-items: top;
   margin: 0 0 10px;
   margin-bottom: 30px;
+  text-overflow: ellipsis;
+  overflow: hidden; 
   color: $COLOR-UTILITY-TXT-BASE;
   font-family: NotoSans;
   @include u-fw-b;
@@ -41,6 +43,9 @@
     @include sp {
       //  display:none;
      }
+  }
+  &-title {
+   height: 35px;
   }
   &-center {
     text-align:center;

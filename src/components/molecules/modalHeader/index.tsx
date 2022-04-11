@@ -22,7 +22,7 @@ export const ModalHeader: React.FC<Props> = props => {
       {props.mod? (
         <Heading modifiers="nomargin" type="h3">{props.title}{props.icon && <Icon iconName="createitem" modifiers="create" />}</Heading>
       ) :(
-      <Heading type="h2">{props.title}{props.icon && <Icon iconName="createitem" modifiers="create" />}</Heading>
+      <Heading modifiers="title" type="h2">{props.title}{props.icon && <Icon iconName="createitem" modifiers="create" />}</Heading>
       )}
       {/* {props.icon && <Icon iconName="createitem" />} */}
       <Button modifiers={['icon']} handleClick={props.handleClose}>

@@ -431,29 +431,27 @@ export const Home: React.FC<RouteComponentProps> = props => {
           >
             <Grid className="p-explore_totalvolumeMain" item xs={9}>
               {isMobile ? (
-                <Sectionsub className="p-explore_totalvolume">
-                  <Grid className="p-explore_heading-subsec" container >
-                    <Grid className="p-explore_heading-sub" item xs={12}>
-                      <Heading modifiers={['center']}>{t("mainMenu.TotalmintNFT")} &nbsp;<Heading modifiers={['center', 'pink']}>NFT</Heading></Heading>
-                    </Grid>
-                    <Grid item xs={12}>
-                      <Paper elevation={0} className={classes.paper}><span className="p-explore_Totalnumber">{totalmint}</span>
-                      </Paper>
-                    </Grid>
-                  </Grid>
-                  <Grid className="p-explore_heading-subsec" container>
-                    <Grid className="p-explore_heading-sub" item xs={12}>
-                      <Heading modifiers={['center']}>{t("mainMenu.TotalsoldNFT24h")} &nbsp;<Heading modifiers={['center', 'pink']}>7 days</Heading></Heading>
-                    </Grid>
-                    <Grid item xs={12}>
-                      <Paper elevation={0} className={classes.paper}><span className="p-explore_Totalnumber">{totalvolume}&nbsp;</span><span className="p-explore_TotalnumberValue">BUSD</span>
-                      </Paper>
-                    </Grid>
-                  </Grid>
-
-
-                  {/* <button onClick={()=>click()}>hahahahahaa</button> */}
-                </Sectionsub>
+                // <Sectionsub className="p-explore_totalvolume">
+                //   <Grid className="p-explore_heading-subsec" container >
+                //     <Grid className="p-explore_heading-sub" item xs={12}>
+                //       <Heading modifiers={['center']}>{t("mainMenu.TotalmintNFT")} &nbsp;<Heading modifiers={['center', 'pink']}>NFT</Heading></Heading>
+                //     </Grid>
+                //     <Grid item xs={12}>
+                //       <Paper elevation={0} className={classes.paper}><span className="p-explore_Totalnumber">{totalmint}</span>
+                //       </Paper>
+                //     </Grid>
+                //   </Grid>
+                //   <Grid className="p-explore_heading-subsec" container>
+                //     <Grid className="p-explore_heading-sub" item xs={12}>
+                //       <Heading modifiers={['center']}>{t("mainMenu.TotalsoldNFT24h")} &nbsp;<Heading modifiers={['center', 'pink']}>7 days</Heading></Heading>
+                //     </Grid>
+                //     <Grid item xs={12}>
+                //       <Paper elevation={0} className={classes.paper}><span className="p-explore_Totalnumber">{totalvolume}&nbsp;</span><span className="p-explore_TotalnumberValue">BUSD</span>
+                //       </Paper>
+                //     </Grid>
+                //   </Grid>
+                // </Sectionsub>
+                <></>
               ) : (
                   <Sectionsub modifiers="padding5" className="p-explore_totalvolume p-explore_carousel">
                     <Carouselt />

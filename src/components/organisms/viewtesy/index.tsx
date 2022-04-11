@@ -486,7 +486,7 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
                   </div>
                   <div className="p-view_info">
                     <div className="p-view_detailheading">
-                      <Heading type="h1" title={props.title}>
+                      <Heading modifiers="title" type="h1" title={props.title}>
                         {props.title}
                       </Heading>
                       {/* <div className="p-view_price">

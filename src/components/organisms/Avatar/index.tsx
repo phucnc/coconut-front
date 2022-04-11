@@ -260,7 +260,7 @@ export const Avatar: React.FC<Props> = (props) => {
 
      
       <Modal isOpen={modalOpenReport} handleClose={() => setmodalOpenReport(false)}>
-        <ModalHeader title="Why are you reporting?" handleClose={() => setmodalOpenReport(false)} />
+        <ModalHeader title={t("reportpopup.Title")} handleClose={() => setmodalOpenReport(false)} />
         <Grid
           container
           spacing={0}

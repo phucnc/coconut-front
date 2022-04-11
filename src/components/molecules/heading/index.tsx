@@ -3,7 +3,7 @@ import { hot } from 'react-hot-loader/root';
 import { mapModifiers } from 'lib/component';
 
 type Heading = 'h1' | 'h2' | 'h3' | 'h4' | 'h6';
-type Modifier = 'center'|'underline' | 'white' | 'nomargin' |'pink' |'pinkheader' | 'left' | 'right' | 'nomargin' |'explore';
+type Modifier = 'center'|'underline' | 'white' | 'nomargin' |'pink' |'pinkheader' | 'left' | 'right' | 'nomargin' |'explore' | 'title';
 interface Props {
   modifiers?: Modifier | Modifier[];
   type?: Heading;

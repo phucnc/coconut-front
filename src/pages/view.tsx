@@ -694,7 +694,7 @@ export const View: React.FC<RouteComponentProps> = props => {
                   </div>
                 </article>
                 <Modal isOpen={ModalOpenreport} handleClose={() => setModalOpenreport(false)}>
-        <ModalHeader title="Why are you reporting?" handleClose={() => setModalOpenreport(false)} />
+        <ModalHeader title={t("reportpopup.Title")} handleClose={() => setModalOpenreport(false)} />
         
         {/* <div className={classes.root}> */}
       <FormControl error={error} component="fieldset" className={classes.formControl}>
@@ -702,27 +702,27 @@ export const View: React.FC<RouteComponentProps> = props => {
           <FormControlLabel 
             className={classes.font}
             control={<Checkbox  checked={first} onChange={handleChange} name="first" />}
-            label={<Typography  className={classes.formControlLabel}>Copyright</Typography>}
+            label={<Typography  className={classes.formControlLabel}>{t("reportpopup.Copyright")}</Typography>}
           />
           <FormControlLabel
             control={<Checkbox checked={second} onChange={handleChange} name="second" />}
-            label={<Typography className={classes.formControlLabel}>Sexual content</Typography>}
+            label={<Typography className={classes.formControlLabel}>{t("reportpopup.Sexual")}</Typography>}
           />
           <FormControlLabel
             control={<Checkbox checked={third} onChange={handleChange} name="third" />}
-            label={<Typography className={classes.formControlLabel}>Violent or repulsive content</Typography>}
+            label={<Typography className={classes.formControlLabel}>{t("reportpopup.Violent")}</Typography>}
           />
             <FormControlLabel
             control={<Checkbox checked={fourth} onChange={handleChange} name="fourth" />}
-            label={<Typography className={classes.formControlLabel}>Hateful or abusive content</Typography>}
+            label={<Typography className={classes.formControlLabel}>{t("reportpopup.Hateful")}</Typography>}
           />
             <FormControlLabel
             control={<Checkbox checked={fifth} onChange={handleChange} name="fifth" />}
-            label={<Typography className={classes.formControlLabel}>Harmful or dangerous acts</Typography>}
+            label={<Typography className={classes.formControlLabel}>{t("reportpopup.Harmful")}</Typography>}
           />
             <FormControlLabel
             control={<Checkbox checked={sixth} onChange={handleChange} name="sixth" />}
-            label={<Typography className={classes.formControlLabel}>Spam or misleading</Typography>}
+            label={<Typography className={classes.formControlLabel}>{t("reportpopup.Spam")}</Typography>}
           />
      
         </FormGroup>
@@ -732,12 +732,12 @@ export const View: React.FC<RouteComponentProps> = props => {
     {/* </div> */}
                     <ButtonContainer>
                       <Button disabled={error} handleClick={() => reportitem()} type="submit" modifiers="createbig">
-                        Report
+                      {t("Myitem.Report")}
                       </Button>
                     </ButtonContainer>
       </Modal>
                 <Modal isOpen={modalOpenShare} handleClose={() => setModalOpenShare(false)}>
-              <ModalHeader title="Share this NFT" handleClose={() => setModalOpenShare(false)} />
+              <ModalHeader title={t("sharepopup.share")} handleClose={() => setModalOpenShare(false)} />
               <Modalshare link={productLink} />
             </Modal>
                 <Modal checkout isOpen={isApproved} handleClose={handleCloseModal} modifiers="overflowy">
