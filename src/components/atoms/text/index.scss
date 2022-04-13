@@ -270,15 +270,22 @@
   }
 
   &-centerexplore {
-    // text-align: center;
+    text-align: center;
+    font-family: NotoSans!important;
+    margin-top:5px;
+    font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 21px;
+
   }
   &-center {
     text-align: center;
     padding:3px;
   }
   &-explore {
-    border: 1px solid black;
-    border-radius: 15px;
+    // border: 1px solid black;
+    // border-radius: 15px;
   }
   &-error {
     color: $COLOR-ERROR;
