@@ -572,19 +572,22 @@ export const Home: React.FC<RouteComponentProps> = props => {
                                 
                                 <Heading modifiers={['explore']}>{t("mainMenu.Explore")}</Heading>
                                 {/* {[...ProductCategories].map(cate => ( */}
+                                <div className="menuOption_tablist">
                                 {[...ProductCategories].map(cate => (
                                   // {['All','Trend', ...ProductCategories].map(cate => (
                                   <TabButton
                                     modifiers="explore"
                                     key={cate.tab}
-                                    useFormik
+                                    // useFormik
                                     name="productCategory"
                                     value={cate.tab}
                                     explore
                                     // checked={true}
                                     handleClick={() => handleFilter('category', cate.tab)}
                                   >
-                                    <Grid
+                                    <Icon modifiers="32px" iconName={cate.icon} />
+                                    <Text modifiers="centerexplore">{cate.tab}</Text>
+                                    {/* <Grid
                                       container
                                       spacing={3}
                                     >
@@ -593,9 +596,10 @@ export const Home: React.FC<RouteComponentProps> = props => {
                                       <Grid className={classes.tabc} justify="flex-start" item xs={7} spacing={1}>
                                         {cate.tab}
                                       </Grid>
-                                    </Grid>
+                                    </Grid> */}
                                   </TabButton>
                                 ))}
+                                </div>
                                  <div className="p-explore_moreContent">
                                   <Text modifiers="center">Category</Text>
                                   {reg.map((cate, i) => (

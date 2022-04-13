@@ -37,7 +37,9 @@ export const TabButton: React.FC<Props> = props => {
       {props.category? (
          <Button modifiers={['category']} handleClick={props.handleClick}>
          {/* <Text modifiers={props.active ? 'active' : void 0} size="12"> */}
-           {props.children}
+         {/* <Text> */}
+           #&nbsp;{props.children}
+           {/* </Text> */}
          {/* </Text> */}
        </Button>
       ) : (

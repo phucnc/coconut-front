@@ -23,14 +23,14 @@ export const ProductCategories = [
     tab:'New',
     icon:'newtab'
   }, 
-  {
-    tab:'Recently Traded',
-    icon:'cointab'
-  },
-  { 
-    tab:'Most Profitable',
-    icon:'tagtab'
-  },
+  // {
+  //   tab:'Recently Traded',
+  //   icon:'cointab'
+  // },
+  // { 
+  //   tab:'Most Profitable',
+  //   icon:'tagtab'
+  // },
  
 ];
 // export const ProductCategories = ['Trend', 'Best', 'New', 'Trade', 'Price'];

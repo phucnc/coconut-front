@@ -272,7 +272,7 @@
   }
 
   &_moreContent {
-    margin-top:20px;
+    margin-top:30px;
     padding :10px 19px 19px 19px;
     border-top : 1px solid #0000001A;
   }
@@ -426,6 +426,10 @@
   @include sp {
     overflow: hidden;
   }
+}
+.menuOption_tablist {
+  display:flex!important;
+  justify-content: center;
 }
 .menuOption-hidden{
   display:none;
