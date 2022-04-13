@@ -4,8 +4,7 @@ import { mapModifiers } from 'lib/component';
 import { Button } from 'components/atoms/button';
 import { Text } from 'components/atoms/text';
 import { Field } from 'formik';
-import { Icon } from 'components/atoms/icon';
-import Grow from '@material-ui/core/Grow';
+
 type Modifier = 'foo' | 'bar' | 'explore' |'category';
 
 interface Props {

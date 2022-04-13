@@ -3,10 +3,8 @@ import { Button } from 'components/atoms/button';
 import { CheckInputFormik } from 'components/atoms/checkInput';
 import { Text } from 'components/atoms/text';
 import { navigate } from 'gatsby-link';
-import { Dropdown } from 'components/molecules/dropdown';
 import { TextFieldFormik } from 'components/atoms/textfield';
 import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
-import Banner2 from 'assets/images/Banner2.svg';
 import { useTranslation } from "react-i18next";
 import Banner3 from 'assets/images/Banner3.svg';
 import avatar from 'assets/images/avatar-girl.png';
@@ -30,20 +28,8 @@ import { ItemList } from 'components/organisms/itemList';
 import { Section } from 'components/organisms/section';
 import { Unit } from 'components/pages/create/form';
 import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
 import axios from 'axios';
-import { Field } from 'formik';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import Chip from '@material-ui/core/Chip';
-import Divider from '@material-ui/core/Divider';
-import Accordion from '@material-ui/core/Accordion';
-import AccordionDetails from '@material-ui/core/AccordionDetails';
-// import AccordionSummary from '@material-ui/core/AccordionSummary';
 import { Sectionsub } from 'components/organisms/sectionsub';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardMedia from '@material-ui/core/CardMedia';
-import { CardTypeNum, formatBalance } from 'util/formatBalance';
 import { useEthers, useEtherBalance } from "@usedapp/core";
 import { useMediaQuery } from 'react-responsive'
 import {
@@ -63,12 +49,10 @@ import { hot } from 'react-hot-loader/root';
 import { useDispatch, useSelector } from 'react-redux';
 import List from '@material-ui/core/List';
 import clsx from 'clsx';
-import ListItem from '@material-ui/core/ListItem';
 import { getExploreStore, getProductList, GetProductListReq, getTotalVolume } from 'store/explore';
 import { withStyles } from '@material-ui/core/styles';
 import { getMediaType } from 'util/getMediaType';
 import { Theme, createStyles, makeStyles } from '@material-ui/core/styles';
-import { State } from 'store';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import ScrollToTop from 'react-scroll-up'
 const useStyles = makeStyles((theme) => ({
@@ -570,7 +554,7 @@ export const Home: React.FC<RouteComponentProps> = props => {
                             <Grid item xs={12}>
                               <TabList modifiers="explore">
                                 
-                                <Heading modifiers={['explore']}>{t("mainMenu.Explore")}</Heading>
+                                {/* <Heading modifiers={['explore']}>{t("mainMenu.Explore")}</Heading> */}
                                 {/* {[...ProductCategories].map(cate => ( */}
                                 <div className="menuOption_tablist">
                                 {[...ProductCategories].map(cate => (
@@ -601,7 +585,7 @@ export const Home: React.FC<RouteComponentProps> = props => {
                                 ))}
                                 </div>
                                  <div className="p-explore_moreContent">
-                                  <Text modifiers="center">Category</Text>
+                                  {/* <Text modifiers="center">Category</Text> */}
                                   {reg.map((cate, i) => (
                                     <TabButton 
                                     category

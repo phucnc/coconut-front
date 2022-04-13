@@ -270,7 +270,7 @@ export const Header: React.FC = () => {
           </Form>
         </Formik> */}
         <Modal modifiers="error" isOpen={modalOpenShare} handleClose={() => setModalOpenShare(false)}>
-          <Text modifiers={['bold', 'center']}>You need to connect to your wallet to do this</Text>
+          <Text modifiers={['bold', 'center']}>{t("mainMenu.ConnectD")}</Text>
           <ButtonContainer>
             <Button modifiers="bid" handleClick={() => setModalOpenShare(false)}>
               Cancel

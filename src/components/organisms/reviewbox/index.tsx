@@ -142,7 +142,7 @@ export const Reviewcard: React.FC<ProductProps> = props => {
 
             </Link>
             <Modal modifiers="error" isOpen={modalInception} handleClose={() => setmodalInception(false)}>
-              <Text modifiers={['bold', 'center']}>You need to connect to your wallet to do this</Text>
+              <Text modifiers={['bold', 'center']}>{t("mainMenu.ConnectD")}</Text>
               <ButtonContainer>
                 <Button modifiers="bid" handleClick={() => setmodalInception(false)}>
                   Cancel

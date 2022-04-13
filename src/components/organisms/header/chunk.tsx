@@ -487,7 +487,7 @@ export const MenuChunk: React.FC<Props> = ({  balanceBUSD, balanceCONT }) => {
         </Grid>
       </Modal>
       <Modal modifiers="error" isOpen={modalOpenConnect} handleClose={() => setModalOpenConnect(false)}>
-          <Text modifiers={['bold', 'center']}>You need to connect to your wallet to do this</Text>
+          <Text modifiers={['bold', 'center']}>{t("mainMenu.ConnectD")}</Text>
           <ButtonContainer>
             <Button modifiers="bid" handleClick={() => setModalOpenConnect(false)}>
               Cancel
