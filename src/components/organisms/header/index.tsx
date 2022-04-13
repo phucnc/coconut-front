@@ -205,7 +205,7 @@ export const Header: React.FC = () => {
         </ListItem>
       </List>
       <div onClick={toggleDrawer(anchor, false)} className="o-header_connect-mobile">
-        <Button handleClick={() => setmodalmobile(true)} modifiers="connectmobile"> Connect Wallet </Button>
+        <Button handleClick={() => setmodalmobile(true)} modifiers="connectmobile"> {t("mainMenu.Connect") }</Button>
       </div>
     </div>
   )
@@ -276,7 +276,7 @@ export const Header: React.FC = () => {
               Cancel
           </Button>
             <Button modifiers="buy" handleClick={() => { connectWallet(wallet); setModalOpenShare(false) }}>
-              Connect wallet
+            {t("mainMenu.Connect")}
           </Button>
           </ButtonContainer>
         </Modal>
@@ -407,8 +407,8 @@ export const Header: React.FC = () => {
         </div>
       )}
       <Modal modifiers="error" isOpen={modalmobile} handleClose={() => setmodalmobile(false)}>
-        <ModalHeader title="Sorry for this inconvenience :(" handleClose={() => setmodalmobile(false)} />
-        <Text modifiers={['bold', 'center']}>Currently, the mobile platform does not support connecting with Binance Smart wallet function. Please visit the desktop version on PC for a better experience.</Text>
+        <ModalHeader title={t("View.Sorry")} handleClose={() => setmodalmobile(false)} />
+        <Text modifiers={['bold', 'center']}>{t("View.SorryD")}</Text>
         <ButtonContainer>
           <Button modifiers="buy" handleClick={() => { setmodalmobile(false) }}>
             OK

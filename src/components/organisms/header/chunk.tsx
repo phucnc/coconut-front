@@ -493,7 +493,7 @@ export const MenuChunk: React.FC<Props> = ({  balanceBUSD, balanceCONT }) => {
               Cancel
           </Button>
             <Button modifiers="buy" handleClick={() => { connectWallet(wallet); setModalOpenConnect(false) }}>
-              Connect wallet
+            {t("mainMenu.Connect")}
           </Button>
           </ButtonContainer>
         </Modal>

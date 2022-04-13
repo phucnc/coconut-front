@@ -18,15 +18,15 @@ import { useEthers, useEtherBalance } from "@usedapp/core";
 import { ModalHeader } from 'components/molecules/modalHeader';
 import { Modalinstalmetamsk } from 'components/organisms/modalinstalmetamask';
 import {openModalIn, closeModalIn } from 'store/buyNFT';
+import { useTranslation } from "react-i18next";
+
 const Interceptor: React.FC = props => {
   const wallet = useWallet();
   const { isOpen, isSuccess, product, isGetDone } = useSelector(getBuyStore);
   const [loading, setLoading] = useState(true);
   const {activateBrowserWallet, account } = useEthers();
-  const accountt = useEthers();
-  const etherBalance = useEtherBalance(account);
+  const { t } = useTranslation();
   const dispatch = useDispatch();
-  const [modalOpenClaim, setModalOpenClaim] = useState(false);
   const [reg, regSet] = useState(Array);
   const isMobile = useMediaQuery({
     query: '(max-width: 840px)'
@@ -141,7 +141,7 @@ const Interceptor: React.FC = props => {
             Cancel
           </Button>
           <Button modifiers="buy" handleClick={() => connectWallet(wallet)}>
-            Connect wallet
+          {t("mainMenu.Connect")}
           </Button>
         </ButtonContainer>
       </Modal>

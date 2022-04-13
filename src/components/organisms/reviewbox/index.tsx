@@ -74,6 +74,7 @@ export const Reviewcard: React.FC<ProductProps> = props => {
   const serviceFee = Number(process.env.SERVICE_FEE);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
+  const { t } = useTranslation();
   const [ModalResell, setModalResell] = useState(false);
   const [modalOpenShare, setModalOpenShare] = useState(false);
   const [modalInception, setmodalInception] = useState(false);
@@ -147,7 +148,7 @@ export const Reviewcard: React.FC<ProductProps> = props => {
                   Cancel
           </Button>
                 <Button modifiers="buy" handleClick={() => { connectWallet(wallet); setmodalInception(false) }}>
-                  Connect wallet
+                {t("mainMenu.Connect")}
           </Button>
               </ButtonContainer>
             </Modal>
