@@ -569,8 +569,9 @@ export const Home: React.FC<RouteComponentProps> = props => {
                                     // checked={true}
                                     handleClick={() => handleFilter('category', cate.tab)}
                                   >
-                                    <Icon modifiers="32px" iconName={cate.icon} />
-                                    <Text modifiers="centerexplore">{cate.tab}</Text>
+                                    {/* <Icon modifiers="32px" iconName={cate.icon} /> */}
+                                    <Button modifiers="exploreMenu"><Text modifiers="centerexplore">{cate.tab}</Text></Button>
+                                    {/* <Text modifiers="centerexplore">{cate.tab}</Text> */}
                                     {/* <Grid
                                       container
                                       spacing={3}

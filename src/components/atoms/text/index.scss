@@ -274,9 +274,15 @@
     font-family: NotoSans!important;
     margin-top:5px;
     font-style: normal;
-font-weight: 400;
-font-size: 14px;
-line-height: 21px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color:white;
+    &:hover {
+  // background: white;
+  // color:black!important;
+  
+}
 
   }
   &-center {

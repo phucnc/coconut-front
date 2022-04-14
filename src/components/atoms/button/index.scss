@@ -465,6 +465,25 @@ linear-gradient(100.93deg, #D565C3 -13.26%, #ABD3EA 101.12%);
     cursor: pointer;
   }
 
+  &-exploreMenu {
+    background-color: black;
+    color: white!important;
+    align-items: center;
+    justify-content: center;
+    width:65px;
+    height: 65px;
+    border-radius: 100%;
+    padding:10px!important;
+    &:hover {
+      background: #636363;
+      color:black!important;
+      p {
+        color:black!important;
+      }
+      
+    }
+  }
+
   &-inline {
     display: inline!important;
     margin-right: 6px;
