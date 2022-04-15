@@ -171,7 +171,7 @@
     linear-gradient(0deg, #FFFFFF, #FFFFFF);
     border-radius:15px!important;
     color: #F4F4F4;
-    min-width: 140px!important;
+    min-width: 140px;
     height: 30px;
     // margin-right:15px;
     margin-left:10px;
@@ -184,6 +184,9 @@
     padding: 0 20px;
     @include sp{
       display: none;
+    }
+    @include lg {
+      min-width: 190px!important;
     }
   }
 
