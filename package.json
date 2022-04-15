@@ -8,7 +8,7 @@
     "gatsby"
   ],
   "scripts": {
-    "start": "gatsby develop --host=0.0.0.0 --port=3000 --open",
+    "start": "gatsby develop --host=0.0.0.0 --port=3010 --open",
     "build": "gatsby build",
     "serve": "gatsby serve",
     "storybook": "start-storybook -p 8008 -s public",
