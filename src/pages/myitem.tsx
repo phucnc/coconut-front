@@ -2,7 +2,6 @@ import React, { useCallback, useEffect, useMemo, useState,useRef } from 'react';
 import { hot } from 'react-hot-loader/root';
 import { Layout } from 'components/templates/layout';
 import { Section } from 'components/organisms/section';
-import { Sectionsub } from 'components/organisms/sectionsub';
 import { users } from 'dummy/dummy';
 import { navigate } from 'gatsby';
 import { Icon } from 'components/atoms/icon';
@@ -16,16 +15,15 @@ import { closeConnectModal, getCommon, setAccount,tokenID } from 'store/common';
 // import { ExploreMenu } from 'components/organisms/exploreMenu';
 import { Barmenu } from 'components/organisms/BarMenu';
 import { Avatar } from 'components/organisms/Avatar';
-import { Categories, createSchema, initialValue, Unit } from 'components/pages/create/form';
+import {  Unit } from 'components/pages/create/form';
 import { getMediaType } from 'util/getMediaType';
 import { Button } from 'components/atoms/button';
 import { RouteComponentProps } from '@reach/router';
-import { ViewMyitemTabs, ViewMyitemTabsType } from 'components/pages/view/constants';
+import {  ViewMyitemTabsType } from 'components/pages/view/constants';
 
 import {
   ExploreSchema,
   exploreSchema,
-  ExtraProductCategories,
   MyItemCategories,
   Sort,
   SortDefaultValue,

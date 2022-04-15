@@ -9,7 +9,6 @@ import { UserAvatar } from 'components/molecules/userAvatar';
 import React, { useCallback, useEffect, useMemo, useState,useRef } from 'react';
 import moment from "moment";
 import Badge from '@material-ui/core/Badge';
-import InfiniteScroll from "react-infinite-scroll-component";
 import { Link } from 'components/atoms/link';
 import { Text } from 'components/atoms/text';
 import { resetStore } from 'store/createNFT';
@@ -29,7 +28,6 @@ import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
 import { DropdownMenu, DropdownItem } from 'components/molecules/dropdownMenu';
 import logo from 'assets/images/ccn_logoOF.png';
-import dotgreen from 'assets/images/icon/icon-dotgreen.svg'
 import { ButtonContainer } from 'components/molecules/buttonContainer';
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 interface Props {
@@ -208,7 +206,7 @@ export const MenuChunk: React.FC<Props> = ({  balanceBUSD, balanceCONT }) => {
       </a>
       {(wallet?.status == "disconnected" || wallet?.status == "error" ) ? ( <div><Button modifiers={['create']} handleClick={()=>setModalOpenConnect(true)}>{t("mainMenu.Create")}</Button></div>)
       : (
-      <div><Button modifiers={['create']} handleClick={()=>setmodalOpenNoticeCreate(true)}>{t("mainMenu.Create")}</Button></div>
+      <div><Button modifiers={['create','black']} handleClick={()=>setmodalOpenNoticeCreate(true)}>{t("mainMenu.Create")}</Button></div>
       )}
       {/* <div><Button modifiers={['create']} handleClick={()=>setmodalOpenNoticeCreate(true)}>{t('mainMenu.Create')}</Button></div> */}
      

@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { hot } from 'react-hot-loader/root';
 import { useDispatch, useSelector } from 'react-redux';
-// import { mapModifiers } from 'lib/component';
-// import { UserAvatar } from 'components/molecules/userAvatar';
-import IconButton from '@material-ui/core/IconButton';
-import PhotoCamera from '@material-ui/icons/PhotoCamera';
 import avatar from 'assets/images/noneAvatar.svg';
 import TextField from '@material-ui/core/TextField';
 import { Toast } from 'components/molecules/toast';
@@ -14,15 +10,6 @@ import { Modal } from 'components/organisms/modal';
 import {
   EmailShareButton,
   FacebookShareButton,
-  HatenaShareButton,
-  InstapaperShareButton,
-  LineShareButton,
-  LinkedinShareButton,
-  LivejournalShareButton,
-  MailruShareButton,
-  OKShareButton,
-  PinterestShareButton,
-  PocketShareButton,
   RedditShareButton,
   TelegramShareButton,
   TumblrShareButton,
@@ -244,6 +231,7 @@ export const Avatar: React.FC<Props> = (props) => {
     // style="background-image: url(datacover);"
     <section className='o-section1'
     style={{
+      backgroundColor:"#E6E6E6",
       backgroundImage: `url(${datacover})`
     }}
       onMouseEnter={e => {

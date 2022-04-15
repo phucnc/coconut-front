@@ -1,9 +1,6 @@
 import { Button } from 'components/atoms/button';
 import { Icon } from 'components/atoms/icon';
 import { Link } from 'components/atoms/link';
-import { TextFieldFormik } from 'components/atoms/textfield';
-import { Form, Formik } from 'formik';
-import { navigate } from 'gatsby-link';
 import { throttle } from 'lodash';
 import { useTranslation } from "react-i18next";
 import React, { useEffect, useState } from 'react';
@@ -22,7 +19,6 @@ import Grid from '@material-ui/core/Grid';
 import List from '@material-ui/core/List';
 import clsx from 'clsx';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import { approveNFT, createNFT, createTokenURI, getCreateStore, resetStore, sellNFT } from 'store/createNFT';
 import Accordion from '@material-ui/core/Accordion';
@@ -36,9 +32,6 @@ import {
   MenuItem,
   MenuButton,
   SubMenu,
-  MenuHeader,
-  MenuDivider,
-  MenuRadioGroup
 } from '@szhsin/react-menu';
 import '@szhsin/react-menu/dist/index.css';
 import { makeStyles } from '@material-ui/core/styles';

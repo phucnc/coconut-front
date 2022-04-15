@@ -1,29 +1,22 @@
 import { RouteComponentProps } from '@reach/router';
 import { Button } from 'components/atoms/button';
-import { CheckInputFormik } from 'components/atoms/checkInput';
 import { Text } from 'components/atoms/text';
 import { navigate } from 'gatsby-link';
 import { TextFieldFormik } from 'components/atoms/textfield';
 import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
 import { useTranslation } from "react-i18next";
-import Banner3 from 'assets/images/Banner3.svg';
-import avatar from 'assets/images/avatar-girl.png';
 import { useWallet } from 'use-wallet';
 import { Icon } from 'components/atoms/icon';
 import { Modal } from 'components/organisms/modal';
 import { Carouselt } from 'components/organisms/carouselt';
-import { Textfieldsearch } from 'components/organisms/Textfieldsearch';
 import { ModalHeader } from 'components/molecules/modalHeader';
 import { Modalclaim } from 'components/organisms/modalclaim';
-import { approveBUSD, approveCONT, closeModal, getBuyStore, getProduct, openModal, purchase, modalpurchase } from 'store/buyNFT';
+import { getBuyStore } from 'store/buyNFT';
 import { Link } from 'gatsby';
-import { Barmenu } from 'components/organisms/Barmenu';
-import { DropdownItem, DropDownItemGroup, DropdownMenu } from 'components/molecules/dropdownMenu';
 import { Container } from "@material-ui/core";
 import { Heading } from 'components/molecules/heading';
 import { TabButton } from 'components/molecules/tabButton';
 import { TabList } from 'components/molecules/tabList';
-import { ExploreMenu } from 'components/organisms/exploreMenu';
 import { ItemList } from 'components/organisms/itemList';
 import { Section } from 'components/organisms/section';
 import { Unit } from 'components/pages/create/form';
@@ -37,7 +30,6 @@ import {
   exploreSchema,
   ExtraProductCategories,
   ProductCategories,
-  Sort,
   SortDefaultValue,
 } from 'components/pages/explore/form';
 import { resetStore } from 'store/createNFT';
@@ -47,7 +39,6 @@ import { Form, Formik } from 'formik';
 import React, { useCallback, useEffect, useMemo, useState, useRef } from 'react';
 import { hot } from 'react-hot-loader/root';
 import { useDispatch, useSelector } from 'react-redux';
-import List from '@material-ui/core/List';
 import clsx from 'clsx';
 import { getExploreStore, getProductList, GetProductListReq, getTotalVolume } from 'store/explore';
 import { withStyles } from '@material-ui/core/styles';

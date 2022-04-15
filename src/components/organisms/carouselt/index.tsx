@@ -22,12 +22,12 @@ var items = [
   {
       src: setup_1
   },
-  {
-      src: setup_2
-  },
-  {
-    src: setup_3
-},
+//   {
+//       src: setup_2
+//   },
+//   {
+//     src: setup_3
+// },
 // {
 //   name: "Random Name #1",
 //   description: "Probably the most random thing you have ever seen!",
