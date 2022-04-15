@@ -202,7 +202,7 @@ export const MenuChunk: React.FC<Props> = ({  balanceBUSD, balanceCONT }) => {
   return (
     <div className="o-header_buttons">
       <a href={"https://conut.coconut.global"}>
-        <Button modifiers={['CCNmember']}>CONUT member</Button>
+        <Button modifiers={['CCNmember']}>CONUT Member</Button>
       </a>
       {(wallet?.status == "disconnected" || wallet?.status == "error" ) ? ( <div><Button modifiers={['create']} handleClick={()=>setModalOpenConnect(true)}>{t("mainMenu.Create")}</Button></div>)
       : (
