@@ -145,7 +145,7 @@ export const userguilde: React.FC = () => {
             container
             spacing={1}
           >
-            <Grid item xs={3}>
+            {/* <Grid item xs={3}>
             <Tabs
               orientation="vertical"
               variant="scrollable"
@@ -158,8 +158,8 @@ export const userguilde: React.FC = () => {
               <Tab className={classes.tab} key={idx} label={item?.title} {...a11yProps(idx)} />
             ))}
             </Tabs>
-            </Grid>
-            <Grid item xs={9}>
+            </Grid> */}
+            <Grid item xs={12}>
             {reg.map((items,i) =>(
               <div className="notice">
                 <TabPanel key={i} value={value} index={i}>

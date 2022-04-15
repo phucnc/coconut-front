@@ -20,12 +20,13 @@ import List from '@material-ui/core/List';
 import clsx from 'clsx';
 import ListItem from '@material-ui/core/ListItem';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
+import logoGlobal from 'assets/images/ccnglobal_logo_ver1.png'
 import { approveNFT, createNFT, createTokenURI, getCreateStore, resetStore, sellNFT } from 'store/createNFT';
 import Accordion from '@material-ui/core/Accordion';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import Typography from '@material-ui/core/Typography';
-import { useEthers, useEtherBalance } from "@usedapp/core";
+import { useEthers, useEtherBalance, useLocalStorage } from "@usedapp/core";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import {
   Menu,
@@ -243,7 +244,12 @@ export const Header: React.FC = () => {
   return (
     <header className={'o-header u-sticky'}>
       {/* <header className={`o-header ${isSticky ? 'u-sticky' : ''}`}> */}
-      <a href="/"> <span className={'o-header_b-logo'}><Divider orientation="vertical" flexItem /></span> </a>
+      <a href="/">
+        {/* <span className={'o-header_b-logo'}>
+           <Divider orientation="vertical" flexItem />
+        </span> */}
+        <img className="b-logo" src={logoGlobal}/>
+      </a>
 
       <div className="o-header_main">
         {/* <Formik
