@@ -206,7 +206,7 @@ export const MenuChunk: React.FC<Props> = ({  balanceBUSD, balanceCONT }) => {
       </a>
       {(wallet?.status == "disconnected" || wallet?.status == "error" ) ? ( <div><Button modifiers={['create']} handleClick={()=>setModalOpenConnect(true)}>{t("mainMenu.Create")}</Button></div>)
       : (
-      <div><Button modifiers={['create','black']} handleClick={()=>setmodalOpenNoticeCreate(true)}>{t("mainMenu.Create")}</Button></div>
+      <div><Button modifiers={['create']} handleClick={()=>setmodalOpenNoticeCreate(true)}>{t("mainMenu.Create")}</Button></div>
       )}
       {/* <div><Button modifiers={['create']} handleClick={()=>setmodalOpenNoticeCreate(true)}>{t('mainMenu.Create')}</Button></div> */}
      
