@@ -25,6 +25,14 @@
     margin-left:25px;
   }
 
+  &-avatar {
+    font-family: NotoSans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+    color: #323232;
+  }
   &-user {
     color: $COLOR-GRAY;
 

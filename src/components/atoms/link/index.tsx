@@ -3,7 +3,7 @@ import { hot } from 'react-hot-loader/root';
 import { mapModifiers } from 'lib/component';
 import { Link as GatsbyLink } from 'gatsby';
 
-type Modifier = 'font'|'asText' | 'user';
+type Modifier = 'font'|'asText' | 'user' | 'avatar';
 
 interface Props {
   modifiers?: Modifier | Modifier[];
