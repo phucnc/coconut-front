@@ -12,6 +12,7 @@ export const createSchema = object({
   //     return instantsale ? schema.required('Please input sale price.') : schema;
   //   }),
   instantsaleprice: number().typeError('Please input sale price.').required('Please input sale price.'),
+  numbercopies: number().typeError('Please input number of copies.').required('Please input number of copies.'),
   unit: number().required(),
   // unlockonbuy: boolean(),
   // lockedcontent: string(),
@@ -51,6 +52,7 @@ export const initialValue: CreateForm = {
   address:'',
   // instantsale: true,
   instantsaleprice: 0,
+  numbercopies: 0,
   unit: 0,
   // lockedcontent: '',
   // unlockonbuy: false,
