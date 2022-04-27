@@ -705,7 +705,8 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
                         </div>
                       </div>
                       <div>
-                        <Text key={items.price} size="17" modifiers={['left','bold',]}>{Number(items.price).toFixed(3)}&nbsp;{items.quote_token.name}</Text>
+                       
+                        <Text key={items.price} size="17" modifiers={['left','bold',]}><a target="_blank" href={"https://testnet.bscscan.com/tx/"+items.Tx.tx}>{Number(items.price).toFixed(3)}&nbsp;{items.quote_token.name}</a></Text>
                       </div>
                     </div>
                   </li>
@@ -736,7 +737,7 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
                         </div>
                       </div>
                       <div>
-                        <Text key={items.price} size="17" modifiers={['left','bold',]}>{Number(items.price).toFixed(3)}&nbsp;{items.quote_token.name}</Text>
+                        <Text key={items.price} size="17" modifiers={['left','bold',]}><a target="_blank"href={"https://testnet.bscscan.com/tx/"+items.Tx.tx}>{Number(items.price).toFixed(3)}&nbsp;{items.quote_token.name}</a></Text>
                       </div>
                     </div>
                   </li>

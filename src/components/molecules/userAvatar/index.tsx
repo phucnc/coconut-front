@@ -17,7 +17,7 @@ interface Props extends Omit<ImageProps, 'modifiers'> {
 export const UserAvatar: React.FC<Props> = props => {
   return (
     <div className={mapModifiers('m-useravatar', props.modifiers)}>
-      <Link modifiers={['font']} href={"/userpage?id="+props.userAddress}>
+      <Link modifiers={['avatar']} href={"/userpage?id="+props.userAddress}>
         <Image src={props.src} alt={props.alt} modifiers="small" />
         {props.hasTick && (
           <i className="m-useravatar_icon">

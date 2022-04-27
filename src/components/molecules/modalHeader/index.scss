@@ -40,3 +40,13 @@
   //   top: 10px;
   // }
 }
+.modal_title_multi {
+  display: flex;
+  width: 50%;
+  justify-content: flex-start;
+
+  .a-icon {
+    width: 16px;
+    height: 16px;
+  }
+}

@@ -20,6 +20,8 @@
 		"units": "Units",
 		"payments": "Payments",
 		"currency": "Currency",
+		"howtoconnect": "메타 마스크 연결 방법?",
+		"intro": "COCONUT 프로젝트 소개",
 		"tax": "Tax",
 		"emailForm": "Email form",
 		"smsTemplate": "SMS template",
@@ -165,7 +167,7 @@
 		"product": "제품",
 		"fee": "수수료",
 		"total": "총",
-		"purchase": "다음에서 구매하려고 합니다",
+		"purchase": "해당 주소의 지갑으로 구매 합니다",
 		"legacy": "나는 코코넛의 서비스 약관 및 개인 정보 보호 정책을 이해하고 동의합니다."
 	},
 	"categoriesCustomer": {

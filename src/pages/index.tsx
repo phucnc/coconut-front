@@ -467,7 +467,7 @@ export const Home: React.FC<RouteComponentProps> = props => {
                           <button className="p-explore_ButtonHowconnect">
                             <Sectionsub modifiers="howconnect">
                               <div className="p-explore_Howconnect">
-                                <Heading modifiers={['left']}>How to connect Metamask?</Heading>
+                                <Heading modifiers={['left']}>{t("mainMenu.howtoconnect")}</Heading>
                               </div>
                             </Sectionsub>
                           </button>
@@ -481,7 +481,7 @@ export const Home: React.FC<RouteComponentProps> = props => {
                             <a href="https://www.coconut.global/" className="p-explore_ButtonHowconnect" target="_blank">
                               <Sectionsub modifiers="howsettup">
                                 <div className="p-explore_Howsettup">
-                                  <Heading modifiers={['left','white']}>Introduce of COCONUT project</Heading>
+                                  <Heading modifiers={['left','white']}>{t("mainMenu.intro")}</Heading>
                                 </div>
                                 {/* <Icon modifiers="marginLeft" iconName='multicircle'/> */}
                               </Sectionsub>
