@@ -75,6 +75,10 @@ export type IconName =
   | 'ioma'
   | 'multicircle'
   | 'censored'
+  | 'single'
+  | 'multi'
+  | 'medium'
+  | 'instagram'
   | 'ccn_logo';
 
 interface Props {
