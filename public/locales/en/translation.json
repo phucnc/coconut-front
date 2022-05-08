@@ -74,6 +74,15 @@
 		"Optional": "Optional",
 		"Back": "Back",
 		"Review": "Review",
+		"Title": "Choose type",
+		"TitleDetail1": "Choose 'single' for one of kind or 'Multiple'.",
+		"TitleDetail2": "If you want to sell one collectible multiple times.",
+		"Single": "Single (Unique)",
+		"SingleDetail1": "if you want to highhlight the uniqueness and individuelity of your item.",
+		"SingleDetail2": "This is a typical NFT creation, and recommend publishing in this way.",
+		"Multi": "Multi",
+		"Multietail1": "if you want to share your item with large number of people.",
+		"Multietail2": "Because multiple NFTs are issued, value is compromised compared with single NFT.",
 		"ResellTitle": "Resell this NFT"
 	},
 	"Myitem": {

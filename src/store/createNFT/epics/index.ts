@@ -154,7 +154,7 @@ const approveNFTEpic: Epic = (action$, store$) =>
     })
   );
 
-  const approveCreateNFTEpic: Epic = (action$, store$) =>
+  const y: Epic = (action$, store$) =>
   action$.pipe(
     filter(approveCreateNFT.started.match),
     mergeMap(action => {
@@ -238,4 +238,4 @@ const sellNFTEpic: Epic = (action$, state$) =>
     })
   );
 
-export default combineEpics(createResellURIEpic,createURIEpic, createNFTEpic, approveNFTEpic, approveCreateNFTEpic, sellNFTEpic, sellCreateNFTEpic);
+export default combineEpics(createResellURIEpic,createURIEpic, createNFTEpic, approveNFTEpic, sellNFTEpic, sellCreateNFTEpic);

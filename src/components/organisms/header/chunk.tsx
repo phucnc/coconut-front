@@ -492,7 +492,9 @@ export const MenuChunk: React.FC<Props> = ({  balanceBUSD, balanceCONT }) => {
           <Text>{t("mainMenu.legal1")}</Text>
           <Text>{t("mainMenu.legal2")}</Text>
           <Grid item xs={7}>
-            <Button modifiers="noticeCreate" anchor={{ href: '/create' }}> Agree</Button>
+          <Link href={"/create"}>
+            <Button modifiers="noticeCreate" handleClick={()=>dispatch(closeModalCreate())} > Agree</Button>
+            </Link>
           </Grid>
           <Grid item xs={5}>
             <Button modifiers="noBackgroundBorder" handleClick={()=>dispatch(closeModalCreate())}> {t("mainMenu.Cancel")}</Button>
