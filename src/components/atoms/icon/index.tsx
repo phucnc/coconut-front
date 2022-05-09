@@ -78,11 +78,7 @@ export type IconName =
   | 'single'
   | 'multi'
   | 'medium'
-  | 'mediumb'
   | 'instagram'
-  | 'twitterb'
-  | 'instagramb'
-  | 'telegramb'
   | 'ccn_logo';
 
 interface Props {
