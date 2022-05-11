@@ -159,11 +159,10 @@ export const Header: React.FC = () => {
               <Typography className={classes.heading}>Community</Typography>
             </AccordionSummary>
             <AccordionDetails className={classes.detail}>
-              <Button anchor={{ href: 'https://twitter.com/Coconut_Global' }}><Icon iconName="twitterb" /></Button>
-              <Button anchor={{ href: 'https://www.instagram.com/coconut_global' }}><Icon iconName="instagramb" /></Button>
-              <Button anchor={{ href: 'https://t.me/Coconut_notice' }}><Icon iconName="telegramb" /></Button>
-              <Button anchor={{ href: 'https://coconut-global.medium.com' }}><Icon iconName="mediumb" /></Button>
-             
+              <Button anchor={{ href: 'https://www.instagram.com/coconut_global' }}><Icon iconName="instagram" /></Button>
+              <Button anchor={{ href: 'https://twitter.com/Coconut_Global' }}><Icon iconName="twit" /></Button>
+              <Button anchor={{ href: 'https://coconut-global.medium.com' }}><Icon iconName="medium" /></Button>
+              <Button anchor={{ href: 'https://t.me/Coconut_notice' }}><Icon iconName="teleg" /></Button>
             </AccordionDetails>
           </Accordion>
           </Button>

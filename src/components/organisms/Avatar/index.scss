@@ -227,6 +227,11 @@
 }
 .span-icon{
   margin-top: 20px;
+  font-family: NotoSans;
+    font-style: normal;
+    // font-weight: bold;
+    font-size: 16px;
+    line-height: 17px;
 }
 .span-commingsoon{
   // margin-top: 20px;
@@ -236,6 +241,12 @@
 .span-header{
   margin-top: 20px;
   font-weight: bold;
+  font-family: NotoSans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 19px;
+  font-weight: 900;
 }
 .limitletter{
   position: relative;
@@ -259,6 +270,31 @@
   margin: 4px 2px;
   cursor: pointer;
   border: none;
+  width: 100%;
+  text-overflow: ellipsis;
+  &:hover  {
+    box-shadow: 0 3px 14px 0.2px rgb(0 0 0 / 20%);
+    transition: 0.2s box-shadow ease-in-out;
+  }
+  span {
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+}
+.multi-button{
+  background-color: #F9F9F9;
+  // padding: 20px 20px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  padding: 15px 20px;
+  display: inline-block;
+  margin: 30px 2px;
+  cursor: pointer;
+  // border: none;
   width: 100%;
   text-overflow: ellipsis;
   &:hover  {

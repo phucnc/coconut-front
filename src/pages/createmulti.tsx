@@ -4,7 +4,6 @@ import { Layout } from 'components/templates/layout';
 import { Section } from 'components/organisms/section';
 import { Form, Formik } from 'formik';
 import { Categories, createSchema, initialValue, Unit } from 'components/pages/create/form';
-import { getBuyStore,closeModalCreate, closeModalCreateMulti } from 'store/buyNFT';
 import axios from 'axios';
 import { Link } from 'components/atoms/link';
 import { Text } from 'components/atoms/text';
@@ -175,6 +174,28 @@ export const Create: React.FC = () => {
                           </option>
                         ))}
                       </Select>
+                    </Fieldrow>
+                    <Fieldrow
+                      className="p-create_instantsale"
+                      fieldName="Number of copies"
+                      // lead={t("create.Enterprice")}
+                      // toggleName="instantsale"
+                      // caption={[
+                      //   `${t("create.Servicefee")} ${serviceFee}%`,
+                      //   `${t("create.Youwillreceive")} ${amountReceived(values.instantsaleprice)} ${Unit[values.unit]} (～$${
+                      //     values.unit == 0
+                      //       ? amountDollarBNBrevieved(values.instantsaleprice)
+                      //       :
+                      //     values.unit == 1 ?
+                      //     amountDollarBUSDrecieved(values.instantsaleprice)
+                      //       :
+                      //     amountDollarCONTrecieved(values.instantsaleprice)
+                      //     })`,
+                      // ]}
+                      isCaptionForInput
+                      name="numbercopies"
+                    >
+                      <TextFieldFormik name="numbercopies" placeholder="Amount of tokens" type="number" />
                     </Fieldrow>
                     <Fieldrow fieldName={t("create.Category")} name="categories">
                       {typeof window !== `undefined` && (
