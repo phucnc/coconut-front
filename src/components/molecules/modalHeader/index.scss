@@ -40,3 +40,25 @@
   //   top: 10px;
   // }
 }
+.modal_title_multi {
+  display: flex;
+  width: 70%;
+  justify-content: flex-start;
+  font-family: NotoSans;
+  .a-icon {
+    width: 16px;
+    height: 16px;
+  }
+}
+.modal_title_multiD {
+  display: flex;
+  width: 70%;
+  justify-content: flex-start;
+  font-family: NotoSans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 16px;
+    margin-bottom:10px;
+
+  }

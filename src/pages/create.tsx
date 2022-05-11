@@ -4,6 +4,7 @@ import { Layout } from 'components/templates/layout';
 import { Section } from 'components/organisms/section';
 import { Form, Formik } from 'formik';
 import { Categories, createSchema, initialValue, Unit } from 'components/pages/create/form';
+import { getBuyStore,closeModalCreate, closeModalCreateMulti } from 'store/buyNFT';
 import axios from 'axios';
 import { Link } from 'components/atoms/link';
 import { Text } from 'components/atoms/text';

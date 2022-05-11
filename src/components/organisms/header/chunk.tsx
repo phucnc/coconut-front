@@ -13,11 +13,12 @@ import { Link } from 'components/atoms/link';
 import { Text } from 'components/atoms/text';
 import { resetStore } from 'store/createNFT';
 import Grid from '@material-ui/core/Grid';
-import { getBuyStore } from 'store/buyNFT';
+import { getBuyStore,closeModalCreate, closeModalCreateMulti } from 'store/buyNFT';
 import { connectMetaMask } from "metamask-connector";
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import { FormControl, Select, MenuItem } from "@material-ui/core";
 import { Modalwallet } from 'components/organisms/modalwallet';
+import { Modalmulti } from 'components/organisms/modalmulti';
 import { ModalHeader } from 'components/molecules/modalHeader';
 import axios from 'axios';
 import { useWallet } from 'use-wallet';
@@ -45,7 +46,7 @@ const dropdownStyles = makeStyles({
 });
 export const MenuChunk: React.FC<Props> = ({  balanceBUSD, balanceCONT }) => {
   const [isOpenMywallet, setIsOpenMywallet] = useState(false);
-  const { isTrigger,isRefresh} = useSelector(getBuyStore);
+  const { isTrigger,isRefresh,isOpenCreate,isOpenCreateMulti} = useSelector(getBuyStore);
   const [open, setOpen] = React.useState(false);
   const dispatch = useDispatch();
   const [modalOpenShare, setModalOpenShare] = useState(false);
@@ -54,6 +55,7 @@ export const MenuChunk: React.FC<Props> = ({  balanceBUSD, balanceCONT }) => {
   const [data, dataSet] = useState<any>(Array)
   const { t, i18n } = useTranslation();
   const [modalOpenConnect, setModalOpenConnect] = useState(false);
+  const [modalOpenMulti, setModalOpenMulti] = useState(false);
   const changeLanguage = lng => { i18n.changeLanguage(lng); };
   const wallet = useWallet();
   const {activateBrowserWallet,deactivate, account } = useEthers();
@@ -127,6 +129,14 @@ export const MenuChunk: React.FC<Props> = ({  balanceBUSD, balanceCONT }) => {
     }
 
   }, [dispatch, modalOpenShare]);
+
+  useEffect(() => {
+    if (!modalOpenMulti) {
+      dispatch(resetStore());
+      // currentStep.number === CreateSteps.length && navigate('/');
+    }
+
+  }, [dispatch, modalOpenMulti]);
 
   useEffect(() => {
     if (!modalOpenConnect) {
@@ -206,7 +216,7 @@ export const MenuChunk: React.FC<Props> = ({  balanceBUSD, balanceCONT }) => {
       </a>
       {(wallet?.status == "disconnected" || wallet?.status == "error" ) ? ( <div><Button modifiers={['create']} handleClick={()=>setModalOpenConnect(true)}>{t("mainMenu.Create")}</Button></div>)
       : (
-      <div><Button modifiers={['create']} handleClick={()=>setmodalOpenNoticeCreate(true)}>{t("mainMenu.Create")}</Button></div>
+      <div><Button modifiers={['create']} handleClick={()=>setModalOpenMulti(true)}>{t("mainMenu.Create")}</Button></div>
       )}
       {/* <div><Button modifiers={['create']} handleClick={()=>setmodalOpenNoticeCreate(true)}>{t('mainMenu.Create')}</Button></div> */}
      
@@ -399,6 +409,11 @@ export const MenuChunk: React.FC<Props> = ({  balanceBUSD, balanceCONT }) => {
         <MenuItem  value={'vi'}><Icon modifiers="flag" iconName="flagVN"/>&nbsp;Vi</MenuItem>
       </Select>
     </FormControl>
+
+    <Modalwallet modifiers={['wallet']} isOpen={modalOpenMulti} handleClose={() => setModalOpenMulti(false)}>
+      <Modalmulti/>
+    </Modalwallet>
+
       <Modalwallet modifiers={['wallet']} isOpen={modalOpenShare} handleClose={() => setModalOpenShare(false)}>
       <h2 className="modal_title">Connect your wallet</h2>
       <span className="modal_title" > Connect with one of the wallets we support or Create a new wallet
@@ -465,8 +480,8 @@ export const MenuChunk: React.FC<Props> = ({  balanceBUSD, balanceCONT }) => {
           </div>
         </Grid>
       </Modalwallet>
-      <Modal modifiers="noticeCreate" isOpen={modalOpenNoticeCreate} handleClose={() => setmodalOpenNoticeCreate(false)}>
-        <ModalHeader icon={true} title={t("create.CreateNFT")} handleClose={() => setmodalOpenNoticeCreate(false)} />
+      <Modal modifiers="noticeCreate" isOpen={isOpenCreate} handleClose={() => dispatch(closeModalCreate())}>
+        <ModalHeader icon={true} title={t("create.CreateNFT")} handleClose={() => dispatch(closeModalCreate())} />
         <Grid
           container
           spacing={0}
@@ -477,10 +492,31 @@ export const MenuChunk: React.FC<Props> = ({  balanceBUSD, balanceCONT }) => {
           <Text>{t("mainMenu.legal1")}</Text>
           <Text>{t("mainMenu.legal2")}</Text>
           <Grid item xs={7}>
-            <Button modifiers="noticeCreate" anchor={{ href: '/create' }}> Agree</Button>
+          <Link href={"/create"}>
+            <Button modifiers="noticeCreate" handleClick={()=>dispatch(closeModalCreate())} > {t("create.Agree")}</Button>
+            </Link>
           </Grid>
           <Grid item xs={5}>
-            <Button modifiers="noBackgroundBorder" handleClick={()=>setmodalOpenNoticeCreate(false)}> {t("mainMenu.Cancel")}</Button>
+            <Button modifiers="noBackgroundBorder" handleClick={()=>dispatch(closeModalCreate())}> {t("mainMenu.Cancel")}</Button>
+          </Grid>
+        </Grid>
+      </Modal>
+      <Modal modifiers="noticeCreate" isOpen={isOpenCreateMulti} handleClose={() => dispatch(closeModalCreateMulti())}>
+        <ModalHeader icon={true} title={t("create.CreateNFT")} handleClose={() => dispatch(closeModalCreateMulti())} />
+        <Grid
+          container
+          spacing={0}
+          // direction="column"
+          alignItems="center"
+          // justify="center"
+        >
+          <Text>{t("mainMenu.legal1")}</Text>
+          <Text>{t("mainMenu.legal2")}</Text>
+          <Grid item xs={7}>
+            <Button modifiers="noticeCreate" anchor={{ href: '/createmulti' }}> {t("create.Agree")}</Button>
+          </Grid>
+          <Grid item xs={5}>
+            <Button modifiers="noBackgroundBorder" handleClick={()=>dispatch(closeModalCreateMulti())}> {t("mainMenu.Cancel")}</Button>
           </Grid>
         </Grid>
       </Modal>

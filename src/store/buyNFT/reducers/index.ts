@@ -1,12 +1,15 @@
 import produce from 'immer';
 import { Reducer } from 'redux';
 import { isType } from 'typescript-fsa';
-import { approveBUSD, approveCONT, closeModal, getProduct, purchase, GetProductRes, openModal,openModalIn,closeModalIn, modalpurchase, videoMute,trigger, videoUnmute,refreshnoti } from 'store/buyNFT';
+import { approveBUSD, approveCONT, closeModal, getProduct, purchase, GetProductRes, openModal,openModalIn,closeModalIn,closeModalCreate,openModalCreateMulti,closeModalCreateMulti, modalpurchase, videoMute,openModalCreate,trigger, videoUnmute,refreshnoti } from 'store/buyNFT';
 import { DRAFTABLE } from 'immer/dist/internal';
 
 type BuyNFT = {
   isApproved: boolean;
   isOpen: boolean;
+  isMulti: boolean;
+  isOpenCreateMulti: boolean;
+  isOpenCreate: boolean;
   isRefresh?: boolean;
   isTrigger?: boolean;
   isSuccess: boolean;
@@ -27,7 +30,10 @@ const initialValue: BuyNFT = {
   isTrigger: false,
   isRefresh: false,
   isApproved: false,
+  isMulti: false,
+  isOpenCreateMulti: false,
   isSuccess: false,
+  isOpenCreate: false,
   isGetDone: false,
   isMute : true,
   isOpen: false,
@@ -56,6 +62,28 @@ const reducer: Reducer<BuyNFT> = (state = initialValue, action) => {
   if (isType(action, openModalIn)) {
     return produce(state, draft => {
       draft.isOpen = true;
+    });
+  }
+  if (isType(action, openModalCreate)) {
+    return produce(state, draft => {
+      draft.isOpenCreate = true;
+    });
+  }
+  if (isType(action, closeModalCreate)) {
+    return produce(state, draft => {
+      draft.isOpenCreate = false;
+    });
+  }
+  if (isType(action, openModalCreateMulti)) {
+    return produce(state, draft => {
+      draft.isOpenCreateMulti = true;
+      draft.isMulti = true;
+    });
+  }
+  if (isType(action, closeModalCreateMulti)) {
+    return produce(state, draft => {
+      draft.isOpenCreateMulti = false;
+      draft.isMulti = false;
     });
   }
   if (isType(action, trigger)) {
