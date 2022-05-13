@@ -18,6 +18,8 @@ export const Pagemeta: React.FC<Props> = ({ title }) => {
       <meta property="og:description" content="Coconut Global - The best global short video NFT Marketplace"></meta>
       <meta property="og:image" content="https://app.coconut.global/ccn_logoOF.png"></meta>
       <meta property="og:url" content="https://app.coconut.global"></meta>
+      <meta name="description" content="인플루언서들의 NFT 숏폼 서비스 , 숏폼 영상 찍고 거래해 보자."></meta>
+
     </Helmet>
   );
 };

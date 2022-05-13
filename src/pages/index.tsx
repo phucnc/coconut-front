@@ -389,7 +389,7 @@ export const Home: React.FC<RouteComponentProps> = props => {
   console.log("wallet account", wallet.account)
   return (
     <div className="p-explore">
-      <Layout main title="Coconut Global NFT Marketplace">
+      <Layout main title="COCONUT.GLOBAL">
         <ScrollToTop style={{ right: "20px", zIndex: "1000" }} easing="linear" showUnder={160}>
           {/* <Icon modifiers="large32" iconName="backtotop"/> */}
           <span><big><big>&uarr;</big></big></span>
