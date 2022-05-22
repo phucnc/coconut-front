@@ -184,10 +184,10 @@ export const Header: React.FC = () => {
                 <Button anchor={{ href: '' }}  >Contact us</Button>
                 </Grid>
                 <Grid item xs={6}>
-                <Button anchor={{ href: '' }} >Blog</Button>
+                <Button anchor={{ href: 'https://coconut-global.medium.com/' }} >Blog</Button>
                 </Grid>
                 <Grid item xs={6}>
-                <Button anchor={{ href: 'https://thankful-raclette-226.notion.site/COCONUT-d5dc804f50564430a1d6482be1907571' }} >CONUT Token</Button>
+                <Button anchor={{ href: 'https://www.notion.so/CONUT-TOKEN-f751f8c45b6247d1a6434e8f88bf6a03' }} >CONUT Token</Button>
                 </Grid>
                 <Grid item xs={6}>
                 <Button anchor={{ href: 'https://www.notion.so/ConteNFT-28ddfedca1a548bba7af855f695c2bf6?showMoveTo=true&saveParent=true' }} >Notice</Button>
@@ -308,18 +308,18 @@ export const Header: React.FC = () => {
             <MenuItem className="o-header_link-text" href="https://www.instagram.com/coconut_global" target="_blank">Instagram</MenuItem>
             <MenuItem className="o-header_link-text" href="https://t.me/Coconut_notice" target="_blank">Telegram</MenuItem>
             <MenuItem className="o-header_link-text" href="https://coconut-global.medium.com" target="_blank">Medium</MenuItem>
-            <MenuItem href="mailto:support@coconut.global" className="o-header_link-text"> <a href="mailto:support@coconut.global" target="_blank">Email</a></MenuItem>
-            <MenuItem className="o-header_link-text" href="https://github.com/phucnc/coconut-front" target="_blank">Github</MenuItem>
+            {/* <MenuItem href="mailto:support@coconut.global" className="o-header_link-text"> <a href="mailto:support@coconut.global" target="_blank">Email</a></MenuItem>
+            <MenuItem className="o-header_link-text" href="https://github.com/phucnc/coconut-front" target="_blank">Github</MenuItem> */}
           </Menu>
         </ul>
         <ul className="o-header_menu">
           <Menu menuButton={<MenuButton className="o-header_menulist">{t("mainMenu.More")} &#x276F;</MenuButton>}>
-            <MenuItem target="_blank" href="https://thankful-raclette-226.notion.site/COCONUT-d5dc804f50564430a1d6482be1907571"  >CONUT Token</MenuItem>
+            <MenuItem target="_blank" href="https://www.notion.so/CONUT-TOKEN-f751f8c45b6247d1a6434e8f88bf6a03"  >CONUT Token</MenuItem>
             <SubMenu style={{ textDecoration: 'none' }} label={t("mainMenu.Contact")}>
               <MenuItem href="mailto:support@coconut.global" className="o-header_link-text"> <a href="mailto:support@coconut.global" target="_blank">{t("mainMenu.Business")}</a></MenuItem>
               <MenuItem href="mailto:support@coconut.global" className="o-header_link-text"> <a href="mailto:support@coconut.global" target="_blank">CS</a></MenuItem>
             </SubMenu>
-            <MenuItem href="/">{t("mainMenu.Blog")}</MenuItem>
+            <MenuItem href="https://coconut-global.medium.com/">{t("mainMenu.Blog")}</MenuItem>
             <MenuItem href="/notice">Notice</MenuItem>
             <MenuItem href="/termofservice">Term of service</MenuItem>
             <MenuItem href="/termofservice">Policy</MenuItem>

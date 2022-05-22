@@ -486,9 +486,11 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
                   </div>
                   <div className="p-view_info">
                     <div className="p-view_detailheading">
+                    <Tooltip key={props.title} title={props.title} placement="top-start">
                       <Heading modifiers="title" type="h1" title={props.title}>
                         {props.title}
                       </Heading>
+                      </Tooltip>
                       {/* <div className="p-view_price">
                         <Text size="18" modifiers="linear" inline unit={props.quote_token}>
                           {props.instant_sale_price}
