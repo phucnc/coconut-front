@@ -22,8 +22,8 @@ export const PageProvider: React.FC = props => {
       //     },
       //   },
       // }}
-      chainId={97} // Testnet
-      // chainId={56} //Mainet
+      // chainId={97} // Testnet
+      chainId={56} //Mainet
       connectors={{
         // This is how connectors get configured
         portis: { dAppId: 'my-dapp-id-123-xyz' },

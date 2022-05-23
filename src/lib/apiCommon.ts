@@ -46,8 +46,8 @@ export const connectWallet = (wallet: any) => {
           // check if the chain to connect to is installed
           await window.ethereum.request({
             method: 'wallet_switchEthereumChain',
-            // params: [{ chainId: '0x38' }], // Mainet chainId must be in hexadecimal numbers
-            params: [{ chainId: '0x61' }], // Testnet chainId must be in hexadecimal numbers
+            params: [{ chainId: '0x38' }], // Mainet chainId must be in hexadecimal numbers
+            // params: [{ chainId: '0x61' }], // Testnet chainId must be in hexadecimal numbers
           });
         } catch (error) {
           // This error code indicates that the chain has not been added to MetaMask
@@ -58,8 +58,8 @@ export const connectWallet = (wallet: any) => {
                 method: 'wallet_addEthereumChain',
                 params: [
                   {
-                    chainId: '0x61',
-                    // chainId: '0x38',
+                    // chainId: '0x61',
+                    chainId: '0x38',
                     rpcUrl: 'https://bsc-dataseed1.binance.org/',
                   },
                 ],

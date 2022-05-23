@@ -153,6 +153,7 @@ export const Home: React.FC<RouteComponentProps> = props => {
   const ref = useRef(null);
   const params = new URLSearchParams(props.location?.search);
   const [modalOpenClaim, setModalOpenClaim] = useState(false);
+  const [modalOpenMaint, setModalOpenMaint] = useState(true);
   const [showExtraCategories, setShowExtraCategories] = useState(false);
   const [showFilterAndSort, setShowFilterAndSort] = useState(false);
   const [showmore, setshowmore] = useState(false);
@@ -213,8 +214,8 @@ export const Home: React.FC<RouteComponentProps> = props => {
   };
   const add = () => {
     const params = {
-      chainId: '0x61', // Testnet A 0x-prefixed hexadecimal string
-      // chainId: '0x38', // A 0x-prefixed hexadecimal string
+      // chainId: '0x61', // Testnet A 0x-prefixed hexadecimal string
+      chainId: '0x38', // A 0x-prefixed hexadecimal string
       chainName: 'BSC Mainnet 1',
       nativeCurrency: {
         name: 'Binance Coin',
@@ -383,10 +384,7 @@ export const Home: React.FC<RouteComponentProps> = props => {
       </div> */}
     </div>
   )
-  console.log("store", store)
-  console.log("addressIDcheck", addressIDcheck)
-  console.log("addressIDd", addressID)
-  console.log("wallet account", wallet.account)
+
   return (
     <div className="p-explore">
       <Layout main title="COCONUT.GLOBAL">
@@ -777,6 +775,10 @@ export const Home: React.FC<RouteComponentProps> = props => {
       <Modal modifiers="claim" isOpen={modalOpenClaim} handleClose={() => setModalOpenClaim(false)}>
         <ModalHeader title="" handleClose={() => setModalOpenClaim(false)} />
         <Modalclaim />
+      </Modal>
+      <Modal modifiers="claim" isOpen={modalOpenMaint} handleClose={() => setModalOpenMaint(false)}>
+        {/* <ModalHeader title="" handleClose={() => setModalOpenMaint(false)} /> */}
+          <Text>{t("mainMenu.maint")}</Text>
       </Modal>
     </div>
   );

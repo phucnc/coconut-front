@@ -1,14 +1,17 @@
 import produce from 'immer';
 import { Reducer } from 'redux';
 import { isType } from 'typescript-fsa';
-import { approveBUSD, approveCONT, closeModal, getProduct, purchase, GetProductRes, openModal,openModalIn,closeModalIn, modalpurchase, videoMute,trigger, videoUnmute,refreshnoti } from 'store/buyNFT';
+import { approveBUSD, approveCONT, closeModal, getProduct, purchase, GetProductRes, openModal,openModalIn,closeModalIn, modalpurchase, videoMute,trigger, videoUnmute,refreshnoti,refreshLang,switchKR,switchEN,closeModalMaint,openModalMaint } from 'store/buyNFT';
 import { DRAFTABLE } from 'immer/dist/internal';
 
 type BuyNFT = {
   isApproved: boolean;
   isOpen: boolean;
   isRefresh?: boolean;
+  isRefreshLang?: boolean;
   isTrigger?: boolean;
+  isKR?: boolean;
+  isMaint?: boolean;
   isSuccess: boolean;
   isGetDone: boolean;
   isMute: boolean;
@@ -20,12 +23,14 @@ type BuyNFT = {
   active?: boolean;
   tokenid?:any;
   quote_token?:any;
+  lang?:any;
   unlock_once_purchased? :any;
 };
 
 const initialValue: BuyNFT = {
   isTrigger: false,
   isRefresh: false,
+  isRefreshLang: false,
   isApproved: false,
   isSuccess: false,
   isGetDone: false,
@@ -58,6 +63,21 @@ const reducer: Reducer<BuyNFT> = (state = initialValue, action) => {
       draft.isOpen = true;
     });
   }
+  if (isType(action, openModalIn)) {
+    return produce(state, draft => {
+      draft.isMaint = true;
+    });
+  }
+  if (isType(action, switchKR)) {
+    return produce(state, draft => {
+      draft.isKR = true;
+    });
+  }
+  if (isType(action, switchEN)) {
+    return produce(state, draft => {
+      draft.isKR = false;
+    });
+  }
   if (isType(action, trigger)) {
     return produce(state, draft => {
       draft.isTrigger = true;
@@ -66,6 +86,11 @@ const reducer: Reducer<BuyNFT> = (state = initialValue, action) => {
   if (isType(action, refreshnoti)) {
     return produce(state, draft => {
       draft.isRefresh =  !draft.isRefresh;
+    });
+  }
+  if (isType(action, refreshLang.started)) {
+    return produce(state, draft => {
+      draft.isRefreshLang =  action.payload.lang;
     });
   }
   if (isType(action, videoMute)) {
@@ -108,6 +133,11 @@ const reducer: Reducer<BuyNFT> = (state = initialValue, action) => {
   if (isType(action, closeModalIn)) {
     return produce(state, draft => {
       draft.isOpen = false;
+    });
+  }
+  if (isType(action, closeModalIn)) {
+    return produce(state, draft => {
+      draft.isMaint = false;
     });
   }
 

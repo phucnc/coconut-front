@@ -13,7 +13,7 @@ import { Link } from 'components/atoms/link';
 import { Text } from 'components/atoms/text';
 import { resetStore } from 'store/createNFT';
 import Grid from '@material-ui/core/Grid';
-import { getBuyStore } from 'store/buyNFT';
+import { getBuyStore,switchKR,switchEN } from 'store/buyNFT';
 import { connectMetaMask } from "metamask-connector";
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import { FormControl, Select, MenuItem } from "@material-ui/core";
@@ -28,6 +28,7 @@ import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
 import { DropdownMenu, DropdownItem } from 'components/molecules/dropdownMenu';
 import logo from 'assets/images/ccn_logoOF.png';
+import { commonStart } from 'store/common';
 import { ButtonContainer } from 'components/molecules/buttonContainer';
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 interface Props {
@@ -45,12 +46,11 @@ const dropdownStyles = makeStyles({
 });
 export const MenuChunk: React.FC<Props> = ({  balanceBUSD, balanceCONT }) => {
   const [isOpenMywallet, setIsOpenMywallet] = useState(false);
-  const { isTrigger,isRefresh} = useSelector(getBuyStore);
+  const { isTrigger,isRefresh,isKR} = useSelector(getBuyStore);
   const [open, setOpen] = React.useState(false);
   const dispatch = useDispatch();
   const [modalOpenShare, setModalOpenShare] = useState(false);
   const anchorRef = React.useRef<HTMLButtonElement>(null);
-  const [loading, setLoading] = useState(true);
   const [data, dataSet] = useState<any>(Array)
   const { t, i18n } = useTranslation();
   const [modalOpenConnect, setModalOpenConnect] = useState(false);
@@ -67,10 +67,16 @@ export const MenuChunk: React.FC<Props> = ({  balanceBUSD, balanceCONT }) => {
   
   const [item, setItem] = useState( localStorage.getItem('key') ||'en');
   const handleChange = (event) => {
+    if (event.target.value == 'kr') {
+      dispatch(commonStart({ nextAction: switchKR() }))
+    } else  {
+      dispatch(commonStart({ nextAction: switchEN() }))
+    }
     setItem(event.target.value);
     localStorage.setItem('key',event.target.value );
     const  data = sessionStorage.getItem('key');
     changeLanguage(event.target.value);
+    console.log("event.target.value",event.target.value)
   };
 
   const getnoti = async () => {
@@ -111,10 +117,14 @@ export const MenuChunk: React.FC<Props> = ({  balanceBUSD, balanceCONT }) => {
   }
 
   useEffect(() => {
- 
+    if (item == 'kr') {
+      dispatch(commonStart({ nextAction: switchKR() }))
+    } else  {
+      dispatch(commonStart({ nextAction: switchEN() }))
+    }
     changeLanguage(item)
-    console.log("wallet test",wallet)
   }, []);
+
   useEffect(() => {
     getnoti()
     

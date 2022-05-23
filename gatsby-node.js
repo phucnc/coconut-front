@@ -33,7 +33,7 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
         'process.env.NFT_CONTRACT_ADDRESS': JSON.stringify("0xda7a5df3178ec51aca2d36c5837d1c6fa8c82acb"),
         'process.env.SIMPLE_EXCHANGE_ADDRESS': JSON.stringify("0xe0c336280cfcc278259b52b681ce2efb90b648eb"),
         'process.env.BUSD_CONTRACT_ADDRESS': JSON.stringify("0xe9e7cea3dedca5984780bafc599bd69add087d56"),
-        'process.env.CONT_CONTRACT_ADDRESS': JSON.stringify("0x04085647a69ba4b4101fef35fd60cd27d901fb55"),
+        'process.env.CONT_CONTRACT_ADDRESS': JSON.stringify("0x323249642f3a4519134a0926cb7797077e49de76"),
         'process.env.GAS_LIMIT': 500000,
         'process.env.SERVICE_FEE': "2.5",
         'process.env.ADDRESS_API': JSON.stringify("https://api.coconut.global"),

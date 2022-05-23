@@ -8,7 +8,7 @@ import { hot } from 'react-hot-loader/root';
 import { useDispatch, useSelector } from 'react-redux';
 import { getBalanceStore, getBUSD, getCONT } from 'store/getBalance';
 import { useWallet } from 'use-wallet';
-import Divider from '@material-ui/core/Divider';
+import { getBuyStore } from 'store/buyNFT';
 import { MenuChunk } from './chunk';
 import { Text } from 'components/atoms/text';
 import { ButtonContainer } from 'components/molecules/buttonContainer';
@@ -94,6 +94,7 @@ export const Header: React.FC = () => {
   const dispatch = useDispatch();
   const [isSticky, setSticky] = useState(false);
   const { t } = useTranslation();
+  const { isKR} = useSelector(getBuyStore);
   const [openHambugerMenu, setOpenHambugerMenu] = useState(false);
   const [modalOpenShare, setModalOpenShare] = useState(false);
   const [modalmobile, setmodalmobile] = useState(false);
@@ -314,7 +315,11 @@ export const Header: React.FC = () => {
         </ul>
         <ul className="o-header_menu">
           <Menu menuButton={<MenuButton className="o-header_menulist">{t("mainMenu.More")} &#x276F;</MenuButton>}>
-            <MenuItem target="_blank" href="https://www.notion.so/CONUT-TOKEN-f751f8c45b6247d1a6434e8f88bf6a03"  >CONUT Token</MenuItem>
+            { isKR ? (
+              <MenuItem target="_blank" href="https://thankful-raclette-226.notion.site/CONUT-948323109be34a58bfec723c7b201787"  >CONUT Token</MenuItem>
+            ) : (
+            <MenuItem target="_blank" href="https://thankful-raclette-226.notion.site/CONUT-TOKEN-f751f8c45b6247d1a6434e8f88bf6a03"  >CONUT Token</MenuItem>
+             ) }
             <SubMenu style={{ textDecoration: 'none' }} label={t("mainMenu.Contact")}>
               <MenuItem href="mailto:support@coconut.global" className="o-header_link-text"> <a href="mailto:support@coconut.global" target="_blank">{t("mainMenu.Business")}</a></MenuItem>
               <MenuItem href="mailto:support@coconut.global" className="o-header_link-text"> <a href="mailto:support@coconut.global" target="_blank">CS</a></MenuItem>

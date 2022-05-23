@@ -24,6 +24,9 @@ export type ModalReq = {
   active:any;
   id: any;
 };
+export type ModalLang = {
+  lang:any;
+};
 
 export type GetProductReq = {
   id: string;
