@@ -30,8 +30,8 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
         Buffer: ['buffer', 'Buffer'],
       }),
       new webpack.DefinePlugin({
-        'process.env.NFT_CONTRACT_ADDRESS': JSON.stringify("0xa3bdd5b4845b9babcc774a5d692303582ffda686"),
-        'process.env.SIMPLE_EXCHANGE_ADDRESS': JSON.stringify("0x93c5a9494beebfa84322ff554fc29712238d4e9d"),
+        'process.env.NFT_CONTRACT_ADDRESS': JSON.stringify("0xda7a5df3178ec51aca2d36c5837d1c6fa8c82acb"),
+        'process.env.SIMPLE_EXCHANGE_ADDRESS': JSON.stringify("0xe0c336280cfcc278259b52b681ce2efb90b648eb"),
         'process.env.BUSD_CONTRACT_ADDRESS': JSON.stringify("0xe9e7cea3dedca5984780bafc599bd69add087d56"),
         'process.env.CONT_CONTRACT_ADDRESS': JSON.stringify("0x04085647a69ba4b4101fef35fd60cd27d901fb55"),
         'process.env.GAS_LIMIT': 500000,
