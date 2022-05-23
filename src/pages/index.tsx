@@ -776,9 +776,35 @@ export const Home: React.FC<RouteComponentProps> = props => {
         <ModalHeader title="" handleClose={() => setModalOpenClaim(false)} />
         <Modalclaim />
       </Modal>
-      <Modal modifiers="claim" isOpen={modalOpenMaint} handleClose={() => setModalOpenMaint(false)}>
-        {/* <ModalHeader title="" handleClose={() => setModalOpenMaint(false)} /> */}
-          <Text>{t("mainMenu.maint")}</Text>
+      <Modal modifiers="maintenance" isOpen={modalOpenMaint} handleClose={() => setModalOpenMaint(false)}>
+        {/* <ModalHeader title="" handleClose={() => setModalOpenMaint(false)} /> */} <Grid
+                  className="p-explore_mainet"
+                  container
+                  spacing={3}
+                  direction="row"
+                  justify="center"
+                  alignItems="stretch"
+                >
+                  <Grid justify="center"  item xs={12}>
+                  <Icon modifiers="ultra" iconName="maint"/>
+                  </Grid>
+                 
+          <Heading modifiers="marginBot" type="h1">System Construction</Heading>
+          {/* <Text>Sorry for uncomfortable , We will change our system as soon as possible.</Text> */}
+          </Grid>
+          <Grid
+                  className="p-explore_mainet"
+                  container
+                  spacing={3}
+                  direction="row"
+                  justify="flex-start"
+                  alignItems="stretch"
+                >
+                   <Text>Sorry for uncomfortable , We will change our system as soon as possible.</Text>
+          <Text>Our service is in the process of transitioning to Mainnet.</Text>
+          <Text>우리 서비스는 Mainnet로 전환 작업을 진행 중입니다.</Text>
+
+                </Grid>
       </Modal>
     </div>
   );

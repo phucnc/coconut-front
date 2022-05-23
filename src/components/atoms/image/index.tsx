@@ -33,17 +33,17 @@ var items = [
   {
     src: setup_2
   },
-  // {
-  //   src: setup_3
-  // },
-  // {
-  //   src: setup_4
-  // },
-  // {
-  //   src: setup_5
-  // },{
-  //   src: setup_6
-  // },
+  {
+    src: setup_3
+  },
+  {
+    src: setup_4
+  },
+  {
+    src: setup_5
+  },{
+    src: setup_6
+  },
   // {
   //   src: setup_7
   // },

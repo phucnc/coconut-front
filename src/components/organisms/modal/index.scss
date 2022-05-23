@@ -44,6 +44,17 @@
       }
     }
   }
+  &-maintenance {
+    & .ReactModal__Content {
+      width: 35%;
+      min-width: 300px!important;
+      transform: translate(-50%, -50%);
+  
+      @include spFixedContent {
+        width: 90%;
+      }
+    }
+  }
   &-instalMetamask {
     & .ReactModal__Content {
       width: 55%;

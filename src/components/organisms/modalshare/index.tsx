@@ -59,7 +59,7 @@ export const Modalshare: React.FC<Props> = props => {
               <button className="share-button">
                 <TwitterShareButton
                   url={addressbase}
-                  title="#conteNFT , #NFT"
+                  title="#CoconutGlobal , #NFT"
                   className="Demo__some-network__share-button">
                   <li><Icon className="i-icon" size='big' name='twitter' /></li>
                   <li className="span-icon"><span > Twitter</span></li>
@@ -74,7 +74,7 @@ export const Modalshare: React.FC<Props> = props => {
               <button className="share-button" >
                 <FacebookShareButton
                   url={addressbase}
-                  title="#conteNFT , #NFT"
+                  title="#CoconutGlobal , #NFT"
                   className="Demo__some-network__share-button">
                   <li>
                     <Icon className="i-icon" size='big' name='facebook' /></li>
@@ -91,7 +91,7 @@ export const Modalshare: React.FC<Props> = props => {
               <button className="share-button">
                 <TelegramShareButton
                   url={addressbase}
-                  title="#conteNFT , #NFT"
+                  title="#CoconutGlobal , #NFT"
                   className="Demo__some-network__share-button">
                   <li>
                     <Icon className="i-icon" size='big' name='telegram plane' /></li>
