@@ -790,7 +790,7 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
                                 }
                                 </Grid>
                                 <Grid item xs={7}>
-                                  <Text modifiers={['servicefee','marginleft']}>&nbsp;+&nbsp;&nbsp;&nbsp;{t("create.Servicefee")} {process.env.SERVICE_FEE}%</Text>
+                                  <Text modifiers={['servicefee','marginleft']}>&nbsp;+&nbsp;&nbsp;&nbsp;{t("create.Servicefee")} 0%</Text>
                                 
                                 </Grid>
                                 </Grid>
