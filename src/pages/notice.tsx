@@ -138,7 +138,7 @@ export const userguilde: React.FC = () => {
 <Form>
     <div className="p-explore">
       <div className="p-create">
-        <Layout title="Create NFT">
+        <Layout title="Notice">
           <Section className="p-explore_Notice">
           <div className={classes.root}>
           <Grid

@@ -166,7 +166,7 @@ export const Myitem: React.FC<RouteComponentProps> = props => {
 <Form>
     <div className="p-explore">
       <div className="p-create">
-        <Layout title="Create NFT">
+        <Layout title="My Item">
           <Section className="p-explore_main">
           <Avatar resultaddress={result} cover={cover} avatar={avatar}  infoBio={infoBio} username={username} address={result} className="p-create_main"></Avatar>
           <Section className="p-explore_myitemsub" >

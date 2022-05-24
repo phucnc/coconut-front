@@ -62,7 +62,7 @@ export const userguilde: React.FC = () => {
   const { currentStep, tokenURI } = useSelector(getCreateStore);
   return (
     <div className="p-create">
-      <Layout title="Create NFT">
+      <Layout title="User Guilde">
           <Formik
             initialValues={initialValue}
             validationSchema={createSchema}

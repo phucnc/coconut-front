@@ -72,7 +72,7 @@ export const userguilde: React.FC = () => {
 
   return (
     <div className="p-create">
-      <Layout title="Create NFT">
+      <Layout title="Privacy Policy">
         {/* <Section className="p-create_main"> */}
         {/* <Heading>Create collectible</Heading> */}
         <Formik

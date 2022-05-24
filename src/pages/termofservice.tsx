@@ -21,7 +21,7 @@ export const userguilde: React.FC = () => {
   const dispatch = useDispatch();
   return (
     <div className="p-create">
-      <Layout title="Create NFT">
+      <Layout title="Term Of Service">
         <Formik
           initialValues={initialValue}
           validationSchema={createSchema}

@@ -78,7 +78,7 @@ export const Profile: React.FC = () => {
 
   return (
     <div className="p-create">
-      <Layout title="Create NFT">
+      <Layout title="Profile">
         <Section className="p-create_main">
           <Heading type="h4">Edit profile</Heading>
           <Text>You can set prefered user name, create your brandedprofile URL and manage other person settings</Text>

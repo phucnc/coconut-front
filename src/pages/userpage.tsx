@@ -228,7 +228,7 @@ export const userpage: React.FC<RouteComponentProps> = props => {
     <div className="p-explore">
 
       <div className="p-create">
-        <Layout title="Create NFT">
+        <Layout title="User Page">
          
           <Section className="p-explore_main">
           <User avatar={avatar} cover ={cover}  infoBio={infoBio} username={username} address={addWallet} className="p-create_main"></User>
