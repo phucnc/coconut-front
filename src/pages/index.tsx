@@ -153,7 +153,7 @@ export const Home: React.FC<RouteComponentProps> = props => {
   const ref = useRef(null);
   const params = new URLSearchParams(props.location?.search);
   const [modalOpenClaim, setModalOpenClaim] = useState(false);
-  const [modalOpenMaint, setModalOpenMaint] = useState(true);
+  const [modalOpenMaint, setModalOpenMaint] = useState(false);
   const [showExtraCategories, setShowExtraCategories] = useState(false);
   const [showFilterAndSort, setShowFilterAndSort] = useState(false);
   const [showmore, setshowmore] = useState(false);
