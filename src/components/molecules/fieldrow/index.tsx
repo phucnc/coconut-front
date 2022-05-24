@@ -5,7 +5,7 @@ import { Text } from 'components/atoms/text';
 import { Toggle } from 'components/atoms/toggle';
 import { Label } from 'components/atoms/label';
 import { useFormikContext } from 'formik';
-
+import { useTranslation } from "react-i18next";
 type Modifier = '2col';
 
 interface Props {
@@ -14,6 +14,7 @@ interface Props {
   lead?: string;
   isOptional?: boolean;
   caption?: string[] | string;
+  captionfee?:boolean
   isCaptionForInput?: boolean;
   toggleName?: string;
   name?: string;
@@ -28,6 +29,7 @@ export const Fieldrow: React.FC<Props> = ({
   children,
   lead,
   caption,
+  captionfee,
   toggleName,
   isCaptionForInput,
   name,
@@ -37,6 +39,7 @@ export const Fieldrow: React.FC<Props> = ({
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const { errors, touched } = useFormikContext<any>();
   const isShowError = name && touched[name] && errors[name];
+  const { t } = useTranslation();
   return (
     <div className={`${mapModifiers('m-fieldrow', modifiers, isShowError && 'error')} ${props.className}`}>
       {(fieldName || isOptional) && (
@@ -56,6 +59,18 @@ export const Fieldrow: React.FC<Props> = ({
       {isShowError && (
         <div className="m-fieldrow_error">{errorMessage || errors[name!]}</div>
       )}
+      {captionfee? (
+        // <Text modifiers="inline">Service fee </Text>
+        <div>
+         <Text size="14" modifiers={['inline', 'red']}>{t("create.Servicefee")} </Text>
+         <Text size="14" modifiers= {['inline', 'linethrough']}>2.5%</Text>
+         <Text size="14" modifiers={['inline', 'red']}>&nbsp;&nbsp;0% </Text>
+         </div>
+      ) : (
+<></>
+      )
+
+      }
       {((isCaptionForInput && children) || !isCaptionForInput) && caption && (
         <div className="m-fieldrow_caption">
           {typeof caption === 'string' ? (

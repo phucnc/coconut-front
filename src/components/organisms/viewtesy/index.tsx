@@ -789,9 +789,8 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
                                   </Text>)
                                 }
                                 </Grid>
-                                <Grid item xs={7}>
-                                  <Text modifiers={['servicefee','marginleft']}>&nbsp;+&nbsp;&nbsp;&nbsp;{t("create.Servicefee")} 0%</Text>
-                                
+                                <Grid item xs={10}>
+                                  <Text modifiers={['servicefee','marginleft']}>&nbsp;+&nbsp;&nbsp;&nbsp;{t("create.Servicefee")} <span className="servicefee">2.5%</span><span>&nbsp;&nbsp;0%</span></Text>
                                 </Grid>
                                 </Grid>
                             </div>
@@ -1059,6 +1058,7 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
                                 BNB
                               </Text>
                             </Grid> */}
+                           <span className="p-view_servicefee">{t("create.Servicefee")} <span className="servicefee">2.5%</span><span>&nbsp;&nbsp;0%</span></span>
                           </Grid>
                         </div>
                         

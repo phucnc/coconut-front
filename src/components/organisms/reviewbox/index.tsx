@@ -202,13 +202,14 @@ export const Reviewcard: React.FC<ProductProps> = props => {
                         <Fieldrow
                           className="p-create_instantsale"
                           caption={[
-                            `Service fee ${serviceFee}%`,
+                            // `Service fee ${serviceFee}%`,
                             `You will receive ${
                             values.unit === 0
                               ? amountReceived(values.instantsaleprice).toFixed(2)
                               : amountReceived(values.instantsaleprice)
                             }${Unit[values.unit]}（～$${amountReceivedDollar(values.instantsaleprice)}）`,
                           ]}
+                          captionfee
                           isCaptionForInput
                           name="instantsaleprice"
                         >

@@ -152,7 +152,7 @@ export const Create: React.FC = () => {
                       lead={t("create.Enterprice")}
                       // toggleName="instantsale"
                       caption={[
-                        `${t("create.Servicefee")} 0%`,
+                        // `${t("create.Servicefee")} 0%`,
                         `${t("create.Youwillreceive")} ${amountReceived(values.instantsaleprice)} ${Unit[values.unit]} (～$${
                           values.unit == 0
                             ? amountDollarBNBrevieved(values.instantsaleprice)
@@ -163,6 +163,7 @@ export const Create: React.FC = () => {
                           amountDollarCONTrecieved(values.instantsaleprice)
                           })`,
                       ]}
+                      captionfee
                       isCaptionForInput
                       name="instantsaleprice"
                     >

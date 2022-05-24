@@ -230,6 +230,13 @@
   &-gray {
     color: $COLOR-GRAY;
   }
+  &-red {
+    color: red;
+  }
+  &-linethrough {
+    color: red;
+    text-decoration-line: line-through;
+  }
 
   &-bold {
     @include u-fw-b;
