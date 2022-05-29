@@ -384,7 +384,7 @@ export const Home: React.FC<RouteComponentProps> = props => {
       </div> */}
     </div>
   )
-
+  console.log("test123",store)
   return (
     <div className="p-explore">
       <Layout main title="COCONUT.GLOBAL">
@@ -680,7 +680,7 @@ export const Home: React.FC<RouteComponentProps> = props => {
                   )}
                   <Grid item xs={9}>
                     <div className="p-explore_products">
-                      {store.error && wallet.status === "disconnected" ? (
+                      {store.error && wallet.status === "disconnected"  ? (
                         <Text modifiers={['center', 'error']}>{store.error.message}</Text>
                       ) : (
                           <ItemList

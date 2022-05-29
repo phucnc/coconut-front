@@ -429,12 +429,13 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
   }, [dispatch, modalOpen]);
 
   const productLink = `/view?id=${props?.id}`;
+  console.log("props.status",props)
   return (
     <div className="p-view">
       {/* <Layout title="View NFT"> */}
         <Section className="p-view_main">
         {isGetDone ? (
-            props ? (
+            props && props.status === 0 ? (
               <>
                 <div className="p-view_control">
                   <div className="p-view_numberView">

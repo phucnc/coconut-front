@@ -15,6 +15,7 @@ export interface ProfileProps {
   by?: string;
   followers?: number;
   id?:string;
+  status?:number;
   cover:string;
 }
 

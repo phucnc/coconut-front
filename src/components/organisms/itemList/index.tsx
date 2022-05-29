@@ -30,6 +30,7 @@ interface Props {
 export const ItemList: React.FC<Props> = props => {
   const [isShowMore, setIsShowMore] = useState(false);
   useEffect(() => setIsShowMore(false), [props.searchBy]);
+  console.log("props.list",props.list)
   const isMobile = useMediaQuery({
     query: '(max-width: 840px)'
   })
@@ -79,11 +80,17 @@ export const ItemList: React.FC<Props> = props => {
                 ):
                  (
                   <div key={idx} className="o-itemlist_item">
-                    {(item as viewtesyProps).title ? (
+                    
+                    {(item as viewtesyProps).title && item.status === 0  ? (
                       <Viewtesy userid={props.userid}  {...(item as viewtesyProps)}></Viewtesy>
-                    ) : (
+                    ) : item.status === 0 ? (
                       <ProfileCard {...(item as ProfileProps)}></ProfileCard>
-                    )}
+                    ) : (
+                      <></>
+                    )
+                    
+                    }
+                    
                   </div>
                 )}
 </>
