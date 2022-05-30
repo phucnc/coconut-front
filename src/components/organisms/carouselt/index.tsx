@@ -22,9 +22,9 @@ var items = [
   {
       src: setup_1
   },
-  // {
-  //     src: setup_2
-  // },
+  {
+      src: setup_2
+  },
 //   {
 //     src: setup_3
 // },
