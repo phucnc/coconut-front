@@ -9,7 +9,7 @@ import { useSnackbar } from 'notistack';
 import { Link } from 'gatsby';
 import setup_1 from 'assets/images/ccn_banner1.jpeg';
 import setup_2 from 'assets/images/ccn_banner2.jpeg';
-import setup_3 from 'assets/images/ccn_banner3.png';
+import setup_3 from 'assets/images/ccn_banner3.jpeg';
 // import setup_4 from 'assets/images/ccn_banner2.png';
 import Carousel from 'react-material-ui-carousel'
 type Modifier = 'overflowx' | 'overflowy' | 'overhidden' | 'error' | 'center';
@@ -25,9 +25,9 @@ var items = [
   {
       src: setup_2
   },
-//   {
-//     src: setup_3
-// },
+  {
+    src: setup_3
+},
 // {
 //   name: "Random Name #1",
 //   description: "Probably the most random thing you have ever seen!",
@@ -40,7 +40,7 @@ export const Carouselt: React.FC<Props> = props => {
   
   return (
     <div className="carousel_containt">
-      <Link to="/notice">
+    
     <Carousel
      className="carousel"
      indicators= {true}
@@ -64,13 +64,13 @@ export const Carouselt: React.FC<Props> = props => {
     >
     {
         items.map( (item, i) => 
-       
+        <Link to="/notice">
         <img key={i} src={item.src} />
-       
+        </Link>
          )
     }
 </Carousel>
-</Link>
+{/* </Link> */}
 </div>
       // </Modal>
   

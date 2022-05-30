@@ -159,6 +159,7 @@ export const Home: React.FC<RouteComponentProps> = props => {
   const [showmore, setshowmore] = useState(false);
   const { t } = useTranslation();
   const store = useSelector(getExploreStore);
+  const { isKR} = useSelector(getBuyStore);
   const { addressID, addressIDcheck } = useSelector(getExploreStore);
   const { isApproved, pricePur, tokenid, isSuccess, product, isGetDone, quote_token, unlock_once_purchased, active } = useSelector(getBuyStore);
   const classes = useStyles();
@@ -461,15 +462,17 @@ export const Home: React.FC<RouteComponentProps> = props => {
                   <Grid style={{ height: "100%" }} item xs={12}>
                     <div className="p-explore_subdetail">
                       <Grid style={{ height: "100%" }} item xs={12}>
-                        <Link to="/userguilde">
-                          <button className="p-explore_ButtonHowconnect">
-                            <Sectionsub modifiers="howconnect">
-                              <div className="p-explore_Howconnect">
-                                <Heading modifiers={['left']}>{t("mainMenu.howtoconnect")}</Heading>
-                              </div>
-                            </Sectionsub>
-                          </button>
-                        </Link>
+                        {/* <Link to="https://thankful-raclette-226.notion.site/Tutorial-in-Korean-831538141e3145e4947de6d017ecd06b"> */}
+                          <a target="_blank" href={isKR? ("https://thankful-raclette-226.notion.site/Tutorial-in-Korean-831538141e3145e4947de6d017ecd06b") :("https://thankful-raclette-226.notion.site/Coconut-Global-Tutorial-479c9e0402d941b4b5c0e9e519fbfd8c")}>
+                            <button className="p-explore_ButtonHowconnect">
+                              <Sectionsub modifiers="howconnect">
+                                <div className="p-explore_Howconnect">
+                                  <Heading modifiers={['left']}>{t("mainMenu.howtoconnect")}</Heading>
+                                </div>
+                              </Sectionsub>
+                            </button>
+                          </a>
+                        {/* </Link> */}
                       </Grid>
 
                       <Grid style={{ height: "100%" }} item xs={12}>
