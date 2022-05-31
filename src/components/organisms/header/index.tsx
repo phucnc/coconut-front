@@ -298,8 +298,11 @@ export const Header: React.FC = () => {
           </li>
         </ul>
         <ul className="o-header_menu">
-
-          <a className="o-header_menulist" href="https://thankful-raclette-226.notion.site/COCONUT-d5dc804f50564430a1d6482be1907571" target="_blank">FAQ</a>
+        { isKR ? (
+          <a className="o-header_menulist" href="https://thankful-raclette-226.notion.site/FAQ-536073d3c70248e9a6998acf2a439e05
+          " target="_blank">FAQ</a>):(
+            <a className="o-header_menulist" href="https://thankful-raclette-226.notion.site/COCONUT-d5dc804f50564430a1d6482be1907571" target="_blank">FAQ</a>
+          )}
 
         </ul>
         <ul className="o-header_menu">

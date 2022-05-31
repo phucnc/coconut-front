@@ -462,8 +462,8 @@ export const Home: React.FC<RouteComponentProps> = props => {
                   <Grid style={{ height: "100%" }} item xs={12}>
                     <div className="p-explore_subdetail">
                       <Grid style={{ height: "100%" }} item xs={12}>
-                        {/* <Link to="https://thankful-raclette-226.notion.site/Tutorial-in-Korean-831538141e3145e4947de6d017ecd06b"> */}
-                          <a target="_blank" href={isKR? ("https://thankful-raclette-226.notion.site/Tutorial-in-Korean-831538141e3145e4947de6d017ecd06b") :("https://thankful-raclette-226.notion.site/Coconut-Global-Tutorial-479c9e0402d941b4b5c0e9e519fbfd8c")}>
+                        <Link to="/userguilde">
+                          {/* <a target="_blank" href={isKR? ("https://thankful-raclette-226.notion.site/Tutorial-in-Korean-831538141e3145e4947de6d017ecd06b") :("https://thankful-raclette-226.notion.site/Coconut-Global-Tutorial-479c9e0402d941b4b5c0e9e519fbfd8c")}> */}
                             <button className="p-explore_ButtonHowconnect">
                               <Sectionsub modifiers="howconnect">
                                 <div className="p-explore_Howconnect">
@@ -471,8 +471,8 @@ export const Home: React.FC<RouteComponentProps> = props => {
                                 </div>
                               </Sectionsub>
                             </button>
-                          </a>
-                        {/* </Link> */}
+                          {/* </a> */}
+                        </Link>
                       </Grid>
 
                       <Grid style={{ height: "100%" }} item xs={12}>
