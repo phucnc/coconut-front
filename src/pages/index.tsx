@@ -159,7 +159,7 @@ export const Home: React.FC<RouteComponentProps> = props => {
   const [showmore, setshowmore] = useState(false);
   const { t } = useTranslation();
   const store = useSelector(getExploreStore);
-  const { isKR} = useSelector(getBuyStore);
+  const { isKR } = useSelector(getBuyStore);
   const { addressID, addressIDcheck } = useSelector(getExploreStore);
   const { isApproved, pricePur, tokenid, isSuccess, product, isGetDone, quote_token, unlock_once_purchased, active } = useSelector(getBuyStore);
   const classes = useStyles();
@@ -385,7 +385,7 @@ export const Home: React.FC<RouteComponentProps> = props => {
       </div> */}
     </div>
   )
-  console.log("test123",store)
+  console.log("test123", store)
   return (
     <div className="p-explore">
       <Layout main title="COCONUT.GLOBAL">
@@ -462,8 +462,9 @@ export const Home: React.FC<RouteComponentProps> = props => {
                   <Grid style={{ height: "100%" }} item xs={12}>
                     <div className="p-explore_subdetail">
                       <Grid style={{ height: "100%" }} item xs={12}>
-                        <Link to="/userguilde">
-                          {/* <a target="_blank" href={isKR? ("https://thankful-raclette-226.notion.site/Tutorial-in-Korean-831538141e3145e4947de6d017ecd06b") :("https://thankful-raclette-226.notion.site/Coconut-Global-Tutorial-479c9e0402d941b4b5c0e9e519fbfd8c")}> */}
+                        {isKR ? (
+
+                          <Link to="/userguildeKr">
                             <button className="p-explore_ButtonHowconnect">
                               <Sectionsub modifiers="howconnect">
                                 <div className="p-explore_Howconnect">
@@ -471,8 +472,21 @@ export const Home: React.FC<RouteComponentProps> = props => {
                                 </div>
                               </Sectionsub>
                             </button>
-                          {/* </a> */}
-                        </Link>
+                            {/* </a> */}
+                          </Link>
+                        ) : (
+                            <Link to="/userguilde">
+                              {/* <a target="_blank" href={isKR? ("https://thankful-raclette-226.notion.site/Tutorial-in-Korean-831538141e3145e4947de6d017ecd06b") :("https://thankful-raclette-226.notion.site/Coconut-Global-Tutorial-479c9e0402d941b4b5c0e9e519fbfd8c")}> */}
+                              <button className="p-explore_ButtonHowconnect">
+                                <Sectionsub modifiers="howconnect">
+                                  <div className="p-explore_Howconnect">
+                                    <Heading modifiers={['left']}>{t("mainMenu.howtoconnect")}</Heading>
+                                  </div>
+                                </Sectionsub>
+                              </button>
+                              {/* </a> */}
+                            </Link>
+                          )}
                       </Grid>
 
                       <Grid style={{ height: "100%" }} item xs={12}>
@@ -482,7 +496,7 @@ export const Home: React.FC<RouteComponentProps> = props => {
                             <a href="https://www.coconut.global/" className="p-explore_ButtonHowconnect" target="_blank">
                               <Sectionsub modifiers="howsettup">
                                 <div className="p-explore_Howsettup">
-                                  <Heading modifiers={['left','white']}>{t("mainMenu.intro")}</Heading>
+                                  <Heading modifiers={['left', 'white']}>{t("mainMenu.intro")}</Heading>
                                 </div>
                                 {/* <Icon modifiers="marginLeft" iconName='multicircle'/> */}
                               </Sectionsub>
@@ -499,13 +513,13 @@ export const Home: React.FC<RouteComponentProps> = props => {
             ) : (<div></div>)}
           </Grid>
         </Container>
-        
-        <Formik initialValues={initialValue} validationSchema={exploreSchema} onSubmit={values => { 
+
+        <Formik initialValues={initialValue} validationSchema={exploreSchema} onSubmit={values => {
           if (values.search !== undefined) {
-          navigate(`/search?name=${values.search}`); 
+            navigate(`/search?name=${values.search}`);
           }
-          }
-      }>
+        }
+        }>
           {({ values }) => {
             return (
               <Form>
@@ -521,13 +535,13 @@ export const Home: React.FC<RouteComponentProps> = props => {
                   {!isMobile && (
                     <Grid className={classes.sticky} item xs={3} spacing={2}>
                       <Section className="p-explore_mainsub">
-                      <TextFieldFormik
-                                  modifiers="search"
-                                  placeholder={t("mainMenu.Search")}
-                                  type="search"
-                                  name="search"
-                                />
-                                {/* <Textfieldsearch/> */}
+                        <TextFieldFormik
+                          modifiers="search"
+                          placeholder={t("mainMenu.Search")}
+                          type="search"
+                          name="search"
+                        />
+                        {/* <Textfieldsearch/> */}
                         {(['top'] as Anchor[]).map((anchor) => (
                           <React.Fragment key={anchor}>
                             <button className="expaned-mobile" onClick={toggleDrawer(anchor, true)} ><Icon modifiers="mini" iconName="threedotNobackground" /></button>
@@ -545,26 +559,26 @@ export const Home: React.FC<RouteComponentProps> = props => {
                           <Grid className="menu" container spacing={0}>
                             <Grid item xs={12}>
                               <TabList modifiers="explore">
-                                
+
                                 {/* <Heading modifiers={['explore']}>{t("mainMenu.Explore")}</Heading> */}
                                 {/* {[...ProductCategories].map(cate => ( */}
                                 <div className="menuOption_tablist">
-                                {[...ProductCategories].map(cate => (
-                                  // {['All','Trend', ...ProductCategories].map(cate => (
-                                  <TabButton
-                                    modifiers="explore"
-                                    key={cate.tab}
-                                    // useFormik
-                                    name="productCategory"
-                                    value={cate.tab}
-                                    explore
-                                    // checked={true}
-                                    handleClick={() => handleFilter('category', cate.tab)}
-                                  >
-                                    {/* <Icon modifiers="32px" iconName={cate.icon} /> */}
-                                    <Button modifiers="exploreMenu"><Text modifiers="centerexplore">{cate.tab}</Text></Button>
-                                    {/* <Text modifiers="centerexplore">{cate.tab}</Text> */}
-                                    {/* <Grid
+                                  {[...ProductCategories].map(cate => (
+                                    // {['All','Trend', ...ProductCategories].map(cate => (
+                                    <TabButton
+                                      modifiers="explore"
+                                      key={cate.tab}
+                                      // useFormik
+                                      name="productCategory"
+                                      value={cate.tab}
+                                      explore
+                                      // checked={true}
+                                      handleClick={() => handleFilter('category', cate.tab)}
+                                    >
+                                      {/* <Icon modifiers="32px" iconName={cate.icon} /> */}
+                                      <Button modifiers="exploreMenu"><Text modifiers="centerexplore">{cate.tab}</Text></Button>
+                                      {/* <Text modifiers="centerexplore">{cate.tab}</Text> */}
+                                      {/* <Grid
                                       container
                                       spacing={3}
                                     >
@@ -574,20 +588,20 @@ export const Home: React.FC<RouteComponentProps> = props => {
                                         {cate.tab}
                                       </Grid>
                                     </Grid> */}
-                                  </TabButton>
-                                ))}
+                                    </TabButton>
+                                  ))}
                                 </div>
-                                 <div className="p-explore_moreContent">
+                                <div className="p-explore_moreContent">
                                   {/* <Text modifiers="center">Category</Text> */}
                                   {reg.map((cate, i) => (
-                                    <TabButton 
-                                    category
-                                    modifiers="category"
-                                    // className="p-explore_button-moreDetail" 
-                                    
-                                    handleClick={() => handleFilter('category', 
+                                    <TabButton
+                                      category
+                                      modifiers="category"
+                                      // className="p-explore_button-moreDetail" 
 
-                                    cate.name)}>{cate.name.charAt(0).toUpperCase() + cate.name.slice(1)}</TabButton>
+                                      handleClick={() => handleFilter('category',
+
+                                        cate.name)}>{cate.name.charAt(0).toUpperCase() + cate.name.slice(1)}</TabButton>
                                   ))}
                                 </div>
                                 {/* <Dropdown
@@ -625,7 +639,7 @@ export const Home: React.FC<RouteComponentProps> = props => {
                                     </DropdownMenu>
                                   </div>
                                 </Dropdown> */}
-                               
+
 
 
                                 {/* <Divider /> */}
@@ -683,7 +697,7 @@ export const Home: React.FC<RouteComponentProps> = props => {
                   )}
                   <Grid item xs={9}>
                     <div className="p-explore_products">
-                      {store.error && wallet.status === "disconnected"  ? (
+                      {store.error && wallet.status === "disconnected" ? (
                         <Text modifiers={['center', 'error']}>{store.error.message}</Text>
                       ) : (
                           <ItemList
@@ -781,33 +795,33 @@ export const Home: React.FC<RouteComponentProps> = props => {
       </Modal>
       <Modal modifiers="maintenance" isOpen={modalOpenMaint} handleClose={() => setModalOpenMaint(false)}>
         {/* <ModalHeader title="" handleClose={() => setModalOpenMaint(false)} /> */} <Grid
-                  className="p-explore_mainet"
-                  container
-                  spacing={3}
-                  direction="row"
-                  justify="center"
-                  alignItems="stretch"
-                >
-                  <Grid justify="center"  item xs={12}>
-                  <Icon modifiers="ultra" iconName="maint"/>
-                  </Grid>
-                 
+          className="p-explore_mainet"
+          container
+          spacing={3}
+          direction="row"
+          justify="center"
+          alignItems="stretch"
+        >
+          <Grid justify="center" item xs={12}>
+            <Icon modifiers="ultra" iconName="maint" />
+          </Grid>
+
           <Heading modifiers="marginBot" type="h1">System Construction</Heading>
           {/* <Text>Sorry for uncomfortable , We will change our system as soon as possible.</Text> */}
-          </Grid>
-          <Grid
-                  className="p-explore_mainet"
-                  container
-                  spacing={3}
-                  direction="row"
-                  justify="flex-start"
-                  alignItems="stretch"
-                >
-                   <Text>Sorry for uncomfortable , We will change our system as soon as possible.</Text>
+        </Grid>
+        <Grid
+          className="p-explore_mainet"
+          container
+          spacing={3}
+          direction="row"
+          justify="flex-start"
+          alignItems="stretch"
+        >
+          <Text>Sorry for uncomfortable , We will change our system as soon as possible.</Text>
           <Text>Our service is in the process of transitioning to Mainnet.</Text>
           <Text>우리 서비스는 Mainnet로 전환 작업을 진행 중입니다.</Text>
 
-                </Grid>
+        </Grid>
       </Modal>
     </div>
   );
