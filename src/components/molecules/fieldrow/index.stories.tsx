@@ -13,7 +13,7 @@ storiesOf('Components|molecules/Fieldrow', module)
           fieldName="Instant sale price"
           lead="Enter the price for which the item will be instantly sold"
           toggleName="test1"
-          caption={['Service fee 2.5%', 'You will receive 0 BMP $0.00']}
+          caption={['Service fee 0%', 'You will receive 0 BMP $0.00']}
         >
           <TextFieldFormik name="input" placeholder="Enter price for one piece" type="text" />
         </Fieldrow>

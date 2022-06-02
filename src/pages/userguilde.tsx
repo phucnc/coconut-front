@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { hot } from 'react-hot-loader/root';
 import { Layout } from 'components/templates/layout';
-import { Section } from 'components/organisms/section';
+import { Sectionguilde } from 'components/organisms/sectionguilde';
 import { Form, Formik } from 'formik';
 import { Categories, createSchema, initialValue, Unit } from 'components/pages/create/form';
 import axios from 'axios';
@@ -22,6 +22,9 @@ import { Modal } from 'components/organisms/modal';
 import { ModalHeader } from 'components/molecules/modalHeader';
 import { StepItem } from 'components/molecules/stepItem';
 import { Steps } from 'components/organisms/steps';
+import Grid from '@material-ui/core/Grid';
+import main_img from 'assets/images/howtouse_main.png';
+import bottom_fade from 'assets/images/bottom_fade.png';
 import setup_1 from 'assets/images/Slide1.png';
 import setup_2 from 'assets/images/Slide2.png';
 import setup_3 from 'assets/images/Slide3.png';
@@ -63,57 +66,498 @@ export const userguilde: React.FC = () => {
   return (
     <div className="p-create">
       <Layout title="User Guilde">
-          <Formik
-            initialValues={initialValue}
-            validationSchema={createSchema}
-            onSubmit={values => {
-             console.log("aaa")
-            }}
-            validateOnMount
-          >
-            {({ values, isValid, setTouched, touched }) => {
-              return (
-                <Form className="p-create_form">
-                  <div className="p-create_guilde">
-                    <img   className="p-create_img" src={setup_1}></img>
-                    <img  className="p-create_img" src={setup_2}></img>
-                    <img id="img1"  className="p-create_img" src={setup_3}></img>
-                    <img className="p-create_img" src={setup_4}></img>
-                    <img className="p-create_img" src={setup_5}></img>
-                    <img className="p-create_img" src={setup_6}></img>
-                    <img className="p-create_img" src={setup_7}></img>
-                    <img className="p-create_img" src={setup_8}></img>
-                    <img id="img2" className="p-create_img" src={setup_9}></img>
-                    <img className="p-create_img" src={setup_10}></img>
-                    <img className="p-create_img" src={setup_11}></img>
-                    <img id="img3" className="p-create_img" src={setup_12}></img>
-                    <img className="p-create_img" src={setup_13}></img>
-                    <img className="p-create_img" src={setup_14}></img>
-                    <img className="p-create_img" src={setup_15}></img>
-                    <img  className="p-create_img" src={setup_16}></img>
-                    <img id="img4" className="p-create_img" src={setup_17}></img>
-                    <img className="p-create_img" src={setup_18}></img>
-                    <img className="p-create_img" src={setup_19}></img>
-                    <img  className="p-create_img" src={setup_20}></img>
-                    <img id="img5" className="p-create_img" src={setup_21}></img>
-                    <img className="p-create_img" src={setup_22}></img>
-                    <img className="p-create_img" src={setup_23}></img>
-                    <img className="p-create_img" src={setup_24}></img>
-                    <img className="p-create_img" src={setup_25}></img>
-                    <img className="p-create_img" src={setup_26}></img>
-                    <img className="p-create_img" src={setup_27}></img>
-                    <img className="p-create_img" src={setup_28}></img>
-                    {/* <img className="p-create_img" src={setup_29}></img>
-                    <img className="p-create_img" src={setup_30}></img> */}
-                    <div className="p-create_buttonDone">
-                      <Button anchor={{ href: '/' }} modifiers="bigDone">Done+</Button>
+        <Formik
+          initialValues={initialValue}
+          validationSchema={createSchema}
+          onSubmit={values => {
+            console.log("aaa")
+          }}
+          validateOnMount
+        >
+          {({ values, isValid, setTouched, touched }) => {
+            return (
+              <Form className="p-create_form">
+                <div className="p-create_guilde">
+                  <section className="sectionguidle">
+                    <div className="sectionguidle_Main">
+                      <img className="p-create_img" src={main_img} />
+                      <img className="p-create_imgFade" src={bottom_fade} />
                     </div>
+                    <Grid
+                      className="sectionguidle_box"
+                      container
+                      spacing={5}
+                      // direction="row"
+                      justify="center"
+                    // alignItems="stretch"
+                    >
+                      {/* <Grid justify="center" item xs={6}>
+                        <Icon modifiers={['superlarge','flex']}  iconName="ccn_logo"/>
+                      </Grid> */}
+                      <Grid justify="center" item xs={7}>
+                        <h2>How to use Coconut Global with MetaMask Wallet?</h2>
+                      </Grid>
+                      <Grid justify="center" item xs={1}></Grid>
+                      <Grid justify="center" item xs={4}>
+                        <ol>
+                          <li>How to create a MetaMask Wallet?</li>
+                          <li>Setting BSC Network on MetaMask Wallet</li>
+                          <li>How to connect to MetaMask Wallet from Coconut Global?</li>
+                          <li>How can I create an NFT?</li>
+                          <li>How can I buy an NFT?</li>
+                          <li>How can I resell my purchased NFT?</li>
+                        </ol>
+                      </Grid>
+                    </Grid>
+                  </section>
+                  <div className="sectionguidle_sub">
+                    <Grid
+                      className="sectionguidle_sub_containt"
+                      container
+                      spacing={5}
+                      justify="center"
+                    >
+                      <Grid justify="center" item xs={6}>
+                        <h1>1.&nbsp; &nbsp; How to create a MetaMask Wallet?”</h1>
+                        <ul>
+                          <li><span>If you are wondering how to create a new cryptocurrency wallet, consider creating one by installing the MetaMask extension on your browser.</span></li>
+                          <li><span>MetaMask is a free and secure browser extension that allows web applications to read and interact with the Ethereum/Binance Smart Chain blockchain.</span></li>
+                        </ul>
+                      </Grid>
+                      <Grid justify="center" item xs={6}>
+                        <img className="p-create_imgGuilde" src={setup_1} />
+                      </Grid>
+                    </Grid>
+                    {/*  */}
+                    <Grid
+                      className="sectionguidle_sub_containt"
+                      container
+                      spacing={5}
+                    // justify="center"
+                    >
+                      <Grid item xs={9}>
+                        <Text>To create a new wallet with MetaMask you need to install the extension first. You can install Metamask for Chrome, Firefox, Brave and Opera browsers.</Text>
+                        <Text>Open https://metamask.io or search for “Metamask extension” using your favorite search engine.</Text>
+                      </Grid>
+                      <Grid item xs={4}></Grid>
+                      <Grid item xs={8}>
+                        <img className="p-create_imgGuilde2" src={setup_2} />
+                      </Grid>
+                    </Grid>
+                    {/*  */}
+                    <Grid
+                      className="sectionguidle_sub_containt"
+                      container
+                      spacing={5}
+                    // justify="center"
+                    >
+                      <Grid item xs={9}>
+                        <Text>In this tutorial we will be using Google Chrome as an example, but the workflow is the same for all browsers.</Text>
+                      </Grid>
+                      <Grid item xs={12}>
+                        <img className="p-create_imgGuilde2" src={setup_3} />
+                      </Grid>
+                    </Grid>
+                    {/*  */}
+                    <Grid
+                      className="sectionguidle_sub_containt"
+                      container
+                      spacing={5}
+                    // justify="center"
+                    >
+                      <Grid item xs={6}>
+                        <h2>Creating your account</h2>
+                        <Text>Click on the extension icon in your Chrome browser; the extension icon is located in the top right hand corner on Chrome and should be in a similar location on other browsers.</Text>
+                        <Text>Once MetaMask is open, you may be prompted to either "Create a Wallet" or "Import wallet." If you are first setting up your MetaMask account, select the former. If you have a wallet already, you can select "Import wallet" and then you will be asked to input your 12 word seed phrase to link your account; we'll tackle the seed phrase below.</Text>
+                      </Grid>
+                      <Grid item xs={6}>
+                        <img className="p-create_imgGuilde2" src={setup_4} />
+                        <Text>Once you've opted to create a new account, you will be asked to accept the terms of use, and then prompted to create a new password. Click Create.</Text>
+                      </Grid>
+                    </Grid>
+                    {/*  */}
+                    <Grid
+                      className="sectionguidle_sub_containt"
+                      container
+                      spacing={5}
+                      justify="center"
+                    >
+                      <Grid justify="center" item xs={6}>
+                        <ul>
+                          <li><span>When MetaMask reveals your secret words, DO NOT FORGET to write them down.</span></li>
+                          <li><span>This section is bolded so that you don't accidentally skim and lose access to your wallet forever.</span></li>
+                          <li><span>Click the "Reveal Secret Words" button.</span></li>
+                          <li><span>You will see a 12 words seed phrase.</span></li>
+                          <li><span>DO NOT store these online, as that can always be a potential security risk. Instead, write these down in a notebook or something you will not misplace. Store it somewhere safe.</span></li>
+                        </ul>
+                      </Grid>
+                      <Grid justify="center" item xs={6}>
+                        <img className="p-create_imgGuilde2" src={setup_5} />
+                      </Grid>
+                    </Grid>
+                    {/*  */}
+                    <Grid
+                      className="sectionguidle_sub_containt"
+                      container
+                      spacing={5}
+                    // justify="center"
+                    >
+                      <Grid item xs={6}>
+                        <h2>Log-in MetaMask Wallet</h2>
+                        <Text>Now, you can check and log-in MetaMask Wallet in your browers</Text>
+                      </Grid>
+                      <Grid item xs={6}>
+                        <img className="p-create_imgGuilde2" src={setup_6} />
+                      </Grid>
+                    </Grid>
+                    {/*  */}
+                    <Grid
+                      className="sectionguidle_sub_containt"
+                      container
+                      spacing={5}
+                    // justify="center"
+                    >
+                      <Grid item xs={12}>
+                        <h1>2.&nbsp; &nbsp;Setting BSC Network on MetaMask Wallet</h1>
+                      </Grid>
+                      <Grid item xs={12}>
+                        <img className="p-create_imgGuilde2" src={setup_7} />
+                      </Grid>
+                    </Grid>
+                    {/*  */}
+                    <Grid
+                      className="sectionguidle_sub_containt"
+                      container
+                      spacing={5}
+                    // justify="center"
+                    >
+                      <Grid item xs={6}>
+                        <h2>Select option “Setting”</h2>
+                        <Text>On the MetaMask wallet, click to drop down your accounts and select Settings.</Text>
+                      </Grid>
+                      <Grid item xs={6}>
+                        <img className="p-create_imgGuilde2" src={setup_8} />
+                      </Grid>
+                    </Grid>
+                    {/*  */}
+                    <Grid
+                      className="sectionguidle_sub_containt"
+                      container
+                      spacing={5}
+                    // justify="center"
+                    >
+                      <Grid item xs={6}>
+                        <h2>Add new network</h2>
+                        <Text>Select Networks, then Add New network.</Text>
+                      </Grid>
+                      <Grid item xs={6}>
+                        <img className="p-create_imgGuilde2" src={setup_9} />
+                      </Grid>
+                    </Grid>
+                    {/*  */}
+                    <Grid
+                      className="sectionguidle_sub_containt"
+                      container
+                      spacing={5}
+                    // justify="center"
+                    >
+                      <Grid item xs={6}>
+                        <h2>Input the Information of BSC</h2>
+                        <ul className="p-create_noticelist">
+                          <li className="p-create_textlist">Network Name:</li>
+                          <span> Smart Chain</span>
+                          <li className="p-create_textlist">New RPC URL:</li>
+                          <span> https://bsc-dataseed.binance.org/</span>
+                          <li className="p-create_textlist">ChainID:</li>
+                          <span> 56</span>
+                          <li className="p-create_textlist">Symbol</li>
+                          <span> BNB</span>
+                          <li className="p-create_textlist">Block Explorer</li>
+                          <a href="https://bscscan.com/">https://bscscan.com/</a>
+                        </ul>
+                        <div className="sectionguidle_sub_button">Click Save to add the BSC. And Done!&nbsp;&nbsp;&nbsp;&nbsp;<Icon iconName="done"/></div>
+                      </Grid>
+                      <Grid item xs={6}>
+                        <img className="p-create_imgGuilde2" src={setup_10} />
+                      </Grid>
+                    </Grid>
+                    {/*  */}
+                    <Grid
+                      className="sectionguidle_sub_containt"
+                      container
+                      spacing={5}
+                    // justify="center"
+                    >
+                      <Grid item xs={6}>
+                        <h2>Add BUSD and CONUT token to Metamask Wallet</h2>
+                        <ul>
+                          <li><span>When MetaMask reveals your secret words, DO NOT FORGET to write them down.</span></li>
+                          <li><span>This section is bolded so that you don't accidentally skim and lose access to your wallet forever. </span></li>
+                          <li><span>Click the "Reveal Secret Words" button.</span></li>
+                          <li><span>You will see a 12 words seed phrase.</span></li>
+                          <li><span>DO NOT store these online, as that can always be a potential security risk. Instead, write these down in a notebook or something you will not misplace. Store it somewhere safe.</span></li>
+                        </ul>
+                      </Grid>
+                      <Grid item xs={6}>
+                        <img className="p-create_imgGuilde2" src={setup_11} />
+                      </Grid>
+                    </Grid>
+                    {/*  */}
+                    <Grid
+                      className="sectionguidle_sub_containt"
+                      container
+                      spacing={5}
+                      justify="center"
+                    >
+                      <Grid item xs={12}>
+                        <h1>3.&nbsp; &nbsp;How to connect MetaMask Wallet from Coconut Global?</h1>
+                      </Grid>
+                      <Grid item xs={6}>
+                        <div>
+                          <img className="p-create_imgGuilde2" src={setup_12} />
+                        </div>
+                      </Grid>
+                    </Grid>
+                    {/*  */}
+                    <Grid
+                      className="sectionguidle_sub_containt"
+                      container
+                      spacing={5}
+                    // justify="center"
+                    >
+                      <Grid item xs={8}>
+                        <h2>Open https://app.coconut.global page</h2>
+                        <Text>Open https://app.coconut.global page and click button “Connect Wallet”</Text>
+                        <Text>Choose MetaMask Wallet</Text>
+                      </Grid>
+                      <Grid item xs={12}>
+                        <img className="p-create_imgGuilde2" src={setup_13} />
+                      </Grid>
+                    </Grid>
+                    {/*  */}
+                    <Grid
+                      className="sectionguidle_sub_containt"
+                      container
+                      spacing={5}
+                    // justify="center"
+                    >
+                      <Grid item xs={6}>
+                        <h2>Confirm connect</h2>
+                        <Text>When MetaMask Wallet extension open, confirm connect to Coconut Global service.</Text>
+                        <Text>If connect status on MetaMask Wallet is Connected, you can start creating and trading NFTs on our platform.</Text>
+                      </Grid>
+                      <Grid item xs={6}>
+                        <img className="p-create_imgGuilde2" src={setup_14} />
+                      </Grid>
+                    </Grid>
+                    {/*  */}
+                    <Grid
+                      className="sectionguidle_sub_containt"
+                      container
+                      spacing={5}
+                      justify="center"
+                    >
+                      <Grid item xs={12}>
+                      <div className="sectionguidle_sub_center">
+                        <h1>4.&nbsp; &nbsp;How can I create NFT?</h1>
+                      </div>
+                      </Grid>
+                      <Grid item xs={6}>
+                        <div>
+                          <img className="p-create_imgGuilde2" src={setup_15} />
+                        </div>
+                      </Grid>
+                    </Grid>
+                    {/*  */}
+                    <Grid
+                      className="sectionguidle_sub_containt"
+                      container
+                      spacing={5}
+                      justify="center"
+                    >
+                      <Grid item xs={12}>
+                      <div className="sectionguidle_sub_center">
+                        <h2>Check Wallet Connecting status?</h2>
+                        <Text>You need connect to MetaMask Wallet to create item NFT</Text>
+                        <Text>You can check in here:</Text>
+                      </div>
+                      </Grid>
+                      <Grid item xs={6}>
+                        <div>
+                          <img className="p-create_imgGuilde2" src={setup_16} />
+                        </div>
+                      </Grid>
+                    </Grid>
+                    {/*  */}
+                    <Grid
+                      className="sectionguidle_sub_containt"
+                      container
+                      spacing={5}
+                    // justify="center"
+                    >
+                      <Grid item xs={8}>
+                        <h2>Create Item</h2>
+                        <Text>1.Choose “Create” button</Text>
+                        <Text>2.Agree with Coconut’s term</Text>
+                        <Text>3.Complete the NFT information and create</Text>
+                      </Grid>
+                      <Grid item xs={12}>
+                        <img className="p-create_imgGuilde_top" src={setup_17} />
+                      </Grid>
+                    </Grid>
+                    {/*  */}
+                    <Grid
+                      className="sectionguidle_sub_containt"
+                      container
+                      spacing={5}
+                    // justify="center"
+                    >
+                      <Grid item xs={8}>
+                        <h2>Confirm MetaMask Wallet requests to create NFT item</h2>
+                      </Grid>
+                      <Grid item xs={12}>
+                        <img className="p-create_imgGuilde2" src={setup_18} />
+                      </Grid>
+                    </Grid>
+                    {/*  */}
+                    <Grid
+                      className="sectionguidle_sub_containt"
+                      container
+                      spacing={5}
+                    // justify="center"
+                    >
+                      <Grid item xs={8}>
+                        <h2>Check your created NFT item</h2>
+                      </Grid>
+                      <Grid item xs={12}>
+                        <img className="p-create_imgGuilde2" src={setup_19} />
+                      </Grid>
+                    </Grid>
+                    {/*  */}
+                    <Grid
+                      className="sectionguidle_sub_containtFull"
+                      container
+                      spacing={5}
+                      justify="center"
+                    >
+                      <Grid item xs={6}>
+                        <div>
+                          <img className="p-create_imgGuilde2" src={setup_20} />
+                        </div>
+                      </Grid>
+                      <Grid item xs={6}>
+                        <h1>5.&nbsp; &nbsp;How can I buy NFT item?</h1>
+                      </Grid>
+                    </Grid>
+                    {/*  */}
+                    <Grid
+                      className="sectionguidle_sub_containt"
+                      container
+                      spacing={5}
+                      justify="center"
+                    >
+                      <Grid item xs={6}>
+                        <div>
+                          <img className="p-create_imgGuilde2" src={setup_21} />
+                        </div>
+                      </Grid>
+                      <Grid item xs={6}>
+                        <h2>First, check Wallet Connecting status, then</h2>
+                      </Grid>
+                    </Grid>
+                    {/*  */}
+                    <Grid
+                      className="sectionguidle_sub_containt"
+                      container
+                      spacing={5}
+                      justify="center"
+                    >
+                      <Grid item xs={6}>
+                        <h2>Confirm Transaction</h2>
+                      </Grid>
+                      <Grid item xs={6}>
+                        <div>
+                          <img className="p-create_imgGuilde2" src={setup_22} />
+                        </div>
+                      </Grid>
+                      
+                    </Grid>
+                    {/*  */}
+                    <Grid
+                      className="sectionguidle_sub_containt"
+                      container
+                      spacing={5}
+                      justify="center"
+                    >
+                      <Grid item xs={5}>
+                        <h2>Check your purchased NFT items</h2>
+                      </Grid>
+                      <Grid item xs={7}>
+                        <div>
+                          <img className="p-create_imgGuilde2" src={setup_23} />
+                        </div>
+                      </Grid>
+                      
+                    </Grid>
+                    {/*  */}
+                    <Grid
+                      className="sectionguidle_sub_containtFull"
+                      container
+                      spacing={5}
+                      justify="center"
+                    >
+                      
+                      <Grid item xs={10}>
+                        <h1>6.&nbsp; &nbsp;How can I resell my purchased NFT?</h1>
+                      </Grid>
+                      <Grid item xs={12}>
+                        <div>
+                          <img className="p-create_imgGuilde2" src={setup_24} />
+                        </div>
+                      </Grid>
+                    </Grid>
+                    {/*  */}
+                    <Grid
+                      className="sectionguidle_sub_containt"
+                      container
+                      spacing={5}
+                      justify="center"
+                    >
+                      
+                      <Grid item xs={7}>
+                        <h2>Choose 1 item in Purchased Item at My-item page</h2>
+                      </Grid>
+                      <Grid item xs={12}>
+                        <div>
+                          <img className="p-create_imgGuilde2" src={setup_25} />
+                        </div>
+                      </Grid>
+                    </Grid>
+                    {/*  */}
+                    <Grid
+                      className="sectionguidle_sub_containt"
+                      container
+                      spacing={5}
+                      justify="center"
+                    >
+                      
+                      <Grid item xs={7}>
+                        <h2>Input the price you want to resell this item and confirm</h2>
+                      </Grid>
+                      <Grid item xs={12}>
+                        <div>
+                          <img className="p-create_imgGuilde2" src={setup_26} />
+                        </div>
+                      </Grid>
+                    </Grid>
+                    {/*  */}
                   </div>
-                  <div className="p-create_review">
-                    <div className="p-create_userguildeBox">
-                      <h2>Setup BSC in Metamask Wallet:</h2>
+
+                </div>
+                <div className="p-create_review">
+                  <div className="p-create_userguildeBox">
+                    <h2>Setup BSC in Metamask Wallet:</h2>
                     <ul className="p-create_noticelist">
-                      {/* <li className="p-create_textlist"><Link  to="img1" spy={true} smooth={true}>Page 3: How to create a Metamask Wallet</Link> </li> */}
                       <li className="p-create_textlist">Network Name:</li>
                       <li className="p-create_textlistnone">
                         <span>Smart Chain</span></li>
@@ -126,27 +570,27 @@ export const userguilde: React.FC = () => {
                       <li className="p-create_textlistnone"><span> BNB</span></li>
                       <li className="p-create_textlist">Block Explorer</li>
                       <li className="p-create_textlistnone"><a href="https://bscscan.com/">https://bscscan.com/</a></li>
-                     
+
                     </ul>
-                    <Divider style={{ background: 'black' }}/>
+                    <Divider style={{ background: 'black' }} />
                     <ul className="p-create_noticelist">
                       <li className="p-create_textlist">CONUT token: </li>
-                      <li className="p-create_textlistnone"><span> 
-                      0x323249642f3a4519134a0926cb7797077e49de76</span></li>
+                      <li className="p-create_textlistnone"><span>
+                        0x323249642f3a4519134a0926cb7797077e49de76</span></li>
                       <li className="p-create_textlist">BUSD token: </li>
-                      <li className="p-create_textlistnone"><span> 
-                      0xe9e7cea3dedca5984780bafc599bd69add087d56</span></li>
-                     
+                      <li className="p-create_textlistnone"><span>
+                        0xe9e7cea3dedca5984780bafc599bd69add087d56</span></li>
+
                     </ul>
-                    </div>
-                    
                   </div>
-                  
-                </Form>
-                
-              );
-            }}
-          </Formik>
+
+                </div>
+
+              </Form>
+
+            );
+          }}
+        </Formik>
       </Layout>
     </div>
   );

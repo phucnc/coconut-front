@@ -239,6 +239,7 @@
   }
 
   &-bold {
+    font-weight: bold!important;
     @include u-fw-b;
   }
 

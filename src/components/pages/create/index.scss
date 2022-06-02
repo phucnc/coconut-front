@@ -23,9 +23,42 @@
     }
   }
   &_img {
-    width:750px;
-    margin-bottom: 10px;
+    width:100%;
+    // margin-bottom: 10px;
   }
+  &_imgFade {
+    width:100%;
+    z-index: 99;
+	position: relative;
+	bottom: 100px;
+	// background-image: url("bottom-fade.png");
+    // margin-bottom: 10px;
+  }
+  &_imgGuilde {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    // margin-bottom: 10px;
+  }
+  &_imgGuilde2 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    padding-bottom:10px;
+    // margin-bottom: 10px;
+  }
+  &_imgGuilde_top {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    padding-bottom:10px;
+    bottom:100px;
+    // margin-bottom: 10px;
+  }
+
   &_imgConnect {
     width:100%;
     margin-bottom: 20px;
@@ -146,13 +179,14 @@
   &_userguildeBox {
     position: sticky;
     top: calc(#{$HEADER-PC-HEIGHT} + 40px);
-    width:450px;
+    width:300px;
     // display:flex;
     // justify-content: flex-start;
     padding: 20px;
     margin-left: 40px;
     background-color: white;
     border-radius: 15px;
+    overflow-wrap: break-word;
    
     /* or 22px */
     letter-spacing: 0.02em;
@@ -172,6 +206,7 @@
     list-style-type: disc;
     font-family: NotoSans;
     padding: 10px;
+    font-size: 16px;
   }
   &_textlistnone {
     list-style-type: none;
@@ -179,7 +214,7 @@
     font-family: NotoSans;
     font-style: normal;
     font-weight: 500;
-    font-size: 18px;
+    font-size: 14px;
     line-height: 22px;
   }
   &_textlist{
