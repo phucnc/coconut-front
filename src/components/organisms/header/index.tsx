@@ -319,18 +319,18 @@ export const Header: React.FC = () => {
         <ul className="o-header_menu">
           <Menu menuButton={<MenuButton className="o-header_menulist">{t("mainMenu.More")} &#x276F;</MenuButton>}>
             { isKR ? (
-              <MenuItem target="_blank" href="https://thankful-raclette-226.notion.site/CONUT-948323109be34a58bfec723c7b201787"  >CONUT Token</MenuItem>
+              <MenuItem target="_blank" href="https://thankful-raclette-226.notion.site/CONUT-948323109be34a58bfec723c7b201787"  >{t("mainMenu.ConutToken")}</MenuItem>
             ) : (
-            <MenuItem target="_blank" href="https://thankful-raclette-226.notion.site/CONUT-TOKEN-f751f8c45b6247d1a6434e8f88bf6a03"  >CONUT Token</MenuItem>
+            <MenuItem target="_blank" href="https://thankful-raclette-226.notion.site/CONUT-TOKEN-f751f8c45b6247d1a6434e8f88bf6a03"  >{t("mainMenu.ConutToken")}</MenuItem>
              ) }
             <SubMenu style={{ textDecoration: 'none' }} label={t("mainMenu.Contact")}>
               <MenuItem href="mailto:support@coconut.global" className="o-header_link-text"> <a href="mailto:support@coconut.global" target="_blank">{t("mainMenu.Business")}</a></MenuItem>
               <MenuItem href="mailto:support@coconut.global" className="o-header_link-text"> <a href="mailto:support@coconut.global" target="_blank">CS</a></MenuItem>
             </SubMenu>
             {/* <MenuItem href="https://coconut-global.medium.com/">{t("mainMenu.Blog")}</MenuItem> */}
-            <MenuItem href="/notice">Notice</MenuItem>
-            <MenuItem href="/termofservice">Term of service</MenuItem>
-            <MenuItem href="/termofservice">Policy</MenuItem>
+            <MenuItem href="/notice">{t("mainMenu.Notice")}</MenuItem>
+            <MenuItem href="/termofservice">{t("mainMenu.Term")}</MenuItem>
+            <MenuItem href="/termofservice">{t("mainMenu.Policy")}</MenuItem>
           </Menu>
         </ul>
         {/* <Formik
