@@ -111,6 +111,10 @@
     position: relative;
     padding-right:40px;
   }
+  &_reviewGuilde {
+    position: relative;
+
+  }
   &_reviewcontent{
     position: sticky;
     top: calc(#{$HEADER-PC-HEIGHT} + 40px);
@@ -179,7 +183,7 @@
   &_userguildeBox {
     position: sticky;
     top: calc(#{$HEADER-PC-HEIGHT} + 40px);
-    width:300px;
+    width:370px;
     // display:flex;
     // justify-content: flex-start;
     padding: 20px;

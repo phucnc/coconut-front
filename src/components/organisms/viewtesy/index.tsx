@@ -482,7 +482,9 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
                       </Link>
                     </div>
                     <div className="p-view_share">
-                    <Button modifiers="reportExplore" handleClick={() => setModalOpenreport(true)}  >! {t("Myitem.Report")}</Button>
+                    {(wallet?.status == "disconnected" || wallet?.status == "error" ) ? (
+                    <Button modifiers="reportExplore" handleClick={() => setModalOpenConnect(true)}  >! {t("Myitem.Report")}</Button>
+                    ):(<Button modifiers="reportExplore" handleClick={() => setModalOpenreport(true)}  >! {t("Myitem.Report")}</Button>)}
                     </div>
                   </div>
                   <div className="p-view_info">

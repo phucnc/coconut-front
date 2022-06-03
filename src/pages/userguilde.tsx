@@ -55,13 +55,14 @@ import setup_27 from 'assets/images/Slide27.png';
 import setup_28 from 'assets/images/Slide28.png';
 // import setup_29 from 'assets/images/Slide29.png';
 // import setup_30 from 'assets/images/Slide30.png';
-import { useWallet } from 'use-wallet';
+import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from 'react-redux';
 import { approveNFT, createNFT, createTokenURI, getCreateStore, resetStore, sellNFT, sellCreateNFT, approveCreateNFT } from 'store/createNFT';
 import { commonStart } from 'store/common';
 
 export const userguilde: React.FC = () => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   const { currentStep, tokenURI } = useSelector(getCreateStore);
   return (
     <div className="p-create">
@@ -95,17 +96,17 @@ export const userguilde: React.FC = () => {
                         <Icon modifiers={['superlarge','flex']}  iconName="ccn_logo"/>
                       </Grid> */}
                       <Grid justify="center" item xs={7}>
-                        <h2>How to use Coconut Global with MetaMask Wallet?</h2>
+                        <h2>{t("howUse.use")}</h2>
                       </Grid>
-                      <Grid justify="center" item xs={1}></Grid>
-                      <Grid justify="center" item xs={4}>
+                      {/* <Grid justify="center" item xs={1}></Grid> */}
+                      <Grid justify="center" item xs={5}>
                         <ol>
-                          <li>How to create a MetaMask Wallet?</li>
-                          <li>Setting BSC Network on MetaMask Wallet</li>
-                          <li>How to connect to MetaMask Wallet from Coconut Global?</li>
-                          <li>How can I create an NFT?</li>
-                          <li>How can I buy an NFT?</li>
-                          <li>How can I resell my purchased NFT?</li>
+                          <li>{t("howUse.create")}</li>
+                          <li>{t("howUse.setting")}</li>
+                          <li>{t("howUse.connect")}</li>
+                          <li>{t("howUse.howCreate")}</li>
+                          <li>{t("howUse.howBuy")}</li>
+                          <li>{t("howUse.howResell")}</li>
                         </ol>
                       </Grid>
                     </Grid>
@@ -118,10 +119,10 @@ export const userguilde: React.FC = () => {
                       justify="center"
                     >
                       <Grid justify="center" item xs={6}>
-                        <h1>1.&nbsp; &nbsp; How to create a MetaMask Wallet?”</h1>
+                        <h1>1.&nbsp; &nbsp; {t("howUse.create")}”</h1>
                         <ul>
-                          <li><span>If you are wondering how to create a new cryptocurrency wallet, consider creating one by installing the MetaMask extension on your browser.</span></li>
-                          <li><span>MetaMask is a free and secure browser extension that allows web applications to read and interact with the Ethereum/Binance Smart Chain blockchain.</span></li>
+                          <li><span>{t("howUse.howCreate_define1")}</span></li>
+                          <li><span>{t("howUse.howCreate_define2")}</span></li>
                         </ul>
                       </Grid>
                       <Grid justify="center" item xs={6}>
@@ -136,8 +137,8 @@ export const userguilde: React.FC = () => {
                     // justify="center"
                     >
                       <Grid item xs={9}>
-                        <Text>To create a new wallet with MetaMask you need to install the extension first. You can install Metamask for Chrome, Firefox, Brave and Opera browsers.</Text>
-                        <Text>Open https://metamask.io or search for “Metamask extension” using your favorite search engine.</Text>
+                        <Text>{t("howUse.howCreate_step1")}</Text>
+                        <Text>{t("howUse.howCreate_step2")}</Text>
                       </Grid>
                       <Grid item xs={4}></Grid>
                       <Grid item xs={8}>
@@ -152,7 +153,7 @@ export const userguilde: React.FC = () => {
                     // justify="center"
                     >
                       <Grid item xs={9}>
-                        <Text>In this tutorial we will be using Google Chrome as an example, but the workflow is the same for all browsers.</Text>
+                        <Text>{t("howUse.howCreate_step3")}</Text>
                       </Grid>
                       <Grid item xs={12}>
                         <img className="p-create_imgGuilde2" src={setup_3} />
@@ -166,13 +167,13 @@ export const userguilde: React.FC = () => {
                     // justify="center"
                     >
                       <Grid item xs={6}>
-                        <h2>Creating your account</h2>
-                        <Text>Click on the extension icon in your Chrome browser; the extension icon is located in the top right hand corner on Chrome and should be in a similar location on other browsers.</Text>
-                        <Text>Once MetaMask is open, you may be prompted to either "Create a Wallet" or "Import wallet." If you are first setting up your MetaMask account, select the former. If you have a wallet already, you can select "Import wallet" and then you will be asked to input your 12 word seed phrase to link your account; we'll tackle the seed phrase below.</Text>
+                        <h2>{t("howUse.howCreate_head1")}</h2>
+                        <Text>{t("howUse.howCreate_head1_step1")}</Text>
+                        <Text>{t("howUse.howCreate_head1_step2")}</Text>
                       </Grid>
                       <Grid item xs={6}>
                         <img className="p-create_imgGuilde2" src={setup_4} />
-                        <Text>Once you've opted to create a new account, you will be asked to accept the terms of use, and then prompted to create a new password. Click Create.</Text>
+                        <Text>{t("howUse.howCreate_head1_step3")}</Text>
                       </Grid>
                     </Grid>
                     {/*  */}
@@ -184,11 +185,11 @@ export const userguilde: React.FC = () => {
                     >
                       <Grid justify="center" item xs={6}>
                         <ul>
-                          <li><span>When MetaMask reveals your secret words, DO NOT FORGET to write them down.</span></li>
-                          <li><span>This section is bolded so that you don't accidentally skim and lose access to your wallet forever.</span></li>
-                          <li><span>Click the "Reveal Secret Words" button.</span></li>
-                          <li><span>You will see a 12 words seed phrase.</span></li>
-                          <li><span>DO NOT store these online, as that can always be a potential security risk. Instead, write these down in a notebook or something you will not misplace. Store it somewhere safe.</span></li>
+                          <li><span>{t("howUse.howCreate_head1_step4")}</span></li>
+                          <li><span>{t("howUse.howCreate_head1_step5")}</span></li>
+                          <li><span>{t("howUse.howCreate_head1_step6")}</span></li>
+                          <li><span>{t("howUse.howCreate_head1_step7")}</span></li>
+                          <li><span>{t("howUse.howCreate_head1_step8")}</span></li>
                         </ul>
                       </Grid>
                       <Grid justify="center" item xs={6}>
@@ -203,8 +204,8 @@ export const userguilde: React.FC = () => {
                     // justify="center"
                     >
                       <Grid item xs={6}>
-                        <h2>Log-in MetaMask Wallet</h2>
-                        <Text>Now, you can check and log-in MetaMask Wallet in your browers</Text>
+                        <h2>{t("howUse.howCreate_head2")}</h2>
+                        <Text>{t("howUse.howCreate_head2_step1")}</Text>
                       </Grid>
                       <Grid item xs={6}>
                         <img className="p-create_imgGuilde2" src={setup_6} />
@@ -218,7 +219,7 @@ export const userguilde: React.FC = () => {
                     // justify="center"
                     >
                       <Grid item xs={12}>
-                        <h1>2.&nbsp; &nbsp;Setting BSC Network on MetaMask Wallet</h1>
+                        <h1>2.&nbsp; &nbsp;{t("howUse.setting")}</h1>
                       </Grid>
                       <Grid item xs={12}>
                         <img className="p-create_imgGuilde2" src={setup_7} />
@@ -232,8 +233,8 @@ export const userguilde: React.FC = () => {
                     // justify="center"
                     >
                       <Grid item xs={6}>
-                        <h2>Select option “Setting”</h2>
-                        <Text>On the MetaMask wallet, click to drop down your accounts and select Settings.</Text>
+                        <h2>{t("howUse.setting_head")}</h2>
+                        <Text>{t("howUse.setting_head_detail1")}</Text>
                       </Grid>
                       <Grid item xs={6}>
                         <img className="p-create_imgGuilde2" src={setup_8} />
@@ -247,8 +248,8 @@ export const userguilde: React.FC = () => {
                     // justify="center"
                     >
                       <Grid item xs={6}>
-                        <h2>Add new network</h2>
-                        <Text>Select Networks, then Add New network.</Text>
+                        <h2>{t("howUse.setting_head2")}</h2>
+                        <Text>{t("howUse.setting_head2_detail1")}</Text>
                       </Grid>
                       <Grid item xs={6}>
                         <img className="p-create_imgGuilde2" src={setup_9} />
@@ -262,7 +263,7 @@ export const userguilde: React.FC = () => {
                     // justify="center"
                     >
                       <Grid item xs={6}>
-                        <h2>Input the Information of BSC</h2>
+                        <h2>{t("howUse.setting_head3")}</h2>
                         <ul className="p-create_noticelist">
                           <li className="p-create_textlist">Network Name:</li>
                           <span> Smart Chain</span>
@@ -275,7 +276,7 @@ export const userguilde: React.FC = () => {
                           <li className="p-create_textlist">Block Explorer</li>
                           <a href="https://bscscan.com/">https://bscscan.com/</a>
                         </ul>
-                        <div className="sectionguidle_sub_button">Click Save to add the BSC. And Done!&nbsp;&nbsp;&nbsp;&nbsp;<Icon iconName="done"/></div>
+                        <div className="sectionguidle_sub_button">{t("howUse.setting_head3_detail1")}&nbsp;&nbsp;&nbsp;&nbsp;<Icon iconName="done"/></div>
                       </Grid>
                       <Grid item xs={6}>
                         <img className="p-create_imgGuilde2" src={setup_10} />
@@ -289,13 +290,13 @@ export const userguilde: React.FC = () => {
                     // justify="center"
                     >
                       <Grid item xs={6}>
-                        <h2>Add BUSD and CONUT token to Metamask Wallet</h2>
+                        <h2>{t("howUse.setting_head4")}</h2>
                         <ul>
-                          <li><span>When MetaMask reveals your secret words, DO NOT FORGET to write them down.</span></li>
-                          <li><span>This section is bolded so that you don't accidentally skim and lose access to your wallet forever. </span></li>
-                          <li><span>Click the "Reveal Secret Words" button.</span></li>
-                          <li><span>You will see a 12 words seed phrase.</span></li>
-                          <li><span>DO NOT store these online, as that can always be a potential security risk. Instead, write these down in a notebook or something you will not misplace. Store it somewhere safe.</span></li>
+                          <li><span>{t("howUse.setting_head4_detail1")}</span></li>
+                          <li><span>{t("howUse.setting_head4_detail2")}</span></li>
+                          <li><span>{t("howUse.setting_head4_detail3")}</span></li>
+                          <li><span>{t("howUse.setting_head4_detail4")}</span></li>
+                          <li><span>{t("howUse.setting_head4_detail5")}</span></li>
                         </ul>
                       </Grid>
                       <Grid item xs={6}>
@@ -310,7 +311,7 @@ export const userguilde: React.FC = () => {
                       justify="center"
                     >
                       <Grid item xs={12}>
-                        <h1>3.&nbsp; &nbsp;How to connect MetaMask Wallet from Coconut Global?</h1>
+                        <h1>3.&nbsp; &nbsp;{t("howUse.connect")}</h1>
                       </Grid>
                       <Grid item xs={6}>
                         <div>
@@ -326,9 +327,9 @@ export const userguilde: React.FC = () => {
                     // justify="center"
                     >
                       <Grid item xs={8}>
-                        <h2>Open https://app.coconut.global page</h2>
-                        <Text>Open https://app.coconut.global page and click button “Connect Wallet”</Text>
-                        <Text>Choose MetaMask Wallet</Text>
+                        <h2>{t("howUse.connect_head")}</h2>
+                        <Text>{t("howUse.connect_head_detail1")}</Text>
+                        <Text>{t("howUse.connect_head_detail2")}</Text>
                       </Grid>
                       <Grid item xs={12}>
                         <img className="p-create_imgGuilde2" src={setup_13} />
@@ -342,9 +343,9 @@ export const userguilde: React.FC = () => {
                     // justify="center"
                     >
                       <Grid item xs={6}>
-                        <h2>Confirm connect</h2>
-                        <Text>When MetaMask Wallet extension open, confirm connect to Coconut Global service.</Text>
-                        <Text>If connect status on MetaMask Wallet is Connected, you can start creating and trading NFTs on our platform.</Text>
+                        <h2>{t("howUse.connect_head2")}</h2>
+                        <Text>{t("howUse.connect_head2_detail1")}</Text>
+                        <Text>{t("howUse.connect_head2_detail2")}</Text>
                       </Grid>
                       <Grid item xs={6}>
                         <img className="p-create_imgGuilde2" src={setup_14} />
@@ -359,7 +360,7 @@ export const userguilde: React.FC = () => {
                     >
                       <Grid item xs={12}>
                       <div className="sectionguidle_sub_center">
-                        <h1>4.&nbsp; &nbsp;How can I create NFT?</h1>
+                        <h1>4.&nbsp; &nbsp;{t("howUse.howCreate")}</h1>
                       </div>
                       </Grid>
                       <Grid item xs={6}>
@@ -377,9 +378,9 @@ export const userguilde: React.FC = () => {
                     >
                       <Grid item xs={12}>
                       <div className="sectionguidle_sub_center">
-                        <h2>Check Wallet Connecting status?</h2>
-                        <Text>You need connect to MetaMask Wallet to create item NFT</Text>
-                        <Text>You can check in here:</Text>
+                        <h2>{t("howUse.howCreate_head")}</h2>
+                        <Text>{t("howUse.howCreate_head_detail1")}</Text>
+                        <Text>{t("howUse.howCreate_head_detail2")}</Text>
                       </div>
                       </Grid>
                       <Grid item xs={6}>
@@ -396,10 +397,10 @@ export const userguilde: React.FC = () => {
                     // justify="center"
                     >
                       <Grid item xs={8}>
-                        <h2>Create Item</h2>
-                        <Text>1.Choose “Create” button</Text>
-                        <Text>2.Agree with Coconut’s term</Text>
-                        <Text>3.Complete the NFT information and create</Text>
+                        <h2>{t("howUse.howCreate_head3")}</h2>
+                        <Text>{t("howUse.howCreate_head3_detail1")}</Text>
+                        <Text>{t("howUse.howCreate_head3_detail2")}</Text>
+                        <Text>{t("howUse.howCreate_head3_detail3")}</Text>
                       </Grid>
                       <Grid item xs={12}>
                         <img className="p-create_imgGuilde_top" src={setup_17} />
@@ -413,7 +414,7 @@ export const userguilde: React.FC = () => {
                     // justify="center"
                     >
                       <Grid item xs={8}>
-                        <h2>Confirm MetaMask Wallet requests to create NFT item</h2>
+                        <h2>{t("howUse.howCreate_head4")}</h2>
                       </Grid>
                       <Grid item xs={12}>
                         <img className="p-create_imgGuilde2" src={setup_18} />
@@ -427,7 +428,7 @@ export const userguilde: React.FC = () => {
                     // justify="center"
                     >
                       <Grid item xs={8}>
-                        <h2>Check your created NFT item</h2>
+                        <h2>{t("howUse.howCreate_head5")}</h2>
                       </Grid>
                       <Grid item xs={12}>
                         <img className="p-create_imgGuilde2" src={setup_19} />
@@ -446,7 +447,7 @@ export const userguilde: React.FC = () => {
                         </div>
                       </Grid>
                       <Grid item xs={6}>
-                        <h1>5.&nbsp; &nbsp;How can I buy NFT item?</h1>
+                        <h1>5.&nbsp; &nbsp;{t("howUse.howBuy")}</h1>
                       </Grid>
                     </Grid>
                     {/*  */}
@@ -462,7 +463,7 @@ export const userguilde: React.FC = () => {
                         </div>
                       </Grid>
                       <Grid item xs={6}>
-                        <h2>First, check Wallet Connecting status, then</h2>
+                        <h2>{t("howUse.howBuy_head")}</h2>
                       </Grid>
                     </Grid>
                     {/*  */}
@@ -473,7 +474,7 @@ export const userguilde: React.FC = () => {
                       justify="center"
                     >
                       <Grid item xs={6}>
-                        <h2>Confirm Transaction</h2>
+                        <h2>{t("howUse.howBuy_head2")}</h2>
                       </Grid>
                       <Grid item xs={6}>
                         <div>
@@ -490,7 +491,7 @@ export const userguilde: React.FC = () => {
                       justify="center"
                     >
                       <Grid item xs={5}>
-                        <h2>Check your purchased NFT items</h2>
+                        <h2>{t("howUse.howBuy_head3")}</h2>
                       </Grid>
                       <Grid item xs={7}>
                         <div>
@@ -508,7 +509,7 @@ export const userguilde: React.FC = () => {
                     >
                       
                       <Grid item xs={10}>
-                        <h1>6.&nbsp; &nbsp;How can I resell my purchased NFT?</h1>
+                        <h1>6.&nbsp; &nbsp;{t("howUse.howResell")}</h1>
                       </Grid>
                       <Grid item xs={12}>
                         <div>
@@ -525,7 +526,7 @@ export const userguilde: React.FC = () => {
                     >
                       
                       <Grid item xs={7}>
-                        <h2>Choose 1 item in Purchased Item at My-item page</h2>
+                        <h2>{t("howUse.howResell_head")}</h2>
                       </Grid>
                       <Grid item xs={12}>
                         <div>
@@ -542,7 +543,7 @@ export const userguilde: React.FC = () => {
                     >
                       
                       <Grid item xs={7}>
-                        <h2>Input the price you want to resell this item and confirm</h2>
+                        <h2>{t("howUse.howResell_head2")}</h2>
                       </Grid>
                       <Grid item xs={12}>
                         <div>
@@ -554,7 +555,7 @@ export const userguilde: React.FC = () => {
                   </div>
 
                 </div>
-                <div className="p-create_review">
+                <div className="p-create_reviewGuilde">
                   <div className="p-create_userguildeBox">
                     <h2>Setup BSC in Metamask Wallet:</h2>
                     <ul className="p-create_noticelist">
