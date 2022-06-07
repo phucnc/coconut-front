@@ -19,9 +19,9 @@ interface Props {
 }
 
 var items = [
-  {
-      src: setup_1
-  },
+  // {
+  //     src: setup_1
+  // },
   {
       src: setup_2
   },
