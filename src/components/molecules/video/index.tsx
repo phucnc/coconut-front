@@ -275,19 +275,19 @@ console.log("width",width)
       {props.detail? (
         <div className="m-video">
         {isMobile? ( 
-        <video id="videom" ref={vidRef}  className="video__player_InviewMobileDetail"  onContextMenu={e => e.preventDefault()} controls  controlsList= 'nodownload' autoPlay={true} muted={true} loop src={props.src}></video>) :(
-        <video id="videom" ref={vidRef}  className="video__player_Inview"  onContextMenu={e => e.preventDefault()} controls  controlsList= 'nodownload' autoPlay={true} muted={true} loop src={props.src}></video>
+        <video id="videom" ref={vidRef}  className="video__player_InviewMobileDetail"  onContextMenu={e => e.preventDefault()}   controlsList= 'nodownload' autoPlay={true} muted={true} loop src={props.src}></video>) :(
+        <video id="videom" ref={vidRef}  className="video__player_Inview"  onContextMenu={e => e.preventDefault()}   controlsList= 'nodownload' autoPlay={true} muted={true} loop src={props.src}></video>
         )}
       
         </div>
       ) : (
       <div className="m-video">
       {isMobile? ( 
-      <video id="videom" ref={vidRef}  className="video__player_InviewMobile"  onContextMenu={e => e.preventDefault()} controls  controlsList= 'nodownload' autoPlay={true} muted={true} loop src={props.src}>
+      <video id="videom" ref={vidRef}  className="video__player_InviewMobile"  onContextMenu={e => e.preventDefault()}   controlsList= 'nodownload' autoPlay={true} muted={true} loop src={props.src}>
         
 
       </video>) :(
-      <video id="videom" ref={vidRef}  className="video__player_Inview"  onContextMenu={e => e.preventDefault()} controls  controlsList= 'nodownload' autoPlay={true} muted={true} loop src={props.src}></video>
+      <video id="videom" ref={vidRef}  className="video__player_Inview"  onContextMenu={e => e.preventDefault()}   controlsList= 'nodownload' autoPlay={true} muted={true} loop src={props.src}></video>
       )}
     
       </div>
