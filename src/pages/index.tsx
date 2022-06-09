@@ -327,10 +327,10 @@ export const Home: React.FC<RouteComponentProps> = props => {
     // wallet.connect('injected')
     Get_categories()
     if (wallet?.status === 'connected') {
-      totalmint_volume();
+      // totalmint_volume();
       dispatch(getTotalVolume.started({ unit: 0 }));
       getProducts({
-        limit: 12,
+        limit: 2,
         mode: 'refresh',
         address: wallet.account,
       });
@@ -339,7 +339,7 @@ export const Home: React.FC<RouteComponentProps> = props => {
       totalmint_volume();
       dispatch(getTotalVolume.started({ unit: 0 }));
       getProducts({
-        limit: 12,
+        limit: 2,
         mode: 'refresh',
         address: wallet.account,
       });
@@ -354,7 +354,7 @@ export const Home: React.FC<RouteComponentProps> = props => {
     console.log("first value", value)
     window.history.pushState({ path: newPath }, '', newPath);
     getProducts({
-      limit: 12,
+      limit: 2,
       mode: 'refresh',
       address: wallet.account,
     });

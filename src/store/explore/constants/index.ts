@@ -77,4 +77,4 @@ export type GetListTotalVolumeRes = {
   // total_sold: Array<number>;
   total_sold?: any[];
 };
-export const LIMIT_PER_PAGE = 16;
+export const LIMIT_PER_PAGE = 2;
