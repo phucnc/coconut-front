@@ -77,6 +77,27 @@ function TabPanel(props: TabPanelProps) {
   );
 }
 
+var items = [
+  // {
+  //     src: setup_1
+  // },
+  {
+    name:"1",
+    banner: "https://storage.googleapis.com/conut-bucket-1/event202253154_93.jpg",
+    id:"18",
+    title:"test1"
+  },
+  { name:"2",
+    banner: "https://storage.googleapis.com/conut-bucket-1/event202253154_93.jpg",
+    id:"19",
+    title:"test2"
+},
+// {
+//   name: "Random Name #1",
+//   description: "Probably the most random thing you have ever seen!",
+//   src: setup_4
+// },
+]
 function a11yProps(index: any) {
   return {
     id: `vertical-tab-${index}`,
@@ -110,15 +131,21 @@ const useStyles = makeStyles((theme: Theme) => ({
 export const userguilde: React.FC = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
-  const [value, setValue] = React.useState(0);
+  console.log("window.location.href",window.location.href)
+  const result = window.location.href?.substring(window.location.href.indexOf("="));
+  const result_final = parseInt(result.substring(1));
+  console.log("window.location.href2",result_final)
+  const [value, setValue] = React.useState(result_final ===0?0 : 1);
   const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
     setValue(newValue);
   };
+  console.log("value2",value)
 
   const [reg, regSet] = useState(Array);
   const Getevent = async ()=> {
     const listevent = await axios.get (`${process.env.ADDRESS_API}/event/paging?status=0&limit=99&offset=0`);
     const ListEvent = listevent.data.reports;
+    console.log("ListEvent",ListEvent)
     regSet(ListEvent);
   }
 
@@ -145,7 +172,7 @@ export const userguilde: React.FC = () => {
             container
             spacing={1}
           >
-            {/* <Grid item xs={3}>
+            <Grid item xs={3}>
             <Tabs
               orientation="vertical"
               variant="scrollable"
@@ -158,8 +185,8 @@ export const userguilde: React.FC = () => {
               <Tab className={classes.tab} key={idx} label={item?.title} {...a11yProps(idx)} />
             ))}
             </Tabs>
-            </Grid> */}
-            <Grid item xs={12}>
+            </Grid>
+            <Grid item xs={9}>
             {reg.map((items,i) =>(
               <div className="notice">
                 <TabPanel key={i} value={value} index={i}>

@@ -64,7 +64,7 @@ export const Carouselt: React.FC<Props> = props => {
     >
     {
         items.map( (item, i) => 
-        <Link to="/notice">
+        <Link to={"/notice?id="+1}>
         <img key={i} src={item.src} />
         </Link>
          )

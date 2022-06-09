@@ -43,7 +43,7 @@ export const Myitem: React.FC<RouteComponentProps> = props => {
   const result = queryaddress?.substring(queryaddress.indexOf("="));
   const { currentStep, tokenURI,refresh,reload } = useSelector(getCreateStore);
   const params = new URLSearchParams(props.location?.search);
-  console.log("params1")
+  console.log("params1",queryaddress)
   const [showFilterAndSort, setShowFilterAndSort] = useState(false);
   const [isShowMore, setIsShowMore] = useState(false);
   const [collectible, setcollectible] = useState<any>(Array)
@@ -96,8 +96,6 @@ export const Myitem: React.FC<RouteComponentProps> = props => {
     const newPath = `${props.path}?${params.toString()}`;
     // console.log("newPath",newPath)
     window.history.pushState({ path: newPath }, '', newPath);
-    console.log("newpath",newPath)
-    console.log("params9",params)
     const optionsget = params.get('category')
     let optionsget1 = optionsget?.toLocaleLowerCase()
     switch (optionsget1){
