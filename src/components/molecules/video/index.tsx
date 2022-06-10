@@ -262,7 +262,7 @@ console.log("width",width)
       topOffset="30%"
     >
       <div className="m-video">
-      <video  id="videom" ref={vidRef}  className="video__player_fill"  onContextMenu={e => e.preventDefault()}  controlsList= 'nodownload' autoPlay={true} muted={true} loop src={props.src}></video>
+      <video  id="videom" ref={vidRef}  className="video__player_fill"   controlsList= 'nodownload' autoPlay={true} muted={true} loop src={props.src}></video>
     
     </div>
     </Waypoint>
@@ -275,19 +275,19 @@ console.log("width",width)
       {props.detail? (
         <div className="m-video">
         {isMobile? ( 
-        <video id="videom" ref={vidRef}  className="video__player_InviewMobileDetail"  onContextMenu={e => e.preventDefault()}   controlsList= 'nodownload' autoPlay={true} muted={true} loop src={props.src}></video>) :(
-        <video id="videom" ref={vidRef}  className="video__player_Inview"  onContextMenu={e => e.preventDefault()}   controlsList= 'nodownload' autoPlay={true} muted={true} loop src={props.src}></video>
+        <video id="videom" ref={vidRef}  className="video__player_InviewMobileDetail" playsInline  autoPlay={true} muted={true} loop src={props.src}></video>) :(
+        <video id="videom" ref={vidRef}  className="video__player_Inview"  autoPlay={true} muted={true} loop src={props.src}></video>
         )}
       
         </div>
       ) : (
       <div className="m-video">
       {isMobile? ( 
-      <video id="videom" ref={vidRef}  className="video__player_InviewMobile"  onContextMenu={e => e.preventDefault()}   controlsList= 'nodownload' autoPlay={true} muted={true} loop src={props.src}>
+      <video id="videom" ref={vidRef}  className="video__player_InviewMobile"   autoPlay={true} playsInline muted={true} loop src={props.src}>
         
 
       </video>) :(
-      <video id="videom" ref={vidRef}  className="video__player_Inview"  onContextMenu={e => e.preventDefault()}   controlsList= 'nodownload' autoPlay={true} muted={true} loop src={props.src}></video>
+      <video id="videom" ref={vidRef}  className="video__player_Inview"  autoPlay={true} muted={true} loop src={props.src}></video>
       )}
     
       </div>
