@@ -8,8 +8,8 @@ import { Button } from 'components/atoms/button';
 import { useSnackbar } from 'notistack';
 import { Link } from 'gatsby';
 import setup_1 from 'assets/images/ccn_banner1.jpeg';
-import setup_2 from 'assets/images/ccn_banner2.jpeg';
-import setup_3 from 'assets/images/ccn_banner3.jpeg';
+import setup_2 from 'assets/images/ccn_banner2.jpg';
+import setup_3 from 'assets/images/ccn_banner3.jpg';
 // import setup_4 from 'assets/images/ccn_banner2.png';
 import Carousel from 'react-material-ui-carousel'
 type Modifier = 'overflowx' | 'overflowy' | 'overhidden' | 'error' | 'center';
