@@ -394,9 +394,7 @@ export const Home: React.FC<RouteComponentProps> = props => {
       </div> */}
     </div>
   )
-  console.log("test123", store)
-  console.log("window1",window.ethereum.selectedAddress)
-  console.log("window2",window.klaytn.selectedAddress)
+
   return (
     <div className="p-explore">
       <Layout main title="COCONUT.GLOBAL">
