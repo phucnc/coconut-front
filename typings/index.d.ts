@@ -4,6 +4,8 @@ interface Window extends Window {
   web3?: any;
   ethereum?: any;
   contract?: any;
+  gtag?: any;
+  klaytn?: any;
 }
 
 /**

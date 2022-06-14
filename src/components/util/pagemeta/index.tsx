@@ -1,10 +1,12 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import logo from 'assets/images/ccn_logoOF.png';
+import gtag, { install } from 'ga-gtag';
 interface Props {
   title: string;
 }
 
+install('G-367HCBT3P8');
 export const Pagemeta: React.FC<Props> = ({ title }) => {
   return (
     <Helmet>
@@ -19,6 +21,7 @@ export const Pagemeta: React.FC<Props> = ({ title }) => {
       <meta property="og:image" content="https://app.coconut.global/ccn_logoOF.png"></meta>
       <meta property="og:url" content="https://app.coconut.global"></meta>
       <meta name="description" content="인플루언서들의 NFT 숏폼 서비스 , 숏폼 영상 찍고 거래해 보자."></meta>
+    
 
     </Helmet>
   );

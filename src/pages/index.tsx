@@ -322,9 +322,18 @@ export const Home: React.FC<RouteComponentProps> = props => {
     const listreg = categories.data.category;
     regSet(categories.data.category);
   };
+
+  useEffect (()=> {
+    if (typeof window.gtag !== 'undefined'){
+      console.log("window.gtag",window.gtag)
+     
+      window.gtag("conversion", "click", { send_to: ["G-367HCBT3P8"]})
+    }
+  },[]);
   useEffect(() => {
     // getWalletAddress()
     // wallet.connect('injected')
+  
     Get_categories()
     if (wallet?.status === 'connected') {
       // totalmint_volume();
@@ -386,6 +395,8 @@ export const Home: React.FC<RouteComponentProps> = props => {
     </div>
   )
   console.log("test123", store)
+  console.log("window1",window.ethereum.selectedAddress)
+  console.log("window2",window.klaytn.selectedAddress)
   return (
     <div className="p-explore">
       <Layout main title="COCONUT.GLOBAL">
