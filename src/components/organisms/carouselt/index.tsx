@@ -7,9 +7,7 @@ import { Text } from 'components/atoms/text';
 import { Button } from 'components/atoms/button';
 import { useSnackbar } from 'notistack';
 import { Link } from 'gatsby';
-import setup_1 from 'assets/images/ccn_banner1.jpeg';
-import setup_2 from 'assets/images/ccn_banner2.jpg';
-import setup_3 from 'assets/images/ccn_banner3.jpg';
+import axios from 'axios';
 // import setup_4 from 'assets/images/ccn_banner2.png';
 import Carousel from 'react-material-ui-carousel'
 type Modifier = 'overflowx' | 'overflowy' | 'overhidden' | 'error' | 'center';
@@ -18,26 +16,27 @@ interface Props {
   link?:string;
 }
 
-var items = [
-  // {
-  //     src: setup_1
-  // },
-  {
-      src: setup_2
-  },
-  {
-    src: setup_3
-},
-// {
-//   name: "Random Name #1",
-//   description: "Probably the most random thing you have ever seen!",
-//   src: setup_4
-// },
-]
+
+
 export const Carouselt: React.FC<Props> = props => {
   // const [modalOpenShare, setModalOpenShare] = useState(false);
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
-  
+  const [reg, regSet] = useState(Array);
+  const getBanner = async () =>{
+    try{
+      const listevent = await axios.get (`https://api.coconut.global/banner/paging?status=0&limit=99&offset=0`);
+      const ListBanner = listevent.data.banners;
+      console.log("listEvent",ListBanner)
+      regSet(ListBanner);
+      }catch {
+        console.log("error get Banner")
+      }
+  }
+
+
+  useEffect (()=> {
+    getBanner()
+  },[]);
   return (
     <div className="carousel_containt">
     
@@ -63,9 +62,9 @@ export const Carouselt: React.FC<Props> = props => {
     //  autoPlay={true}
     >
     {
-        items.map( (item, i) => 
-        <Link to={"/notice?id="+1}>
-        <img key={i} src={item.src} />
+        reg?.map( (item, i) => 
+        <Link to={item.link}>
+        <img key={i} src={item.picture} />
         </Link>
          )
     }

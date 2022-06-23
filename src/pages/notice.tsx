@@ -135,7 +135,7 @@ export const userguilde: React.FC = () => {
   const result = window.location.href?.substring(window.location.href.indexOf("="));
   const result_final = parseInt(result.substring(1));
   console.log("window.location.href2",result_final)
-  const [value, setValue] = React.useState(result_final ===0?0 : 1);
+  const [value, setValue] = React.useState(result_final);
   const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
     setValue(newValue);
   };
@@ -143,10 +143,14 @@ export const userguilde: React.FC = () => {
 
   const [reg, regSet] = useState(Array);
   const Getevent = async ()=> {
+    try {
     const listevent = await axios.get (`${process.env.ADDRESS_API}/event/paging?status=0&limit=99&offset=0`);
     const ListEvent = listevent.data.reports;
     console.log("ListEvent",ListEvent)
     regSet(ListEvent);
+    }catch {
+      console.log("error get notice")
+    }
   }
 
   useEffect(() => {
