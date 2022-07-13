@@ -239,8 +239,8 @@
   }
 
   &-bold {
-    font-weight: bold!important;
-    @include u-fw-b;
+    font-weight: 900!important;
+    // @include u-fw-b;
   }
 
   &-noMargin {

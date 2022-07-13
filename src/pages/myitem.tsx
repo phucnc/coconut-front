@@ -43,7 +43,6 @@ export const Myitem: React.FC<RouteComponentProps> = props => {
   const result = queryaddress?.substring(queryaddress.indexOf("="));
   const { currentStep, tokenURI,refresh,reload } = useSelector(getCreateStore);
   const params = new URLSearchParams(props.location?.search);
-  console.log("params1",queryaddress)
   const [showFilterAndSort, setShowFilterAndSort] = useState(false);
   const [isShowMore, setIsShowMore] = useState(false);
   const [collectible, setcollectible] = useState<any>(Array)
@@ -62,7 +61,6 @@ export const Myitem: React.FC<RouteComponentProps> = props => {
     []
   );
   const query = new URLSearchParams(props.location?.search).get('search');
-  console.log("queryy",query)
   const [username, usernameSet] = useState<any>(Array)
   const [addWallet, addWalletSet] = useState<any>(Array)
   const [avatar, avatarSet] = useState<any>(Array)
@@ -114,8 +112,6 @@ export const Myitem: React.FC<RouteComponentProps> = props => {
     }
     const getmyitem = await axios.get(`${process.env.ADDRESS_API}/nft/collectible-paging?cursor=&limit=10&sort=desc&filter=created-date&title=&address=${result}&options=${optionsget1}`)
     const collectible = getmyitem.data.collectibles
-    console.log("collectible1",collectible)
-    console.log("collectible2",wallet.account)
     setcollectible(collectible)
     setoption(optionsget1)
   }, []);
@@ -128,9 +124,6 @@ export const Myitem: React.FC<RouteComponentProps> = props => {
     try {
     const query = new URLSearchParams(props.location?.search).get('id');
     const result = query?.substring(query.indexOf("="));
-    console.log("result1",result)
-    console.log("result2",query)
-    console.log("result33333",props.location?.search)
     const initial_values = await axios.get(`${process.env.ADDRESS_API}/nft/collectible-paging?cursor=&limit=10&sort=desc&filter=created-date&title=&address=${result}&options=creator`)
     const collectible =initial_values.data.collectibles
     setcollectible(collectible)
@@ -153,8 +146,7 @@ export const Myitem: React.FC<RouteComponentProps> = props => {
 
   const [selectedTab, setSelectedTab] = useState<ViewMyitemTabsType>('Created Items');
 
- console.log("propss",props)
- console.log("wallet.account",wallet.account)
+
   return (
     <div className="p-explore">
         <Formik initialValues={initialValue} validationSchema={exploreSchema} onSubmit={() => { }}>

@@ -179,7 +179,6 @@ export const Avatar: React.FC<Props> = (props) => {
     const useraddress = profile.data.address
     const userinfo = profile.data.info.String
     const usernameid = profile.data.username.String
-    console.log("profile",profile)
     dataSet(userAva)
     datacoverSet(userCover)
     dataddressSet(useraddress)
@@ -396,7 +395,7 @@ export const Avatar: React.FC<Props> = (props) => {
               <button className="share-button">
                 <TwitterShareButton
                   url={window.location.href}
-                  title="#CoconutGlobal , #NFT"
+                  title="#Contenft , #NFT"
                   className="Demo__some-network__share-button">
                   <li><Icon className="i-icon" size='big' name='twitter' /></li>
                   <li className="span-icon"><span > Twitter</span></li>
@@ -411,7 +410,7 @@ export const Avatar: React.FC<Props> = (props) => {
               <button className="share-button" >
                 <FacebookShareButton
                   url={window.location.href}
-                  title="#CoconutGlobal , #NFT"
+                  title="#Contenft , #NFT"
                   className="Demo__some-network__share-button">
                   <li>
                     <Icon className="i-icon" size='big' name='facebook' /></li>
@@ -428,7 +427,7 @@ export const Avatar: React.FC<Props> = (props) => {
               <button className="share-button">
                 <TelegramShareButton
                   url={window.location.href}
-                  title="#CoconutGlobal , #NFT"
+                  title="#Contenft , #NFT"
                   className="Demo__some-network__share-button">
                   <li>
                     <Icon className="i-icon" size='big' name='telegram plane' /></li>
@@ -546,9 +545,7 @@ export const Avatar: React.FC<Props> = (props) => {
               setLoading(!loading)
               setmodalOpenProfile(false)
             }
-            console.log('value.name.length',value.name.length)
-            console.log('value.bio.length',value.bio.length)
-            console.log("props.address",props.address)
+         
             return (
               <Form className="p-create_form">
                 <Grid

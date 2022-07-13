@@ -85,6 +85,7 @@ export type IconName =
   | 'telegramb'
   | 'ccn_logo'
   | 'done'
+  | 'kaikaslogo'
   | 'maint';
 
 interface Props {

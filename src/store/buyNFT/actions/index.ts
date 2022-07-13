@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { actionCreatorFactory } from 'typescript-fsa';
-import { ApproveReq, Error, PurchaseReq, GetProductReq, GetProductRes,ModalReq ,ModalLang} from 'store/buyNFT';
+import { ApproveReq, Error, PurchaseReq, GetProductReq, GetProductRes,ModalReq ,ModalLang,StoreAddress} from 'store/buyNFT';
 
 const actionCreator = actionCreatorFactory('BUY_NFT');
 
@@ -9,6 +9,7 @@ export const approveCONT = actionCreator.async<ApproveReq, any, Error>('APPROVE_
 
 export const purchase = actionCreator.async<PurchaseReq, any, Error>('PURCHASE_NFT');
 export const refreshLang = actionCreator.async<ModalLang, any, Error>('REFRESH_LANG');
+export const storeAddress = actionCreator.async<StoreAddress, any, Error>('STORE_ADDRESS');
 export const modalpurchase = actionCreator.async<ModalReq, any, Error>('MODAL_PURCHASE_NFT');
 export const getProduct = actionCreator.async<GetProductReq, GetProductRes, Error>('GET_PRODUCT');
 
@@ -24,3 +25,4 @@ export const switchEN = actionCreator('SWITCHEN');
 export const trigger = actionCreator('TRIGGER');
 export const videoMute = actionCreator('VIDEO_MUTE');
 export const videoUnmute = actionCreator('VIDEO_UNMUTE');
+// export const storeAddress = actionCreator('STORE_ADDRESS');

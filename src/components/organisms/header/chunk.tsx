@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { Dropdown } from 'components/molecules/dropdown';
 import { Mywallet } from 'components/molecules/mywallet';
-import { connectWallet } from 'lib/apiCommon';
+import { connectWallet,connectKlaytn } from 'lib/apiCommon';
 import { UserAvatar } from 'components/molecules/userAvatar';
 import React, { useCallback, useEffect, useMemo, useState,useRef } from 'react';
 import moment from "moment";
@@ -46,7 +46,7 @@ const dropdownStyles = makeStyles({
 });
 export const MenuChunk: React.FC<Props> = ({  balanceBUSD, balanceCONT }) => {
   const [isOpenMywallet, setIsOpenMywallet] = useState(false);
-  const { isTrigger,isRefresh,isKR} = useSelector(getBuyStore);
+  const { isTrigger,isRefresh,isKR,store_address} = useSelector(getBuyStore);
   const [open, setOpen] = React.useState(false);
   const dispatch = useDispatch();
   const [modalOpenShare, setModalOpenShare] = useState(false);
@@ -66,6 +66,11 @@ export const MenuChunk: React.FC<Props> = ({  balanceBUSD, balanceCONT }) => {
   const ddnSt = dropdownStyles();
   
   const [item, setItem] = useState( localStorage.getItem('key') ||'en');
+  const [addressKaika,setAddressKaikas] = useState( sessionStorage.getItem('klayisConnected'));
+  const [balanceKaika,setBalanceKaikas] = useState( sessionStorage.getItem('klayBalance'));
+  console.log("addressKaika",addressKaika)
+  console.log("balanceKaika",balanceKaika)
+
   const handleChange = (event) => {
     if (event.target.value == 'kr') {
       dispatch(commonStart({ nextAction: switchKR() }))
@@ -76,20 +81,16 @@ export const MenuChunk: React.FC<Props> = ({  balanceBUSD, balanceCONT }) => {
     localStorage.setItem('key',event.target.value );
     const  data = sessionStorage.getItem('key');
     changeLanguage(event.target.value);
-    console.log("event.target.value",event.target.value)
   };
-
+  console.log("sessionStorage klay",sessionStorage.getItem('klayisConnected'))
   const getnoti = async () => {
     try {
-      console.log("check noti",wallet.account)
       const noti = await axios.get (`${process.env.ADDRESS_API}/notice/paging?limit=999&offset&status&account_id=${wallet.account}`)
       
       const notidata = noti.data.notices
       const date = moment(noti.data.notices[0].created_at).isSame(new Date(), "day")
       const yesterday = moment(noti.data.notices[0].created_at).isSame(moment().subtract(1, "days"), "day")
-      console.log ("noti",notidata)
-      console.log ("yesterday",yesterday)
-      console.log ("date",date)
+
       dataSet(notidata)
     }catch {
       console.log("fail noti")
@@ -99,8 +100,7 @@ export const MenuChunk: React.FC<Props> = ({  balanceBUSD, balanceCONT }) => {
     console.log("cố lên")
   }
   const updatenoti = async (cate) => {
-    console.log ("updatenoti",data)
-    console.log ("hello1",cate)
+
     try {
       const updatenoti = await axios.put (`${process.env.ADDRESS_API}/notice?id=${cate.id}`)
       setIsLoading(!isLoading)
@@ -158,6 +158,9 @@ export const MenuChunk: React.FC<Props> = ({  balanceBUSD, balanceCONT }) => {
   const handleToggle = () => {
     setOpen((prevOpen) => !prevOpen);
   };
+  const consolelog = () => {
+    
+  };
  
   const handleClose = (event: React.MouseEvent<EventTarget>) => {
     if (anchorRef.current && anchorRef.current.contains(event.target as HTMLElement)) {
@@ -172,6 +175,7 @@ export const MenuChunk: React.FC<Props> = ({  balanceBUSD, balanceCONT }) => {
       setOpen(false);
     }
   }
+  console.log("wallet status",wallet)
 
   // return focus to the button when we transitioned from !open -> open
   const prevOpen = React.useRef(open);
@@ -208,12 +212,14 @@ export const MenuChunk: React.FC<Props> = ({  balanceBUSD, balanceCONT }) => {
     children: <Button handleClick={handleToggle}  ref={anchorRef} modifiers={['noti']}><Icon modifiers={['small']} iconName="bell"/></Button>,
   };
   const classes = useStyles();
-  console.log("wallet",wallet)
   return (
     <div className="o-header_buttons">
       <a href={"https://conut.coconut.global"}>
         <Button modifiers={['CCNmember']}>CONUT Member</Button>
       </a>
+      {/* <Button modifiers="buy" handleClick={() => { connectKlaytn(wallet)}}>
+           Kaylai
+      </Button> */}
       {(wallet?.status == "disconnected" || wallet?.status == "error" ) ? ( <div><Button modifiers={['create']} handleClick={()=>setModalOpenConnect(true)}>{t("mainMenu.Create")}</Button></div>)
       : (
       <div><Button modifiers={['create']} handleClick={()=>setmodalOpenNoticeCreate(true)}>{t("mainMenu.Create")}</Button></div>
@@ -239,7 +245,7 @@ export const MenuChunk: React.FC<Props> = ({  balanceBUSD, balanceCONT }) => {
                 {/* <Icon iconName="wallet" /> */}
                 <Stack direction="row" spacing={1}>
                   <Chip avatar={<Avatar alt="logo" src={logo} />}
-                  label={wallet.account?.replace(wallet.account.substring(5, 40), "...")} variant="outlined"
+                  label={store_address=="Metamask"?wallet.account?.replace(wallet.account.substring(5, 40), "..."):addressKaika?.replace(addressKaika.substring(5, 40), "...")} variant="outlined"
                   clickable />
                 </Stack>
               </Button>
@@ -268,7 +274,9 @@ export const MenuChunk: React.FC<Props> = ({  balanceBUSD, balanceCONT }) => {
             <Mywallet
               open={isOpenMywallet}
               walletAccount={wallet.account}
+              walletAccountKaikas={addressKaika}
               balanceBNB={wallet.balance}
+              balanceKai={balanceKaika}
               balanceBUSD={Number(balanceBUSD)}
               balanceCONT={Number(balanceCONT)}
               handleDisconnect={handleDisconnect}
@@ -438,18 +446,19 @@ export const MenuChunk: React.FC<Props> = ({  balanceBUSD, balanceCONT }) => {
           <Grid className="buttonedit" item xs={4} >
             <ul>
               {/* <button onClick={() => accounts()} */}
-              <button disabled
+              <button 
+              onClick={() => {connectKlaytn();setModalOpenShare(false)}}
               className="share-button">
-              <li><Icon modifiers="superlarge" iconName="binance" /></li>
-              <li className="span-header"><span > Binance Chain Wallet</span></li>
+              <li><Icon modifiers="superlarge" iconName="kaikaslogo" /></li>
+              <li className="span-header"><span > KaiKas Wallet</span></li>
               <li className="span-icon">
                 <p > Easy to create and use, Best wallet for new users
                 </p>
               </li>
               </button>
-              <div className="span-commingsoon">
+              {/* <div className="span-commingsoon">
                 <span>&nbsp;&#8212; Comming Soon &#8212;</span>
-              </div>
+              </div> */}
             </ul>
           </Grid>
           <Grid className="buttonedit" item xs={4} >

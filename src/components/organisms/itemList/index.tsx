@@ -30,7 +30,6 @@ interface Props {
 export const ItemList: React.FC<Props> = props => {
   const [isShowMore, setIsShowMore] = useState(false);
   useEffect(() => setIsShowMore(false), [props.searchBy]);
-  console.log("props.list",props.list)
   const isMobile = useMediaQuery({
     query: '(max-width: 840px)'
   })

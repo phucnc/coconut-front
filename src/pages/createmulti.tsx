@@ -3,7 +3,7 @@ import { hot } from 'react-hot-loader/root';
 import { Layout } from 'components/templates/layout';
 import { Section } from 'components/organisms/section';
 import { Form, Formik } from 'formik';
-import { Categories, createSchema, initialValue, Unit,Blockchain} from 'components/pages/create/form';
+import { Categories, createSchema, initialValue, Unit } from 'components/pages/create/form';
 import axios from 'axios';
 import { Link } from 'components/atoms/link';
 import { Text } from 'components/atoms/text';
@@ -130,7 +130,6 @@ export const Create: React.FC = () => {
               const previewSrc = URL && values.file ? URL.createObjectURL(values.file) : '';
               const previewType = values.file && values.file.type;
               const addresspush ={"address": wallet.account}
-              console.log("value",values)
               return (
                 <Form className="p-create_form">
                   <div className="p-create_inputs">
@@ -147,22 +146,13 @@ export const Create: React.FC = () => {
                     
                     <Text> &gt;&nbsp;{t("create.over100mb")}
                     <Button handleClick={() => setModalOpenConvert(true)}  modifiers="inline">&nbsp;Click!</Button></Text>
-                    <Fieldrow fieldName="Blockchain" name="blockchain">
-                      <Select name="blockchain">
-                        {Blockchain.map((u, idx) => (
-                          <option value={idx} key={u}>
-                            {u}
-                          </option>
-                        ))}
-                      </Select>
-                    </Fieldrow>
                     <Fieldrow
                       className="p-create_instantsale"
                       fieldName={t("create.Instantsaleprice")}
                       lead={t("create.Enterprice")}
                       // toggleName="instantsale"
                       caption={[
-                        // `${t("create.Servicefee")} 0%`,
+                        `${t("create.Servicefee")} ${serviceFee}%`,
                         `${t("create.Youwillreceive")} ${amountReceived(values.instantsaleprice)} ${Unit[values.unit]} (～$${
                           values.unit == 0
                             ? amountDollarBNBrevieved(values.instantsaleprice)
@@ -173,34 +163,40 @@ export const Create: React.FC = () => {
                           amountDollarCONTrecieved(values.instantsaleprice)
                           })`,
                       ]}
-                      captionfee
                       isCaptionForInput
                       name="instantsaleprice"
                     >
                       <TextFieldFormik name="instantsaleprice" placeholder="Enter price for one piecee" type="number" />
-                      { values.blockchain == 0 ? (
-                         <Select name="unit">
-                        
-                         {Unit.map((u, idx) => (
-                           <option value={idx} key={u}>
-                             {u}
-                           </option>
-                         ))}
-                         
-                       </Select>
-                      ):(
                       <Select name="unit">
-                        
-                       
-                          <option value="klay" key="klay">
-                          KLAY
+                        {Unit.map((u, idx) => (
+                          <option value={idx} key={u}>
+                            {u}
                           </option>
-                       
-                        
+                        ))}
                       </Select>
-                      )}
                     </Fieldrow>
-                  
+                    <Fieldrow
+                      className="p-create_instantsale"
+                      fieldName="Number of copies"
+                      // lead={t("create.Enterprice")}
+                      // toggleName="instantsale"
+                      // caption={[
+                      //   `${t("create.Servicefee")} ${serviceFee}%`,
+                      //   `${t("create.Youwillreceive")} ${amountReceived(values.instantsaleprice)} ${Unit[values.unit]} (～$${
+                      //     values.unit == 0
+                      //       ? amountDollarBNBrevieved(values.instantsaleprice)
+                      //       :
+                      //     values.unit == 1 ?
+                      //     amountDollarBUSDrecieved(values.instantsaleprice)
+                      //       :
+                      //     amountDollarCONTrecieved(values.instantsaleprice)
+                      //     })`,
+                      // ]}
+                      isCaptionForInput
+                      name="numbercopies"
+                    >
+                      <TextFieldFormik name="numbercopies" placeholder="Amount of tokens" type="number" />
+                    </Fieldrow>
                     <Fieldrow fieldName={t("create.Category")} name="categories">
                       {typeof window !== `undefined` && (
                         <MultiSelect

@@ -21,7 +21,6 @@ import { useTranslation } from "react-i18next";
 
 export const View: React.FC<RouteComponentProps> = props => {
   const query = new URLSearchParams(props.location?.search).get('name');
-  console.log("query",query)
   const dispatch = useDispatch();
   const wallet = useWallet();
   const [username, usernameSet] = useState<any>(Array)
@@ -33,8 +32,6 @@ export const View: React.FC<RouteComponentProps> = props => {
    const listuser = searchUser.data.accounts;
   //  const username = listuser.address.String;
    usernameSet(listuser)
-    console.log("searchUser",searchUser)
-    console.log("query",query)
     }catch {
       console.log("fail search")
     }
@@ -46,7 +43,6 @@ export const View: React.FC<RouteComponentProps> = props => {
   }, [dispatch, query]);
   const { isLoading, list, next_cursor, error } = useSelector(getSearchStore);
   const [selectedTab, setSelectedTab] = useState<SearchTabType>('Items');
-  console.log("listtttt",list)
   return (
     <div className="p-search">
       <Layout title="Search">

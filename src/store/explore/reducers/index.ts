@@ -27,8 +27,6 @@ const initialValue: ExploreState = {
 const reducer: Reducer<ExploreState> = (state = initialValue, action) => {
   if (isType(action, getProductList.started)) {
     return produce(state, draft => {
-      console.log("address22",state)
-      console.log("address33",action.payload)
       if (action.payload.mode === 'refresh') {
         draft.isLoading = true;
         draft.next_cursor = void 0;
@@ -42,8 +40,6 @@ const reducer: Reducer<ExploreState> = (state = initialValue, action) => {
     return produce(state, draft => {
       draft.isLoading = false;
       draft.ready = true;
-      console.log("address11",state)
-      console.log("address44",action)
       draft.addressID = action.payload.params.address;
       if (action.payload.params.mode === 'refresh' && action.payload.params.category !== 'Trend') {
         draft.isLoading = false;

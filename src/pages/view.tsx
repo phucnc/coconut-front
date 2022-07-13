@@ -376,6 +376,7 @@ export const View: React.FC<RouteComponentProps> = props => {
 
   }, [dispatch, modalOpenShare]);
   const productLink = `/view?id=${product?.id}`;
+  console.log("test321",product)
   return (
     <div className="p-view">
       <Layout title="View NFT">

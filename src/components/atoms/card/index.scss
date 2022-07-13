@@ -1,36 +1,53 @@
 .a-card {
-  background-image: url('assets/images/card-bnb.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  // background-image: url('assets/images/card-bnb.png');
+  // background-repeat: no-repeat;
+  // background-size: cover;
+  // background-position: center;
   padding: 36px 19px 18px;
   border-radius: 5px;
   position: relative;
 
-  &:before {
-    content: 'BNB';
-    color: $COLOR-WHITE;
-    position: absolute;
-    top: 24px;
-    right: 24px;
-    @include u-fz(18, 25, 1);
-    @include u-fw-b();
-  }
+  // &:before {
+  //   content: 'BNB';
+  //   color: $COLOR-WHITE;
+  //   position: absolute;
+  //   top: 24px;
+  //   right: 24px;
+  //   @include u-fz(18, 25, 1);
+  //   @include u-fw-b();
+  // }
 
   &-busd {
-    background-image: url('assets/images/card-busd.png');
+    // background-image: url('assets/images/card-busd.png');
 
-    &:before {
-      content: 'BUSD';
-    }
+    // &:before {
+    //   content: 'BUSD';
+    // }
   }
 
   &-conut {
     background-image: url('assets/images/card-cont.png');
 
-    &:before {
-      content: 'CONUT';
+    // &:before {
+    //   content: 'CONUT';
+    // }
+  }
+
+  &-notConnectWrap {
+    display:flex;
+    // justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+    p {
+      font-size: 17px;
     }
+
+  }
+  &-notConnectTitle {
+    font-size: 50px;
+    color:#A9A9A9;
   }
 
   .a-text {

@@ -3,6 +3,9 @@
 import { commonStartFailed } from 'store/common';
 import { Action } from 'typescript-fsa';
 import axios from 'axios';
+import Caver from 'caver-js'
+import {storeAddress } from 'store/buyNFT';
+import { commonStart } from 'store/common';
 import { useEthers, useEtherBalance } from "@usedapp/core";
 import { useDispatch, useSelector } from 'react-redux';
 export const checkBinanceChain = (nextAction: Action<any>, account: string) => {
@@ -28,7 +31,7 @@ export const connectWallet = (wallet: any) => {
     // window.ethereum.request({ method: 'eth_requestAccounts' }).then(() => sessionStorage.setItem('isConnected', 'connected'));
     // console.log("walletapi",window.ethereum);
     // if (typeof window.ethereum !== 'undefined'|| (typeof window.web3 !== 'undefined')) 
-    console.log("window",window.ethereum)
+    console.log("window1",window.ethereum.selectedAddress)
     if (window && typeof window.ethereum !== 'undefined') {
     try{
     (async function(){
@@ -91,4 +94,41 @@ export const connectWallet = (wallet: any) => {
 
   
   
+};
+
+export const connectKlaytn = async () => {
+  const { klaytn } = window
+  console.log("testttt")
+  const caver = new Caver(klaytn)
+  // wallet.connect('klaytn')
+  // klaytn.enable()
+  console.log("window",window)
+  // const account = klaytn.selectedAddress
+  // const balance = await caver.klay.getBalance(account)
+  // console.log("window_account",account)
+  // console.log("window_balance",balance)
+  if (window && typeof window.klaytn !== 'undefined') {
+    if ( window.klaytn) {
+      // console.log("pass 2")
+      
+      // (async function(){
+      try {
+          // const dispatch = useDispatch();
+          const accounts = await  window.klaytn.enable()
+          const account = window.klaytn.selectedAddress
+          const balance = await caver.klay.getBalance(account)
+          console.log("window_account",account)
+          console.log("window_balance",balance)
+          sessionStorage.setItem('klayisConnected',account);
+          sessionStorage.setItem('klayBalance',balance);
+          
+          // dispatch(commonStart({ nextAction: storeAddress.started({store_address:account}) }))
+      } catch (error) {
+        console.log('User denied account access')
+      }
+    } else {
+      console.log('Non-Kaikas browser detected. You should consider trying Kaikas!')
+    }
+    }
+
 };

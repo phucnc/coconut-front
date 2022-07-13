@@ -154,7 +154,6 @@ export const Video: React.FC<Props> = props => {
     const playPromise = vidRef.current.play();
     // if (shouldPlay == false) {
     // vidRef.current.play();
-    console.log("vidRef",vidRef)
     if (playPromise !== undefined) {
 
     playPromise.then(async _ => {
@@ -212,7 +211,7 @@ export const Video: React.FC<Props> = props => {
       setWidth(vidRef.current.getBoundingClientRect().width);
     }, []);
       
-console.log("width",width)
+
   return (
     <div className="video-product"
       onMouseMove={handleMouseMove}

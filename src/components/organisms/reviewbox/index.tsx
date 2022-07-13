@@ -120,9 +120,6 @@ export const Reviewcard: React.FC<ProductProps> = props => {
     })
   }
 
-  // console.log("props.totallike", props.totallike.total)
-  // console.log("useriddddd", props.userid)
-  // console.log("viewwwwwww",props.id)
   return (
     <article className={mapModifiers('o-review', props.modifiers, props.isPreview && 'preview')}>
       {props.isPreview ? (

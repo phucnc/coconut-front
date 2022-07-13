@@ -142,9 +142,6 @@ export const userpage: React.FC<RouteComponentProps> = props => {
     const infoBio = profile.data.info.String
     const avatar1 = profile.data.avartar.String
     const cover = profile.data.cover.String
-    // console.log("profile myItem",profile)
-    // console.log("wallet form my item",wallet)
-    // console.log("window.location.href",window.location.href)
     usernameSet(haha)
     addWalletSet(addWallet)
     infoBioSet(infoBio)

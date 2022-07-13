@@ -1,16 +1,17 @@
 .m-mywallet {
   $root: &;
 
-  border-radius: 5px;
-  box-shadow: 0 6px 9.8px 0.2px $BOXSHADOW-BASIC;
-  width: 278px;
-  min-height: 260px;
+  border-radius: 25px;
+  box-shadow: 0 6px 9.8px 0.3px $BOXSHADOW-BASIC;
+  width: 378px;
+  min-height: 360px;
   background-color: $COLOR-WHITE;
-  padding: 12px;
+  padding: 10px;
 
   .m-tablist {
-    margin-bottom: 5px;
-    justify-content: space-around;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    justify-content: flex-start;
     margin-right: 0;
 
     & .a-button {
@@ -35,11 +36,21 @@
   &_cards {
     display: flex;
     justify-content: center;
-    overflow: hidden;
+    // overflow: hidden;
+    border-top: 1px solid #0000001A;
+    width: 100%;
   }
 
+  &_title {
+    display:flex;
+    justify-content: space-between;
+    padding:15px;
+  }
+  &_tablist {
+    padding: 0 5px 0 5px;
+  }
   &_cardwrapper {
-    overflow: hidden;
+    // overflow: hidden;
     border-radius: 5px;
   }
 

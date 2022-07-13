@@ -9,9 +9,7 @@ import { isArray } from 'util';
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const getProductsAPI = (params: GetProductListReq) => {
   const { filter, sort } = Sort[params.filterAndSort || SortDefaultValue];
-  console.log("param category 33434343",params)
   if (params.category == 'Trend') {
-    console.log("PASSS test")
     return axios.get(`${process.env.ADDRESS_API}/trend`)
   }
   else if (params.category == 'Best') {
@@ -21,14 +19,12 @@ export const getProductsAPI = (params: GetProductListReq) => {
     return axios.get(`${process.env.ADDRESS_API}/nft/collectible-paging?cursor=&limit=10&sort=desc&filter=price&title=&address=${params.address}`)
   }
   else if (params.category == 'New') {
-    console.log("test",params.address)
     return axios.get(`${process.env.ADDRESS_API}/nft/collectible-paging?cursor=&limit=10&sort=desc&filter=created-date&title=&address=${params.address}`)
   }
   else if (params.category == 'Recently Traded') {
     return axios.get(`${process.env.ADDRESS_API}/nft/collectible-paging?cursor=&limit=10&sort=desc&filter=trade&title=&address=${params.address}`)
   }
   else if (params.category !== null || params.category == 'All' || !params.category ) {
-    console.log("param category11112222",params)
   return axios.get(
     `${process.env.ADDRESS_API}/nft/collectible-paging?cursor=${params.cursor || ''}&limit=${
       params.limit || LIMIT_PER_PAGE
@@ -77,12 +73,9 @@ const getProductListEpic: Epic = action$ =>
     filter(getProductList.started.match),
     mergeMap(action => {
       const params = action.payload;
-      console.log("params getProductsAPI",params)
-      console.log("params getProductsAPI action",action)
       return from(getProductsAPI(params)).pipe(
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         map(res => {
-          console.log ("paramsparamsparams2",params)
           return getProductList.done({
             params: action.payload,
             result: res.data,

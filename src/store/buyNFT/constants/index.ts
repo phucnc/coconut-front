@@ -27,6 +27,9 @@ export type ModalReq = {
 export type ModalLang = {
   lang:any;
 };
+export type StoreAddress = {
+  store_address:any;
+};
 
 export type GetProductReq = {
   id: string;

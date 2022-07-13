@@ -241,7 +241,7 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
   const [like, setLike] = useState({ isLike:props.liked ?true: false, amount: 0 });
   const [isProcessing, setIsProcessing] = useState(false);
   
- console.log("props.liked",props.liked)
+
   const { t } = useTranslation();
   const [modalmobile, setmodalmobile] = useState(false);
   const [reportModal, setreportModal] = useState(false);
@@ -327,11 +327,10 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
     }
     
   }
-  console.log("comment data",datas)
+
   const gethistory = async () => {
     try {
     const historyget = await axios.get (`${process.env.ADDRESS_API}/history?collectible_id=${props.id}`)
-    console.log("gethistory",historyget)
     const data = historyget.data.history
     data.sort((d1, d2) => new Date(d2.created_at).getTime() - new Date(d1.created_at).getTime());
     resSet(data)
@@ -429,7 +428,6 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
   }, [dispatch, modalOpen]);
 
   const productLink = `/view?id=${props?.id}`;
-  console.log("props.status",props)
   return (
     <div className="p-view">
       {/* <Layout title="View NFT"> */}

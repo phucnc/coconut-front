@@ -1,7 +1,7 @@
 import produce from 'immer';
 import { Reducer } from 'redux';
 import { isType } from 'typescript-fsa';
-import { approveBUSD, approveCONT, closeModal, getProduct, purchase, GetProductRes, openModal,openModalIn,closeModalIn, modalpurchase, videoMute,trigger, videoUnmute,refreshnoti,refreshLang,switchKR,switchEN,closeModalMaint,openModalMaint } from 'store/buyNFT';
+import { approveBUSD, approveCONT, closeModal, getProduct, purchase, GetProductRes, openModal,openModalIn,closeModalIn, modalpurchase, videoMute,trigger, videoUnmute,refreshnoti,refreshLang,switchKR,switchEN,storeAddress,closeModalMaint,openModalMaint } from 'store/buyNFT';
 import { DRAFTABLE } from 'immer/dist/internal';
 
 type BuyNFT = {
@@ -25,6 +25,7 @@ type BuyNFT = {
   quote_token?:any;
   lang?:any;
   unlock_once_purchased? :any;
+  store_address? :any;
 };
 
 const initialValue: BuyNFT = {
@@ -58,6 +59,7 @@ const reducer: Reducer<BuyNFT> = (state = initialValue, action) => {
       draft.isApproved = true;
     });
   }
+
   if (isType(action, openModalIn)) {
     return produce(state, draft => {
       draft.isOpen = true;
@@ -93,6 +95,12 @@ const reducer: Reducer<BuyNFT> = (state = initialValue, action) => {
       draft.isRefreshLang =  action.payload.lang;
     });
   }
+  if (isType(action, storeAddress.started)) {
+    return produce(state, draft => {
+      console.log("action.payloadaddress ",action.payload)
+      draft.store_address =  action.payload.store_address;
+    });
+  }
   if (isType(action, videoMute)) {
     return produce(state, draft => {
       draft.isMute = true;
@@ -106,7 +114,6 @@ const reducer: Reducer<BuyNFT> = (state = initialValue, action) => {
 
   if (isType(action, modalpurchase.started)) {
     return produce(state, draft => {
-      console.log("action",action)
       draft.active = action.payload.active;
       // draft.isApproved = true;
       // draft.isCancel = false;
@@ -143,7 +150,6 @@ const reducer: Reducer<BuyNFT> = (state = initialValue, action) => {
 
   if (isType(action, approveBUSD.failed) || isType(action, approveCONT.failed) || isType(action, purchase.failed)) {
     return produce(state, draft => {
-      console.log('error', action.payload.error);
       draft.isCancel = true; 
     });
   }
@@ -166,7 +172,6 @@ const reducer: Reducer<BuyNFT> = (state = initialValue, action) => {
   if (isType(action, getProduct.failed)) {
     return produce(state, draft => {
       //NOTE: set true here to show dump data for mock items
-      console.log('error', action.payload.error);
       draft.isGetDone = true;
     });
   }

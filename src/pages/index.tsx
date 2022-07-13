@@ -148,7 +148,6 @@ const AccordionSummary = withStyles({
 })(MuiAccordionSummary);
 type Anchor = 'top' | 'left' | 'bottom' | 'right';
 export const Home: React.FC<RouteComponentProps> = props => {
-  console.log("propssindex", props)
   let listTotalVol = useRef(new Array());
   const ref = useRef(null);
   const params = new URLSearchParams(props.location?.search);
@@ -325,8 +324,6 @@ export const Home: React.FC<RouteComponentProps> = props => {
 
   useEffect (()=> {
     if (typeof window.gtag !== 'undefined'){
-      console.log("window.gtag",window.gtag)
-     
       window.gtag("conversion", "click", { send_to: ["G-367HCBT3P8"]})
     }
   },[]);

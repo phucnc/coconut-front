@@ -34,6 +34,11 @@
     justify-content: flex-start;
   }
 
+  &-disconnect {
+    color :red;
+  }
+
+  
   &-bell {
     padding: 0 5px;
     // border: 1px dotted black;
@@ -472,7 +477,33 @@ linear-gradient(100.93deg, #D565C3 -13.26%, #ABD3EA 101.12%);
     border-radius: 33px;
     cursor: pointer;
   }
+  &-walletSwitch {
+    background-color: none;
+    // border: 1px solid #616161;
+    font-family: NotoSans;
+    font-style: normal;
+    font-weight: bold;
+    line-height: 15px;
+    padding: 5px!important;
+    text-align: center;
+    text-decoration: none;
+    // display: inline-block;
+    font-size: 15px;
+    margin: 2px 4px 4px 2px;
+    // border-radius: 33px;
+    cursor: pointer;
+    //  &:active {
+    //   cursor: pointer;
+    //   border: 3px solid #616161;
+    //  }
 
+  }
+
+  &-walletSwitchConnect {
+    width: 250px!important;
+    background: #7FFFD4;
+    color:#556B2F;
+  }
   &-exploreMenu {
     background-color: black;
     color: white!important;

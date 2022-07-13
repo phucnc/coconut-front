@@ -99,7 +99,6 @@ export const Image: React.FC<ImageProps> = props => {
   const item = items[Math.floor(Math.random()*items.length)];
   useEffect(() => {
     const item = items[Math.floor(Math.random()*items.length)];
-    console.log("item",item)
     const img = new window.Image();
     img.src = props.src;
     const onLoad = () => {

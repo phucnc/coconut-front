@@ -24,7 +24,7 @@ export const FileInputcreate: React.FC<Props> = props => {
   const { t } = useTranslation();
   const targetRef = useRef();
   const [dimensions, setDimensions] = useState({ width:0, height: 0 });
-  console.log("props",props)
+
   
   useEffect(() => {
     console.log("targetRef",targetRef.target)

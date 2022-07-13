@@ -103,7 +103,7 @@ const Interceptor: React.FC = props => {
   }, [dispatch,wallet.account]);
   // }, [dispatch,regSet,reg]);
   useEffect(() => {
-  
+    
     checkaccount()
   }, []);
   useEffect(() => {
