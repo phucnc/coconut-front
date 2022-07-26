@@ -10,19 +10,6 @@ import { hot } from 'react-hot-loader/root';
 export const PageProvider: React.FC = props => {
   return (
     <UseWalletProvider
-      // connectors={{
-      //   injected: {
-      //     web3ReactConnector() {
-      //       return new BscConnector({ supportedChainIds: [56, 97] });
-      //     },
-      //     handleActivationError(err: any) {
-      //       if (err instanceof UserRejectedRequestError) {
-      //         return new ConnectionRejectedError();
-      //       }
-      //     },
-      //   },
-      // }}
-      // chainId={97} // Testnet
       chainId={56} //Mainet
       connectors={{
         // This is how connectors get configured

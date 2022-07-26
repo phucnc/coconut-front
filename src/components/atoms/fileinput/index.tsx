@@ -14,7 +14,6 @@ type Modifier = 'foo' | 'bar';
 interface Props {
   modifiers?: Modifier | Modifier[];
   name: string;
-  // label: string;
   setTouched?: () => void;
 }
 
@@ -42,13 +41,11 @@ export const FileInput: React.FC<Props> = props => {
       <button className="a-fileinput_button" onClick={open}>
       <Image src={cloud} alt="drag and drop" />
       <div className="a-fileinput_handle">
-        {/* <Text modifiers="gray"> Drag it here or</Text> */}
         <Button modifiers="asLink">
         <Icon modifiers={['small','middle']} iconName="plus" />
         </Button>
       </div>
       <input {...getInputProps()} className="a-fileinput_input" name={props.name} type="file" />
-      {/* <Text modifiers={['lightgray']}>{props.label}</Text> */}
       </button>
     </div>
   );

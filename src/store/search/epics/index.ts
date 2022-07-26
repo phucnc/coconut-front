@@ -8,7 +8,6 @@ const searchEpic: Epic = action$ =>
   action$.pipe(
     filter(searchNFTAction.started.match),
     mergeMap(action => {
-      console.log("action",action.payload)
       return from(getProductsAPI(action.payload)).pipe(
         map(res => {
           return searchNFTAction.done({

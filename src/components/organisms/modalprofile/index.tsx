@@ -51,7 +51,6 @@ const Fade = React.forwardRef<HTMLDivElement, FadeProps>(function Fade(props, re
   );
 });
 interface Props {
-    // modifiers?: Modifier | Modifier[];
   isOpen: boolean;
   handleClose: () => void;
   }

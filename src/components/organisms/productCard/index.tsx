@@ -4,42 +4,20 @@ import { mapModifiers } from 'lib/component';
 import { Heading } from 'components/molecules/heading';
 import { Text } from 'components/atoms/text';
 import { Image, ImageProps } from 'components/atoms/image';
-// import { Button } from 'semantic-ui-react'
 import { Icon, IconName } from 'components/atoms/icon';
 import { Link } from 'components/atoms/link';
-import { Dropdown } from 'components/molecules/dropdown';
-import { DropdownMenu, DropdownItem, DropDownItemGroup } from 'components/molecules/dropdownMenu';
 import { useWallet } from 'use-wallet';
 import axios from 'axios';
-import { connectWallet } from 'lib/apiCommon';
 import { UserAvatar } from 'components/molecules/userAvatar';
-import { CheckInput } from 'components/atoms/checkInput';
 import { UserType, VideoType, VideoTypes } from 'lib/constants';
 import { Button } from 'components/atoms/button';
 import { Video } from 'components/molecules/video';
 import { Tooltip } from 'components/molecules/tooltip';
-import Skeleton from '@material-ui/lab/Skeleton';
-import Typography from '@material-ui/core/Typography';
-import Fade from '@material-ui/core/Fade';
-import MenuItem from '@material-ui/core/MenuItem';
-import Menu from '@material-ui/core/Menu';
-import { ButtonContainer } from 'components/molecules/buttonContainer';
-import { Categories, createSchema, initialValue, Unit } from 'components/pages/create/form';
-import { Form, Formik } from 'formik';
 import { Modal } from 'components/organisms/modal';
 import { Modalshare } from 'components/organisms/modalshare';
-import { approveNFT, createNFT, createTokenURI, getCreateStore, sellNFT } from 'store/createNFT';
-import { Select } from 'components/atoms/select';
 import { ModalHeader } from 'components/molecules/modalHeader';
 import { useDispatch, useSelector } from 'react-redux';
-import { Fieldrow } from 'components/molecules/fieldrow';
-import { TextFieldFormik } from 'components/atoms/textfield';
 import { resetStore } from 'store/createNFT';
-import { Layout } from 'components/templates/layout';
-import { commonStart } from 'store/common';
-import { Section } from 'components/organisms/section';
-import { useEthers, useEtherBalance } from "@usedapp/core";
-import { amountReceived, amountReceivedDollar ,amountDollarBNB,amountDollarBUSD,amountDollarCONT} from 'util/amount';
 type Modifier = 'foo' | 'bar';
 
 export type User = { src: string; alt: string; type: UserType; name: string };
@@ -72,7 +50,6 @@ export const Productcard: React.FC<ProductProps> = props => {
   const wallet = useWallet();
   const [like, setLike] = useState({ isLike:props.liked? true: false, amount: props.amount });
   const likevolume = props.totallike;
-  // console.log ("likeeeeee",likevolume)
   const productLink = `/view?id=${props.id}`;
   const dispatch = useDispatch();
   const [ModalOpendelete, setModalOpendelete] = useState(false);
@@ -82,15 +59,7 @@ export const Productcard: React.FC<ProductProps> = props => {
   const [ModalResell, setModalResell] = useState(false);
   const [modalOpenShare, setModalOpenShare] = useState(false);
   const [modalInception, setmodalInception] = useState(false);
-  const {activateBrowserWallet, account } = useEthers();
-  const accountt = useEthers();
-  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
+  
   useEffect(() => {
     if (!ModalResell) {
       dispatch(resetStore());
@@ -112,7 +81,11 @@ export const Productcard: React.FC<ProductProps> = props => {
 
   }, [dispatch, modalOpenShare]);
   const view = async () => {
+    try {
     const viewer = await axios.post(`${process.env.ADDRESS_API}/view?collectible_id=${props.id}`)
+    }catch {
+      console.log("update number of View error")
+    }
   }
   const numberLike = async () => {
     if (!like.isLike) {

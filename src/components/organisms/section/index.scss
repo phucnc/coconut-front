@@ -1,12 +1,10 @@
 .o-section {
-  // margin-bottom: 30px;
   margin-top: 30px;
   background-color: $COLOR-WHITE;
   border-radius: 20px;
   box-shadow: 0 6px 9.8px 0.2px $BOXSHADOW-SECTION;
   padding: 15px 42px 15px 42px;
 &_mainsub {
-    // min-height: calc(100vh - #{$HEADER-PC-MARGIN} * 2 - #{$HEADER-PC-HEIGHT} - 30px);
     display: flex;
     flex-direction: column;
     background-color: #F6F6F6;
@@ -17,7 +15,6 @@
     }
     @include sp {
       background-color: white;
-      // border-radius: 5px;
       overflow: hidden;
       columns: 2 auto;
     }

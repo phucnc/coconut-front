@@ -1,8 +1,6 @@
 .m-tabbutton {
   position: relative;
   display: inline-flex;
-  // margin-top: 5px;
-  // margin-bottom: 5px;
   & .a-button {
     padding: 0 12px 10px;
     color: $COLOR-UTILITY-TXT-BASE;
@@ -12,8 +10,6 @@
     display: block!important;
     margin-top: 5px;
     margin-bottom: 5px;
-    // border: 1px solid black;
-    // border-radius: 10px;
   }
   &-active {
     pointer-events: none;
@@ -46,9 +42,6 @@
     font-size: 17px;
     line-height: 22px;
     color: #616161;
-    // margin-left: 27px;
-    // align-items: center;
-    // justify-content: center;
     height: 35px;
     &:hover {
       opacity: 0.7;
@@ -56,7 +49,6 @@
     }
     @include sp {
       margin-left: 5px;
-      // padding: 0;
       padding-left: 0px;
     }
   }
@@ -68,10 +60,7 @@
   }
   &_input {
     display: none;
-    // list-style: none;
     &:checked+.m-tabbutton_indicator {
-      // pointer-events: none;
-      // text-align: center;
       .a-text {
         color: $COLOR-BLUE;
         @include u-fw-b;
@@ -85,10 +74,8 @@
         font-style: normal;
         font-weight: 500;
         color: white;
-        // text-align: center;
         align-items: center;
         justify-content: center;
-        // padding: 0 20px;
         border-radius: 15px;
         @include sp {
           height: auto;
@@ -102,6 +89,4 @@
   margin-top: 5px;
   margin-bottom: 5px;
   margin-right:0px;
-  // border: 1px solid black;
-  // border-radius: 10px;
 }

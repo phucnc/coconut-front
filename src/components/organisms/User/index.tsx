@@ -1,74 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import { hot } from 'react-hot-loader/root';
-import { useDispatch, useSelector } from 'react-redux';
-// import { mapModifiers } from 'lib/component';
-// import { UserAvatar } from 'components/molecules/userAvatar';
-import IconButton from '@material-ui/core/IconButton';
-import PhotoCamera from '@material-ui/icons/PhotoCamera';
+import { useDispatch } from 'react-redux';
 import avatar from 'assets/images/ccn_logoOF.png';
 import TextField from '@material-ui/core/TextField';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-import avatar1 from 'assets/images/icon/camera.svg';
 import { Modal } from 'components/organisms/modal';
-import { Modal1 } from 'components/organisms/modalprofile';
-import Box from '@material-ui/core/Box';
-import { connectWallet } from 'lib/apiCommon';
-import { Text } from 'components/atoms/text';
-import { ButtonContainer } from 'components/molecules/buttonContainer';
-import Web3 from 'web3';
-import ReactModal from 'react-modal';
-import { closeConnectModal, getCommon, setAccount } from 'store/common';
-import Interceptor from 'components/templates/interceptor';
-import {
-  EmailShareButton,
-  FacebookShareButton,
-  HatenaShareButton,
-  InstapaperShareButton,
-  LineShareButton,
-  LinkedinShareButton,
-  LivejournalShareButton,
-  MailruShareButton,
-  OKShareButton,
-  PinterestShareButton,
-  PocketShareButton,
-  RedditShareButton,
-  TelegramShareButton,
-  TumblrShareButton,
-  TwitterShareButton,
-  ViberShareButton,
-  VKShareButton,
-  WhatsappShareButton,
-  WorkplaceShareButton
-} from "react-share";
-import { useWallet } from 'use-wallet';
-import { Epic, combineEpics } from 'redux-observable';
-import { createTokenURI, createNFT, approveNFT, sellNFT } from 'store/createNFT';
+import { FacebookShareButton, TelegramShareButton, TwitterShareButton } from "react-share";
 import { useMediaQuery } from 'react-responsive'
-import { State } from 'store';
 import { Form, Formik } from 'formik';
 import { FileInput } from 'components/atoms/fileinput';
-import { commonStart } from 'store/common';
-import { Categories, createSchema, initialValue, Unit } from 'components/pages/create/form';
-// import { approveNFT, createNFT, createTokenURI,createTokenURIsub, getCreateStore, sellNFT } from 'store/createNFT';
+import { createSchema, initialValue } from 'components/pages/create/form';
 import { useClipboard } from "use-clipboard-hook";
 import axios from 'axios';
-import { Fieldrow } from 'components/molecules/fieldrow';
 import { useSnackbar } from 'notistack';
-import EditRoundedIcon from '@material-ui/icons/EditRounded';
-import { Link } from 'components/atoms/link';
 import { ModalHeader } from 'components/molecules/modalHeader';
 import { resetStore } from 'store/createNFT';
-// import Button from '@material-ui/core/Button';
 import 'semantic-ui-css/semantic.min.css'
 import { Button, Icon } from 'semantic-ui-react'
 import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
 import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
-import AddAPhotoRoundedIcon from '@material-ui/icons/AddAPhotoRounded';
-import FileCopyIcon from '@material-ui/icons/FileCopy';
 type Modifier = 'nobackground' | 'nopadding' | 'nomargin';
 
 interface Props {
@@ -106,8 +58,8 @@ const useStyles1 = makeStyles((theme: Theme) =>
         fontWeight: 'bold',
       },
       [theme.breakpoints.down('sm')]: {
-        textAlign:"left",
-       },
+        textAlign: "left",
+      },
     },
     font: {
       '& > *': {
@@ -118,9 +70,9 @@ const useStyles1 = makeStyles((theme: Theme) =>
         marginBottom: 30,
       },
       [theme.breakpoints.down('sm')]: {
-       textAlign:"left",
-       position:"relative",
-       top:"50px"
+        textAlign: "left",
+        position: "relative",
+        top: "50px"
       },
     },
     buttonUp: {
@@ -133,45 +85,36 @@ const useStyles1 = makeStyles((theme: Theme) =>
   }),
 );
 const useStyles = makeStyles((theme: Theme) =>
-createStyles({
-  root: {
-    minWidth: 275,
-    boxShadow: 'none',
-    // background:'transparent',
-    [theme.breakpoints.down('sm')]: {
-      position:"relative",
-      backgroundColor: 'transparent',
-      top:"50px",
-      left:"70px",
+  createStyles({
+    root: {
+      minWidth: 275,
+      boxShadow: 'none',
+      [theme.breakpoints.down('sm')]: {
+        position: "relative",
+        backgroundColor: 'transparent',
+        top: "50px",
+        left: "70px",
+      },
     },
-  },
-  Mui: {
-    // background:'transparent',
-  },
-  bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)',
-  },
-  title: {
-    fontSize: 14,
-  },
-  textField: {
-    backgroundColor: '#E9E9E9',
-  },
-  pos: {
-    marginBottom: 12,
-  },
-}),
+    Mui: {
+    },
+    bullet: {
+      display: 'inline-block',
+      margin: '0 2px',
+      transform: 'scale(0.8)',
+    },
+    title: {
+      fontSize: 14,
+    },
+    textField: {
+      backgroundColor: '#E9E9E9',
+    },
+    pos: {
+      marginBottom: 12,
+    },
+  }),
 );
-const defaultProps = {
-  bgcolor: 'white',
-  m: 1,
-  border: 0.1,
-  style: { width: '15rem', height: '15rem', border: 'dashed' },
-  // image: 'assets/images/uploadim.svg',
-};
-const defaultProps1 = {
+const defaultPropsD = {
   bgcolor: 'white',
   m: 1,
   border: 0.1,
@@ -179,7 +122,6 @@ const defaultProps1 = {
   image: 'assets/images/uploadim.svg',
 };
 export const User: React.FC<Props> = (props) => {
-  const [style, setStyle] = useState({ display: 'none', transform: `none`, transition: `none` });
   const dispatch = useDispatch();
   const [count, setCount] = useState(0);
   const [modalOpen, setModalOpen] = useState(false);
@@ -189,30 +131,17 @@ export const User: React.FC<Props> = (props) => {
   const [modalOpenProfile, setmodalOpenProfile] = useState(false);
   const [modalOpenReport, setmodalOpenReport] = useState(false);
   const message = 'Copied';
-  const wallet = useWallet();
   const isMobile = useMediaQuery({
     query: '(max-width: 800px)'
   })
-  // const id_number = '0x1234567891221'
   const [datas, dataSet] = useState<any>(Array)
   const [id, idSet] = useState<any>(Array)
-  
   const { ref, copy } = useClipboard({
     onSuccess: (text) => enqueueSnackbar(message, {
       variant: 'success',
     }),
   });
-  
-  const [error, setError] = useState(false);
- 
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
-
-  const handleClick = () => {
-    enqueueSnackbar('I love hooks');
-  }
-  
-
-
   const refresh = async () => {
     const query = window.location.href
     const result = query?.substring(query.indexOf("="));
@@ -223,10 +152,9 @@ export const User: React.FC<Props> = (props) => {
   }
   useEffect(() => {
     refresh()
-
   }, [datas]);
+
   useEffect(() => {
-    // refresh();
     if (!modalOpen) {
       dispatch(resetStore());
       // currentStep.number === CreateSteps.length && navigate('/');
@@ -259,14 +187,13 @@ export const User: React.FC<Props> = (props) => {
 
   return (
     <section className='o-section1'
-    style={{
-      backgroundImage: `url(${props.cover})`
-    }}
+      style={{
+        backgroundImage: `url(${props.cover})`
+      }}
     >
       <Modal isOpen={modalOpenReport} handleClose={() => setmodalOpenReport(false)}>
         <ModalHeader title="Why are you reporting?" handleClose={() => setmodalOpenReport(false)} />
         <Grid
-          // className="avatar-user"
           container
           spacing={0}
           direction="column"
@@ -280,24 +207,20 @@ export const User: React.FC<Props> = (props) => {
           </form>
         </Typography>
         <Typography align="center" >
-                    <form className={classes1.root1} >
-                      <TextField
-                      name="name"
-                      className={classes.textField}
-                        id="outlined-multiline-static"
-                        // label="Bio"
-                        multiline
-                        rows={4}
-                        // onChange={handleChangeFormname("bio")}
-                        // value={props.infoBio}
-                        variant="outlined"
-                        placeholder="Tell us some detail"
-                        // onChange={e => setCount(e.target.value.length)}
-                        inputProps={{ maxLength: 500 }}
-                      ></TextField>
-                    </form>
-                    <p className="limitletter">{count}/500</p>
-                  </Typography>
+          <form className={classes1.root1} >
+            <TextField
+              name="name"
+              className={classes.textField}
+              id="outlined-multiline-static"
+              multiline
+              rows={4}
+              variant="outlined"
+              placeholder="Tell us some detail"
+              inputProps={{ maxLength: 500 }}
+            ></TextField>
+          </form>
+          <p className="limitletter">{count}/500</p>
+        </Typography>
         <Typography align="center" >
           <Button className={classes1.buttonUp} color='black' size='big'>Report</Button>
         </Typography>
@@ -307,14 +230,13 @@ export const User: React.FC<Props> = (props) => {
       <Modal isOpen={modalOpen} handleClose={() => setModalOpen(false)}>
         <ModalHeader title="Upload cover photo" handleClose={() => setModalOpen(false)} />
         <Grid
-          // className="avatar-user"
           container
           spacing={0}
           direction="column"
           alignItems="center"
           justify="center"
         >
-          <Button  {...defaultProps1} display="flex" justifyContent="center" ></Button>
+          <Button  {...defaultPropsD} display="flex" justifyContent="center" ></Button>
           <Grid item xs={8} >
           </Grid>
         </Grid>
@@ -328,13 +250,11 @@ export const User: React.FC<Props> = (props) => {
         </Typography>
       </Modal>
 
-      {/* ////////////////////////////// Share /////// */}
       <Modal isOpen={modalOpenShare} handleClose={() => setModalOpenShare(false)}>
         <ModalHeader title="Share this NFT" handleClose={() => setModalOpenShare(false)} />
         <Grid
           container
           spacing={2}
-          // direction="column"
           alignItems="center"
           justify="center"
         >
@@ -398,8 +318,6 @@ export const User: React.FC<Props> = (props) => {
           </Grid>
         </Grid>
       </Modal>
-      {/* ///////////////////////////////////////// */}
-      {/* <Modal1/> */}
       <Modal isOpen={modalOpenProfile} handleClose={() => setmodalOpenProfile(false)}>
         <ModalHeader title="Edit profile" handleClose={() => setmodalOpenProfile(false)} />
         <Formik
@@ -408,7 +326,6 @@ export const User: React.FC<Props> = (props) => {
           onSubmit={async values => {
             const data = new FormData();
             data.append('upload_file', values.file);
-            // dispatch(commonStart({ nextAction: createTokenURIsub.started({ data: values }) }));
             await axios.put(`${process.env.ADDRESS_API}/account?id=1&username=luthien`
             )
           }}
@@ -417,20 +334,10 @@ export const User: React.FC<Props> = (props) => {
           {({ values, isValid, setTouched, touched }) => {
             const previewSrc = URL && values.file ? URL.createObjectURL(values.file) : '';
             const previewType = values.file && values.file.type;
-            // const [password, setPassword] = useState('');
-
-            // const handleClickk = () => {
-            //   console.log(password);
-            // };
             const [value, setValues] = React.useState({
               bio: '',
-              name:'',
-
+              name: '',
             });
-            const [previewSrcc, setImgPreview] = useState<any | null>(null);
-            const onClickBtn = () => {
-              console.log(value.name);
-            };
             const handleChangeForm = name => event => {
               setValues({ ...value, [name]: event.target.value });
             };
@@ -442,40 +349,37 @@ export const User: React.FC<Props> = (props) => {
               const data = new FormData()
               data.append('upload_file', values.file);
               data.append('username', values.username);
-              if(previewSrc){
-              try {
-                await axios.put(`${process.env.ADDRESS_API}/account/avatar?id=${props.address}`, data, {
-                  headers: {
-                    'Content-Type': 'multipart/form-data',
-                  },
-                })
-              }
-              catch{
-                console.log('Error loaidng rejected data');
-              }
+              if (previewSrc) {
+                try {
+                  await axios.put(`${process.env.ADDRESS_API}/account/avatar?id=${props.address}`, data, {
+                    headers: {
+                      'Content-Type': 'multipart/form-data',
+                    },
+                  })
+                }
+                catch{
+                  console.log('Error loaidng rejected data');
+                }
               }
               await axios.put(`${process.env.ADDRESS_API}/account?id=${props.address}&username=${value.name}&info=${value.bio}`)
-              window.location.reload(); 
+              window.location.reload();
             }
             return (
               <Form className="p-create_form">
                 <Grid
-                  // className="avatar-user"
                   container
                   spacing={3}
                   direction="column"
                   alignItems="center"
                   justify="center"
                 >
-                 {previewSrc? (<div></div>):(<FileInput
+                  {previewSrc ? (<div></div>) : (<FileInput
                     name="file"
-                    // label="PNG, GIF, WEBP, MP4 or MP3. Max 50mb. "
                     setTouched={() => !touched.file && setTouched({ ...touched, file: true })}
                   />)}
                   <img className={
                     previewSrc ? `ImgReview` : ``
                   } src={previewSrc}></img>
-                  {/* <img className="ImgReview" src={previewSrc}></img> */}
                   <Card className={classes.root}>
                     <CardContent >
                       <Typography align="center" >
@@ -483,7 +387,7 @@ export const User: React.FC<Props> = (props) => {
                       </Typography>
                       <Typography align="center" >
                         <form className={classes1.root} noValidate autoComplete="off">
-                          <TextField  inputProps={{min: 0, style: { textAlign: 'center' }}} onChange={handleChangeForm("name")} id="standard-basic" label="Name" defaultValue={props.username} ></TextField>
+                          <TextField inputProps={{ min: 0, style: { textAlign: 'center' } }} onChange={handleChangeForm("name")} id="standard-basic" label="Name" defaultValue={props.username} ></TextField>
                         </form>
                       </Typography>
                     </CardContent>
@@ -491,17 +395,15 @@ export const User: React.FC<Props> = (props) => {
                   <Typography align="center" >
                     <form className={classes1.root1} >
                       <TextField
-                      name="name"
-                      className={classes.textField}
+                        name="name"
+                        className={classes.textField}
                         id="outlined-multiline-static"
                         label="Bio"
                         multiline
                         rows={4}
                         onChange={handleChangeFormname("bio")}
-                        // value={props.infoBio}
                         variant="outlined"
                         defaultValue={props.infoBio}
-                        // onChange={e => setCount(e.target.value.length)}
                         inputProps={{ maxLength: 500 }}
                       ></TextField>
                     </form>
@@ -509,18 +411,11 @@ export const User: React.FC<Props> = (props) => {
                     <Button onClick={() => updateAvatar()} type="submit" className={classes1.buttonUp} color='pink' size='big'>Upload</Button>
                   </Typography>
                 </Grid>
-
-                {/* <button type="submit" onClick={() => updateAvatar()}>lelealalaflfl</button>
-                <button type="submit" onClick={() => onClickBtn()}>test button</button> */}
-
               </Form>
             );
           }}
         </Formik>
       </Modal>
-
-      {/* ////////////////////////////////////////////////////////////////
- //////////////////////////////////////////////////////////////// */}
       <Grid
         className="avatar-user"
         container
@@ -531,9 +426,6 @@ export const User: React.FC<Props> = (props) => {
       >
         <img className="avatar-display" src={props.avatar ? props.avatar : avatar}
         />
-        {/* <img className='avatar-display' src={datas} onMouseOver={e => e.currentTarget.src = datas}
-          onMouseOut={e => e.currentTarget.src = avatar}
-        /> */}
         <Grid item xs={10} >
 
           <Card className={classes.root}>
@@ -542,52 +434,46 @@ export const User: React.FC<Props> = (props) => {
                 <span>{props.username}</span>
               </Typography>
               <Typography gutterBottom className={classes1.font_basic} align="center" >
-                {/* <span ref={ref} className="font-id" >{datas}</span>
-                <Button circular onClick={() => copy()} className="IconCopy" icon='copy outline'>
-                </Button> */}
-             {isMobile? (
-                <button className="button_copied" onClick={()=> copy()}>
-                <span ref={ref} className="font-id" >{datas}</span>
-                {/* <span ref={ref} className="font-idhidden" >{id}</span> */}
-                <span className="icon-copied"></span>
-                </button>
-            ):(
-                <div>
-                <span ref={ref} className="font-id" >{id}</span>
-                <Button circular onClick={() => copy()} className="IconCopy" icon='copy outline'>
-                </Button> 
-                </div>
-             )}
+                {isMobile ? (
+                  <button className="button_copied" onClick={() => copy()}>
+                    <span ref={ref} className="font-id" >{datas}</span>
+                    <span className="icon-copied"></span>
+                  </button>
+                ) : (
+                    <div>
+                      <span ref={ref} className="font-id" >{id}</span>
+                      <Button circular onClick={() => copy()} className="IconCopy" icon='copy outline'>
+                      </Button>
+                    </div>
+                  )}
               </Typography>
-              
+
             </CardContent>
           </Card>
         </Grid>
         <div className="tag_address">
-        <Typography gutterBottom className={classes1.font} align="left" variant="h5" component="h2">
-                <span >{props.infoBio}</span>
-        </Typography>
+          <Typography gutterBottom className={classes1.font} align="left" variant="h5" component="h2">
+            <span >{props.infoBio}</span>
+          </Typography>
         </div>
         <Grid
-                className="button-handle"
-                container
-                spacing={3}
-                // direction="column"
-                alignItems="center"
-                justify="center"
-              >
-                <Grid className="buttonedit" item xs={6} >
-                  <button className="user-button" onClick={() => setmodalOpenReport(true)}>
-                    {/* <Link href="/profile">My Item</Link> */}
-                    <Icon className={classes1.font_basic} size='small' name='edit' /> Report
+          className="button-handle"
+          container
+          spacing={3}
+          alignItems="center"
+          justify="center"
+        >
+          <Grid className="buttonedit" item xs={6} >
+            <button className="user-button" onClick={() => setmodalOpenReport(true)}>
+              <Icon className={classes1.font_basic} size='small' name='edit' /> Report
                   </button>
-                </Grid>
-                <Grid className="buttonedit" item xs={6} >
-                  <button className="user-button" onClick={() => setModalOpenShare(true)} >
-                    <Icon className={classes1.font_basic} size='small' name='share' />  Share
+          </Grid>
+          <Grid className="buttonedit" item xs={6} >
+            <button className="user-button" onClick={() => setModalOpenShare(true)} >
+              <Icon className={classes1.font_basic} size='small' name='share' />  Share
                 </button>
-                </Grid>
-              </Grid>
+          </Grid>
+        </Grid>
       </Grid>
 
     </section>

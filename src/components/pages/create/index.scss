@@ -24,22 +24,18 @@
   }
   &_img {
     width:100%;
-    // margin-bottom: 10px;
   }
   &_imgFade {
     width:100%;
     z-index: 99;
 	position: relative;
 	bottom: 100px;
-	// background-image: url("bottom-fade.png");
-    // margin-bottom: 10px;
   }
   &_imgGuilde {
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: 50%;
-    // margin-bottom: 10px;
   }
   &_imgGuilde2 {
     display: block;
@@ -47,7 +43,6 @@
     margin-right: auto;
     width: 100%;
     padding-bottom:10px;
-    // margin-bottom: 10px;
   }
   &_imgGuilde_top {
     position: relative;
@@ -56,7 +51,6 @@
     width: 100%;
     padding-bottom:10px;
     bottom:100px;
-    // margin-bottom: 10px;
   }
 
   &_imgConnect {
@@ -80,9 +74,6 @@
   }
   &_guilde {
     width: 100%;
-    // max-width: 540px;
-    // min-width: 400px;
-    // margin-right: 50px;
 
     @include spFixedContent {
       max-width: 100%;
@@ -161,13 +152,9 @@
     position: sticky;
     top: calc(#{$HEADER-PC-HEIGHT} + 40px);
     width:150px;
-    // display:flex;
-    // justify-content: flex-start;
     padding: 20px;
     background-color: white;
     border-radius: 15px;
-   
-    /* or 22px */
     letter-spacing: 0.02em;
     @include spFixedContent {
       position: initial;
@@ -184,15 +171,12 @@
     position: sticky;
     top: calc(#{$HEADER-PC-HEIGHT} + 40px);
     width:370px;
-    // display:flex;
-    // justify-content: flex-start;
     padding: 20px;
     margin-left: 40px;
     background-color: white;
     border-radius: 15px;
     overflow-wrap: break-word;
    
-    /* or 22px */
     letter-spacing: 0.02em;
     @include spFixedContent {
       position: initial;

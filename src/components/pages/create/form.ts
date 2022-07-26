@@ -4,23 +4,11 @@ import { useTranslation } from "react-i18next";
 
 export const createSchema = object({
   file: mixed().required('파일 크기가 100Mb를 넘기 때문에 업로드 불가 합니다.'),
-  // onsale: boolean(),
-  // instantsale: boolean(),
-  // instantsaleprice: number()
-  //   .notRequired()
-  //   .when('instantsale', (instantsale: boolean, schema: NumberSchema) => {
-  //     return instantsale ? schema.required('Please input sale price.') : schema;
-  //   }),
   instantsaleprice: number().typeError('Please input sale price.').required('Please input sale price.'),
   unit: number().required(),
-  // unlockonbuy: boolean(),
-  // lockedcontent: string(),
-  // collection: string().required('Please choose collection.'),
   name: string().required('Please enter product name.'),
   description: string(),
   address: string(),
-  // royalties: number().typeError('Please enter royalties.').required('Please enter royalties.'),
-  // properties: string().notRequired(),
   categories: array(
     object().shape({
       name: string().required(),
@@ -43,19 +31,12 @@ export const Categories = [...ExtraProductCategories].map((category, idx) => {
 });
 
 export const initialValue: CreateForm = {
-  // onsale: true,
   name: '',
   file: undefined,
-  // collection: '',
   description: '',
   address:'',
-  // instantsale: true,
   instantsaleprice: 0,
   unit: 0,
-  // lockedcontent: '',
-  // unlockonbuy: false,
-  // royalties: 0,
-  // properties: undefined,
   categories: [],
 };
 export const initialValueData: CreateFormData = {

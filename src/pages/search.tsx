@@ -6,7 +6,6 @@ import { RouteComponentProps } from '@reach/router';
 import { navigate } from 'gatsby';
 import { Heading } from 'components/molecules/heading';
 import { TabList } from 'components/molecules/tabList';
-import { ItemListMyItem } from 'components/organisms/itemListMyItem';
 import { TabButton } from 'components/molecules/tabButton';
 import { users } from 'dummy/dummy';
 import { useWallet } from 'use-wallet';
@@ -21,20 +20,15 @@ import { useTranslation } from "react-i18next";
 
 export const View: React.FC<RouteComponentProps> = props => {
   const query = new URLSearchParams(props.location?.search).get('name');
-  console.log("query",query)
   const dispatch = useDispatch();
   const wallet = useWallet();
   const [username, usernameSet] = useState<any>(Array)
-  const [avatar, avatarSet] = useState<any>(Array)
   const { t } = useTranslation();
   const user = async() => {
     try {
     const searchUser= await axios.get (`${process.env.ADDRESS_API}/account/search-paging?keys=${query}&limit=10&offset=0`)
-   const listuser = searchUser.data.accounts;
-  //  const username = listuser.address.String;
-   usernameSet(listuser)
-    console.log("searchUser",searchUser)
-    console.log("query",query)
+    const listuser = searchUser.data.accounts;
+    usernameSet(listuser)
     }catch {
       console.log("fail search")
     }
@@ -46,7 +40,6 @@ export const View: React.FC<RouteComponentProps> = props => {
   }, [dispatch, query]);
   const { isLoading, list, next_cursor, error } = useSelector(getSearchStore);
   const [selectedTab, setSelectedTab] = useState<SearchTabType>('Items');
-  console.log("listtttt",list)
   return (
     <div className="p-search">
       <Layout title="Search">
@@ -96,7 +89,6 @@ export const View: React.FC<RouteComponentProps> = props => {
               />
             ) : (
               <ItemList
-                // next={() => {user()}}
                 search
                 modifiers="search"
                 next={() => {}}
@@ -109,7 +101,6 @@ export const View: React.FC<RouteComponentProps> = props => {
                     name: u.username.String,
                     cover:u.cover.String,
                     id:u.address,
-                    // followers: 125,
                   }))}
               />
             )}

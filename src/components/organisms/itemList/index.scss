@@ -35,12 +35,8 @@
 
   &_wrapper {
     display: flex;
-    // flex-wrap: wrap;
     flex: 1 0 21%;
-    // flex-direction: column;
     &-search {
-      // flex-direction: ;
-      // flex-wrap: nowrap!important;
       justify-content: center;
     }
   }
@@ -48,7 +44,6 @@
   &_item {
     $sumMarginPerRow: 145px;
     width: 100%!important;
-    // width: calc(100% / 4 - (#{$sumMarginPerRow} / 4));
     margin-bottom:  15px ;
     display: flex;
     justify-content: center;
@@ -81,7 +76,6 @@
   }
   &_Searchitem {
     $sumMarginPerRow: 145px;
-    // width: 100%!important;
     width: calc(100% / 4 - (#{$sumMarginPerRow} / 4));
     margin-bottom:  15px ;
     display: flex;

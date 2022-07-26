@@ -1,27 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { hot } from 'react-hot-loader/root';
 import { Layout } from 'components/templates/layout';
-import { Section } from 'components/organisms/section';
 import { Form, Formik } from 'formik';
-import { Categories, createSchema, initialValue, Unit } from 'components/pages/create/form';
-import axios from 'axios';
+import { createSchema, initialValue } from 'components/pages/create/form';
 import Divider from '@material-ui/core/Divider';
-import { Icon, IconName } from 'components/atoms/icon';
-import { Text } from 'components/atoms/text';
-import { Heading } from 'components/molecules/heading';
-import { Fieldrow } from 'components/molecules/fieldrow';
-import { TextFieldFormik } from 'components/atoms/textfield';
-import { FileInputcreate } from 'components/atoms/fileinputcreate';
-import { Textarea } from 'components/atoms/textarea';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox, { CheckboxProps } from '@material-ui/core/Checkbox';
 import { Button } from 'components/atoms/button';
-import { Reviewcard } from 'components/organisms/reviewbox';
-import { navigate } from 'gatsby-link';
-import { Modal } from 'components/organisms/modal';
-import { ModalHeader } from 'components/molecules/modalHeader';
-import { StepItem } from 'components/molecules/stepItem';
-import { Steps } from 'components/organisms/steps';
 import setup_1 from 'assets/images/Slide1_kr.png';
 import setup_2 from 'assets/images/Slide2_kr.png';
 import setup_3 from 'assets/images/Slide3_kr.png';
@@ -50,16 +33,8 @@ import setup_25 from 'assets/images/Slide25_kr.png';
 import setup_26 from 'assets/images/Slide26_kr.png';
 import setup_27 from 'assets/images/Slide27_kr.png';
 import setup_28 from 'assets/images/Slide28_kr.png';
-// import setup_29 from 'assets/images/Slide29.png';
-// import setup_30 from 'assets/images/Slide30.png';
-import { useWallet } from 'use-wallet';
-import { useDispatch, useSelector } from 'react-redux';
-import { approveNFT, createNFT, createTokenURI, getCreateStore, resetStore, sellNFT, sellCreateNFT, approveCreateNFT } from 'store/createNFT';
-import { commonStart } from 'store/common';
 
 export const userguildekr: React.FC = () => {
-  const dispatch = useDispatch();
-  const { currentStep, tokenURI } = useSelector(getCreateStore);
   return (
     <div className="p-create">
       <Layout title="User Guilde">
@@ -67,11 +42,10 @@ export const userguildekr: React.FC = () => {
             initialValues={initialValue}
             validationSchema={createSchema}
             onSubmit={values => {
-             console.log("aaa")
             }}
             validateOnMount
           >
-            {({ values, isValid, setTouched, touched }) => {
+            {({  }) => {
               return (
                 <Form className="p-create_form">
                   <div className="p-create_guilde">
@@ -103,8 +77,6 @@ export const userguildekr: React.FC = () => {
                     <img className="p-create_img" src={setup_26}></img>
                     <img className="p-create_img" src={setup_27}></img>
                     <img className="p-create_img" src={setup_28}></img>
-                    {/* <img className="p-create_img" src={setup_29}></img>
-                    <img className="p-create_img" src={setup_30}></img> */}
                     <div className="p-create_buttonDone">
                       <Button anchor={{ href: '/' }} modifiers="bigDone">Done+</Button>
                     </div>
@@ -113,7 +85,6 @@ export const userguildekr: React.FC = () => {
                     <div className="p-create_userguildeBox">
                       <h2>Setup BSC in Metamask Wallet:</h2>
                     <ul className="p-create_noticelist">
-                      {/* <li className="p-create_textlist"><Link  to="img1" spy={true} smooth={true}>Page 3: How to create a Metamask Wallet</Link> </li> */}
                       <li className="p-create_textlist">Network Name:</li>
                       <li className="p-create_textlistnone">
                         <span>Smart Chain</span></li>

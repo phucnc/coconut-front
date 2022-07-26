@@ -18,13 +18,11 @@ interface Props {
 export const ModalHeader: React.FC<Props> = props => {
   return (
     <div className={mapModifiers('m-modalheader', props.modifiers)}>
-      {/* {props.title && <Heading>{props.title}</Heading>} */}
       {props.mod? (
         <Heading modifiers="nomargin" type="h3">{props.title}{props.icon && <Icon iconName="createitem" modifiers="create" />}</Heading>
       ) :(
       <Heading modifiers="title" type="h2">{props.title}{props.icon && <Icon iconName="createitem" modifiers="create" />}</Heading>
       )}
-      {/* {props.icon && <Icon iconName="createitem" />} */}
       <Button modifiers={['icon']} handleClick={props.handleClose}>
         <Icon iconName="close-modal" />
       </Button>

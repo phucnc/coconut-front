@@ -60,7 +60,6 @@ export const Fieldrow: React.FC<Props> = ({
         <div className="m-fieldrow_error">{errorMessage || errors[name!]}</div>
       )}
       {captionfee? (
-        // <Text modifiers="inline">Service fee </Text>
         <div>
          <Text size="14" modifiers={['inline', 'red']}>{t("create.Servicefee")} </Text>
          <Text size="14" modifiers= {['inline', 'linethrough']}>2.5%</Text>

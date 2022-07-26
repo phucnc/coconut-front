@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { hot } from 'react-hot-loader/root';
-// import { Productcard, ProductProps } from 'components/organisms/productCard';
 import { ProductcardUser, ProductProps } from 'components/organisms/productCardUser';
 import { ProfileCard, ProfileProps } from 'components/organisms/profileCard';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { Spinner } from 'components/atoms/spinner';
 import { Text } from 'components/atoms/text';
 import { Icon } from 'components/atoms/icon';
-import { Button } from 'components/atoms/button';
 
 interface Props {
   list: (ProductProps | ProfileProps)[];
@@ -58,7 +56,6 @@ export const ItemListUser: React.FC<Props> = props => {
               </div>
             )}
           </InfiniteScroll>
-          {/* {!isShowMore && props.next_cursor && <Button modifiers={['more']} handleClick={() => setIsShowMore(true)}>See more</Button>} */}
         </>
       )}
     </div>

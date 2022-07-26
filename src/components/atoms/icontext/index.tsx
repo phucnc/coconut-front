@@ -2,10 +2,8 @@ import React from 'react';
 import { hot } from 'react-hot-loader/root';
 import { Icon, IconName } from 'components/atoms/icon';
 
-// type Modifier = 'foo' | 'bar';
 
 interface Props {
-  // modifiers?: Modifier | Modifier[];
   iconName: IconName;
 }
 

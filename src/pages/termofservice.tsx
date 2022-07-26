@@ -1,24 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { hot } from 'react-hot-loader/root';
 import { Layout } from 'components/templates/layout';
 import { Section } from 'components/organisms/section';
 import { Form, Formik } from 'formik';
-import { Categories, createSchema, initialValue, Unit } from 'components/pages/create/form';
-import axios from 'axios';
-import Divider from '@material-ui/core/Divider';
-import { Icon, IconName } from 'components/atoms/icon';
+import { createSchema, initialValue } from 'components/pages/create/form';
 import { Text } from 'components/atoms/text';
 import Grid from '@material-ui/core/Grid';
-import { useWallet } from 'use-wallet';
-import { useDispatch, useSelector } from 'react-redux';
-import { approveNFT, createNFT, createTokenURI, getCreateStore, resetStore, sellNFT, sellCreateNFT, approveCreateNFT } from 'store/createNFT';
-import { Select } from 'components/atoms/select';
-import { commonStart } from 'store/common';
-import { useEthers, useEtherBalance } from "@usedapp/core";
-import { Heading } from 'components/molecules/heading';
 
 export const userguilde: React.FC = () => {
-  const dispatch = useDispatch();
   return (
     <div className="p-create">
       <Layout title="Term Of Service">
@@ -26,8 +15,6 @@ export const userguilde: React.FC = () => {
           initialValues={initialValue}
           validationSchema={createSchema}
           onSubmit={values => {
-            console.log("error", values)
-            dispatch(commonStart({ nextAction: createTokenURI.started({ data: values }) }));
           }}
           validateOnMount
         >
@@ -40,7 +27,6 @@ export const userguilde: React.FC = () => {
                       container
                       spacing={1}
                       direction="row"
-                      // justify="center"
                       alignItems="stretch"
                     >
                       <Grid alignItems="center" item xs={12}>
@@ -1558,7 +1544,6 @@ ARBITRATION CENTER) as <a href="https://www.viac.vn/">https://www.viac.vn/</a>
             );
           }}
         </Formik>
-        {/* </Section> */}
       </Layout>
     </div>
   );

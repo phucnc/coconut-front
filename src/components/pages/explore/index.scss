@@ -1,6 +1,5 @@
 .p-explore {
   background: transparent;
-  // background: #E0E3F5;
   &_main {
     min-height: calc(100vh - #{$HEADER-PC-MARGIN} * 2 - #{$HEADER-PC-HEIGHT} - 30px);
     display: flex;
@@ -27,10 +26,8 @@
   }
 
   &_mainsub {
-    // min-height: calc(100vh - #{$HEADER-PC-MARGIN} * 2 - #{$HEADER-PC-HEIGHT} - 30px);
     display: flex;
     flex-direction: column;
-    // background-color: #F6F6F6;
     padding: 15px 0px 15px 0px!important;
     position: sticky!important;
     top: 100px!important;
@@ -40,13 +37,11 @@
     }
     @include sp {
       background-color: white;
-      // border-radius: 5px;
       overflow: hidden;
       columns: 2 auto;
     }
   }
   &_myitemsub {
-    // min-height: calc(100vh - #{$HEADER-PC-MARGIN} * 2 - #{$HEADER-PC-HEIGHT} - 30px);
     display: flex;
     flex-direction: column;
     background-color: #F6F6F6;
@@ -57,7 +52,6 @@
     }
     @include sp {
       background-color: white;
-      // border-radius: 5px;
       overflow: hidden;
       columns: 2 auto;
     }
@@ -70,15 +64,12 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    // display:none;
 
     @include tab {
       padding-left: 20px;
     }
 
     @include sp {
-      // padding-left: 0;
-      // margin-bottom: 0;
       margin-bottom: 30px;
       width: 100%;
       display: flex;
@@ -109,14 +100,12 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    // display:none;
 
     @include tab {
       padding-left: 20px;
     }
 
     @include sp {
-    //  display:none;
     margin-top: 20px;
     }
   }
@@ -129,8 +118,6 @@
     }
 
     @include sp {
-      // padding-left: 0;
-      // margin-bottom: 0;
       margin-bottom: 30px;
       width: 100%;
       display: flex;
@@ -145,7 +132,6 @@
   }
 
   &_banner {
-    // margin-bottom: 20px;
     margin-top: 30px;
   }
   &_mainet {
@@ -170,7 +156,6 @@
     width:100%;
   }
   &_avatar-display1 {
-    // border: 2px solid rgba(255, 255, 255, 0.69);
     filter: drop-shadow(10px 10px 40px rgba(0, 0, 0, 0.15));
     object-fit: cover;
   }
@@ -194,7 +179,6 @@
   &_heading-subsec {
     text-align: center;
     position: relative;
-    // left:30px;
     padding:10px;
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 10px;
@@ -320,7 +304,6 @@
     box-shadow: 0 6px 9.8px 0.2px $BOXSHADOW-SECTION;
     padding: 12px 12px;
     display: block;
-    // margin-left: auto;
     margin-right: auto ;
     width:100%;
     text-align: center;
@@ -328,13 +311,10 @@
   &_totalvolume {
     display: flex;
     align-items: center;
-    // background-color: #f4f4f4;
 
     @include sp {
       align-items: initial;
-      // flex-direction: column;
       width: 310px;
-      // height: 60px;
       font-size: 12px;
       border-radius: 45px;
       position: relative;
@@ -345,9 +325,7 @@
     }
     @include smd {
       align-items: initial;
-      // flex-direction: column;
       width: 586px!important;
-      // height: 60px;
       font-size: 12px;
       border-radius: 45px;
       position: relative;
@@ -355,9 +333,7 @@
     }
     @include smdl {
       align-items: initial;
-      // flex-direction: column;
       width: 555px!important;
-      // height: 60px;
       font-size: 12px;
       border-radius: 45px;
       position: relative;
@@ -434,7 +410,6 @@
 .menuOption-hidden{
   display:none;
   @include sp {
-  // display: block;
   }
 }
 .subcategoryMobile{
@@ -467,7 +442,6 @@
   z-index: 99;
   left:320px;
   top:40px;
-  // bottom:12px;
   display: flex;
   justify-content: flex-start;
   padding-left: 5px;
@@ -477,9 +451,7 @@
 .notice{
   filter: drop-shadow(10px 10px 40px rgba(0, 0, 0, 0.15));
   border-radius: 10px;
-  // width:800px;
   &_img{
-  // height: 400px;
   width: 100%;
   margin-top:30px;
   margin-bottom:30px;
@@ -584,13 +556,11 @@
   font-family: NotoSans!important;
   background:linear-gradient(180deg, rgba(243, 243, 243, 0) 9.24%, #F3F3F3 49.8%);
   border-radius: 10px;
-  // padding: 0px 42px 15px 42px;
   h2 {
     font-family: NotoSans!important;
   }
   &_Main {
     background:linear-gradient(180deg, rgba(243, 243, 243, 0) 9.24%, #F3F3F3 49.8%);
-    // margin-bottom:50px;
     font-family: NotoSans!important;
   }
   &_box {
@@ -611,7 +581,6 @@
   }
   &_containt {
     padding: 60px;
-    // padding:20px 50px 20px 50px;
     h1 {
       background: linear-gradient(118.39deg, #169439 4.57%, #D18640 75.73%), #171717;
       -webkit-background-clip: text;
@@ -639,7 +608,6 @@
 
   &_containtFull {
     padding: 60px 0px 60px 0px;
-    // padding:20px 50px 20px 50px;
     h1 {
       background: linear-gradient(118.39deg, #169439 4.57%, #D18640 75.73%), #171717;
       -webkit-background-clip: text;

@@ -33,7 +33,6 @@
     font-weight: 700;
     font-size: 18px;
     margin-bottom: 10px;
-    // line-height: 30px;
     @include sp {
        display:none;
      }
@@ -41,7 +40,6 @@
   &-pink {
     color: #E23987;
     @include sp {
-      //  display:none;
      }
   }
   &-title {

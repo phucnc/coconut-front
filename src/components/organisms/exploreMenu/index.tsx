@@ -16,10 +16,8 @@ export const ExploreMenu: React.FC<Props> = props => {
     <div className={mapModifiers('o-exploremenu', props.modifiers)}>
       <div className="">
       <Heading modifiers={[ 'pinkheader']}>Explore</Heading>
-        {/* <Heading>Explore</Heading> */}
         <div className="o-exploremenu_tab">{props.category}</div>
       </div>
-      {/* <div className="o-exploremenu_filter">{props.filterAndSort}</div> */}
     </div>
   );
 };

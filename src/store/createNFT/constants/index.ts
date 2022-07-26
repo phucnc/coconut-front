@@ -27,7 +27,6 @@ export type ApproveCreateReq = {
 export type ApproveCreateRes = any;
 
 export type SellNFTReq = {tokenid?:any,priceSell?:any, unit?:any};
-// export type SellNFTReq = {};
 
 export type SellNFTRes = any;
 

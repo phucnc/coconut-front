@@ -7,7 +7,6 @@ export type Product = {
   unlock_once_purchased: boolean;
   instant_sale_price: number;
   categories: any;
-  // categories: string[];
   properties: any;
   token: string;
   collectible: string;
@@ -70,11 +69,9 @@ export type GetTotalVolumeRes = {
 
 
 export type GetListTotalVolumeReq = {
-  // listunit: number;
   unit: any;
 };
 export type GetListTotalVolumeRes = {
-  // total_sold: Array<number>;
   total_sold?: any[];
 };
 export const LIMIT_PER_PAGE = 2;

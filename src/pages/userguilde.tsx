@@ -1,27 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { hot } from 'react-hot-loader/root';
 import { Layout } from 'components/templates/layout';
-import { Sectionguilde } from 'components/organisms/sectionguilde';
 import { Form, Formik } from 'formik';
-import { Categories, createSchema, initialValue, Unit } from 'components/pages/create/form';
-import axios from 'axios';
+import { createSchema, initialValue } from 'components/pages/create/form';
 import Divider from '@material-ui/core/Divider';
-import { Icon, IconName } from 'components/atoms/icon';
+import { Icon } from 'components/atoms/icon';
 import { Text } from 'components/atoms/text';
-import { Heading } from 'components/molecules/heading';
-import { Fieldrow } from 'components/molecules/fieldrow';
-import { TextFieldFormik } from 'components/atoms/textfield';
-import { FileInputcreate } from 'components/atoms/fileinputcreate';
-import { Textarea } from 'components/atoms/textarea';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox, { CheckboxProps } from '@material-ui/core/Checkbox';
-import { Button } from 'components/atoms/button';
-import { Reviewcard } from 'components/organisms/reviewbox';
-import { navigate } from 'gatsby-link';
-import { Modal } from 'components/organisms/modal';
-import { ModalHeader } from 'components/molecules/modalHeader';
-import { StepItem } from 'components/molecules/stepItem';
-import { Steps } from 'components/organisms/steps';
 import Grid from '@material-ui/core/Grid';
 import main_img from 'assets/images/howtouse_main.png';
 import bottom_fade from 'assets/images/bottom_fade.png';
@@ -51,19 +35,10 @@ import setup_23 from 'assets/images/Slide23.png';
 import setup_24 from 'assets/images/Slide24.png';
 import setup_25 from 'assets/images/Slide25.png';
 import setup_26 from 'assets/images/Slide26.png';
-import setup_27 from 'assets/images/Slide27.png';
-import setup_28 from 'assets/images/Slide28.png';
-// import setup_29 from 'assets/images/Slide29.png';
-// import setup_30 from 'assets/images/Slide30.png';
 import { useTranslation } from "react-i18next";
-import { useDispatch, useSelector } from 'react-redux';
-import { approveNFT, createNFT, createTokenURI, getCreateStore, resetStore, sellNFT, sellCreateNFT, approveCreateNFT } from 'store/createNFT';
-import { commonStart } from 'store/common';
 
 export const userguilde: React.FC = () => {
-  const dispatch = useDispatch();
   const { t } = useTranslation();
-  const { currentStep, tokenURI } = useSelector(getCreateStore);
   return (
     <div className="p-create">
       <Layout title="User Guilde">
@@ -71,7 +46,6 @@ export const userguilde: React.FC = () => {
           initialValues={initialValue}
           validationSchema={createSchema}
           onSubmit={values => {
-            console.log("aaa")
           }}
           validateOnMount
         >
@@ -88,17 +62,11 @@ export const userguilde: React.FC = () => {
                       className="sectionguidle_box"
                       container
                       spacing={5}
-                      // direction="row"
                       justify="center"
-                    // alignItems="stretch"
                     >
-                      {/* <Grid justify="center" item xs={6}>
-                        <Icon modifiers={['superlarge','flex']}  iconName="ccn_logo"/>
-                      </Grid> */}
                       <Grid justify="center" item xs={7}>
                         <h2>{t("howUse.use")}</h2>
                       </Grid>
-                      {/* <Grid justify="center" item xs={1}></Grid> */}
                       <Grid justify="center" item xs={5}>
                         <ol>
                           <li>{t("howUse.create")}</li>
@@ -129,12 +97,10 @@ export const userguilde: React.FC = () => {
                         <img className="p-create_imgGuilde" src={setup_1} />
                       </Grid>
                     </Grid>
-                    {/*  */}
                     <Grid
                       className="sectionguidle_sub_containt"
                       container
                       spacing={5}
-                    // justify="center"
                     >
                       <Grid item xs={9}>
                         <Text>{t("howUse.howCreate_step1")}</Text>
@@ -145,12 +111,10 @@ export const userguilde: React.FC = () => {
                         <img className="p-create_imgGuilde2" src={setup_2} />
                       </Grid>
                     </Grid>
-                    {/*  */}
                     <Grid
                       className="sectionguidle_sub_containt"
                       container
                       spacing={5}
-                    // justify="center"
                     >
                       <Grid item xs={9}>
                         <Text>{t("howUse.howCreate_step3")}</Text>
@@ -159,12 +123,10 @@ export const userguilde: React.FC = () => {
                         <img className="p-create_imgGuilde2" src={setup_3} />
                       </Grid>
                     </Grid>
-                    {/*  */}
                     <Grid
                       className="sectionguidle_sub_containt"
                       container
                       spacing={5}
-                    // justify="center"
                     >
                       <Grid item xs={6}>
                         <h2>{t("howUse.howCreate_head1")}</h2>
@@ -176,7 +138,6 @@ export const userguilde: React.FC = () => {
                         <Text>{t("howUse.howCreate_head1_step3")}</Text>
                       </Grid>
                     </Grid>
-                    {/*  */}
                     <Grid
                       className="sectionguidle_sub_containt"
                       container
@@ -196,12 +157,10 @@ export const userguilde: React.FC = () => {
                         <img className="p-create_imgGuilde2" src={setup_5} />
                       </Grid>
                     </Grid>
-                    {/*  */}
                     <Grid
                       className="sectionguidle_sub_containt"
                       container
                       spacing={5}
-                    // justify="center"
                     >
                       <Grid item xs={6}>
                         <h2>{t("howUse.howCreate_head2")}</h2>
@@ -211,12 +170,10 @@ export const userguilde: React.FC = () => {
                         <img className="p-create_imgGuilde2" src={setup_6} />
                       </Grid>
                     </Grid>
-                    {/*  */}
                     <Grid
                       className="sectionguidle_sub_containt"
                       container
                       spacing={5}
-                    // justify="center"
                     >
                       <Grid item xs={12}>
                         <h1>2.&nbsp; &nbsp;{t("howUse.setting")}</h1>
@@ -225,12 +182,10 @@ export const userguilde: React.FC = () => {
                         <img className="p-create_imgGuilde2" src={setup_7} />
                       </Grid>
                     </Grid>
-                    {/*  */}
                     <Grid
                       className="sectionguidle_sub_containt"
                       container
                       spacing={5}
-                    // justify="center"
                     >
                       <Grid item xs={6}>
                         <h2>{t("howUse.setting_head")}</h2>
@@ -240,12 +195,10 @@ export const userguilde: React.FC = () => {
                         <img className="p-create_imgGuilde2" src={setup_8} />
                       </Grid>
                     </Grid>
-                    {/*  */}
                     <Grid
                       className="sectionguidle_sub_containt"
                       container
                       spacing={5}
-                    // justify="center"
                     >
                       <Grid item xs={6}>
                         <h2>{t("howUse.setting_head2")}</h2>
@@ -260,7 +213,6 @@ export const userguilde: React.FC = () => {
                       className="sectionguidle_sub_containt"
                       container
                       spacing={5}
-                    // justify="center"
                     >
                       <Grid item xs={6}>
                         <h2>{t("howUse.setting_head3")}</h2>
@@ -287,7 +239,6 @@ export const userguilde: React.FC = () => {
                       className="sectionguidle_sub_containt"
                       container
                       spacing={5}
-                    // justify="center"
                     >
                       <Grid item xs={6}>
                         <h2>{t("howUse.setting_head4")}</h2>
@@ -324,7 +275,6 @@ export const userguilde: React.FC = () => {
                       className="sectionguidle_sub_containt"
                       container
                       spacing={5}
-                    // justify="center"
                     >
                       <Grid item xs={8}>
                         <h2>{t("howUse.connect_head")}</h2>
@@ -340,7 +290,6 @@ export const userguilde: React.FC = () => {
                       className="sectionguidle_sub_containt"
                       container
                       spacing={5}
-                    // justify="center"
                     >
                       <Grid item xs={6}>
                         <h2>{t("howUse.connect_head2")}</h2>

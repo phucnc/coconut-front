@@ -16,7 +16,6 @@ interface Props {
   useFormik?: boolean;
   value?: string;
   name?: string;
-  // checked?:any;
 }
 
 export const TabButton: React.FC<Props> = props => {
@@ -35,11 +34,7 @@ export const TabButton: React.FC<Props> = props => {
     <div className={mapModifiers('m-tabbutton', props.modifiers, props.active && 'active')}>
       {props.category? (
          <Button modifiers={['category']} handleClick={props.handleClick}>
-         {/* <Text modifiers={props.active ? 'active' : void 0} size="12"> */}
-         {/* <Text> */}
            #&nbsp;{props.children}
-           {/* </Text> */}
-         {/* </Text> */}
        </Button>
       ) : (
       <Button modifiers={['asText']} handleClick={props.handleClick}>

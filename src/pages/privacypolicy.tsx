@@ -1,90 +1,25 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { hot } from 'react-hot-loader/root';
 import { Layout } from 'components/templates/layout';
 import { Section } from 'components/organisms/section';
 import { Form, Formik } from 'formik';
-import { Categories, createSchema, initialValue, Unit } from 'components/pages/create/form';
-import axios from 'axios';
-import Divider from '@material-ui/core/Divider';
-import { Icon, IconName } from 'components/atoms/icon';
+import { createSchema, initialValue } from 'components/pages/create/form';
 import { Text } from 'components/atoms/text';
-import { Fieldrow } from 'components/molecules/fieldrow';
-import { TextFieldFormik } from 'components/atoms/textfield';
-import { FileInputcreate } from 'components/atoms/fileinputcreate';
-import { Textarea } from 'components/atoms/textarea';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox, { CheckboxProps } from '@material-ui/core/Checkbox';
-import { Button } from 'components/atoms/button';
-import { Reviewcard } from 'components/organisms/reviewbox';
-import { navigate } from 'gatsby-link';
-import { Modal } from 'components/organisms/modal';
-import { ModalHeader } from 'components/molecules/modalHeader';
-import { StepItem } from 'components/molecules/stepItem';
-import { Steps } from 'components/organisms/steps';
-import setup_1 from 'assets/images/setup1.png';
-import setup_2 from 'assets/images/setup2.png';
-import setup_3 from 'assets/images/setup3.png';
-import setup_4 from 'assets/images/setup4.png';
-import setup_5 from 'assets/images/setup5.png';
 import Grid from '@material-ui/core/Grid';
-import { useWallet } from 'use-wallet';
-import { useDispatch, useSelector } from 'react-redux';
-import { approveNFT, createNFT, createTokenURI, getCreateStore, resetStore, sellNFT, sellCreateNFT, approveCreateNFT } from 'store/createNFT';
-import { Select } from 'components/atoms/select';
-import { commonStart } from 'store/common';
-import { ButtonContainer } from 'components/molecules/buttonContainer';
-import { amountReceived, amountReceivedDollar } from 'util/amount';
-import { MultiSelect } from 'components/atoms/multiselect';
-import { useEthers, useEtherBalance } from "@usedapp/core";
-import { Heading } from 'components/molecules/heading';
 
 export const userguilde: React.FC = () => {
-  const wallet = useWallet();
-  const [reg, regSet] = useState(Array);
-  const dispatch = useDispatch();
-  const { currentStep, tokenURI } = useSelector(getCreateStore);
-
-  const CreateSteps = [
-    {
-      description: 'Call contract method',
-      title: 'Upload files and Mint token',
-      handleClick: () => {
-        dispatch(tokenURI ? createNFT.started({}) : createTokenURI.started({}));
-      },
-    },
-    {
-      description: 'Approve perfoming transactions with your wallet',
-      title: 'Approve',
-      handleClick: () => {
-        dispatch(approveCreateNFT.started({}));
-      },
-    },
-    {
-      description: 'Sign sell order using your wallet',
-      title: 'Sign sell order',
-      handleClick: () => {
-        dispatch(sellCreateNFT.started({}));
-      },
-    },
-  ];
-
-  const [modalOpen, setModalOpen] = useState(false);
 
   return (
     <div className="p-create">
       <Layout title="Privacy Policy">
-        {/* <Section className="p-create_main"> */}
-        {/* <Heading>Create collectible</Heading> */}
         <Formik
           initialValues={initialValue}
           validationSchema={createSchema}
           onSubmit={values => {
-            dispatch(commonStart({ nextAction: createTokenURI.started({ data: values }) }));
-            // setModalOpen(!account);
           }}
           validateOnMount
         >
-          {({ values, isValid, setTouched, touched }) => {
+          {({ }) => {
             return (
               <Form className="p-create_form">
                 <div className="p-create_guilde">
@@ -93,7 +28,6 @@ export const userguilde: React.FC = () => {
                       container
                       spacing={1}
                       direction="row"
-                      // justify="center"
                       alignItems="stretch"
                     >
                       <Grid alignItems="center" item xs={12}>
@@ -145,9 +79,6 @@ export const userguilde: React.FC = () => {
                                 You have the right to make a complaint about the way we process your Personal Data to a supervisory authority. You may contact your local data protection regulatory authority. We would, however, appreciate the chance to deal with your concerns before you approach a data protection regulatory authority, so please feel free to contact us in the first instance.
                                 </Text>
                             </li>
-
-
-
                           </ol>
                         </li>
                         <li>
@@ -930,7 +861,6 @@ export const userguilde: React.FC = () => {
             );
           }}
         </Formik>
-        {/* </Section> */}
       </Layout>
     </div>
   );

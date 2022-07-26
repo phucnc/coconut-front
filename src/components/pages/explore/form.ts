@@ -1,8 +1,6 @@
 import { Asserts, boolean, object, string } from 'yup';
 import iconfire from 'assets/images/icon/icon-firetab.svg'
 export const exploreSchema = object({
-  // filterLeaderBoardByType: string(),
-  // filterLeaderBoardByDate: string(),
   unit: string(),
   search: string(),
   productCategory: string(),
@@ -23,17 +21,9 @@ export const ProductCategories = [
     tab:'New',
     icon:'newtab'
   }, 
-  // {
-  //   tab:'Recently Traded',
-  //   icon:'cointab'
-  // },
-  // { 
-  //   tab:'Most Profitable',
-  //   icon:'tagtab'
-  // },
+
  
 ];
-// export const ProductCategories = ['Trend', 'Best', 'New', 'Trade', 'Price'];
 export const ProductCategoriesMobile = ['Funny', 'Cute','Food','Dance/Sing'];
 export const ExtraProductCategories = [ 'Dance/Sing', 'Beauty', 'Sports', 'Trick/Magic', 'Education', 'Activity', 'Animation/Cartoon', 'Gaming','Health/Fitness','Travel','Science','Sexy/Face','Others'];
 
@@ -50,7 +40,6 @@ export const Sort: {
   'Recently added': { filter: 'created-date', sort: 'desc' },
   Cheapest: { filter: 'instant-sale-price', sort: 'asc' },
   'Highest price': { filter: 'instant-sale-price', sort: 'desc' },
-  // 'Most liked': {},
 } as const;
 
 export type ExploreSchema = Asserts<typeof exploreSchema>;

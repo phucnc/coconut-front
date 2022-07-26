@@ -4,40 +4,29 @@ import { mapModifiers } from 'lib/component';
 import { Heading } from 'components/molecules/heading';
 import { Text } from 'components/atoms/text';
 import { Image, ImageProps } from 'components/atoms/image';
-// import { Button } from 'semantic-ui-react'
-import { Icon, IconName } from 'components/atoms/icon';
+import { Icon } from 'components/atoms/icon';
 import { Link } from 'components/atoms/link';
-import { Dropdown } from 'components/molecules/dropdown';
-import { DropdownMenu, DropdownItem, DropDownItemGroup } from 'components/molecules/dropdownMenu';
 import { useWallet } from 'use-wallet';
 import axios from 'axios';
 import { connectWallet } from 'lib/apiCommon';
 import { UserAvatar } from 'components/molecules/userAvatar';
-import { CheckInput } from 'components/atoms/checkInput';
 import { UserType, VideoType, VideoTypes } from 'lib/constants';
 import { Button } from 'components/atoms/button';
 import { Video } from 'components/molecules/video';
 import { Tooltip } from 'components/molecules/tooltip';
-import Skeleton from '@material-ui/lab/Skeleton';
-import Typography from '@material-ui/core/Typography';
-import Fade from '@material-ui/core/Fade';
-import MenuItem from '@material-ui/core/MenuItem';
-import Menu from '@material-ui/core/Menu';
 import { ButtonContainer } from 'components/molecules/buttonContainer';
-import { Categories, createSchema, initialValue, Unit } from 'components/pages/create/form';
+import { createSchema, initialValue, Unit } from 'components/pages/create/form';
 import { Form, Formik } from 'formik';
 import { Modal } from 'components/organisms/modal';
 import { Modalshare } from 'components/organisms/modalshare';
-import { approveNFT, createNFT, createTokenURI, getCreateStore, sellNFT } from 'store/createNFT';
+import { createTokenURI } from 'store/createNFT';
 import { Select } from 'components/atoms/select';
 import { ModalHeader } from 'components/molecules/modalHeader';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Fieldrow } from 'components/molecules/fieldrow';
 import { TextFieldFormik } from 'components/atoms/textfield';
 import { resetStore } from 'store/createNFT';
-import { Layout } from 'components/templates/layout';
 import { commonStart } from 'store/common';
-import { Section } from 'components/organisms/section';
 import { amountReceived, amountReceivedDollar } from 'util/amount';
 import { useTranslation } from "react-i18next";
 
@@ -78,13 +67,7 @@ export const Reviewcard: React.FC<ProductProps> = props => {
   const [ModalResell, setModalResell] = useState(false);
   const [modalOpenShare, setModalOpenShare] = useState(false);
   const [modalInception, setmodalInception] = useState(false);
-  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
 
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
   useEffect(() => {
     if (!ModalResell) {
       dispatch(resetStore());
@@ -120,9 +103,6 @@ export const Reviewcard: React.FC<ProductProps> = props => {
     })
   }
 
-  // console.log("props.totallike", props.totallike.total)
-  // console.log("useriddddd", props.userid)
-  // console.log("viewwwwwww",props.id)
   return (
     <article className={mapModifiers('o-review', props.modifiers, props.isPreview && 'preview')}>
       {props.isPreview ? (
@@ -137,9 +117,7 @@ export const Reviewcard: React.FC<ProductProps> = props => {
                     <Image src={props.src} alt={props.alt} />
                   )}
                 <span className="o-review_view"><Icon iconName='play' />{props.view}</span>
-
               </div>
-
             </Link>
             <Modal modifiers="error" isOpen={modalInception} handleClose={() => setmodalInception(false)}>
               <Text modifiers={['bold', 'center']}>{t("mainMenu.ConnectD")}</Text>
@@ -168,41 +146,24 @@ export const Reviewcard: React.FC<ProductProps> = props => {
                 </button>
               )
             }
-            {/* <CheckInput
-              iconName={like.isLike ? 'heart-active' : 'heart'}
-              amount={like.amount}
-              handleChange={() =>
-                setLike({
-                  isLike: !like.isLike,
-                  amount: !like.isLike && typeof props.amount === 'number' ? props.amount + 1 : props.amount,
-                })
-              }
-            /> */}
             <Button handleClick={() => setModalOpenShare(true)} modifiers={['iconshare']}><Icon modifiers={['tiny']} iconName='sharelink' /></Button>
             <Modal modifiers={['price']} isOpen={ModalResell} handleClose={() => setModalResell(false)}>
               <ModalHeader title="Resell this NFT" handleClose={() => setModalResell(false)} />
-
-
-              {/* <Heading>Create collectible</Heading> */}
               <Formik
                 initialValues={initialValue}
                 validationSchema={createSchema}
                 onSubmit={values => {
                   dispatch(commonStart({ nextAction: createTokenURI.started({ data: values }) }));
-                  // setModalOpen(!!wallet.account);
                 }}
                 validateOnMount
               >
                 {({ values }) => {
-                  // const previewSrc = URL && values.file ? URL.createObjectURL(values.file) : '';
-                  // const previewType = values.file && values.file.type;
                   return (
                     <Form className="p-create_form">
                       <div className="p-create_inputssub">
                         <Fieldrow
                           className="p-create_instantsale"
                           caption={[
-                            // `Service fee ${serviceFee}%`,
                             `You will receive ${
                             values.unit === 0
                               ? amountReceived(values.instantsaleprice).toFixed(2)
@@ -254,18 +215,6 @@ export const Reviewcard: React.FC<ProductProps> = props => {
                     {props.price}
                   </Text>
                 </div>
-                {/* <ul className="o-review_userlist">
-                  {props.userList &&
-                    props.userList.map((u, idx) => (
-                      <li
-                        key={idx}
-                        className={`o-review_user o-review_user-${idx + 1}`}
-                        data-tip={`${u.type}: ${u.name}`}
-                      >
-                        <UserAvatar userAddress={props.address} {...u} modifiers="small" hasTick />
-                      </li>
-                    ))}
-                </ul> */}
                 <ul className="o-review_userlist">
                   <li
 
@@ -295,7 +244,6 @@ const ProductPreview: React.FC<ProductProps> = props => {
               <Image src={props.src} alt={props.alt} />
             ))) || (
             <Text size="14" modifiers="lightgray">
-              {/* Media Review */}
             </Text>
           )}
 
@@ -320,9 +268,6 @@ const ProductPreview: React.FC<ProductProps> = props => {
             <Text modifiers={['blue', 'bold']} inline unit={props.unit}>
               {props.price}
             </Text>
-            {/* <Text modifiers={['gray']} size="14" inline>
-              1 of 1
-            </Text> */}
           </div>
         </div>
       </div>

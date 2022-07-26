@@ -4,26 +4,20 @@ import { mapModifiers } from 'lib/component';
 import { Heading } from 'components/molecules/heading';
 import { Text } from 'components/atoms/text';
 import { Image, ImageProps } from 'components/atoms/image';
-// import { Button } from 'semantic-ui-react'
-import { Icon, IconName } from 'components/atoms/icon';
+import { Icon } from 'components/atoms/icon';
 import { Link } from 'components/atoms/link';
 import { useWallet } from 'use-wallet';
-import { Dropdown } from 'components/molecules/dropdown';
-import { DropdownMenu, DropdownItem, DropDownItemGroup } from 'components/molecules/dropdownMenu';
 import { Modalshare } from 'components/organisms/modalshare';
-import { UserAvatar } from 'components/molecules/userAvatar';
-import { CheckInput } from 'components/atoms/checkInput';
 import { UserType, VideoType, VideoTypes } from 'lib/constants';
 import { Button } from 'components/atoms/button';
 import { Video } from 'components/molecules/video';
 import { Tooltip } from 'components/molecules/tooltip';
-import Skeleton from '@material-ui/lab/Skeleton';
 import Typography from '@material-ui/core/Typography';
 import Fade from '@material-ui/core/Fade';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import { ButtonContainer } from 'components/molecules/buttonContainer';
-import { Categories, createSchemaData, initialValueData, Unit } from 'components/pages/create/form';
+import { createSchemaData, initialValueData, Unit } from 'components/pages/create/form';
 import { StepItem } from 'components/molecules/stepItem';
 import { Steps } from 'components/organisms/steps';
 import { Form, Formik } from 'formik';
@@ -35,9 +29,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Fieldrow } from 'components/molecules/fieldrow';
 import { TextFieldFormik } from 'components/atoms/textfield';
 import { resetStore } from 'store/createNFT';
-import { Layout } from 'components/templates/layout';
 import { commonStart, tokenID } from 'store/common';
-import { Section } from 'components/organisms/section';
 import { amountReceived, amountReceivedDollar } from 'util/amount';
 import axios from 'axios';
 import { useTranslation } from "react-i18next";
@@ -103,7 +95,6 @@ export const ProductcardMyItem: React.FC<ProductProps> = props => {
     setAnchorEl(null);
   };
   const deleteItem = async () => {
-    // await axios.delete https://api.contenft.com/nft?id=99ccb8a0-86b7-4b65-b53b-8679782a9685
     await axios.delete(`${process.env.ADDRESS_API}/nft?id=${props.id}`);
     setModalOpendelete(false)
 
@@ -190,7 +181,6 @@ export const ProductcardMyItem: React.FC<ProductProps> = props => {
                           isCaptionForInput
                           name="instantsaleprice"
                         >
-                          {/* {values.instantsale && ( */}
                           <TextFieldFormik modifiers="price" name="instantsaleprice" placeholder="Enter price for one piece" type="number" />
                           <Select name="unit">
                             {Unit.map((u, idx) => (
@@ -288,7 +278,6 @@ export const ProductcardMyItem: React.FC<ProductProps> = props => {
                     </div>
                     <div>
                     <button className="threedots" onClick={handleClick}><Icon modifiers={['large']} iconName="threedots" /></button>
-                    {/* <Button handleClick={() => setModalOpenShare(true)} modifiers={['filter', 'noBorder']}><Icon modifiers={['small']} iconName="threedots" /></Button> */}
                     <Menu
                       id="fade-menu"
                       anchorEl={anchorEl}
@@ -297,13 +286,6 @@ export const ProductcardMyItem: React.FC<ProductProps> = props => {
                       onClose={handleClose}
                       TransitionComponent={Fade}
                     >
-                      {/* { props.optionres.optionres === 'bought' && (
-                      <MenuItem className="share-button" onClick={() => setModalResell(true)}>
-                        <Typography variant="inherit">
-                            <Icon iconName="resell" modifiers={['colorResell']} />&nbsp;&nbsp; {t("Myitem.Resell")}
-                        </Typography>
-                      </MenuItem>
-                      )} */}
                       { props.tokenowner == wallet.account && (
                       <MenuItem className="share-button" onClick={() => setModalOpendelete(true)}> <Typography variant="inherit"> <Icon iconName="delete" modifiers={['colorDelete']} />&nbsp;&nbsp; {t("Myitem.Delete")}</Typography></MenuItem>
                       )}

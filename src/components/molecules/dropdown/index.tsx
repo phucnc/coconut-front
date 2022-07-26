@@ -17,15 +17,9 @@ interface Props {
 }
 
 export const Dropdown: React.FC<Props> = props => {
-  // const { isTrigger} = useSelector(getBuyStore);
-  // console.log("istrigger",isTrigger)
-  // const dispatch = useDispatch();
-  // useEffect(() => { 
-  //   dispatch(commonStart({ nextAction: trigger() }))
-  // }, []);
+
   return (
     <div className={mapModifiers('m-dropdown', props.modifiers)} onBlur={() => {props.handleClick;ReactTooltip.hide()}}>
-    {/* <div className={mapModifiers('m-dropdown', props.modifiers)} onBlur={() => ReactTooltip.hide()}> */}
       <div  className="m-dropdown_trigger" data-tip data-for={props.id} data-event="click">
         {props.trigger}
       </div>

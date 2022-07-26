@@ -25,7 +25,6 @@ export const ViewTabItem: React.FC<ViewTabItemProps> = props => {
     <div className={mapModifiers('m-viewtabitem', props.modifiers)}>
       <div className="m-viewtabitem_tabss">
       <UserAvatar src={props.image} alt="" modifiers="mid" />
-      {/* <UserAvatar src={props.image} alt="" hasTick={props.hasTick} modifiers="mid" /> */}
       <div className="m-viewtabitem_info">
         {typeof props.lead === 'string' ? (
           <Text size="14" modifiers={['bold', 'gray']}>
@@ -37,10 +36,8 @@ export const ViewTabItem: React.FC<ViewTabItemProps> = props => {
         {((props.by || props.name)&& props.userType) && (
           <Text size="14" modifiers={['lightgray']}>
             {props.by && 'by'}{' '}
-            {/* {props.by && 'by'}{' '} */}
             <Text inline size="14" modifiers="bold">
               0x123456
-              {/* {props.by || props.name} */}
             </Text>
           </Text>
         )}

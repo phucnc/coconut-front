@@ -13,7 +13,6 @@ export const Pagemeta: React.FC<Props> = ({ title }) => {
       <title>{title}</title>
       <link rel="icon"  href={logo} sizes="16x16" />
       <meta name="naver-site-verification" content="fff5aa1d2ca09aa8ce9da616973fc4ef96f97734" ></meta>
-      {/* <meta name="description" content="Coconut Global - The best global short video NFT Marketplace"></meta> */}
       <meta name="title" content="COCONUT.GLOBAL"></meta>
       <meta property="og:type" content="website"></meta>
       <meta property="og:title" content="COCONUT.GLOBAL"></meta>

@@ -1,61 +1,23 @@
-import React, { useCallback, useEffect, useMemo, useState,useRef } from 'react';
+import React, { useMemo } from 'react';
 import { hot } from 'react-hot-loader/root';
 import { Layout } from 'components/templates/layout';
 import { Section } from 'components/organisms/section';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
 import { makeStyles, Theme } from '@material-ui/core/styles';
-import { Heading } from 'components/molecules/heading';
-import { Sectionsub } from 'components/organisms/sectionsub';
-import { users } from 'dummy/dummy';
 import { Text } from 'components/atoms/text';
-import Tabs from '@material-ui/core/Tabs';
-import { Icon } from 'components/atoms/icon';
-import { UserAvatar } from 'components/molecules/userAvatar';
-import { Toggle } from 'components/atoms/toggle';
 import { Form, Formik } from 'formik';
-import { Dropdown } from 'components/molecules/dropdown';
-import { TabList } from 'components/molecules/tabList';
-import { ExploreMenu } from 'components/organisms/exploreMenu';
-// import { Barmenu } from 'components/organisms/BarMenu';
-import { handleViewport } from 'react-in-viewport';
-import { TabListMyItem } from 'components/molecules/tabList-MyItem';
-import { TabButton } from 'components/molecules/tabButton';
-import { BUSDContract, CONTContract, NFTContract, SimpleExchangeContract } from 'lib/smartContract';
-import { connectWallet } from 'lib/apiCommon';
-// import { ItemList } from 'components/organisms/itemList';
-import { ItemListMyItem } from 'components/organisms/itemListMyItem';
-import Web3 from 'web3';
-import ReactModal from 'react-modal';
-import axios from 'axios';
-import { closeConnectModal, getCommon, setAccount } from 'store/common';
-// import { ExploreMenu } from 'components/organisms/exploreMenu';
-import { Barmenu } from 'components/organisms/BarMenu';
-import { Avatar } from 'components/organisms/Avatar';
-import { Categories, createSchema, initialValue, Unit } from 'components/pages/create/form';
-import Tab from '@material-ui/core/Tab';
-import { getMediaType } from 'util/getMediaType';
+import {  getCommon} from 'store/common';
+import { Unit } from 'components/pages/create/form';
 import { Button } from 'components/atoms/button';
 import { RouteComponentProps } from '@reach/router';
-import { ViewMyitemTabs, ViewMyitemTabsType } from 'components/pages/view/constants';
-// import { connectWallet, ethEnabled, handleClick } from 'lib/apiCommon';
 import chart from 'assets/images/marketplace.png';
 import chart2 from 'assets/images/chart2.png';
 import {
   ExploreSchema,
   exploreSchema,
-  ExtraProductCategories,
-  MyItemCategories,
-  Sort,
   SortDefaultValue,
 } from 'components/pages/explore/form';
-import { useWallet } from 'use-wallet';
 import { useDispatch, useSelector } from 'react-redux';
-import { CheckInputFormik } from 'components/atoms/checkInput';
-import { approveNFT, createNFT, createTokenURI, getCreateStore, resetStore, sellNFT } from 'store/createNFT';
 import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
-import { getExploreStore,getProductListM, GetProductListMReq } from 'store/explore';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -167,22 +129,6 @@ export const Claim: React.FC<RouteComponentProps> = props => {
                           <Text size="24" modifiers="bold">
                             Your Claiming History 
                           </Text>
-                          {/* <div>
-                            <Text modifiers={['inline']}>
-                            2021/11/2
-                            </Text>
-                            <Text modifiers="inline">
-                            Claim 100 CONT
-                            </Text>
-                          </div>
-                          <div>
-                            <Text modifiers={['inline']}>
-                            2021/9/2
-                            </Text>
-                            <Text modifiers="inline">
-                            Claim 200 CONT
-                            </Text>
-                          </div> */}
                         </Grid>
                       </div>
                   </div>
@@ -297,7 +243,6 @@ export const Claim: React.FC<RouteComponentProps> = props => {
 );
 }}
 </Formik>
-{/* </Layout> */}
 </div>
 );
 };

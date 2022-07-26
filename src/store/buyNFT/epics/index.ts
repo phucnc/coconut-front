@@ -10,7 +10,6 @@ const approveBUSDEpic: Epic = action$ =>
   action$.pipe(
     filter(approveBUSD.started.match),
     mergeMap(action => {
-      console.log("approveBUSD")
       const price = action.payload.price;
       return from(
         BUSDContract.sendWithMiddleware(
@@ -21,9 +20,6 @@ const approveBUSDEpic: Epic = action$ =>
         )
       ).pipe(
         map(res => {
-          // return approveBUSD.done({
-          //   params: action.payload,
-          //   result: res,
           return purchase.started({
             idNFT: action.payload.idNFT,
             bnbPrice: undefined,
@@ -39,9 +35,6 @@ const approveCONTEpic: Epic = action$ =>
   action$.pipe(
     filter(approveCONT.started.match),
     mergeMap(action => {
-      console.log("approveCONT",approveCONT)
-      console.log("approveCONT price",action)
-      console.log("approveCONT middlewareMethods",action.payload.middlewareMethods)
       const price = action.payload.price;
       return from(
         CONTContract.sendWithMiddleware(
@@ -52,21 +45,10 @@ const approveCONTEpic: Epic = action$ =>
         )
       ).pipe(
         map(res => {
-          // return approveCONT.done({
-          //   params: action.payload,
-          //   result: res,
-          // });
-          // console.log("approveCONT PASSS",approveCONT)
-          // return of (approveCONT.done({
-          //   params: action.payload,
-          //   result: res,
-          // }),
-         
           return purchase.started({
             idNFT: action.payload.idNFT,
             bnbPrice: undefined,
             middlewareMethods: action.payload.middlewareMethods,
-          // })
           });
         }),
         catchError(error => of(approveCONT.failed({ params: action.payload, error: error })))
@@ -80,8 +62,6 @@ const purchaseEpic: Epic = action$ =>
     filter(purchase.started.match),
     mergeMap(action => {
       const price = action.payload?.bnbPrice;
-      console.log("price PASSS",price)
-      console.log("price PASSS action",action)
       return from(
         price
           ? SimpleExchangeContract.sendBNB(
@@ -111,7 +91,6 @@ const getProductEpic: Epic = action$ =>
   action$.pipe(
     filter(getProduct.started.match),
     mergeMap(action => {
-      // console.log("action payload",action.payload)
       return from(axios.get(`${process.env.ADDRESS_API}/nft?id=${action.payload.id}&address=${action.payload.address}`)).pipe(
         map(res => {
           return getProduct.done({

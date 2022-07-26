@@ -19,13 +19,11 @@ const reducer: Reducer<Common> = (state = initialValue, action) => {
 
   if (isType(action, setAccount)) {
     return produce(state, draft => {
-      // console.log("actionset1111111111111",action.payload.account)
       draft.account = action.payload.account;
     });
   }
   if (isType(action, tokenID)) {
     return produce(state, draft => {
-      // console.log("actionset2222222",action.payload.tokenid)
       draft.tokenid = action.payload.tokenid;
     });
   }

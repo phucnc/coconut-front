@@ -29,7 +29,6 @@
 
     &:before {
       content: '';
-      // background-image: url('assets/images/HD.png');
       background-color: white;
       background-repeat: no-repeat;
       background-size: cover;
@@ -84,7 +83,6 @@
     position: relative;
     top: 10px;
     right: 7px;
-    // margin-top: 10px;
     vertical-align: middle;
     background-repeat: no-repeat;
     background-position: bottom;
@@ -97,10 +95,8 @@
     width: 157px;
     height: 75px;
     position: relative;
-    // top: 8px;
     right: 22%;
     image-rendering: pixelated;
-    // background-size: 100%;
     vertical-align: middle;
     background-repeat: no-repeat;
     background-position: center;
@@ -125,7 +121,6 @@
     left: 2px;
     bottom: 2px;
 
-    // background-image: url('assets/images/icon/icon-coming-soon.svg');
     .coming-soon {
       display: inline-block;
       width: 30px;
@@ -191,7 +186,6 @@
       width: 100%;
       margin-right: 8px;
       right:10px;
-      // display:none;
     }
   }
   &_searchmobile {
@@ -210,7 +204,6 @@
   }
 
   &_menu {
-    // flex: 1;
     margin-right: 10px;
     margin-bottom: 5px;
     margin-top: 10px;
@@ -230,7 +223,6 @@
       font-size: 16px;
       line-height: 19px;
       color: #323232;
-      // border-bottom: 3px solid $COLOR-WHITE;
       padding-bottom: 6px;
       @include u-fz(16, 25);
       @include u-fw-b();
@@ -305,7 +297,6 @@
       background-image: url('assets/images/mainbackground.png')!important;
       background-size: cover;
     background-repeat: no-repeat;
-      // background: $HEADER-COLOR;
       width: 100%;
       min-height: 360px;
       display: block;
@@ -353,14 +344,7 @@
     }
   }
 }
-// .MuiDrawer-paperAnchorTop {
-//   top: 0;
-//   left: 0;
-//   right: 0;
-//   bottom: auto;
-//   height: 100%;
-//   max-height: 100%;
-// }
+
 .o-noti {
   &_header {
     padding-bottom: 10px;
@@ -417,7 +401,6 @@
   position: relative;
   top: 15px;
   right: 22%;
-  // image-rendering: pixelated;
   @include sp {
     width: 210px;
     height: 50px;
@@ -433,7 +416,6 @@
         width: 210px;
         height: 50px;
         right: 27%;
-        // bottom:10px;
         top:10px;
         }
 }

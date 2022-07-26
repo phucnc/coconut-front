@@ -5,7 +5,6 @@
   padding: 18px;
   background-color: $COLOR-WHITE;
   box-shadow: 0 2px 4.75px 0.25px $BOXSHADOW-BASIC;
-  // border: 1px solid $COLOR-LIGHTGRAY;
   border-radius: 20px;
   transition: 0.2s box-shadow ease-in-out;
 
@@ -109,7 +108,6 @@
 
   }
   &_likeitem {
-    // position: relative;
     background: #f1f1f1;
     border: 1px solid rgba(255, 255, 255, 0.51);
     box-sizing: border-box;
@@ -117,8 +115,6 @@
     border-radius: 22px;
     width: 80px;
     height: 39px;
-    // bottom: 18%;
-    // right: 80px;
     margin: 0;
     margin-right:15px!important;
     font-size: 16px;
@@ -139,7 +135,6 @@
   }
 
   &_likeitemView {
-    // position: relative;
     background: #f1f1f1;
     border: 1px solid rgba(255, 255, 255, 0.51);
     box-sizing: border-box;
@@ -147,8 +142,6 @@
     border-radius: 22px;
     width: 80px;
     height: 39px;
-    // bottom: 18%;
-    // right: 80px;
     margin: 0;
     margin-right:15px!important;
     margin-left:15px!important;
@@ -171,7 +164,6 @@
 
   &_view {
     position: absolute;
-    // top:5px;
     top: 5px;
     left: 5px;
     margin: 0;
@@ -219,7 +211,6 @@
     .a-link {
       display: flex;
       // NOTE: This style for heading with collection.
-      // max-width: calc(100% - 30px);
       max-width: 100%;
 
       @include sp {

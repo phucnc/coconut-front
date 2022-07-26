@@ -16,7 +16,6 @@ interface Props {
 
 
 export const Modalconvert: React.FC<Props> = props => {
-  // const [modalOpenShare, setModalOpenShare] = useState(false);
 
   return (
 <>
@@ -27,7 +26,6 @@ export const Modalconvert: React.FC<Props> = props => {
       alignItems="center"
       justify="center"
     >
-
       <Grid item xs={12} >
         <Heading>Guide for file covert</Heading>
         <Text> If the preview of the selected file does not appear, or if the file is over 100mb, go to the site below:</Text>
@@ -35,7 +33,6 @@ export const Modalconvert: React.FC<Props> = props => {
       </Grid>
       <Grid item xs={12} >
         <Button modifiers="getCoin"><a style={{color:"black"}} target="_blank" href="https://video-converter.com/"> Move to Video Convert (Free)</a></Button>
-       
       </Grid>
     </Grid>
     

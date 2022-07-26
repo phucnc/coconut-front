@@ -4,42 +4,28 @@ import { mapModifiers } from 'lib/component';
 import { Heading } from 'components/molecules/heading';
 import { Text } from 'components/atoms/text';
 import { Image, ImageProps } from 'components/atoms/image';
-// import { Button } from 'semantic-ui-react'
-import { Icon, IconName } from 'components/atoms/icon';
+import { Icon } from 'components/atoms/icon';
 import { Link } from 'components/atoms/link';
-import { useWallet } from 'use-wallet';
-import { Dropdown } from 'components/molecules/dropdown';
-import { DropdownMenu, DropdownItem, DropDownItemGroup } from 'components/molecules/dropdownMenu';
 import { Modalshare } from 'components/organisms/modalshare';
-import { UserAvatar } from 'components/molecules/userAvatar';
-import { CheckInput } from 'components/atoms/checkInput';
 import { UserType, VideoType, VideoTypes } from 'lib/constants';
 import { Button } from 'components/atoms/button';
 import { Video } from 'components/molecules/video';
 import { Tooltip } from 'components/molecules/tooltip';
-import Skeleton from '@material-ui/lab/Skeleton';
-import Typography from '@material-ui/core/Typography';
-import Fade from '@material-ui/core/Fade';
-import MenuItem from '@material-ui/core/MenuItem';
-import Menu from '@material-ui/core/Menu';
 import { ButtonContainer } from 'components/molecules/buttonContainer';
-import { Categories, createSchemaData, initialValueData, Unit } from 'components/pages/create/form';
+import { createSchemaData, initialValueData, Unit } from 'components/pages/create/form';
 import { StepItem } from 'components/molecules/stepItem';
 import { Steps } from 'components/organisms/steps';
 import { Form, Formik } from 'formik';
 import { Modal } from 'components/organisms/modal';
-import { approveNFT, createNFT,createTokenResellURI, createTokenURI, getCreateStore, sellNFT } from 'store/createNFT';
+import { approveNFT,createTokenResellURI, getCreateStore, sellNFT } from 'store/createNFT';
 import { Select } from 'components/atoms/select';
 import { ModalHeader } from 'components/molecules/modalHeader';
 import { useDispatch, useSelector } from 'react-redux';
 import { Fieldrow } from 'components/molecules/fieldrow';
 import { TextFieldFormik } from 'components/atoms/textfield';
 import { resetStore } from 'store/createNFT';
-import { Layout } from 'components/templates/layout';
 import { commonStart, tokenID } from 'store/common';
-import { Section } from 'components/organisms/section';
 import { amountReceived, amountReceivedDollar } from 'util/amount';
-import axios from 'axios';
 import { useTranslation } from "react-i18next";
 
 type Modifier = 'foo' | 'bar';
@@ -72,10 +58,6 @@ export const ProductCardSearch: React.FC<ProductProps> = props => {
   const productLink = `/view?id=${props.id}`;
   const dispatch = useDispatch();
   const [ModalOpendelete, setModalOpendelete] = useState(false);
-  const serviceFee = Number(process.env.SERVICE_FEE);
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const open = Boolean(anchorEl);
-  const wallet = useWallet();
   const [ModalResell, setModalResell] = useState(false);
   const { currentStep, tokenURI } = useSelector(getCreateStore);
   const [modalOpenShare, setModalOpenShare] = useState(false);
@@ -95,19 +77,7 @@ export const ProductCardSearch: React.FC<ProductProps> = props => {
       },
     },
   ];
-  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
 
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-  const deleteItem = async () => {
-    // await axios.delete https://api.contenft.com/nft?id=99ccb8a0-86b7-4b65-b53b-8679782a9685
-    await axios.delete(`${process.env.ADDRESS_API}/nft?id=${props.id}`);
-
-
-  }
   const [modalOpen, setModalOpen] = useState(false);
   useEffect(() => {
     currentStep.number === CreateSteps.length &&
@@ -151,9 +121,7 @@ export const ProductCardSearch: React.FC<ProductProps> = props => {
                 <span className="o-productcard_view"><Icon iconName='play' />{props.view}</span>
 
               </div>
-
             </Link>
-
             <button onClick={() => setLike({
               isLike: !like.isLike,
               amount: !like.isLike && typeof props.amount === 'number' ? props.amount + 1 : props.amount,
@@ -180,7 +148,6 @@ export const ProductCardSearch: React.FC<ProductProps> = props => {
                         <Fieldrow
                           className="p-create_instantsale"
                           caption={[
-                            // `Service fee ${serviceFee}%`,
                             `You will receive ${
                             values.unit === 0
                               ? amountReceived(values.instantsaleprice).toFixed(2)
@@ -191,7 +158,6 @@ export const ProductCardSearch: React.FC<ProductProps> = props => {
                           isCaptionForInput
                           name="instantsaleprice"
                         >
-                          {/* {values.instantsale && ( */}
                           <TextFieldFormik modifiers="price" name="instantsaleprice" placeholder="Enter price for one piece" type="number" />
                           <Select name="unit">
                             {Unit.map((u, idx) => (
@@ -211,7 +177,6 @@ export const ProductCardSearch: React.FC<ProductProps> = props => {
                   );
                 }}
               </Formik>
-
             </Modal>
             <Modal isOpen={modalOpen} handleClose={() => setModalOpen(false)}>
               <ModalHeader title="FOLLOW STEPS" handleClose={() => setModalOpen(false)} />

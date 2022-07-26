@@ -5,7 +5,6 @@
   padding: 5px 10px 10px 10px;
   background-color: $COLOR-WHITE;
   box-shadow: 0 2px 4.75px 0.25px $BOXSHADOW-BASIC;
-  // border: 1px solid $COLOR-LIGHTGRAY;
   border-radius: 20px;
   transition: 0.2s box-shadow ease-in-out;
 
@@ -48,10 +47,8 @@
     align-items: center;
     justify-content: center;
     border-radius: 10px;
-    // overflow: hidden;
     object-fit: fill;
     margin: 8px 0 14px;
-    // background-color: #C4C4C4;
     background-image: url('assets/images/review_background.svg');
     background-position: center;
   }
@@ -98,7 +95,6 @@
     border-radius: 22px;
     width: 80px;
     height: 28px;
-    // bottom: 18%;
     right: 50px;
     margin: 0;
     font-size: 16px;
@@ -121,7 +117,6 @@
 
   &_view {
     position: absolute;
-    // top:5px;
     top: 5px;
     left: 5px;
     margin: 0;
@@ -165,7 +160,6 @@
     .a-link {
       display: flex;
       // NOTE: This style for heading with collection.
-      // max-width: calc(100% - 30px);
       max-width: 100%;
 
       @include sp {

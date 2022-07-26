@@ -24,10 +24,8 @@ export const FileInputcreate: React.FC<Props> = props => {
   const { t } = useTranslation();
   const targetRef = useRef();
   const [dimensions, setDimensions] = useState({ width:0, height: 0 });
-  console.log("props",props)
   
   useEffect(() => {
-    console.log("targetRef",targetRef.target)
     if (targetRef.current) {
       setDimensions({
         width: targetRef.current.offsetWidth,
@@ -43,22 +41,16 @@ export const FileInputcreate: React.FC<Props> = props => {
     maxSize: 100000000,
     onDrop: acceptedFiles => {
       props.setTouched && props.setTouched();
-      console.log("acceptedFiles",acceptedFiles)
       acceptedFiles.length && setFieldValue(props.name, acceptedFiles[0]);
     },
     onDropRejected: fileRejections => {
-      console.log("fileRejections",fileRejections)
       const rep = /File is larger than 100000000 bytes/gi;
       const rep1 = t("create.oversize")
       const errorMessage =
         fileRejections[0]?.errors[0]?.message.replace(rep, rep1);
-      // const errorMessage =
-      //   fileRejections[0]?.errors[0]?.message.replace(/ \d+ /, ' 100 ').replace(' bytes', 'mb') ||
-      //   'Invalid File Format.';
       setErrors({ ...errors, [props.name]: errorMessage });
     },
   });
-console.log('dimensions',dimensions)
   return (
     <div className={mapModifiers('a-fileinputcreatt', props.modifiers)} {...getRootProps()}>
       <Image src={cloud} alt="drag and drop" />

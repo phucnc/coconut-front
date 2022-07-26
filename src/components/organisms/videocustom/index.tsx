@@ -1,26 +1,14 @@
-import React, { useCallback, useEffect, useMemo, useState, useRef } from 'react';
-import PropTypes from "prop-types";
+import React, { useEffect, useState } from 'react';
 import { hot } from 'react-hot-loader/root';
-import { useDispatch, useSelector } from 'react-redux';
-import Typography from "@material-ui/core/Typography";
-import { makeStyles, withStyles } from "@material-ui/core/styles";
+import { useDispatch } from 'react-redux';
+import { makeStyles } from "@material-ui/core/styles";
 import { Button } from 'components/atoms/button';
 import IconButton from "@material-ui/core/IconButton";
-import BookmarkIcon from "@material-ui/icons/Bookmark";
-import FastRewindIcon from "@material-ui/icons/FastRewind";
-import FastForwardIcon from "@material-ui/icons/FastForward";
-import PlayArrowIcon from "@material-ui/icons/PlayArrow";
-import PauseIcon from "@material-ui/icons/Pause";
-import Slider from "@material-ui/core/Slider";
-import Tooltip from "@material-ui/core/Tooltip";
 import { resetStore } from 'store/createNFT';
 import Grid from "@material-ui/core/Grid";
 import VolumeUp from "@material-ui/icons/VolumeUp";
 import VolumeDown from "@material-ui/icons/VolumeDown";
 import VolumeMute from "@material-ui/icons/VolumeOff";
-import FullScreen from "@material-ui/icons/Fullscreen";
-import Popover from "@material-ui/core/Popover";
-import { Icon } from 'components/atoms/icon';
 import logo from 'assets/images/censored.png';
 import { Modalcensored } from 'components/organisms/modalcensored';
 import { Modal } from 'components/organisms/modal';
@@ -31,14 +19,10 @@ import { commonStart } from 'store/common';
 
 const useStyles = makeStyles((theme) => ({
   controlsWrapper: {
-    // visibility: "visible",
     position: "absolute",
-    // top: 0,
     left: 0,
     right: 0,
     bottom: 0,
-    // height: "30px",
-    // background: "rgba(0,0,0,0.6)",
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
@@ -63,24 +47,15 @@ const useStyles = makeStyles((theme) => ({
 
   bottomIcons: {
     color: "#999",
-    // "&:hover": {
-    //   color: "#fff",
-    // },
   },
   bottomIconsRight: {
     color: "white!important",
     marginLeft:"200px",
     marginBottom:"50px",
-    // "&:hover": {
-    //   color: "#fff",
-    // },
   },
   bottomIconsRightCensored: {
     color: "white!important",
     marginLeft:"80px",
-    // "&:hover": {
-    //   color: "#fff",
-    // },
   },
 
   volumeSlider: {
@@ -88,13 +63,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-// Controls.propTypes = {
-//   onPlayPause: PropTypes.func,
-//   onMute: PropTypes.func,
-//   playing: PropTypes.bool,
-//   played: PropTypes.number,
-//   muted: PropTypes.bool,
-// };
 interface Props {
   onPlayPause: any,
   onMute: any,
@@ -137,7 +105,6 @@ export const Controls: React.FC<Props> = props => {
           justify="space-between"
           style={{ flexGrow: 1 }}
         >
-          {/* bottom controls */}
           <Grid
             container
             direction="row"
@@ -160,9 +127,7 @@ export const Controls: React.FC<Props> = props => {
               { !props.muted ? (
                  <IconButton
                  style={{visibility:'visible'}}
-                   // onClick={() => setState({ ...state, muted: !state.muted })}
                    onClick={() => {dispatch(commonStart({ nextAction: videoMute() }))}}
-                  //  onClick={props.onMute}
                    className={`${classes.bottomIconsRightCensored}`}
                  >
                    {props.muted ? (
@@ -176,9 +141,7 @@ export const Controls: React.FC<Props> = props => {
               ) : (
                  <IconButton
                  style={{visibility:'visible'}}
-                   // onClick={() => setState({ ...state, muted: !state.muted })}
                    onClick={() => {dispatch(commonStart({ nextAction: videoUnmute() }))}}
-                  //  onClick={props.onMute}
                    className={`${classes.bottomIconsRightCensored}`}
                  >
                    {props.muted ? (
@@ -193,32 +156,10 @@ export const Controls: React.FC<Props> = props => {
                </Grid>
               ): (
               <Grid container alignItems="center">
-          
-                {/* <div
-                  className={classes.bottomIcons}
-                >
-                  <img height="30px" width="140px" src={logo} loading="lazy" />
-                </div> */}
-                {/* <IconButton
-                style={{visibility:'visible'}}
-                  // onClick={() => setState({ ...state, muted: !state.muted })}
-                  onClick={props.onMute}
-                  className={`${classes.bottomIconsRight}`}
-                >
-                  {props.muted ? (
-                    <VolumeMute fontSize="large" />
-                  ) : props.volume > 0.5 ? (
-                    <VolumeUp fontSize="large" />
-                  ) : (
-                    <VolumeDown fontSize="large" />
-                  )}
-                </IconButton> */}
                 { !props.muted ? (
                  <IconButton
                  style={{visibility:'visible'}}
-                   // onClick={() => setState({ ...state, muted: !state.muted })}
                    onClick={() => {dispatch(commonStart({ nextAction: videoMute() }))}}
-                  //  onClick={props.onMute}
                    className={`${classes.bottomIconsRight}`}
                  >
                    {props.muted ? (
@@ -232,9 +173,7 @@ export const Controls: React.FC<Props> = props => {
               ) : (
                  <IconButton
                  style={{visibility:'visible'}}
-                   // onClick={() => setState({ ...state, muted: !state.muted })}
                    onClick={() => {dispatch(commonStart({ nextAction: videoUnmute() }))}}
-                  //  onClick={props.onMute}
                    className={`${classes.bottomIconsRight}`}
                  >
                    {props.muted ? (
@@ -260,83 +199,5 @@ export const Controls: React.FC<Props> = props => {
       </div>
   );
 };
-// const Controls = forwardRef(({
-//       onPlayPause,
-//       playing,
-//       played,
-//       onMute,
-//       muted,
-//       volume,
-//     },
-//     ref
-//   ) => {
-//     const classes = useStyles();
-//     const [anchorEl, setAnchorEl] = React.useState(null);
-//     const handleClick = (event) => {
-//       setAnchorEl(event.currentTarget);
-//     };
 
-//     const handleClose = () => {
-//       setAnchorEl(null);
-//     };
-
-//     const open = Boolean(anchorEl);
-//     const id = open ? "simple-popover" : undefined;
-
-//     return (
-//       <div ref={ref} className={classes.controlsWrapper}>
-//         <Grid
-//           container
-//           direction="column"
-//           justify="space-between"
-//           style={{ flexGrow: 1 }}
-//         >
-//           {/* bottom controls */}
-//           <Grid
-//             container
-//             direction="row"
-//             justify="space-between"
-//             alignItems="center"
-//             style={{ padding: 16 }}
-//           >
-
-//             <Grid item>
-//               <Grid container alignItems="center">
-//                 <IconButton
-//                   onClick={onPlayPause}
-//                   className={classes.bottomIcons}
-//                 >
-//                   {playing ? (
-//                     <PauseIcon fontSize="large" />
-//                   ) : (
-//                     <PlayArrowIcon fontSize="large" />
-//                   )}
-//                 </IconButton>
-
-//                 <IconButton
-//                   // onClick={() => setState({ ...state, muted: !state.muted })}
-//                   onClick={onMute}
-//                   className={`${classes.bottomIcons} ${classes.volumeButton}`}
-//                 >
-//                   {muted ? (
-//                     <VolumeMute fontSize="large" />
-//                   ) : volume > 0.5 ? (
-//                     <VolumeUp fontSize="large" />
-//                   ) : (
-//                     <VolumeDown fontSize="large" />
-//                   )}
-//                 </IconButton>
-//               </Grid>
-//             </Grid>
-
-            
-//           </Grid>
-//         </Grid>
-//       </div>
-//     );
-//   }
-// );
-
-
-// export default Controls;
 export default hot(Controls);

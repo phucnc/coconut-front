@@ -4,7 +4,7 @@ import { hot } from 'react-hot-loader/root';
 import Web3 from 'web3';
 import { BUSDContract, CONTContract, NFTContract, SimpleExchangeContract } from 'lib/smartContract';
 import axios from 'axios';
-import { approveBUSD, approveCONT, closeModal, getBuyStore, getProduct, openModal, purchase } from 'store/buyNFT';
+import { getBuyStore } from 'store/buyNFT';
 import { useMediaQuery } from 'react-responsive'
 import { useDispatch, useSelector } from 'react-redux';
 import { closeConnectModal, getCommon, setAccount } from 'store/common';
@@ -14,7 +14,6 @@ import { Text } from 'components/atoms/text';
 import { connectWallet } from 'lib/apiCommon';
 import { ButtonContainer } from 'components/molecules/buttonContainer';
 import ReactModal from 'react-modal';
-import { useEthers, useEtherBalance } from "@usedapp/core";
 import { ModalHeader } from 'components/molecules/modalHeader';
 import { Modalinstalmetamsk } from 'components/organisms/modalinstalmetamask';
 import {openModalIn, closeModalIn } from 'store/buyNFT';
@@ -22,9 +21,8 @@ import { useTranslation } from "react-i18next";
 
 const Interceptor: React.FC = props => {
   const wallet = useWallet();
-  const { isOpen, isSuccess, product, isGetDone } = useSelector(getBuyStore);
+  const { isOpen } = useSelector(getBuyStore);
   const [loading, setLoading] = useState(true);
-  const {activateBrowserWallet, account } = useEthers();
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const [reg, regSet] = useState(Array);
@@ -32,9 +30,7 @@ const Interceptor: React.FC = props => {
     query: '(max-width: 840px)'
   })
   const { errorMessage } = useSelector(getCommon);
-  // const [isLoading, setIsLoading] = useState(true);
   const accounts = async() => {
-  
       try {
     const accounts  = await window.ethereum.request({ method: 'eth_requestAccounts' });
       const account = accounts[0];
@@ -96,26 +92,20 @@ const Interceptor: React.FC = props => {
     BUSDContract.initialize(wallet.account);
     CONTContract.initialize(wallet.account);
     dispatch(setAccount({ account: wallet.account || '' }));
-    // }
-     // dispatch(setAccount({ account: wallet.account || '' }));
     errorMessage && wallet.account && dispatch(closeConnectModal());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch,wallet.account]);
-  // }, [dispatch,regSet,reg]);
   useEffect(() => {
-  
     checkaccount()
   }, []);
   useEffect(() => {
     accounts()
-
   }, []);
 
   useEffect(() => {
     if (window && typeof window.ethereum !== 'undefined') {
       window.web3 = new Web3(window.ethereum);
       if (sessionStorage.getItem('isConnected') === 'connected') {
-        // wallet.connect('injected');
       }
     } else sessionStorage.setItem('isConnected', '');
     document && ReactModal.setAppElement(document.body);
@@ -123,7 +113,6 @@ const Interceptor: React.FC = props => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loading]);
 
-  // return isLoading ? <Spinner /> : <>{props.children}</>;
   return (
     <>
       {props.children}
@@ -134,7 +123,6 @@ const Interceptor: React.FC = props => {
         }}
         modifiers="error"
       >
-        {/* <ModalHeader handleClose={() => dispatch(closeConnectModal())} modifiers="closeonly" /> */}
         <Text modifiers={['bold', 'center']}>{errorMessage}</Text>
         <ButtonContainer>
           <Button modifiers="bid" handleClick={() => dispatch(closeConnectModal())}>
@@ -146,9 +134,7 @@ const Interceptor: React.FC = props => {
         </ButtonContainer>
       </Modal>
       <Modal modifiers="instalMetamask" isOpen={isOpen} handleClose={handleCloseModal}>
-  
         <ModalHeader title="" handleClose={handleCloseModal} />
-        
         <Modalinstalmetamsk />
       </Modal>
     </>

@@ -14,7 +14,6 @@ interface Props {
 }
 
 export const Card: React.FC<Props> = props => {
-  console.log('getconut',props)
   return (
     <div className={mapModifiers('a-card', props.modifiers, props.cardType.toLowerCase())}>
       <Text size="12">Your balance</Text>

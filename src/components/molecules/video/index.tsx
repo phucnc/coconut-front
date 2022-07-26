@@ -25,11 +25,6 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
 
     position: "relative",
-    // "&:hover": {
-    //   "& $controlsWrapper": {
-    //     visibility: "visible",
-    //   },
-    // },
   },
 
   controlsWrapper: {
@@ -57,9 +52,6 @@ const useStyles = makeStyles((theme) => ({
   bottomWrapper: {
     display: "flex",
     flexDirection: "column",
-
-    // background: "rgba(0,0,0,0.6)",
-    // height: 60,
     padding: theme.spacing(2),
   },
 
@@ -67,7 +59,6 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
-    // height:40,
   },
 
   button: {
@@ -96,17 +87,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-// const [playing, setPlaying] = useState(false);
-// const videoRef = useRef(null);
-// const onVideoPress = () => {
-//   if (playing) {
-//     // videoRef.current.pause();
-//     setPlaying(false);
-//   } else {
-//     // videoRef.current.play()
-//     setPlaying(true);
-//   
-// };
 let count = 0;
 export const Video: React.FC<Props> = props => {
   const vidRef = useRef<any>(null);
@@ -152,9 +132,6 @@ export const Video: React.FC<Props> = props => {
   const handlePlayVideo = async () => {
     try {
     const playPromise = vidRef.current.play();
-    // if (shouldPlay == false) {
-    // vidRef.current.play();
-    console.log("vidRef",vidRef)
     if (playPromise !== undefined) {
 
     playPromise.then(async _ => {
@@ -172,9 +149,8 @@ export const Video: React.FC<Props> = props => {
     });
 
     }
-    // }
     } catch {
-      console.log ("fail")
+      console.log ("fail video display")
     }
   }
     const [shouldPlay, updatePlayState] = useState<any>(false);
@@ -199,11 +175,7 @@ export const Video: React.FC<Props> = props => {
       setisLoading(!isloading);
     }
     useEffect (()=>{
-    
       handlePlayVideo()
-      // setWidth(vidRef.current.getBoundingClientRect().width);
-
-      
     },[isloading])
     
     useEffect (()=>{
@@ -212,7 +184,6 @@ export const Video: React.FC<Props> = props => {
       setWidth(vidRef.current.getBoundingClientRect().width);
     }, []);
       
-console.log("width",width)
   return (
     <div className="video-product"
       onMouseMove={handleMouseMove}
@@ -226,9 +197,6 @@ console.log("width",width)
       topOffset="72%"
     >
     <div className="m-video">
-    {/* <video id="videom" ref={vidRef}  className="video__player"  onContextMenu={e => e.preventDefault()}  controls  autoPlay={true} muted={muted} loop src={props.src}>
-
-    </video> */}
     <div>
       <video
         className="video__player"

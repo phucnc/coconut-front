@@ -3,16 +3,12 @@ import { hot } from 'react-hot-loader/root';
 import { Layout } from 'components/templates/layout';
 import { Section } from 'components/organisms/section';
 import { Form, Formik } from 'formik';
-import { Categories, createSchema, initialValue, Unit } from 'components/pages/create/form';
+import { createSchema, initialValue } from 'components/pages/create/form';
 import { Heading } from 'components/molecules/heading';
 import { Fieldrow } from 'components/molecules/fieldrow';
 import { TextFieldFormik } from 'components/atoms/textfield';
-import { FileInput } from 'components/atoms/fileinput';
 import { Textarea } from 'components/atoms/textarea';
 import { Button } from 'components/atoms/button';
-import { Productcard } from 'components/organisms/productCard';
-// import { Usercard } from 'components/organisms/Usercard';
-
 import { navigate } from 'gatsby-link';
 import { Modal } from 'components/organisms/modal';
 import { ModalHeader } from 'components/molecules/modalHeader';
@@ -22,19 +18,13 @@ import { useWallet } from 'use-wallet';
 import { Text } from 'components/atoms/text';
 import { useDispatch, useSelector } from 'react-redux';
 import { approveNFT, createNFT, createTokenURI, getCreateStore, resetStore, sellNFT } from 'store/createNFT';
-import { Select } from 'components/atoms/select';
 import { commonStart } from 'store/common';
 import { ButtonContainer } from 'components/molecules/buttonContainer';
-import { amountReceived, amountReceivedDollar } from 'util/amount';
-import { MultiSelect } from 'components/atoms/multiselect';
 
 export const Profile: React.FC = () => {
   const wallet = useWallet();
   const dispatch = useDispatch();
   const { currentStep, tokenURI } = useSelector(getCreateStore);
-
-  const serviceFee = Number(process.env.SERVICE_FEE);
-
   const CreateSteps = [
     {
       description: 'Call contract method',
@@ -91,21 +81,12 @@ export const Profile: React.FC = () => {
             }}
             validateOnMount
           >
-            {({ values, isValid, setTouched, touched }) => {
+            {({ values }) => {
               const previewSrc = URL && values.file ? URL.createObjectURL(values.file) : '';
               const previewType = values.file && values.file.type;
               return (
                 <Form className="p-create_form">
                   <div className="p-create_inputs">
-                    {/* <Fieldrow fieldName="Upload file" name="file">
-                      <FileInput
-                        name="file"
-                        label="PNG, GIF, WEBP, MP4 or MP3. Max 50mb. "
-                        setTouched={() => !touched.file && setTouched({ ...touched, file: true })}
-                      />
-                    </Fieldrow> */}
-                  
-
                     <Fieldrow fieldName="User Name" name="name">
                       <TextFieldFormik name="name" placeholder="Enter your user name" />
                     </Fieldrow>
@@ -117,12 +98,10 @@ export const Profile: React.FC = () => {
                       <Button type="submit" modifiers="bid" anchor={{ href: '/' }}>
                         Update profile
                       </Button>
-                     
                     </ButtonContainer>
                   </div>
                   <div className="p-create_review">
                     <div className="p-create_reviewbox">
-                      {/* <Usercard/> */}
                     </div>
                   </div>
                 </Form>

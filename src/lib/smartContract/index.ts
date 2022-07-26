@@ -54,16 +54,12 @@ class SmartContract {
       })
       .on('sending', () => {
         middlewareMethods.sending && middlewareMethods.sending();
-        console.log ("Sending Done")
       })
       .on('TransactionHash', () => {
         middlewareMethods.transactionHash && middlewareMethods.transactionHash();
-        console.log ("TransactionHash Done")
       })
       .on('receipt', () => {
-        console.log ("receiptStart")
         middlewareMethods.receipt && middlewareMethods.receipt();
-        console.log ("receiptEND")
     });
   }
 
@@ -79,14 +75,11 @@ class SmartContract {
       })
       .on('sending', () => {
         middlewareMethods.sending && middlewareMethods.sending();
-        console.log ("sendingBNB done")
       })
       .on('transactionHash', () => {
         middlewareMethods.transactionHash && middlewareMethods.transactionHash();
-        console.log ("transactionHashBNB done")
       })
       .on('receipt', () => {
-        console.log ("receiptBNB done")
         middlewareMethods.receipt && middlewareMethods.receipt();
       });
   }

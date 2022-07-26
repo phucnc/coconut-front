@@ -41,7 +41,6 @@ export const MultiSelect: React.FC<Props> = ({ modifiers, options, selectedValue
           setFieldValue(name, selectedList);
         }}
         displayValue="name"
-        // name={name}
         closeIcon="circle"
       />
     </div>

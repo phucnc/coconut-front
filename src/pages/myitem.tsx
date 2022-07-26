@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState,useRef } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { hot } from 'react-hot-loader/root';
 import { Layout } from 'components/templates/layout';
 import { Section } from 'components/organisms/section';
@@ -9,10 +9,7 @@ import { Form, Formik } from 'formik';
 import { Dropdown } from 'components/molecules/dropdown';
 import { TabList } from 'components/molecules/tabList';
 import { TabButton } from 'components/molecules/tabButton';
-// import { ItemList } from 'components/organisms/itemList';
 import { ItemListMyItem } from 'components/organisms/itemListMyItem';
-import { closeConnectModal, getCommon, setAccount,tokenID } from 'store/common';
-// import { ExploreMenu } from 'components/organisms/exploreMenu';
 import { Barmenu } from 'components/organisms/BarMenu';
 import { Avatar } from 'components/organisms/Avatar';
 import {  Unit } from 'components/pages/create/form';
@@ -20,7 +17,6 @@ import { getMediaType } from 'util/getMediaType';
 import { Button } from 'components/atoms/button';
 import { RouteComponentProps } from '@reach/router';
 import {  ViewMyitemTabsType } from 'components/pages/view/constants';
-
 import {
   ExploreSchema,
   exploreSchema,
@@ -29,23 +25,20 @@ import {
   SortDefaultValue,
 } from 'components/pages/explore/form';
 import { useWallet } from 'use-wallet';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { CheckInputFormik } from 'components/atoms/checkInput';
-import { approveNFT, createNFT, createTokenURI, getCreateStore, resetStore, sellNFT } from 'store/createNFT';
+import { getCreateStore } from 'store/createNFT';
 import { DropdownItem, DropDownItemGroup, DropdownMenu } from 'components/molecules/dropdownMenu';
 import axios from 'axios';
 import { useTranslation } from "react-i18next";
-import { getExploreStore,getProductListM, GetProductListMReq } from 'store/explore';
+import { getExploreStore } from 'store/explore';
 
 export const Myitem: React.FC<RouteComponentProps> = props => {
-  const { errorMessage } = useSelector(getCommon);
   const queryaddress = new URLSearchParams(props.location?.search).get('id');
   const result = queryaddress?.substring(queryaddress.indexOf("="));
-  const { currentStep, tokenURI,refresh,reload } = useSelector(getCreateStore);
+  const { refresh,reload } = useSelector(getCreateStore);
   const params = new URLSearchParams(props.location?.search);
-  console.log("params1",queryaddress)
   const [showFilterAndSort, setShowFilterAndSort] = useState(false);
-  const [isShowMore, setIsShowMore] = useState(false);
   const [collectible, setcollectible] = useState<any>(Array)
   const [optionres, setoption] = useState<any>(Array)
   const store = useSelector(getExploreStore);
@@ -62,7 +55,6 @@ export const Myitem: React.FC<RouteComponentProps> = props => {
     []
   );
   const query = new URLSearchParams(props.location?.search).get('search');
-  console.log("queryy",query)
   const [username, usernameSet] = useState<any>(Array)
   const [addWallet, addWalletSet] = useState<any>(Array)
   const [avatar, avatarSet] = useState<any>(Array)
@@ -72,13 +64,12 @@ export const Myitem: React.FC<RouteComponentProps> = props => {
   const Refresh =async () => {
     try {
     const profile = await axios.get(`${process.env.ADDRESS_API}/account?id=${wallet.account}`)
-    const haha = profile.data.username.String
+    const usernameS = profile.data.username.String
     const addWalletuser = profile.data.address
     const infoBio = profile.data.info.String
     const avatar = profile.data.avartar.String
     const cover = profile.data.cover.String
-    // resultSet(result)
-    usernameSet(haha)
+    usernameSet(usernameS)
     addWalletSet(addWalletuser)
     infoBioSet(infoBio)
     avatarSet(avatar)
@@ -89,35 +80,32 @@ export const Myitem: React.FC<RouteComponentProps> = props => {
   }
 
   const handleFilter = useCallback(async (param: string, value: string) => {
-    setIsShowMore(false);
     const query = new URLSearchParams(props.location?.search).get('id');
     const result = query?.substring(query.indexOf("="));
     params.get(param) ? params.set(param, value) : params.append(param, value);
     const newPath = `${props.path}?${params.toString()}`;
-    // console.log("newPath",newPath)
     window.history.pushState({ path: newPath }, '', newPath);
     const optionsget = params.get('category')
-    let optionsget1 = optionsget?.toLocaleLowerCase()
-    switch (optionsget1){
+    let optionsgetD = optionsget?.toLocaleLowerCase()
+    switch (optionsgetD){
       case'created items':
-        optionsget1 ='creator';
+        optionsgetD ='creator';
         break;
         case'on sale':
-        optionsget1 ='owner';
+        optionsgetD ='owner';
         break;
         case'bought items':
-        optionsget1 ='bought';
+        optionsgetD ='bought';
         break;
         case'sold items':
-        optionsget1 ='sold';
+        optionsgetD ='sold';
         break;
     }
-    const getmyitem = await axios.get(`${process.env.ADDRESS_API}/nft/collectible-paging?cursor=&limit=10&sort=desc&filter=created-date&title=&address=${result}&options=${optionsget1}`)
+
+    const getmyitem = await axios.get(`${process.env.ADDRESS_API}/nft/collectible-paging?cursor=&limit=10&sort=desc&filter=created-date&title=&address=${result}&options=${optionsgetD}`)
     const collectible = getmyitem.data.collectibles
-    console.log("collectible1",collectible)
-    console.log("collectible2",wallet.account)
     setcollectible(collectible)
-    setoption(optionsget1)
+    setoption(optionsgetD)
   }, []);
   
   const refreshitem = () => {
@@ -128,9 +116,6 @@ export const Myitem: React.FC<RouteComponentProps> = props => {
     try {
     const query = new URLSearchParams(props.location?.search).get('id');
     const result = query?.substring(query.indexOf("="));
-    console.log("result1",result)
-    console.log("result2",query)
-    console.log("result33333",props.location?.search)
     const initial_values = await axios.get(`${process.env.ADDRESS_API}/nft/collectible-paging?cursor=&limit=10&sort=desc&filter=created-date&title=&address=${result}&options=creator`)
     const collectible =initial_values.data.collectibles
     setcollectible(collectible)
@@ -141,9 +126,8 @@ export const Myitem: React.FC<RouteComponentProps> = props => {
     }
   } 
   useEffect(() => {
-    query ? navigate(`/search?name=${query}`) : console.log("myitem")
+    query ? navigate(`/search?name=${query}`) : console.log("can not navigate to search")
     initialItem()
-    setIsShowMore(false);
     Refresh();
   }, [reload]);
 
@@ -153,13 +137,10 @@ export const Myitem: React.FC<RouteComponentProps> = props => {
 
   const [selectedTab, setSelectedTab] = useState<ViewMyitemTabsType>('Created Items');
 
- console.log("propss",props)
- console.log("wallet.account",wallet.account)
   return (
     <div className="p-explore">
         <Formik initialValues={initialValue} validationSchema={exploreSchema} onSubmit={() => { }}>
           {({ values }) => {
-            console.log("values1",values)
   return (
 <Form>
     <div className="p-explore">
@@ -204,7 +185,6 @@ export const Myitem: React.FC<RouteComponentProps> = props => {
                               {Object.keys(Sort).map((s, idx) => (
                                 <DropdownItem key={idx}>
                                   <CheckInputFormik
-                                    // type="radio"
                                     name="productSort"
                                     value={s}
                                     handleChange={() => {
@@ -222,9 +202,6 @@ export const Myitem: React.FC<RouteComponentProps> = props => {
                     />
                   </div>
                   <div className="p-explore_products">
-                    {/* {store.error ? (
-                      <Text modifiers={['center', 'error']}>{store.error.message}</Text>
-                    ) : ( */}
                         <ItemListMyItem
                           searchBy={values.productCategory}
                           next_cursor={store.next_cursor}
@@ -246,7 +223,6 @@ export const Myitem: React.FC<RouteComponentProps> = props => {
                             optionres:{optionres},
                           }))}
                         />
-                      {/* )} */}
                   </div>
             </Section>
             
@@ -258,7 +234,6 @@ export const Myitem: React.FC<RouteComponentProps> = props => {
 );
 }}
 </Formik>
-{/* </Layout> */}
 </div>
 );
 };

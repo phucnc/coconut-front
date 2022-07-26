@@ -15,7 +15,6 @@ type CreateNFT = {
   refresh?:boolean;
   reload?:boolean;
   newProduct: CreateForm;
-  // newProductDatas: CreateFormData;
 };
 
 const initialValue: CreateNFT = {
@@ -29,8 +28,6 @@ const reducer: Reducer<CreateNFT> = (state = initialValue, action) => {
   if (isType(action, resetStore)) {
     return produce(state, draft => {
       draft.currentStep = initialValue.currentStep;
-      // NOTE: comment to test buy
-      // draft.idNFT = initialValue.idNFT;
       draft.tokenURI = initialValue.tokenURI;
     });
   }
@@ -59,7 +56,6 @@ const reducer: Reducer<CreateNFT> = (state = initialValue, action) => {
 
   if (isType(action, createTokenURI.done)) {
     return produce(state, draft => {
-      // draft.currentStep.number += 1;
       draft.tokenURI = action.payload.result.id;
     });
   }

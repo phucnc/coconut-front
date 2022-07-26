@@ -3,18 +3,18 @@ import { hot } from 'react-hot-loader/root';
 import { Layout } from 'components/templates/layout';
 import { Section } from 'components/organisms/section';
 import { Form, Formik } from 'formik';
-import { Categories, createSchema, initialValue, Unit } from 'components/pages/create/form';
+import { createSchema, initialValue, Unit } from 'components/pages/create/form';
 import axios from 'axios';
 import { Link } from 'components/atoms/link';
 import { Text } from 'components/atoms/text';
-import { Icon, IconName } from 'components/atoms/icon';
+import { Icon } from 'components/atoms/icon';
 import { Heading } from 'components/molecules/heading';
 import { Fieldrow } from 'components/molecules/fieldrow';
 import { TextFieldFormik } from 'components/atoms/textfield';
 import { FileInputcreate } from 'components/atoms/fileinputcreate';
 import { Textarea } from 'components/atoms/textarea';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox, { CheckboxProps } from '@material-ui/core/Checkbox';
+import Checkbox from '@material-ui/core/Checkbox';
 import { Button } from 'components/atoms/button';
 import { Reviewcard } from 'components/organisms/reviewbox';
 import { navigate } from 'gatsby-link';
@@ -24,13 +24,12 @@ import { StepItem } from 'components/molecules/stepItem';
 import { Steps } from 'components/organisms/steps';
 import { useWallet } from 'use-wallet';
 import { useDispatch, useSelector } from 'react-redux';
-import { approveNFT, createNFT, createTokenURI, getCreateStore, resetStore, sellNFT, sellCreateNFT, approveCreateNFT } from 'store/createNFT';
+import { createNFT, createTokenURI, getCreateStore, resetStore, sellCreateNFT, approveCreateNFT } from 'store/createNFT';
 import { Select } from 'components/atoms/select';
 import { commonStart } from 'store/common';
 import { ButtonContainer } from 'components/molecules/buttonContainer';
-import { amountReceived, amountReceivedDollar,amountDollarBNBrevieved,amountDollarBUSD,amountDollarCONT,amountDollarCONTrecieved,amountDollarBUSDrecieved } from 'util/amount';
+import { amountReceived, amountDollarBNBrevieved,amountDollarCONTrecieved,amountDollarBUSDrecieved } from 'util/amount';
 import { MultiSelect } from 'components/atoms/multiselect';
-import { useEthers, useEtherBalance } from "@usedapp/core";
 import { useTranslation } from "react-i18next";
 import { Modalconvert } from 'components/organisms/modalconvert';
 
@@ -40,9 +39,6 @@ export const Create: React.FC = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
   const { currentStep, tokenURI } = useSelector(getCreateStore);
-  const {activateBrowserWallet, account } = useEthers();
-  const etherBalance = useEtherBalance(account);
-  const serviceFee = Number(process.env.SERVICE_FEE);
   const [modalOpenConvert, setModalOpenConvert] = useState(false);
   const CreateSteps = [
     {
@@ -72,8 +68,6 @@ export const Create: React.FC = () => {
   
   const Get_categories = async () => {
     const categories = await axios.get(`${process.env.ADDRESS_API}/category`);
-    // const data = total_mint.data.accounts[0];
-    const listreg = categories.data.category;
     regSet(categories.data.category);
   };
 
@@ -111,7 +105,6 @@ export const Create: React.FC = () => {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setState({ ...state, [event.target.name]: event.target.checked });
   };
-  // console.log("state.checkedB",state.checkedB)
   return (
     <div className="p-create">
       <Layout title="Create NFT">
@@ -150,9 +143,7 @@ export const Create: React.FC = () => {
                       className="p-create_instantsale"
                       fieldName={t("create.Instantsaleprice")}
                       lead={t("create.Enterprice")}
-                      // toggleName="instantsale"
                       caption={[
-                        // `${t("create.Servicefee")} 0%`,
                         `${t("create.Youwillreceive")} ${amountReceived(values.instantsaleprice)} ${Unit[values.unit]} (～$${
                           values.unit == 0
                             ? amountDollarBNBrevieved(values.instantsaleprice)
@@ -186,38 +177,12 @@ export const Create: React.FC = () => {
                         />
                       )}
                     </Fieldrow>
-                    
                     <Fieldrow  fieldName={t("create.Name")} name="name">
                       <TextFieldFormik  name="name" placeholder={t("create.itemName")} />
                     </Fieldrow>
-                    {/* <div className="addresshidden">
-                    <Fieldrow fieldName="address">
-                      <Textarea value={wallet.account} name="address" placeholder="Redeemable T-shirt with logooo" maxLength={500} />
-                    </Fieldrow>
-                    </div> */}
                     <Fieldrow fieldName={t("create.Description")} isOptional className="p-create_description">
                       <Textarea name="description" placeholder={t("create.itemName")} maxLength={500} />
                     </Fieldrow>
-                    {/* <FormControlLabel
-                      control={
-                        <Checkbox
-                          checked={state.checkedB}
-                          onChange={handleChange}
-                          name="checkedB"
-                          color="primary"
-                        />
-                      }
-                      label="I understand and agree that this content has not been copyrighted and the original author has not been verified, and that if there is a problem with the content such as copyright after purchase, the transaction may be stopped. In addition, I have checked the notice and disclaimer in the service, and I agree."
-                      labelPlacement="end"
-                    />
-                    <ButtonContainer>
-                      <Button type="button" modifiers="bid" anchor={{ href: '/' }}>
-                        Back
-                      </Button>
-                      <Button type="submit" disabled={!isValid || !state.checkedB} modifiers="buy">
-                        Create
-                      </Button>
-                    </ButtonContainer> */}
                   </div>
                   <div className="p-create_review">
                     <div className="p-create_reviewcontent">
@@ -231,7 +196,6 @@ export const Create: React.FC = () => {
                           unit={Unit[values.unit]}
                           src={previewSrc}
                           mediaType={previewType}
-                          // collection={values.collection}
                           alt=""
                           isPreview
                         />

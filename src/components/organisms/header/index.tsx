@@ -21,12 +21,12 @@ import clsx from 'clsx';
 import ListItem from '@material-ui/core/ListItem';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import logoGlobal from 'assets/images/ccnglobal_logo_ver1.png'
-import { approveNFT, createNFT, createTokenURI, getCreateStore, resetStore, sellNFT } from 'store/createNFT';
+import { resetStore } from 'store/createNFT';
 import Accordion from '@material-ui/core/Accordion';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import Typography from '@material-ui/core/Typography';
-import { useEthers, useEtherBalance, useLocalStorage } from "@usedapp/core";
+import { useEthers } from "@usedapp/core";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import {
   Menu,
@@ -74,7 +74,6 @@ const useStyles = makeStyles({
     backgroundColor: "transparent !important",
   },
   heading: {
-    // flexBasis: '33.33%',
     flexShrink: 0,
     background: 'transparent',
   },
@@ -132,7 +131,6 @@ export const Header: React.FC = () => {
         [classes.fullList]: anchor === 'top' || anchor === 'bottom',
       })}
       role="presentation"
-      // onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
@@ -185,7 +183,6 @@ export const Header: React.FC = () => {
                 <Button anchor={{ href: '' }}  >Contact us</Button>
                 </Grid>
                 <Grid item xs={6}>
-                {/* <Button anchor={{ href: 'https://coconut-global.medium.com/' }} >Blog</Button> */}
                 </Grid>
                 <Grid item xs={6}>
                 <Button anchor={{ href: 'https://www.notion.so/CONUT-TOKEN-f751f8c45b6247d1a6434e8f88bf6a03' }} >CONUT Token</Button>
@@ -224,9 +221,6 @@ export const Header: React.FC = () => {
 
   }, [dispatch, modalmobile]);
 
-  useEffect(() => {
-    // accounts();
-  }, []);
 
   useEffect(() => {
     const handleScroll = throttle(() => {
@@ -245,31 +239,11 @@ export const Header: React.FC = () => {
   }, []);
   return (
     <header className={'o-header u-sticky'}>
-      {/* <header className={`o-header ${isSticky ? 'u-sticky' : ''}`}> */}
       <a href="/">
-        {/* <span className={'o-header_b-logo'}>
-           <Divider orientation="vertical" flexItem />
-        </span> */}
         <img className="b-logo" src={logoGlobal}/>
       </a>
 
       <div className="o-header_main">
-        {/* <Formik
-          initialValues={{ search: '' }}
-          onSubmit={values => {
-            navigate(`/search?name=${values.search}`);
-            // navigate(`https://st.contenft.com/search?name=${values.search}`);
-          }}
-        >
-          <Form className="o-header_search">
-            <TextFieldFormik
-              modifiers="search"
-              placeholder="Search"
-              type="text"
-              name="search"
-            />
-          </Form>
-        </Formik> */}
         <Modal modifiers="error" isOpen={modalOpenShare} handleClose={() => setModalOpenShare(false)}>
           <Text modifiers={['bold', 'center']}>{t("mainMenu.ConnectD")}</Text>
           <ButtonContainer>
@@ -281,8 +255,6 @@ export const Header: React.FC = () => {
           </Button>
           </ButtonContainer>
         </Modal>
-
-
         <ul className="o-header_menu">
           <li>
             {wallet.status === 'connected'? (
@@ -312,8 +284,6 @@ export const Header: React.FC = () => {
             <MenuItem className="o-header_link-text" href="https://www.instagram.com/coconut_global" target="_blank">Instagram</MenuItem>
             <MenuItem className="o-header_link-text" href="https://t.me/Coconut_notice" target="_blank">Telegram</MenuItem>
             <MenuItem className="o-header_link-text" href="https://coconut-global.medium.com" target="_blank">Medium</MenuItem>
-            {/* <MenuItem href="mailto:support@coconut.global" className="o-header_link-text"> <a href="mailto:support@coconut.global" target="_blank">Email</a></MenuItem>
-            <MenuItem className="o-header_link-text" href="https://github.com/phucnc/coconut-front" target="_blank">Github</MenuItem> */}
           </Menu>
         </ul>
         <ul className="o-header_menu">
@@ -327,29 +297,11 @@ export const Header: React.FC = () => {
               <MenuItem href="mailto:support@coconut.global" className="o-header_link-text"> <a href="mailto:support@coconut.global" target="_blank">{t("mainMenu.Business")}</a></MenuItem>
               <MenuItem href="mailto:support@coconut.global" className="o-header_link-text"> <a href="mailto:support@coconut.global" target="_blank">CS</a></MenuItem>
             </SubMenu>
-            {/* <MenuItem href="https://coconut-global.medium.com/">{t("mainMenu.Blog")}</MenuItem> */}
             <MenuItem href="/notice">{t("mainMenu.Notice")}</MenuItem>
             <MenuItem href="/termofservice">{t("mainMenu.Term")}</MenuItem>
             <MenuItem href="/termofservice">{t("mainMenu.Policy")}</MenuItem>
           </Menu>
         </ul>
-        {/* <Formik
-          initialValues={{ search: '' }}
-          onSubmit={values => {
-            navigate(`/search?name=${values.search}`);
-            // window.location.href = `https://app.contenft.com/search?name=${values.search}`
-            // navigate(`https://st.contenft.com/search?name=${values.search}`);
-          }}
-        >
-          <Form className="o-header_search">
-            <TextFieldFormik
-              modifiers="search"
-              placeholder={t("mainMenu.Search")}
-              type="search"
-              name="search"
-            />
-          </Form>
-        </Formik> */}
         <MenuChunk wallet={wallet} balanceBUSD={balance.BUSD} balanceCONT={balance.CONUT} />     
         <div className="o-header_hambuger">
           {(['top'] as Anchor[]).map((anchor) => (
@@ -369,37 +321,6 @@ export const Header: React.FC = () => {
         </div>
       </div>
       {openHambugerMenu && (
-        // <div className="o-header_hambugermenu">
-        //   <div className="o-header_head">
-        //     <Heading modifiers="white">NFT</Heading>
-        //     <Button
-        //       modifiers={['icon', 'noBackground', 'noBorder']}
-        //       handleClick={() => setOpenHambugerMenu(!openHambugerMenu)}
-        //     >
-        //       <Icon iconName="close" />
-        //     </Button>
-        //   </div>
-        //   {wallet?.status === 'connected' && (
-        //     <Mywallet
-        //       open={true}
-        //       walletAccount={wallet.account || ''}
-        //       balanceBNB={Number(wallet.balance)}
-        //       balanceBUSD={balance.BUSD}
-        //       balanceCONT={balance.CONT}
-        //       hideDisconnect
-        //       modifiers="fullwidth"
-        //     />
-        //   )}
-        //   <ul className="o-header_menu">
-        //     <li>
-        //       <Link href="/">Explore</Link>
-        //     </li>
-        //     <li>
-        //       <Link href="/">My Item</Link>
-        //     </li>
-        //   </ul>
-        //   <MenuChunk wallet={wallet} balanceBUSD={balance.BUSD} balanceCONT={balance.CONT} />
-        // </div>
         <div >
           {(['top'] as Anchor[]).map((anchor) => (
             <React.Fragment key={anchor}>

@@ -4,10 +4,9 @@ import { mapModifiers } from 'lib/component';
 import { Heading } from 'components/molecules/heading';
 import { Text } from 'components/atoms/text';
 import { Image, ImageProps } from 'components/atoms/image';
-// import { Button } from 'semantic-ui-react'
 import FormLabel from '@material-ui/core/FormLabel';
 import TextField from '@material-ui/core/TextField';
-import { Icon, IconName } from 'components/atoms/icon';
+import { Icon } from 'components/atoms/icon';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import { Link } from 'components/atoms/link';
 import Grid from '@material-ui/core/Grid';
@@ -21,26 +20,12 @@ import { UserType, VideoType, VideoTypes } from 'lib/constants';
 import { Button } from 'components/atoms/button';
 import { Video } from 'components/molecules/video';
 import { Tooltip } from 'components/molecules/tooltip';
-import Skeleton from '@material-ui/lab/Skeleton';
 import Typography from '@material-ui/core/Typography';
-import Fade from '@material-ui/core/Fade';
-import MenuItem from '@material-ui/core/MenuItem';
-import Menu from '@material-ui/core/Menu';
 import { ButtonContainer } from 'components/molecules/buttonContainer';
-import { Categories, createSchema, initialValue, Unit } from 'components/pages/create/form';
-import { Form, Formik } from 'formik';
 import { Modal } from 'components/organisms/modal';
-import { approveNFT, createNFT, createTokenURI, getCreateStore, sellNFT } from 'store/createNFT';
-import { Select } from 'components/atoms/select';
 import { ModalHeader } from 'components/molecules/modalHeader';
 import { useDispatch, useSelector } from 'react-redux';
-import { Fieldrow } from 'components/molecules/fieldrow';
-import { TextFieldFormik } from 'components/atoms/textfield';
 import { resetStore } from 'store/createNFT';
-import { Layout } from 'components/templates/layout';
-import { commonStart } from 'store/common';
-import { Section } from 'components/organisms/section';
-import { amountReceived, amountReceivedDollar } from 'util/amount';
 import axios from 'axios';
 type Modifier = 'foo' | 'bar';
 
@@ -66,18 +51,18 @@ const useStyles = makeStyles({
     boxShadow: 'none',
   },
   formControlLabel: {
-    color:'#797979', 
+    color: '#797979',
     marginTop: '5px!important',
-    fontSize: '18px', 
-   '& label': { fontSize: '18px' } 
+    fontSize: '18px',
+    '& label': { fontSize: '18px' }
   },
   font: {
-    fontSize:'18px',
+    fontSize: '18px',
   },
 
   formControl: {
     margin: '20px',
-    fontSize:'18px',
+    fontSize: '18px',
   },
   bullet: {
     display: 'inline-block',
@@ -99,7 +84,6 @@ const defaultProps = {
   m: 1,
   border: 0.1,
   style: { width: '15rem', height: '15rem', border: 'dashed' },
-  // image: 'assets/images/uploadim.svg',
 };
 const defaultProps1 = {
   bgcolor: 'white',
@@ -143,17 +127,12 @@ const useStyles1 = makeStyles((theme: Theme) =>
     buttonUp: {
       '& > *': {
         backgroundColor: 'linear-gradient(100.93deg, #D565C3 -13.26%, #ABD3EA 101.12%)',
-
-
       },
     },
   }),
 );
 
 export const ProductcardUser: React.FC<ProductProps> = props => {
-  const [like, setLike] = useState({ isLike: false, amount: props.amount });
-  
-  
   const productLink = `/view?id=${props.id}`;
   const classes1 = useStyles1();
   const classes = useStyles();
@@ -163,9 +142,7 @@ export const ProductcardUser: React.FC<ProductProps> = props => {
   const [reportModal, setreportModal] = useState(false);
   const [ModalOpenreport, setModalOpenreport] = useState(false);
   const [ModalOpendelete, setModalOpendelete] = useState(false);
-  const serviceFee = Number(process.env.SERVICE_FEE);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const open = Boolean(anchorEl);
   const [modalOpenShare, setModalOpenShare] = useState(false);
   const [modalmobile, setmodalmobile] = useState(false);
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -180,7 +157,7 @@ export const ProductcardUser: React.FC<ProductProps> = props => {
     sixth: false,
   });
   const { first, second, third, fourth, fifth, sixth } = state;
-  const error = [ first, second, third, fourth, fifth, sixth].filter((v) => v).length > 1;
+  const error = [first, second, third, fourth, fifth, sixth].filter((v) => v).length > 1;
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setState({ ...state, [event.target.name]: event.target.checked });
   };
@@ -188,28 +165,27 @@ export const ProductcardUser: React.FC<ProductProps> = props => {
     setAnchorEl(null);
   };
   const deleteItem = async () => {
-    // await axios.delete https://api.contenft.com/nft?id=99ccb8a0-86b7-4b65-b53b-8679782a9685
     await axios.delete(`${process.env.ADDRESS_API}/nft?id=${props.id}`);
-    window.location.reload(); 
+    window.location.reload();
 
   }
 
-  const reportitem = async() => {
+  const reportitem = async () => {
     const query = window.location.href
     const result = query?.substring(query.indexOf("="));
-    if(state.first == true){
-    const reportItem1 = await axios.post(`${process.env.ADDRESS_API}/report?collectible_id=${props.id}&account_id=${wallet.account}&report_type_id=1`)
-    }else if (state.second == true){
+    if (state.first == true) {
+      const reportItem1 = await axios.post(`${process.env.ADDRESS_API}/report?collectible_id=${props.id}&account_id=${wallet.account}&report_type_id=1`)
+    } else if (state.second == true) {
       const reportItem2 = await axios.post(`${process.env.ADDRESS_API}/report?collectible_id=${props.id}&account_id=${wallet.account}&report_type_id=2`)
-    }else if (state.third == true){
+    } else if (state.third == true) {
       const reportItem3 = await axios.post(`${process.env.ADDRESS_API}/report?collectible_id=${props.id}&account_id=${wallet.account}&report_type_id=3`)
-    }else if (state.fourth == true){
+    } else if (state.fourth == true) {
       const reportItem4 = await axios.post(`${process.env.ADDRESS_API}/report?collectible_id=${props.id}&account_id=${wallet.account}&report_type_id=4`)
-    }else if (state.fifth == true){
+    } else if (state.fifth == true) {
       const reportItem5 = await axios.post(`${process.env.ADDRESS_API}/report?collectible_id=${props.id}&account_id=${wallet.account}&report_type_id=5`)
-    }else if (state.sixth == true){
+    } else if (state.sixth == true) {
       const reportItem6 = await axios.post(`${process.env.ADDRESS_API}/report?collectible_id=${props.id}&account_id=${wallet.account}&report_type_id=6`)
-    }else {
+    } else {
       console.log("Error Report Item")
     }
     setModalOpenreport(false)
@@ -243,58 +219,43 @@ export const ProductcardUser: React.FC<ProductProps> = props => {
                     <Image src={props.src} alt={props.alt} />
                   )}
                 <span className="o-productcard_view"><Icon iconName='play' />{props.view}</span>
-
               </div>
-
             </Link>
-
-            {/* <button onClick={() => setLike({
-              isLike: !like.isLike,
-              amount: !like.isLike && typeof props.amount === 'number' ? props.amount + 1 : props.amount,
-            })} className="o-productcard_like">233&nbsp;&nbsp;
-              <Icon iconName={like.isLike ? 'heartred' : 'heartoutline'} />
-            </button> */}
             <Button modifiers={['iconshare']}><Icon modifiers={['tiny']} iconName='sharelink' /></Button>
-           
+
             <Modal isOpen={ModalOpendelete} handleClose={() => setModalOpendelete(false)}>
-        <ModalHeader title="Why are you reporting?" handleClose={() => setModalOpendelete(false)} />
-        <Grid
-          // className="avatar-user"
-          container
-          spacing={0}
-          direction="column"
-          alignItems="center"
-          justify="center"
-        >
-        </Grid>
-        <Typography align="center" >
-          <form className={classes1.root1} >
-            <span className="font-bio">Describe why you think this item should be removed from marketplace.</span>
-          </form>
-        </Typography>
-        <Typography align="center" >
-                    <form className={classes1.root1} >
-                      <TextField
-                      name="name"
-                      className={classes.textField}
-                        id="outlined-multiline-static"
-                        // label="Bio"
-                        multiline
-                        rows={4}
-                        // onChange={handleChangeFormname("bio")}
-                        // value={props.infoBio}
-                        variant="outlined"
-                        placeholder="Tell us some detail"
-                        // onChange={e => setCount(e.target.value.length)}
-                        inputProps={{ maxLength: 500 }}
-                      ></TextField>
-                    </form>
-                    {/* <p className="limitletter">{count}/500</p> */}
-                  </Typography>
-        <Typography align="center" >
-          <button className=" o-productcard_reportButton " >Report</button>
-        </Typography>
-      </Modal>
+              <ModalHeader title="Why are you reporting?" handleClose={() => setModalOpendelete(false)} />
+              <Grid
+                container
+                spacing={0}
+                direction="column"
+                alignItems="center"
+                justify="center"
+              >
+              </Grid>
+              <Typography align="center" >
+                <form className={classes1.root1} >
+                  <span className="font-bio">Describe why you think this item should be removed from marketplace.</span>
+                </form>
+              </Typography>
+              <Typography align="center" >
+                <form className={classes1.root1} >
+                  <TextField
+                    name="name"
+                    className={classes.textField}
+                    id="outlined-multiline-static"
+                    multiline
+                    rows={4}
+                    variant="outlined"
+                    placeholder="Tell us some detail"
+                    inputProps={{ maxLength: 500 }}
+                  ></TextField>
+                </form>
+              </Typography>
+              <Typography align="center" >
+                <button className=" o-productcard_reportButton " >Report</button>
+              </Typography>
+            </Modal>
             <div className="o-productcardMyItem_info">
               <div className="o-productcardMyItem_heading">
                 <div className="o-productcardMyItem_lead">
@@ -314,16 +275,14 @@ export const ProductcardUser: React.FC<ProductProps> = props => {
                 <ul className="o-productcardMyItem_userlist">
                   <div>
                     <button className="threedots" onClick={() => setModalOpenreport(true)}><Icon modifiers={['small']} iconName="report" /></button>
-                    {/* <Button handleClick={() => setModalOpenShare(true)} modifiers={['filter', 'noBorder']}><Icon modifiers={['small']} iconName="threedots" /></Button> */}
                   </div>
-
                 </ul>
               </div>
             </div>
             <Tooltip />
           </>
         )}
-         <Modal modifiers="error" isOpen={modalmobile} handleClose={() => setmodalmobile(false)}>
+      <Modal modifiers="error" isOpen={modalmobile} handleClose={() => setmodalmobile(false)}>
         <ModalHeader title={t("View.Sorry")} handleClose={() => setmodalmobile(false)} />
         <Text modifiers={['bold', 'center']}>{t("View.SorryD")}</Text>
         <ButtonContainer>
@@ -333,52 +292,52 @@ export const ProductcardUser: React.FC<ProductProps> = props => {
         </ButtonContainer>
       </Modal>
       <Modal isOpen={ModalOpenreport} handleClose={() => setModalOpenreport(false)}>
-                  <ModalHeader mod title={t("reportpopup.Title")} handleClose={() => setModalOpenreport(false)} />
-                    <FormControl error={error} component="fieldset" className={classes.formControl}>
-                      <FormGroup>
-                        <FormControlLabel 
-                          className={classes.font}
-                          control={<Checkbox checked={first} onChange={handleChange} name="first" />}
-                          label={<Typography className={classes.formControlLabel}>{t("reportpopup.Copyright")}</Typography>}
-                        />
-                        <FormControlLabel
-                          control={<Checkbox checked={second} onChange={handleChange} name="second" />}
-                          label={<Typography className={classes.formControlLabel}>{t("reportpopup.Sexual")}</Typography>}
-                        />
-                        <FormControlLabel
-                          control={<Checkbox checked={third} onChange={handleChange} name="third" />}
-                          label={<Typography className={classes.formControlLabel}>{t("reportpopup.Violent")}</Typography>}
-                        />
-                          <FormControlLabel
-                          control={<Checkbox checked={fourth} onChange={handleChange} name="fourth" />}
-                          label={<Typography className={classes.formControlLabel}>{t("reportpopup.Hateful")}</Typography>}
-                        />
-                          <FormControlLabel
-                          control={<Checkbox checked={fifth} onChange={handleChange} name="fifth" />}
-                          label={<Typography className={classes.formControlLabel}>{t("reportpopup.Harmful")}</Typography>}
-                        />
-                          <FormControlLabel
-                          control={<Checkbox checked={sixth} onChange={handleChange} name="sixth" />}
-                          label={<Typography className={classes.formControlLabel}>{t("reportpopup.Spam")}</Typography>}
-                        />
-                      </FormGroup>
-                      {error &&( <FormLabel component="legend">Pick one *</FormLabel>
-                    )}
-                    </FormControl>
-                    <div className="buttoncontainer_report">
-                      <Button disabled={error} handleClick={() => reportitem()} type="submit" modifiers="createbig">
-                      {t("Myitem.Report")}
-                      </Button>
-                    </div>
-                </Modal>
-                <Modal modifiers="price" isOpen={reportModal} handleClose={() => setreportModal(false)}>
+        <ModalHeader mod title={t("reportpopup.Title")} handleClose={() => setModalOpenreport(false)} />
+        <FormControl error={error} component="fieldset" className={classes.formControl}>
+          <FormGroup>
+            <FormControlLabel
+              className={classes.font}
+              control={<Checkbox checked={first} onChange={handleChange} name="first" />}
+              label={<Typography className={classes.formControlLabel}>{t("reportpopup.Copyright")}</Typography>}
+            />
+            <FormControlLabel
+              control={<Checkbox checked={second} onChange={handleChange} name="second" />}
+              label={<Typography className={classes.formControlLabel}>{t("reportpopup.Sexual")}</Typography>}
+            />
+            <FormControlLabel
+              control={<Checkbox checked={third} onChange={handleChange} name="third" />}
+              label={<Typography className={classes.formControlLabel}>{t("reportpopup.Violent")}</Typography>}
+            />
+            <FormControlLabel
+              control={<Checkbox checked={fourth} onChange={handleChange} name="fourth" />}
+              label={<Typography className={classes.formControlLabel}>{t("reportpopup.Hateful")}</Typography>}
+            />
+            <FormControlLabel
+              control={<Checkbox checked={fifth} onChange={handleChange} name="fifth" />}
+              label={<Typography className={classes.formControlLabel}>{t("reportpopup.Harmful")}</Typography>}
+            />
+            <FormControlLabel
+              control={<Checkbox checked={sixth} onChange={handleChange} name="sixth" />}
+              label={<Typography className={classes.formControlLabel}>{t("reportpopup.Spam")}</Typography>}
+            />
+          </FormGroup>
+          {error && (<FormLabel component="legend">Pick one *</FormLabel>
+          )}
+        </FormControl>
+        <div className="buttoncontainer_report">
+          <Button disabled={error} handleClick={() => reportitem()} type="submit" modifiers="createbig">
+            {t("Myitem.Report")}
+          </Button>
+        </div>
+      </Modal>
+      <Modal modifiers="price" isOpen={reportModal} handleClose={() => setreportModal(false)}>
         <ModalHeader modifiers="report" title="Thank you for submitting your report to us." handleClose={() => setreportModal(false)} />
         <Text modifiers={['report']}>We will process the report you submitted as quickly as possible.</Text>
-        <Text modifiers={['report','inline']}>Processing time for reports of piracy will typically be 5-7 business days. For more convenience in the settlement process, please send related documents to email:</Text>
-        <Text modifiers={['report','inline']}><a href="mailto:support@coconut.global">support@coconut.global</a></Text>
+        <Text modifiers={['report', 'inline']}>Processing time for reports of piracy will typically be 5-7 business days. For more convenience in the settlement process, please send related documents to email:</Text>
+        <Text modifiers={['report', 'inline']}><a href="mailto:support@coconut.global">support@coconut.global</a></Text>
         <Text modifiers={['report']}>We will process the report you submitted as quickly as possible.</Text>
-        <Text modifiers={['report','inline']}>Contact us:</Text>
-        <Text modifiers={['report','inline']}><a href="mailto:support@coconut.global">support@coconut.global</a></Text>
+        <Text modifiers={['report', 'inline']}>Contact us:</Text>
+        <Text modifiers={['report', 'inline']}><a href="mailto:support@coconut.global">support@coconut.global</a></Text>
       </Modal>
     </article>
   );
@@ -398,7 +357,6 @@ const ProductPreview: React.FC<ProductProps> = props => {
               Media Review22
             </Text>
           )}
-
       </div>
       <div className="o-productcardMyItem_info">
         <div className="o-productcardMyItem_heading">

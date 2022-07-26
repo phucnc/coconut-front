@@ -1,11 +1,6 @@
 .o-section1 {
   margin-bottom: 250px;
-  // margin-top: 60px;
-  // background-color: $COLOR-WHITE;
-  // background-image: url('assets/images/cover-user.png');
   border-radius: 20px;
-  // box-shadow: 0 6px 9.8px 0.2px $BOXSHADOW-SECTION;
-  // padding: 32px 42px;
   background-repeat: no-repeat;
   background-size: cover;
 
@@ -95,10 +90,8 @@
     position: absolute;
     bottom: 1px;
     right: 1px;
-    // font-size: 18px;
     transition: transform 250ms;
     z-index: 99;
-    // background-color: #A9A9A9;
 
   }
 
@@ -118,18 +111,7 @@
     background-color: none;
   }
  
-  // .avatar-display {
-  //   left: 48%;
-  //   top: 50px;
-  //   width: 150px;
-  //   height: 150px;
-  //   border: 1px solid white;
-  //   border-radius:50% 50% 50% 50%;  
-  //   background-size: cover;
-  //   object-fit: fill;
-  // }
   .avatar-display-none {
-    // position: absolute;
     background-image: url('assets/images/avatar-none.svg');
     background-color: #F4F4F4;
     left: 48%;
@@ -139,8 +121,6 @@
     border: 1px solid white;
     border-radius:50% 50% 50% 50%;  
     background-size: cover;
-    // border-radius: 80px;
-    // object-fit: cover;
   }
   .user-button {
     background: #F8F8F8;
@@ -236,12 +216,8 @@
 .ImgReview{
   height: 200px;
   width: 200px;
-  // position: absolute;
-  // z-index: 10;
 }
 .share-button{
-  // background-color: #f4f4f4;
-  // padding: 20px 20px;
   align-items: center;
   justify-content: center;
   border-radius: 15px;

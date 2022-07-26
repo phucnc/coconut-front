@@ -23,7 +23,6 @@ If cutLineSpace=true, the spacing the top of first-line & the bottom of last-lin
     &:before,
     &:after {
       display: block;
-      // overflow: hidden;
       content: '';
     }
 
@@ -57,7 +56,6 @@ If cutLineSpace=true, the spacing the top of first-line & the bottom of last-lin
 /* ellipsis with
 --------------------------------------------------------- */
 @mixin ellipsisInline {
-  // overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }

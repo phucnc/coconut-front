@@ -7,8 +7,6 @@ import { NFTContract, SimpleExchangeContract } from 'lib/smartContract';
 import axios from 'axios';
 import { CardType, CardTypeNum, formatSaleBalance } from 'util/formatBalance';
 import { Unit } from 'components/pages/create/form';
-import { useWallet } from 'use-wallet';
-// const wallet = useWallet();
 
 const createURIEpic: Epic = (action$, state$) =>
 
@@ -26,18 +24,7 @@ const createURIEpic: Epic = (action$, state$) =>
       data.append('upload_file', values.file);
       data.append('quote_token', Unit[values.unit]);
       data.append('creator', address);
-      console.log('data video',values.file)
-      // data.append('creator', address);
-    //   const videosize = values.file
-    //   videosize.onloadedmetadata = () => {
-    //     console.log("Video loaded!");
-    //     alert("width: " + videosize.videoWidth + "\n" + "height: " + videosize.videoHeight);
-    // };
       values.categories?.map(cate => data.append('categories', cate.name.toLocaleLowerCase()));
-
-      for (var pair of data.entries()) {
-        console.log("test2",pair[0]+ ', ' + pair[1]); 
-    }
       return from(
         axios.post(`${process.env.ADDRESS_API}/nft`, data, {
           headers: {
@@ -46,7 +33,6 @@ const createURIEpic: Epic = (action$, state$) =>
         })
       ).pipe(
         mergeMap(res => {
-          // console.log ("PASSSSSSSSSSS121312",res)
           return of(
             createTokenURI.done({
               params: action.payload,
@@ -70,18 +56,10 @@ const createURIEpic: Epic = (action$, state$) =>
       const state: State = state$.value;
       const values = action.payload.datas || state.createNFT.newProduct;
       const address = state.common.account
-      // console.log("state.common.",state)
-      // console.log("action",action)
       const data = new FormData();
       data.append('instant_sale_price', `${values.instantsaleprice}`);
       data.append('quote_token', Unit[values.unit]);
       data.append('creator', address);
-      // console.log("Unit",Unit)
-      // console.log("Unit",values)
-      console.log("data2",values)
-      for (var pair of data.entries()) {
-        console.log("test1",pair[0]+ ', ' + pair[1]); 
-    }
       return from(
         axios.put(`${process.env.ADDRESS_API}/nft?collectible_id=${action.payload.uid}&account=${address}&quote_token=${Unit[values.unit]}&instant_sale_price=${values.instantsaleprice}`)
       ).pipe(
@@ -91,7 +69,6 @@ const createURIEpic: Epic = (action$, state$) =>
               params: action.payload,
               result: res.data,
             }),
-            // createNFT.started({ tokenURI: res.data.id }) // Approve
             approveNFT.started({ idNFT: action.payload.tokenid, price: values.instantsaleprice, unit : values.unit })
           );
           
@@ -112,8 +89,6 @@ const createNFTEpic: Epic = (action$, store$) =>
         NFTContract.send('create', store.common.account, action.payload.tokenURI || store.createNFT.tokenURI)
       ).pipe(
         mergeMap(res => {
-          console.log("ress",res)
-          console.log("actionn",action)
           return of(
             createNFT.done({
               params: action.payload,
@@ -135,7 +110,6 @@ const approveNFTEpic: Epic = (action$, store$) =>
     filter(approveNFT.started.match),
     mergeMap(action => {
       const store: State = store$.value;
-      // console.log("action aproove",action)
       return from(
         NFTContract.send('approve', process.env.SIMPLE_EXCHANGE_ADDRESS, action.payload.idNFT || store.createNFT.idNFT)
       ).pipe(
@@ -146,7 +120,6 @@ const approveNFTEpic: Epic = (action$, store$) =>
               result: res,
             }),
             sellNFT.started({ tokenid: action.payload.idNFT,priceSell:action.payload.price, unit:action.payload.unit })
-            // sellNFT.started({})
           );
         }),
         catchError(error => of(approveNFT.failed({ params: action.payload, error: error })))
@@ -189,14 +162,12 @@ const approveNFTEpic: Epic = (action$, store$) =>
         })
       ).pipe(
         map(res => {
-          console.log("selll NFT stage Create, PASS",res)
           return sellNFT.done({
             params: action.payload,
             result: res,
           });
         }),
         catchError(error => {
-          console.log("selll NFT stage Create, FAILLLL",action)
           return of(sellNFT.failed({ params: action.payload, error: error }));
         })
       );
@@ -209,29 +180,21 @@ const sellNFTEpic: Epic = (action$, state$) =>
     mergeMap(action => {
       const store: State = state$.value;
       const price = action.payload.priceSell;
-      // const price = store.createNFT.newProduct.instantsaleprice;
-      // const unit = store.createNFT.newProduct.unit as CardTypeNum | CardType;
       const unit = action.payload.unit;
-      // console.log("resell price",action)
-      // console.log("resell unit",unit)
       return from(
         SimpleExchangeContract.send('sellToken', action.payload.tokenid as number, {
-        // SimpleExchangeContract.send('sellToken', store.createNFT.idNFT as number, {
           price: BigInt(formatSaleBalance(unit, price)).toString(),
-          // token: action.payload.tokenid,
           token: unit,
           
         })
       ).pipe(
         map(res => {
-          console.log("selll NFT stage, PASS",res)
           return sellNFT.done({
             params: action.payload,
             result: res,
           });
         }),
         catchError(error => {
-          console.log("selll NFT stage, FAILLLL",action)
           return of(sellNFT.failed({ params: action.payload, error: error }));
         })
       );

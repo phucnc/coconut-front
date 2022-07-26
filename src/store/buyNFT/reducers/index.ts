@@ -106,10 +106,7 @@ const reducer: Reducer<BuyNFT> = (state = initialValue, action) => {
 
   if (isType(action, modalpurchase.started)) {
     return produce(state, draft => {
-      console.log("action",action)
       draft.active = action.payload.active;
-      // draft.isApproved = true;
-      // draft.isCancel = false;
       draft.idCheck = action.payload.id;
       draft.pricePur = action.payload.price;
       draft.tokenid = action.payload.tokenid;
@@ -143,7 +140,6 @@ const reducer: Reducer<BuyNFT> = (state = initialValue, action) => {
 
   if (isType(action, approveBUSD.failed) || isType(action, approveCONT.failed) || isType(action, purchase.failed)) {
     return produce(state, draft => {
-      console.log('error', action.payload.error);
       draft.isCancel = true; 
     });
   }
@@ -166,7 +162,6 @@ const reducer: Reducer<BuyNFT> = (state = initialValue, action) => {
   if (isType(action, getProduct.failed)) {
     return produce(state, draft => {
       //NOTE: set true here to show dump data for mock items
-      console.log('error', action.payload.error);
       draft.isGetDone = true;
     });
   }

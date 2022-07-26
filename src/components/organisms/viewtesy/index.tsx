@@ -1,8 +1,5 @@
-import { RouteComponentProps } from '@reach/router';
 import { Button } from 'components/atoms/button';
-import { CheckInput } from 'components/atoms/checkInput';
 import { Icon } from 'components/atoms/icon';
-import { Icontext } from 'components/atoms/icontext';
 import classNames from 'classnames/bind';
 import { connectWallet } from 'lib/apiCommon';
 import { Image, ImageProps } from 'components/atoms/image';
@@ -10,60 +7,47 @@ import { Link } from 'components/atoms/link';
 import { Spinner } from 'components/atoms/spinner';
 import { Tag } from 'components/atoms/tag';
 import { Text } from 'components/atoms/text';
-import Radio from '@material-ui/core/Radio';
-import { Textfield } from 'components/atoms/textfield';
 import { ButtonContainer } from 'components/molecules/buttonContainer';
-import { Dropdown } from 'components/molecules/dropdown';
 import Grid from '@material-ui/core/Grid';
 import FormControl from '@material-ui/core/FormControl';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-import { DropdownItem, DropDownItemGroup, DropdownMenu } from 'components/molecules/dropdownMenu';
-import Web3 from 'web3';
 import { useWallet } from 'use-wallet';
-import image from 'assets/images/DESIGN.png';
-import image1 from 'assets/images/avatar-1.svg';
-import image2 from 'assets/images/avatar-2.svg';
-import image3 from 'assets/images/avatar-3.svg';
 import { UserAvatar } from 'components/molecules/userAvatar';
-import img from 'assets/images/DESIGN.png';
 import axios from 'axios';
 import TextField from '@material-ui/core/TextField';
 import moment from "moment";
 import Typography from '@material-ui/core/Typography';
 import { resetStore } from 'store/createNFT';
 import { Modalshare } from 'components/organisms/modalshare';
-import { Fieldrow } from 'components/molecules/fieldrow';
 import { Heading } from 'components/molecules/heading';
 import { ModalHeader } from 'components/molecules/modalHeader';
 import { TabButton } from 'components/molecules/tabButton';
 import { TabList } from 'components/molecules/tabList';
 import { Toast } from 'components/molecules/toast';
 import { Video } from 'components/molecules/video';
-import { ViewTabItem } from 'components/molecules/viewTabItem';
 import { Modal } from 'components/organisms/modal';
 import Divider from '@material-ui/core/Divider';
 import { Section } from 'components/organisms/section';
 import { ViewTabs, ViewTabType } from 'components/pages/view/constants';
 import FormLabel from '@material-ui/core/FormLabel';
-import { Form, Formik } from 'formik';
 import { navigate } from 'gatsby';
 import { MiddlewareMethods } from 'lib/smartContract';
 import React, { useEffect, useMemo, useState,useRef } from 'react';
 import { hot } from 'react-hot-loader/root';
 import { useDispatch, useSelector } from 'react-redux';
-import { approveBUSD, approveCONT, closeModal, getBuyStore, getProduct, openModal, purchase,modalpurchase } from 'store/buyNFT';
+import { approveBUSD, approveCONT, closeModal, getBuyStore, getProduct, purchase,modalpurchase } from 'store/buyNFT';
 import { commonStart } from 'store/common';
 import { getBalanceStore } from 'store/getBalance';
-import { amountDollarBNB,amountDollarBUSD, amountDollarCONT, amountDollarWithServiceFee } from 'util/amount';
+import { amountDollarBNB,amountDollarBUSD, amountDollarCONT } from 'util/amount';
 import { CardType, formatBalance } from 'util/formatBalance';
 import { getMediaType } from 'util/getMediaType';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import { useMediaQuery } from 'react-responsive'
-import { useEthers, useEtherBalance } from "@usedapp/core";
+import { useEthers } from "@usedapp/core";
 import Tooltip from '@mui/material/Tooltip';
-import { UserType, VideoType, VideoTypes } from 'lib/constants';
+import { UserType, VideoType } from 'lib/constants';
 import { useTranslation } from "react-i18next";
 
 type Modifier = 'foo' | 'bar';
@@ -98,8 +82,6 @@ createStyles({
   },
   textFieldinput: {
     boxShadow: '0px 0px 30px 0px #F960C833',
-    // box-shadow: 0px 0px 30px 0px #F960C833;
-
   },
   subtext: {
     display:'none!important',
@@ -159,8 +141,6 @@ const useStyles = makeStyles((theme: Theme) =>
     buttonUp: {
       '& > *': {
         backgroundColor: 'linear-gradient(100.93deg, #D565C3 -13.26%, #ABD3EA 101.12%)',
-
-
       },
     },
   }),
@@ -203,19 +183,14 @@ export interface viewtesyProps extends Omit<ImageProps, 'modifiers'> {
 }
 
 export const Viewtesy: React.FC<viewtesyProps> = props => {
-  // const id = new URLSearchParams(props.location?.search).get('id');
   const isMobile = useMediaQuery({
     query: '(max-width: 840px)'
   })
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
   const [isloading, setisLoading] = useState(true);
-  const [isloadingbalance, setisLoadingBalance] = useState(true);
-  const [isComponentVisible, setIsComponentVisible] = useState(true);
   const ref = useRef(null)
-  const [reg, regSet] = useState(Array);
   const [res, resSet] = useState<any>(Array);
-  const [bal, balSet] = useState(Array);
   const account = useEthers();
 
   useEffect(() => {
@@ -224,7 +199,7 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
 
   const wallet = useWallet();
   const [modalOpenConnect, setModalOpenConnect] = useState(false);
-  const { isApproved,pricePur,tokenid,idCheck, isSuccess, product, isGetDone,quote_token,unlock_once_purchased,active,tokenOwner,isCancel } = useSelector(getBuyStore);
+  const { pricePur,tokenid,idCheck, isSuccess, product, isGetDone,quote_token,active,tokenOwner,isCancel } = useSelector(getBuyStore);
   const balanceStore = useSelector(getBalanceStore);
   const bnbBalance = Number(wallet.balance);
   const balance = props
@@ -233,27 +208,19 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
       : bnbBalance
     : 0;
   const productPrice = pricePur;
-  const fee = (Number(productPrice) * Number(process.env.SERVICE_FEE)) / 100;
   const totalPrice = Number(productPrice);
-  // const totalPrice = Number((Number(productPrice) + Number(fee)).toFixed(5));
-  const likestatus = props?.liked;
   const [selectedTab, setSelectedTab] = useState<ViewTabType>('Info');
   const [like, setLike] = useState({ isLike:props.liked ?true: false, amount: 0 });
   const [isProcessing, setIsProcessing] = useState(false);
-  
- console.log("props.liked",props.liked)
   const { t } = useTranslation();
   const [modalmobile, setmodalmobile] = useState(false);
   const [reportModal, setreportModal] = useState(false);
-  const classes1 = useStyles();
   const [modalOpenShare, setModalOpenShare] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [ModalOpenreport, setModalOpenreport] = useState(false);
   const [datas, dataSet] = useState<any>(Array)
-  const [compare, compareSet] = useState<any>(Array)
   const textInput = useRef<HTMLInputElement>(null);
   const classes = useStyles1();
-  const web3 = new Web3(window.ethereum);
   const [state, setState] = React.useState({
     first: false,
     second: false,
@@ -327,11 +294,9 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
     }
     
   }
-  console.log("comment data",datas)
   const gethistory = async () => {
     try {
     const historyget = await axios.get (`${process.env.ADDRESS_API}/history?collectible_id=${props.id}`)
-    console.log("gethistory",historyget)
     const data = historyget.data.history
     data.sort((d1, d2) => new Date(d2.created_at).getTime() - new Date(d1.created_at).getTime());
     resSet(data)
@@ -400,10 +365,6 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
 
   });
   const handleChangeForm = name => event => {
-    // const cursor = refs.current.selectionStart;
-    // const text =
-    // message.slice(0, cursor) + emojiObject.emoji + message.slice(cursor);
-    // console.log("text",text)
     setValues({ ...value, [name]: event.target.value });
 
   };
@@ -429,10 +390,8 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
   }, [dispatch, modalOpen]);
 
   const productLink = `/view?id=${props?.id}`;
-  console.log("props.status",props)
   return (
     <div className="p-view">
-      {/* <Layout title="View NFT"> */}
         <Section className="p-view_main">
         {isGetDone ? (
             props && props.status === 0 ? (
@@ -454,7 +413,6 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
                     </div>
                     <div className="p-view_information">
                       <div className="p-view_numberView">
-                        {/* <Icon iconName='eye' />
                         <span>&nbsp;&nbsp;{props.view}</span> */}
                       </div>
                       {(wallet?.status == "disconnected" || wallet?.status == "error" ) ? (
@@ -494,26 +452,6 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
                         {props.title}
                       </Heading>
                       </Tooltip>
-                      {/* <div className="p-view_price">
-                        <Text size="18" modifiers="linear" inline unit={props.quote_token}>
-                          {props.instant_sale_price}
-                        </Text>
-                        {(props.quote_token === 'CONT') && (
-                          <Text size="18" modifiers={['linear']} inline>
-                          （～${amountDollarCONT(Number(props.instant_sale_price))}）
-                          </Text>)
-                        }
-                        { (props.quote_token === 'BNB') && (
-                          <Text size="18" modifiers={['linear']} inline>
-                          （～${amountDollarBNB(Number(props.instant_sale_price))}）
-                          </Text>)
-                        }
-                         { (props.quote_token === 'BUSD') && (
-                          <Text size="18" modifiers={['linear']} inline>
-                          （～${amountDollarBUSD(Number(props.instant_sale_price))}）
-                          </Text>)
-                        }
-                      </div> */}
                     </div>
                     <div className="p-view_detail">
                       <div className="p-view_lead">
@@ -567,7 +505,6 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
                               </div>
                             </div>
                                             </li>
-
                             {props.owner!=null && (<li className="p-view_tabitem">                  
                             <div className="m-viewtabitem">
                               <div className="m-viewtabitem_tabss">
@@ -603,7 +540,6 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
                           <div >
                         <div className="p-view_postcontent">
                        <form  noValidate autoComplete="on">
-                       {/* <Picker onEmojiClick={handleChangeForm("name")} /> */}
                           <TextField 
                           ref={refs}
                           className={classes.textFieldinput}
@@ -637,7 +573,6 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
                         <div className="postcomment-button">
                           {isMobile && (
                           <Button  handleClick={() => setmodalmobile(true)}> {t("View.Post")}</Button>
-                          // <Button modifiers={['postcomment']}  handleClick={() => setmodalmobile(true)}> Post</Button>
                           )}
                         </div>
                         {datas.map((i,idx) => (      
@@ -722,9 +657,6 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
                       <div className="m-viewtabitem_tabss">
                         <UserAvatar userAddress={items.account?.address} src={items.account?.avatar.String} alt="" hasTick={false} modifiers="mid" />
                         <div className= { classNames('m-viewtabitem_info', { active: ix === 0 }) }>
-                        {/* <div className="m-viewtabitem_info"> */}
-                       
-                         
                             <Text size="14" modifiers={['bold', 'comment','left']}>
                             {t("View.Firstminted")}
                               <Tooltip key={items.account?.address} title={items.account?.address} placement="top">
@@ -812,7 +744,6 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
                                   active: props.active,
                                   id: props.id
                                 }));
-                                // dispatch(commonStart({ nextAction: openModal() }));
                             }}
                             disabled={!props.token_id || isSuccess || props.unlock_once_purchased == true}
                           >          
@@ -821,66 +752,6 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
                         </ButtonContainer>
                       </Grid>           
                       </Grid>           
-                          {/* <Grid
-                            container
-                            spacing={1}
-                          >
-                          <Grid item xs={9}>
-                            <div className="p-view_buyfee">
-                              <Grid
-                              container
-                              spacing={1}
-                              justify="flex-start"
-                              alignItems="center"
-                              >
-                                <Grid className={classes.saleprice} item xs={4}>
-                                  <Text modifiers="saleprice">
-                                  {props.instant_sale_price}{props.quote_token}
-                                  </Text>
-                                </Grid>
-                                <Grid item xs={5}>
-                                  <Text modifiers="servicefee">+ Service fee {process.env.SERVICE_FEE}%</Text>
-                                
-                                </Grid>
-                                <Grid item xs={3}>
-                                {(props.quote_token === 'CONT') && (
-                                  <Text modifiers={['servicefee']}>
-                                  （～${amountDollarCONT(Number(props.instant_sale_price))}）
-                                  </Text>)
-                                }
-                                { (props.quote_token === 'BNB') && (
-                                  <Text modifiers={['servicefee']}>
-                                  （～${amountDollarBNB(Number(props.instant_sale_price))}）
-                                  </Text>)
-                                }
-                                { (props.quote_token === 'BUSD') && (
-                                  <Text modifiers={['servicefee']}>
-                                  （～${amountDollarBUSD(Number(props.instant_sale_price))}）
-                                  </Text>)
-                                }
-                                </Grid>
-                                </Grid>
-                            </div>
-                          </Grid>
-                          <Grid item xs={3}>
-                            {(isSuccess && props.id == idCheck ) ? 'Sold out' : 'Buy now'}
-                          </Grid>
-                          </Grid> */}
-                       
-                      {/* <span className="p-view_receipt">
-                        <Text inline modifiers={['bold', 'footer']} size="14">
-                          Service fee
-                          <Text inline modifiers={['bold', 'footer']} size="14">
-                            {process.env.SERVICE_FEE}%
-                          </Text>
-                        </Text>
-                        <Text inline modifiers={['bold', 'footer']} size="14" unit={props.quote_token}>
-                          {props.instant_sale_price}
-                        </Text>
-                        <Text inline modifiers={['bold', 'footer']} size="14">
-                          （～${Number(amountDollarWithServiceFee(Number(props.instant_sale_price)))}）
-                        </Text>
-                      </span> */}
                     </div>
                   </div>
                 </article>
@@ -917,7 +788,6 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
                       {error &&( <FormLabel component="legend">Pick one *</FormLabel>
                     )}
                     </FormControl>
-    {/* </div> */}
                     <div className="buttoncontainer_report">
                       <Button disabled={error} handleClick={() => reportitem()} type="submit" modifiers="createbig">
                       {t("Myitem.Report")}
@@ -944,9 +814,7 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
                   {isSuccess  ? (
                     <Toast handleClose={handleCloseModal}>Success purchase!</Toast>
                   ) :  (
-                    
                     <>
-                    
                       <ModalHeader handleClose={handleCloseModal} title={t("checkout.checkout")} />
                       <div className="p-view_modalbody">
                         <div className="p-view_balance">
@@ -954,11 +822,9 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
                             <Text size="18" modifiers="balance">
                             <Icon iconName="dollar" />{t("checkout.balance")} :
                             </Text>
-                            {/* <div className="p-view_availablepoint"> */}
                               <Text modifiers="bold" unit={quote_token}>
                               {formatBalance(quote_token as CardType, balance)}
                               </Text>
-                            {/* </div> */}
                           </div>
                         </div>
                         <div className="p-view_modaldescription">
@@ -1046,21 +912,6 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
                             alignItems="center"
                             justify="center"
                           >
-                            {/* <Grid className="checkoutContent" item xs={4} >
-                              <Text inline modifiers="checkout">
-                                Gas fee:
-                              </Text>
-                            </Grid>
-                            <Grid className="checkoutContent" item xs={4} >
-                              <Text inline modifiers="checkout">
-                                0.005
-                              </Text>
-                            </Grid>
-                            <Grid className="checkoutContent" item xs={4} >
-                              <Text inline modifiers="checkout">
-                                BNB
-                              </Text>
-                            </Grid> */}
                            <span className="p-view_servicefee">{t("create.Servicefee")} <span className="servicefee">2.5%</span><span>&nbsp;&nbsp;0%</span></span>
                           </Grid>
                         </div>
@@ -1152,7 +1003,6 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
             <Spinner />
           )}
         </Section>
-      {/* </Layout> */}
       {(isProcessing  && isCancel == false) &&  <Spinner modifiers="screen" label="Processing" />}
       <Modal modifiers="error" isOpen={modalmobile} handleClose={() => setmodalmobile(false)}>
         <ModalHeader title={t("View.Sorry")} handleClose={() => setmodalmobile(false)} />

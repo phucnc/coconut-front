@@ -1,55 +1,39 @@
 import { RouteComponentProps } from '@reach/router';
 import { Button } from 'components/atoms/button';
-import { CheckInput } from 'components/atoms/checkInput';
 import { Icon } from 'components/atoms/icon';
 import classNames from 'classnames/bind';
-import { Icontext } from 'components/atoms/icontext';
 import { Image } from 'components/atoms/image';
-import { Label } from 'components/atoms/label';
 import { Link } from 'components/atoms/link';
 import { Spinner } from 'components/atoms/spinner';
 import { Tag } from 'components/atoms/tag';
 import { Text } from 'components/atoms/text';
-import Radio from '@material-ui/core/Radio';
-import { Textfield } from 'components/atoms/textfield';
 import { ButtonContainer } from 'components/molecules/buttonContainer';
-import { Dropdown } from 'components/molecules/dropdown';
 import Grid from '@material-ui/core/Grid';
 import FormControl from '@material-ui/core/FormControl';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-import { DropdownItem, DropDownItemGroup, DropdownMenu } from 'components/molecules/dropdownMenu';
 import Web3 from 'web3';
 import { useWallet } from 'use-wallet';
-import image from 'assets/images/DESIGN.png';
-import image1 from 'assets/images/avatar-1.svg';
-import image2 from 'assets/images/avatar-2.svg';
-import image3 from 'assets/images/avatar-3.svg';
 import { UserAvatar } from 'components/molecules/userAvatar';
-import img from 'assets/images/DESIGN.png';
 import axios from 'axios';
 import TextField from '@material-ui/core/TextField';
 import moment from "moment";
 import Typography from '@material-ui/core/Typography';
 import { resetStore } from 'store/createNFT';
 import { Modalshare } from 'components/organisms/modalshare';
-import { Fieldrow } from 'components/molecules/fieldrow';
 import { Heading } from 'components/molecules/heading';
 import { ModalHeader } from 'components/molecules/modalHeader';
 import { TabButton } from 'components/molecules/tabButton';
 import { TabList } from 'components/molecules/tabList';
 import { Toast } from 'components/molecules/toast';
 import { Video } from 'components/molecules/video';
-import { ViewTabItem } from 'components/molecules/viewTabItem';
 import { Modal } from 'components/organisms/modal';
 import Divider from '@material-ui/core/Divider';
 import { Section } from 'components/organisms/section';
 import { ViewTabs, ViewTabType } from 'components/pages/view/constants';
 import Layout from 'components/templates/layout';
-import { viewInfoTab } from 'dummy/dummy';
 import FormLabel from '@material-ui/core/FormLabel';
-import { Form, Formik } from 'formik';
 import { navigate } from 'gatsby';
 import { MiddlewareMethods } from 'lib/smartContract';
 import React, { useEffect, useMemo, useState,useRef } from 'react';
@@ -61,15 +45,11 @@ import { getBalanceStore } from 'store/getBalance';
 import { amountDollarBNB,amountDollarBUSD, amountDollarCONT, amountDollarWithServiceFee } from 'util/amount';
 import { CardType, formatBalance } from 'util/formatBalance';
 import { getMediaType } from 'util/getMediaType';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import { ViewTabItemProps } from 'components/molecules/viewTabItem';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import { useMediaQuery } from 'react-responsive'
 import { useEthers, useEtherBalance } from "@usedapp/core";
 import Tooltip from '@mui/material/Tooltip';
-import logo from 'assets/images/ccn_logoOF.png';
 import { useTranslation } from "react-i18next";
-import { isModuleNamespaceObject } from 'util/types';
 const useStyles1 = makeStyles((theme: Theme) =>
 createStyles({
   root: {
@@ -97,7 +77,6 @@ createStyles({
   },
   textFieldinput: {
     boxShadow: '0px 0px 30px 0px #F960C833',
-    // box-shadow: 0px 0px 30px 0px #F960C833;
 
   },
   subtext: {
@@ -114,7 +93,6 @@ createStyles({
   },
 }),
 );
-// const listReport = ["Copyright","Sexual content","Violent or repulsive content","Hateful or abusive content","Harmful or dangerous acts","Spam or misleading"]
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
@@ -153,8 +131,6 @@ const useStyles = makeStyles((theme: Theme) =>
     buttonUp: {
       '& > *': {
         backgroundColor: 'linear-gradient(100.93deg, #D565C3 -13.26%, #ABD3EA 101.12%)',
-
-
       },
     },
   }),
@@ -170,9 +146,7 @@ export const View: React.FC<RouteComponentProps> = props => {
   const [isloadingbalance, setisLoadingBalance] = useState(true);
   const [isComponentVisible, setIsComponentVisible] = useState(true);
   const ref = useRef(null)
-  const [reg, regSet] = useState(Array);
   const [res, resSet] = useState<any>(Array);
-  const [bal, balSet] = useState(Array);
   const account = useEthers();
   useEffect(() => {
     id ? dispatch(getProduct.started({ id: id, address: account.account })) : typeof window !== 'undefined' && navigate('/');
@@ -190,7 +164,7 @@ export const View: React.FC<RouteComponentProps> = props => {
   const productPrice = Number(product?.instant_sale_price) || 0;
   const fee = (Number(productPrice) * Number(process.env.SERVICE_FEE)) / 100;
   const totalPrice = Number((Number(productPrice) + Number(fee)).toFixed(5));
-  const likestatus = product?.like.liked;
+  const likestatus = product?.like?.liked;
   const [selectedTab, setSelectedTab] = useState<ViewTabType>('Info');
   const [like, setLike] = useState({ isLike:likestatus ?true: false, amount: 0 });
   const [isProcessing, setIsProcessing] = useState(false);
@@ -220,20 +194,6 @@ export const View: React.FC<RouteComponentProps> = props => {
     sixth: false,
   });
 
-  const accounts = async() => {
-    const accounts  = await window.ethereum.request({ method: 'eth_requestAccounts' });
-      const account = accounts[0];
-    regSet(account)
-    setisLoadingBalance(!isloadingbalance)
-  }
-  const getbalance = async() => {
-    const accounts  = await window.ethereum.request({ method: 'eth_requestAccounts' });
-    const address = accounts[0];
-      // const address = reg;
-    const  balance = await web3.eth.getBalance(address);
-    // balSet()
-    regSet(address)
-  }
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setState({ ...state, [event.target.name]: event.target.checked });
   };
@@ -290,9 +250,7 @@ export const View: React.FC<RouteComponentProps> = props => {
     try {
     const commentget = await axios.get(`${process.env.ADDRESS_API}/comment/paging?collectible_id${result}&address${wallet.account}`)
     const viewer =     await axios.post(`${process.env.ADDRESS_API}/view?collectible_id${result}`)
-    
     const data = commentget.data.comments
-    
     dataSet(data)
     }catch {
       console.log("can not get comment")
@@ -334,17 +292,25 @@ export const View: React.FC<RouteComponentProps> = props => {
 
   const numberLike = async () => {
     if (!like.isLike) {
+      try {
       const liked = await axios.post(`${process.env.ADDRESS_API}/nft/like?collectible_id=${id}&account_id=${wallet.account}&action=1`)
       setLike({
         isLike: !like.isLike,
         amount: !like.isLike && typeof like.amount === 'number' && product?.like.liked===false ? 1 : 0,
       })
+    } catch {
+      console.log("Like Error")
+    }
     } else {
+      try {
       const unliked = await axios.post(`${process.env.ADDRESS_API}/nft/like?collectible_id=${id}&account_id=${wallet.account}&action=0`)
       setLike({
         isLike: !like.isLike,
         amount: like.isLike && typeof like.amount === 'number' && product?.like.liked ?  -1 : 0,
       })
+    }catch {
+      console.log("Like error")
+    }
     }
   }
   const [stateB, setStateB] = React.useState({
@@ -353,22 +319,14 @@ export const View: React.FC<RouteComponentProps> = props => {
   const handleChangeConfirm = (event: React.ChangeEvent<HTMLInputElement>) => {
     setStateB({ ...stateB, [event.target.name]: event.target.checked });
   };
-  useEffect(()=>{
-    // accounts()
-    // getbalance()
-  },[]);
   
   useEffect(() => {
    
     getcomment()
     gethistory()
   }, [loading,isloading,dataSet]);
-  // useEffect(() => { 
-  //   getcomment()
-  // }, [isloading]);
+ 
   useEffect(() => {
-    // getcomment()
-    
     if (!modalOpenShare) {
       dispatch(resetStore());
       // currentStep.number === CreateSteps.length && navigate('/');
@@ -389,7 +347,6 @@ export const View: React.FC<RouteComponentProps> = props => {
                       <Icon iconName="arrow" />
                     </Button>
                   </div>
-                  
                 </div>
                 <article className="p-view_product">
                   <div className="p-view_item">
@@ -411,13 +368,10 @@ export const View: React.FC<RouteComponentProps> = props => {
                       className="o-productcard_likeitemView">{product?.like.total + like.amount}&nbsp;&nbsp;
                       <Icon iconName={like.isLike ? 'heartred' : 'heartoutline'} />
                     </button>
-            
-                     
                       <Button handleClick={() => setModalOpenShare(true)} modifiers={['iconshareitemView']}><Icon modifiers={['tiny']} iconName='sharelink' /></Button>
                       <div className="p-view_sharemobile">
                     <button onClick={() => setModalOpenreport(true)} className="p-view_threedots" ><Icon modifiers={['large']} iconName="threedots" /></button>
                     </div>
-                     
                     </div>
                     <div className="p-view_share">
                     <button onClick={() => setModalOpenreport(true)} className="p-view_threedots" ><Icon modifiers={['large']} iconName="threedots" /></button>
@@ -621,9 +575,6 @@ export const View: React.FC<RouteComponentProps> = props => {
                     <div className="m-viewtabitem_tabss">
                       <UserAvatar userAddress={items.account?.address} src={items.account?.avatar.String} alt="" hasTick={false} modifiers="mid" />
                       <div className= { classNames('m-viewtabitem_info', { active: ix === 0 }) }>
-                      {/* <div className="m-viewtabitem_info"> */}
-                     
-                       
                           <Text size="14" modifiers={['bold', 'comment','left']}>
                           {t("View.Firstminted")} 
                             <Tooltip key={items.account?.address} title={items.account?.address} placement="top">
@@ -695,8 +646,6 @@ export const View: React.FC<RouteComponentProps> = props => {
                 </article>
                 <Modal isOpen={ModalOpenreport} handleClose={() => setModalOpenreport(false)}>
         <ModalHeader title={t("reportpopup.Title")} handleClose={() => setModalOpenreport(false)} />
-        
-        {/* <div className={classes.root}> */}
       <FormControl error={error} component="fieldset" className={classes.formControl}>
         <FormGroup>
           <FormControlLabel 
@@ -729,7 +678,6 @@ export const View: React.FC<RouteComponentProps> = props => {
         {error &&( <FormLabel component="legend">Pick one *</FormLabel>
        )}
       </FormControl>
-    {/* </div> */}
                     <ButtonContainer>
                       <Button disabled={error} handleClick={() => reportitem()} type="submit" modifiers="createbig">
                       {t("Myitem.Report")}
@@ -752,11 +700,9 @@ export const View: React.FC<RouteComponentProps> = props => {
                             <Text size="18" modifiers="balance">
                             <Icon iconName="dollar" />Your balance :
                             </Text>
-                            {/* <div className="p-view_availablepoint"> */}
                               <Text modifiers="bold" unit={product.quote_token}>
                               {formatBalance(product.quote_token as CardType, balance)}
                               </Text>
-                            {/* </div> */}
                           </div>
                         </div>
                         <div className="p-view_modaldescription">
@@ -768,40 +714,6 @@ export const View: React.FC<RouteComponentProps> = props => {
                             </Text>
                           </Text>
                         </div>
-                        {/* <Formik initialValues={{ quantity: 1 }} onSubmit={() => {}}>
-                          {() => {
-                            return (
-                              <Form className="p-view_modalform">
-                                <Fieldrow fieldName="Quantity">
-                                  <Textfield name="quantity" placeholder="1" useFormik readonly />
-                                </Fieldrow>
-                                <div className="p-view_modalreceipt">
-                                  <Label>You will pay</Label>
-                                  <div className="p-view_totalpay">
-                                    <Text size="14">Total</Text>
-                                    <Text size="14" unit={product.quote_token}>
-                                      {totalPrice}
-                                    </Text>
-                                  </div>
-                                  <ul className="p-view_receiptdetail">
-                                    <li>
-                                      - Product:
-                                      <Text unit={product.quote_token} size="14" inline>
-                                        {productPrice}
-                                      </Text>
-                                    </li>
-                                    <li>
-                                      - Fee:
-                                      <Text unit={product.quote_token} size="14" inline>
-                                        {fee}
-                                      </Text>
-                                    </li>
-                                  </ul>
-                                </div>
-                              </Form>
-                            );
-                          }}
-                        </Formik> */}
                         <div className="p-view_checkoutContent">
                           <Grid
                             className={classes.checkout}
