@@ -5,7 +5,8 @@ import { Text } from 'components/atoms/text';
 import { CardType, formatBalance, CardWallet } from 'util/formatBalance';
 import Grid from '@material-ui/core/Grid';
 import { Button } from 'components/atoms/button';
-
+import { useClipboard } from "use-clipboard-hook";
+import { useSnackbar } from 'notistack';
 import { connectWallet,connectKlaytn } from 'lib/apiCommon';
 type Modifier = '';
 
@@ -20,11 +21,13 @@ interface Props {
 }
 
 export const Card: React.FC<Props> = props => {
+  const message = 'Copied';
   const { ref, copy } = useClipboard({
     onSuccess: (text) => enqueueSnackbar(message, {
       variant: 'success',
     }),
   });
+  const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   return (
     <div className={mapModifiers('a-card', props.modifiers, props.cardType.toLowerCase())}>
       
