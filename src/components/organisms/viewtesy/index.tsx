@@ -412,9 +412,9 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
                       )}
                     </div>
                     <div className="p-view_information">
-                      <div className="p-view_numberView">
-                        <span>&nbsp;&nbsp;{props.view}</span> */}
-                      </div>
+                      {/* <div className="p-view_numberView">
+                        <span>&nbsp;&nbsp;{props.view}</span>
+                      </div> */}
                       {(wallet?.status == "disconnected" || wallet?.status == "error" ) ? (
                       <button
                       onClick={() => setModalOpenConnect(true)
