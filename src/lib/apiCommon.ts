@@ -17,6 +17,11 @@ export const checkBinanceChain = (nextAction: Action<any>, account: string) => {
   }
 };
 
+export const linkMetamask = () => {
+  alert('MetaMask is not installed. Please consider installing it: https://metamask.io/download.html')
+  window.location.href = "https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en"
+}
+
 export const connectWallet = (wallet: any) => {
     if (window && typeof window.ethereum !== 'undefined') {
     try{
@@ -57,7 +62,8 @@ export const connectWallet = (wallet: any) => {
         }
       } else {
         // if no window.ethereum then MetaMask is not installed
-        alert('MetaMask is not installed. Please consider installing it: https://metamask.io/download.html');
+        // alert('MetaMask is not installed. Please consider installing it: https://metamask.io/download.html');
+        linkMetamask();
       } 
       } catch {
         alert ('MetaMask is not logged in. Please do it')
@@ -67,11 +73,13 @@ export const connectWallet = (wallet: any) => {
       })();
 
     } catch (e) {
-      alert('MetaMask is not installed. Please consider installing it: https://metamask.io/download.html');
+      // alert('MetaMask is not installed. Please consider installing it: https://metamask.io/download.html');
+      linkMetamask();
       // return commonStartFailed({ error: e.error });
     }
     } else {
-      alert('MetaMask is not installed. Please consider installing it: https://metamask.io/download.html');
+      // alert('MetaMask is not installed. Please consider installing it: https://metamask.io/download.html');
+      linkMetamask();
     }
 
   
