@@ -19,7 +19,7 @@ export const checkBinanceChain = (nextAction: Action<any>, account: string) => {
 
 export const linkMetamask = () => {
   alert('MetaMask is not installed. Please consider installing it: https://metamask.io/download.html')
-  window.location.href = "https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en"
+  window.location.href = "https://metamask.io/download/"
 }
 
 export const connectWallet = (wallet: any) => {
