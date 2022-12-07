@@ -210,7 +210,7 @@ export const Create: React.FC = () => {
                             color="primary"
                           />
                         }
-                        label={<div>{(t("create.legal"))}<Link href={"/termofservice"}>&nbsp;(Term of service)</Link></div>}
+                        label={<div>{(t("create.legal"))}<Link href={"/termofservice"}>&nbsp;{t("mainMenu.Term")}</Link></div>}
                         labelPlacement="end"
                       />
                       <div className="p-create_reviewcheckbox">
