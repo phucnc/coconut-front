@@ -229,6 +229,7 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
     fifth: false,
     sixth: false,
   });
+  const [modalErrorPay, setmodalErrorPay] = useState(false);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setState({ ...state, [event.target.name]: event.target.checked });
@@ -930,50 +931,57 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
                         label={<Text inline modifiers="confirm">{t("checkout.legacy")}</Text>}
                         labelPlacement="end"
                       />
-                        {product && totalPrice > balance && (
+                        {/* {product && totalPrice > balance && (
                           <span className="p-view_errormessage">You don't have enough money to buy it.</span>
-                        )}
+                        )} */}
                         <ButtonContainer>
                           <Button modifiers="cancelpayment" handleClick={handleCloseModal}>
                           {t("checkout.cancel")}
                           </Button>
                           <Button
                             modifiers="payment"
-                            disabled={product && totalPrice > balance || !stateB.checkedB}
+                            disabled={!stateB.checkedB}
                             handleClick={() => {
-                              quote_token === 'BUSD'
-                              ? dispatch(
+                              if(product && totalPrice > balance)
+                              {
+                                setmodalErrorPay(true);
+                              }else
+                              {
+                                quote_token === 'BUSD'
+                                ? dispatch(
+                                    commonStart({
+                                      nextAction: approveBUSD.started({
+                                        price: pricePur,
+                                        idNFT: tokenid,
+                                        bnbPrice: undefined,
+                                        middlewareMethods: middlewareMethods,
+                                      }),
+                                    })
+                                  )
+                                : quote_token === 'CONUT'
+                                ? 
+                                dispatch(
+                                    commonStart({
+                                      nextAction: approveCONT.started({
+                                        price: pricePur,
+                                        bnbPrice: undefined,
+                                        idNFT: tokenid,
+                                        middlewareMethods: middlewareMethods,
+                                      }),
+                                    })
+                                  )
+                                :
+                                dispatch(
                                   commonStart({
-                                    nextAction: approveBUSD.started({
-                                      price: pricePur,
+                                    nextAction: purchase.started({
                                       idNFT: tokenid,
-                                      bnbPrice: undefined,
+                                      bnbPrice: props.quote_token === 'BNB' ? pricePur : undefined,
                                       middlewareMethods: middlewareMethods,
                                     }),
                                   })
-                                )
-                              : quote_token === 'CONUT'
-                              ? 
-                              dispatch(
-                                  commonStart({
-                                    nextAction: approveCONT.started({
-                                      price: pricePur,
-                                      bnbPrice: undefined,
-                                      idNFT: tokenid,
-                                      middlewareMethods: middlewareMethods,
-                                    }),
-                                  })
-                                )
-                              :
-                              dispatch(
-                                commonStart({
-                                  nextAction: purchase.started({
-                                    idNFT: tokenid,
-                                    bnbPrice: props.quote_token === 'BNB' ? pricePur : undefined,
-                                    middlewareMethods: middlewareMethods,
-                                  }),
-                                })
-                              );
+                                );
+                              }
+                            
                             }}
                           >
                             {t("checkout.payment")}
@@ -1021,6 +1029,15 @@ export const Viewtesy: React.FC<viewtesyProps> = props => {
         <Text modifiers={['report']}>We will process the report you submitted as quickly as possible.</Text>
         <Text modifiers={['report','inline']}>Contact us:</Text>
         <Text modifiers={['report','inline']}><a href="mailto:support@coconut.global">support@coconut.global</a></Text>
+      </Modal>
+      <Modal modifiers="error" isOpen={modalErrorPay} handleClose={() => setmodalErrorPay(false)}>
+        <ModalHeader title={t("View.Sorry")} handleClose={() => setmodalErrorPay(false)} />
+        <Text modifiers={['bold', 'center']}>{t("View.SorryPay")}</Text>
+        <ButtonContainer>
+          <Button modifiers="buy" handleClick={() => { setmodalErrorPay(false) }}>
+            OK
+          </Button>
+        </ButtonContainer>
       </Modal>
     </div>
   );

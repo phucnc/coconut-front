@@ -336,8 +336,8 @@ export const MenuChunk: React.FC<Props> = ({ balanceBUSD, balanceCONT }) => {
         </Select>
       </FormControl>
       <Modalwallet modifiers={['wallet']} isOpen={modalOpenShare} handleClose={() => setModalOpenShare(false)}>
-        <h2 className="modal_title">Connect your wallet</h2>
-        <span className="modal_title" > Connect with one of the wallets we support or Create a new wallet
+        <h2 className="modal_title">{t("mainMenu.connectY")}</h2>
+        <span className="modal_title" > {t("mainMenu.connectW")}
       </span>
         <Grid
           container
@@ -351,7 +351,7 @@ export const MenuChunk: React.FC<Props> = ({ balanceBUSD, balanceCONT }) => {
                 <li><Icon modifiers="superlarge" iconName="metamask" /></li>
                 <li className="span-header"><span > Metamask Wallet</span></li>
                 <li className="span-icon">
-                  <p> The most popular wallet right now in crypto-currency
+                  <p> {t("mainMenu.connectMost")}
                 </p>
                 </li>
               </button>
@@ -364,7 +364,7 @@ export const MenuChunk: React.FC<Props> = ({ balanceBUSD, balanceCONT }) => {
                 <li><Icon modifiers="superlarge" iconName="binance" /></li>
                 <li className="span-header"><span > Binance Chain Wallet</span></li>
                 <li className="span-icon">
-                  <p > Easy to create and use, Best wallet for new users
+                  <p >{t("mainMenu.easyto")}
                 </p>
                 </li>
               </button>
@@ -382,7 +382,7 @@ export const MenuChunk: React.FC<Props> = ({ balanceBUSD, balanceCONT }) => {
                 </span>
                 </li>
                 <li className="span-icon">
-                  <p> Convenient wallet supports various blockchains
+                  <p> {t("mainMenu.convenient")}
                 </p>
                 </li>
               </button>
@@ -392,7 +392,7 @@ export const MenuChunk: React.FC<Props> = ({ balanceBUSD, balanceCONT }) => {
             </ul>
           </Grid>
           <div className="span-icon">
-            <span>We do not own your private keys and cannot access your funds without your confirmation.</span>
+            <span>{t("mainMenu.connectFound")}</span>
           </div>
         </Grid>
       </Modalwallet>
@@ -406,7 +406,7 @@ export const MenuChunk: React.FC<Props> = ({ balanceBUSD, balanceCONT }) => {
           <Text>{t("mainMenu.legal1")}</Text>
           <Text>{t("mainMenu.legal2")}</Text>
           <Grid item xs={7}>
-            <Button modifiers="noticeCreate" anchor={{ href: '/create' }}> Agree</Button>
+            <Button modifiers="noticeCreate" anchor={{ href: '/create' }}> {t("create.Agree")}</Button>
           </Grid>
           <Grid item xs={5}>
             <Button modifiers="noBackgroundBorder" handleClick={() => setmodalOpenNoticeCreate(false)}> {t("mainMenu.Cancel")}</Button>

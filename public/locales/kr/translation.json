@@ -55,16 +55,22 @@
 		"version": "Version",
 		"changePassword": "Change password",
 		"clearCache": "Clear cache",
-		"logout": "Logout"
+		"logout": "Logout",
+		"connectY":"지갑 연결",
+		"connectW":"지원하는 지갑 중 하나와 연결하거나 새 지갑을 만드십시오.",
+		"connectMost":"제일 가장 유명한 암호화폐 지갑",
+		"easyto":"쉽게 만들고 사용할 수 있습니다. 신규 사용자를 위한 최고의 지갑",
+		"convenient": "다양한 블록체인을 지원하는 편리한 지갑",
+		"connectFound": "우리는 귀하의 개인 키를 소유하지 않으며 귀하의 확인 없이 귀하의 자금에 액세스할 수 없습니다."
 	},
 	"create": {
-		"legal": "본인은 내가 만들려는 콘텐츠가 본인의 소유이며 지적 재산권 또는 저작권법을 위반하지 않는다는 점을 이해하고 이에 동의합니다. 나는 Coconut의 서비스 약관 및 국제법 위반에 대해 전적으로 책임을 집니다. 약관을 위반하는 계정은 해지되고 약관을 위반하는 NFT 항목은 통지 없이 Coconut에서 취소됩니다. 또한 저는 Coconut의 약관을 주의 깊게 읽고 동의합니다.",
-		"CreateNFT": "제작",
+		"legal": "본인이 업로드한 콘텐츠가 본인의 소유이며 지적 재산권 또는 저작권법을 위반하지 않는다는 점을 이해하고 이에 동의합니다. 코코넛글로벌 서비스 약관 및 국제법 위반에 대해 전적으로 책임을 집니다. 약관을 위반하는 계정은 탈퇴되며, 약관을 위반하는 NFT 항목은 통지없이 삭제됩니다. 코코넛글로벌의 약관을 읽고 동의합니다.",
+		"CreateNFT": "NFT 생성",
 		"Uploadfile": "파일 업로드",
-		"drag": "Drag it here or",
-		"choosefile": "Choose file",
+		"drag": "여기로 드래그하거나",
+		"choosefile": "파일 선택",
 		"type": "PNG, GIF, WEBP, MP4 or MP3.",
-		"maxsize": "파일 사이츠가 100MB를 초과하지 마십시오.",
+		"maxsize": "파일 사이즈 100MB를 초과하지 마십시오.",
 		"oversize": "파일 크기가 100Mb를 넘기 때문에 업로드 불가 합니다.",
 		"nonPreview":"선택한 영상이 미리보기에서 나오질 않나요?",
 		"over100mb": "선택한 영상의 크기가 100mb 가 넘나요?",
@@ -78,8 +84,8 @@
 		"itemName": "NFT 이름을 입력하세요.",
 		"Description": "컨텐츠 설명",
 		"Optional": "선택 과목",
-		"Back": "뒤",
-		"Review": "Review",
+		"Back": "뒤로가기",
+		"Review": "미리보기",
 		"ResellTitle": "이 NFT 재판매",
 		"details": "Details",
 		"textScaleX": "Month",
@@ -88,7 +94,8 @@
 		"labelInvoice02": "Sales invoice",
 		"labelInvoice03": "Electronic delivery cum delivery note",
 		"labelInvoiceOthers": "Other invoices",
-		"Term": "서비스 조건"
+		"Term": "서비스 조건",
+		"Agree": "동의"
 	},
 	"Myitem": {
 		"Created Items": "생성된 NFT",
@@ -165,19 +172,20 @@
 		"upload": "Upload",
 		"download": "Download",
 		"selectInvoice": "Select Invoice",
-		"saveAndNext": "Save and next step"
+		"saveAndNext": "Save and next step",
+		"SorryPay": "결제를 위해서는 더 많은 암호화폐를 예치해야 합니다."
 	},
 	"checkout": {
 		"sizePerPage": "Number of records per page",
 		"cancel": "취소",
 		"payment": "구매하기",
-		"checkout": "계산",
+		"checkout": "결제",
 		"balance": "나의 잔액",
 		"product": "제품",
 		"fee": "수수료",
 		"total": "총",
 		"purchase": "해당 주소의 지갑으로 구매 합니다",
-		"legacy": "나는 코코넛의 서비스 약관 및 개인 정보 보호 정책을 이해하고 동의합니다."
+		"legacy": "코코넛글로벌 서비스 약관 및 개인 정보 보호 정책을 이해하고 이에 동의합니다."
 	},
 	"categoriesCustomer": {
 		"header": "List of customers",

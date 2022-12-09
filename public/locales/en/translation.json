@@ -60,7 +60,13 @@
 		"version": "Version",
 		"changePassword": "Change password",
 		"clearCache": "Clear cache",
-		"logout": "Logout"
+		"logout": "Logout",
+		"connectY":"Connect your wallet",
+		"connectW":"Connect with one of the wallets we support or Create a new wallet",
+		"connectMost":"The most popular wallet right now in crypto-currency",
+		"easyto":"Easy to create and use, Best wallet for new users",
+		"convenient": "Convenient wallet supports various blockchains",
+		"connectFound": "We do not own your private keys and cannot access your funds without your confirmation."
 	},
 	"create": {
 		"legal": "I understand and agree that the content I am about to create is owned by me and does not violate any intellectual property or copyright laws. I will be fully responsible for any violations of the Coconut's terms of service and international law. Accounts that violate our terms will be terminated and infringing NFT items will be removed from Coconut without prior notice. I have also carefully read and agree to the Coconut's .",
@@ -162,7 +168,8 @@
 		"upload": "Upload",
 		"download": "Download",
 		"selectInvoice": "Select Invoice",
-		"saveAndNext": "Save and next step"
+		"saveAndNext": "Save and next step",
+		"SorryPay": "Please deposit more cryptocurrency to proceed this order."
 	},
 	"checkout": {
 		"sizePerPage": "Number of records per page",

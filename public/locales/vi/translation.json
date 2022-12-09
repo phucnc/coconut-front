@@ -61,7 +61,13 @@
     "version": "Phiên bản",
     "changePassword": "Đổi mật khẩu",
     "clearCache": "Xóa bộ nhớ đệm",
-    "logout": "Đăng xuất"
+    "logout": "Đăng xuất",
+    "connectY":"Connect your wallet",
+		"connectW":"Connect with one of the wallets we support or Create a new wallet",
+		"connectMost":"The most popular wallet right now in crypto-currency",
+		"easyto":"Easy to create and use, Best wallet for new users",
+		"convenient": "Convenient wallet supports various blockchains",
+		"connectFound": "We do not own your private keys and cannot access your funds without your confirmation."
   },
   "create": {
     "legal": "Tôi hiểu và đồng ý rằng nội dung tôi sắp sửa tạo là nội dung được sở hữu bởi tôi và không vi phạm bất kì luật sở hữu trí tuệ cũng như luật bản quyền nào. Tôi sẽ hoàn toàn chịu trách nhiệm cho những hành vi vi phạm điều khoản sử dụng và luật pháp quốc tế. Những tài khoản vi phạm các điều khoản của chúng tôi sẽ bị chấm dứt và các NFT item vi phạm sẽ bị hủy bỏ trên Coconut mà không cần báo trước. Tôi cũng đã đọc kỹ và đồng ý với các điều khoản của Coconut.",
@@ -172,7 +178,8 @@
     "download": "Tải",
     "selectInvoice": "Chọn hóa đơn",
     "setRole": "Phân quyền",
-    "saveAndNext": "Lưu và chuyển sang bước tiếp theo"
+    "saveAndNext": "Lưu và chuyển sang bước tiếp theo",
+    "SorryPay": "Vui lòng nạp thêm tài sản kỹ thuật số để thực hiện."
   },
   "checkout": {
     "sizePerPage": "Số bản ghi trên trang",
